@@ -44,5 +44,8 @@
     "webpack-dev-server": "^1.14.1",
     "webpack-merge": "^0.14.1",
     "webpack-spritesmith": "^0.2.6"
+  },
+  "scripts": {
+    "dev": "webpack-dev-server --devtool eval --progress --colors --config config/webpack.config.js"
   }
 }
