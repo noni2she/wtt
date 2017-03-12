@@ -35,6 +35,7 @@
     "i18n-react": "^0.3.0",
     "jquery": "^2.1.4",
     "jquery-ui-dist": "^1.12.1",
+    "node-sass": "^4.5.0",
     "re-base": "^2.5.2",
     "resolve-url-loader": "^2.0.0",
     "sass-loader": "^4.0.0",

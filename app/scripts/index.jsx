@@ -1,6 +1,8 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
 
+import "../assets/styles/index.sass";
+
 class App extends React.Component {
   constructor(props) {
     super(props);
