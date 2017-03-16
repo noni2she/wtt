@@ -12,22 +12,33 @@ class App extends React.Component {
     return (
       <div id="main">
         <div className="header">
-          <div className="container">
-            <header className="logo"><i className="icon-logo"></i></header>
-            <nav className="navigation">
-              <ul>
-                <li data="about-us"></li>
-                <li data="products"></li>
-                <li data="news"></li>
-                <li data="download"></li>
-                <li data="contact"></li>
-                <li className="dropdown locale">
-                </li>
-              </ul>
-            </nav>
-            <div className="message">
-              <i className="icon-chat-dialog"></i>
-              <a className="message-link">Write to us</a>
+          <div className="navbar navbar-inverse navbar-static-top header-inner">
+            <div className="container">
+              <header className="navbar-header logo">
+                <a className="logo-link" href="/"><i className="icon-logo"></i></a>
+              </header>
+              <nav className="navbar-collapse navigation">
+                <ul className="nav navbar-nav">
+                  <li data="about-us"><a href="/">ABOUT US</a></li>
+                  <li data="products"><a href="/">PRODUCTS</a></li>
+                  <li data="news"><a href="/">NEWS</a></li>
+                  <li data="download"><a href="/">DOWNLOAD</a></li>
+                  <li data="contact"><a href="/">CONTACT</a></li>
+                  <li className="dropdown locale">
+                    <a className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                      EN   
+                      <span className="caret"></span>
+                    </a>
+                    <ul className="dropdown-menu">
+                      <li>JP</li>
+                      <li>CN</li>
+                    </ul>
+                  </li>
+                </ul>
+                <div className="message">
+                  <a className="message-link">Write to us</a>
+                </div>
+              </nav>
             </div>
           </div>
         </div>
