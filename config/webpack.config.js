@@ -1,3 +1,4 @@
+const Webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const PATH = require("path");
@@ -14,6 +15,7 @@ const CONFIG = {
 	context: PATH.resolve(__dirname, "../app"),
 
 	entry: {
+		vendors: ["jquery", "bootstrap-js"],
 		bundles: [PATH.resolve(__dirname, "../app/scripts/index.jsx")]
 	},
 
@@ -23,7 +25,14 @@ const CONFIG = {
 	},
 
 	resolve: {
-		extensions: ["", ".js", ".jsx", ".sass"]
+		modulesDirectories: ["node_modules", "app"],
+		extensions: ["", ".js", ".jsx", ".sass"],
+		alias: {
+			"bootstrap-js": "bootstrap/dist/js/bootstrap.min",
+			"bootstrap-css": "bootstrap/dist/css/bootstrap.min",
+			"jquery": "jquery/src/jquery",
+			"jquery-ui-dist": "jquery-ui-dist/jquery-ui.min"
+		}
 	},
 
 	module: {
@@ -50,11 +59,23 @@ const CONFIG = {
 				// 如下配置，將小於 8192 byte 的圖片轉成 base64
 				test: /\.(jpe?g|png|gif|svg)$/,
 				loader: "url-loader?limit=8192&name=./images/[hash].[ext]"
+			},
+			{
+				// html template 加載器，可以處理引用的靜態資源，預設配置参数 attrs=img:src，處理圖片的 src 引用的資源
+				// 例如配置 "attrs=img:src img:data-src" 就可以一併處理 data-src 引用的資源，如下
+				test: /\.html$/,
+				loader: "html?attrs=img:src img:data-src"
 			}
 		]
 	},
 
-	plugins: [HtmlWebpackPluginConfig, ExtractTextPluginConfig],
+	plugins: [HtmlWebpackPluginConfig, ExtractTextPluginConfig,
+		new Webpack.ProvidePlugin({
+			$: "jquery",
+			jQuery: "jquery",
+			"window.jQuery": "jquery"
+		})
+	],
 
 	devServer: {
 		contentBase: "./dist/index.html",

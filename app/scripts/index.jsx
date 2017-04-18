@@ -8,6 +8,65 @@ class App extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    //debugger;
+    //this.initCarousel();
+  }
+
+  initCarousel() {
+    let li = "";
+    let getActive = $(".carousel .active");
+    let activeNodeIndex =  $(".carousel .carousel-inner .item").index(getActive);
+
+    for (let i = 0; i < $(".carousel .carousel-inner .item").length; i++){
+      if (i === activeNodeIndex/2) {
+        li += "<li data-target='#carousel-advertisment' data-slide-to='"+i+"' class='active'></li>";
+      } else {
+        li += "<li data-target='#carousel-advertisment' data-slide-to='"+i+"' class=''></li>";
+      }
+    }
+
+    if ($(".carousel .carousel-inner .item").length < 2) {
+      $(".carousel-indicators").hide();
+    }
+
+    $(".carousel-indicators").append(li);
+
+    $(".carousel").carousel({
+      interval: 3000,
+      pause: "hover"
+    });
+  }
+
+  renderAdImages() {
+    let imgList = ["ad-1.png", "ad-2.png"];
+
+    return (
+      <div id="carousel-advertisment" className="carousel slide" data-ride="carousel">
+        <div className="carousel-inner" role="listbox">
+          {
+            imgList.map((imgItem, index) => {
+              return (
+                <div key={index} className={index === 0 ? "item active" : "item"}>
+                  <img src={require(`../assets/images/${imgItem}`)} />
+                </div>
+              );
+            })
+          }
+        </div>
+        <ol className="carousel-indicators">
+          {
+            imgList.map((imgItem, index) => {
+              return (
+                <li key={index} data-target="#carousel-advertisment" data-slide-to={index} className={index === 0 ? "indicator active" : "indicator"}></li>
+              );
+            })
+          }
+        </ol>
+      </div>
+    );
+  }
+
   render() {
     return (
       <div id="main">
@@ -43,18 +102,7 @@ class App extends React.Component {
           </div>
         </div>
 
-        <div id="carousel-advertisment" className="carousel">
-          <div className="carousel-inner">
-            <div className="item"></div>
-            <div className="item"></div>
-            <div className="item"></div>
-          </div>
-          <ol className="carousel-indicators">
-            <li data-target="#carousel-advertisment" data-slide-to="0"></li>
-            <li data-target="#carousel-advertisment" data-slide-to="1"></li>
-            <li data-target="#carousel-advertisment" data-slide-to="2"></li>
-          </ol>
-        </div>
+        {this.renderAdImages()}
 
         <div id="products">
           <h2>- PRODUCTS -</h2>
