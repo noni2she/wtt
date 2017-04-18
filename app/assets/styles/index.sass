@@ -79,9 +79,28 @@ img
 					background-color: black
 
 	#products
+		h3
+			margin: 0
+			padding: 69px 0
+			text-align: center
+
 		[class*=products]
-			height: 232px
-			&:nth-child(odd)
+			height: 168px
+
+			&:first-of-type
+				height: 232px
+			&:nth-of-type(odd)
 				background-color: black
 				color: white
+
+		@for $i from 1 through 5
+			.products-#{$i}
+				background: url("images/product-#{$i}.png") no-repeat
+				@if $i == 1 or $i == 3 or $i == 5
+						background-position: 32% 0
+				@else
+						background-position: 76% 0
+
+		.product-nav
+			height: 60px
 

@@ -107,9 +107,9 @@ class App extends React.Component {
         <div id="products">
           <h2>- PRODUCTS -</h2>
           <p>To provide our customers better products and services.</p>
-          <div className="products01">
+          <div className="products-1">
             <h3>- WHEEL SPACERS -</h3>
-            <div className="products01-nav container">
+            <div className="product-nav container">
               <ul>
                 <li className="series">-Hs Series</li>
                 <li className="series">-BHA Series</li>
@@ -121,19 +121,19 @@ class App extends React.Component {
             </div>
           </div>
 
-          <div className="products02">
+          <div className="products-2">
             <h3>- UNIVERSAL SPACERS -</h3>
           </div>
 
-          <div className="products03">
+          <div className="products-3">
             <h3>- WHEEL BOLTS -</h3>
           </div>
 
-          <div className="products04">
+          <div className="products-4">
             <h3>- HUB RINGS -</h3>
           </div>
 
-          <div className="products05">
+          <div className="products-5">
             <h3>- LUG NUT -</h3>
           </div>
         </div>
