@@ -109,15 +109,17 @@ class App extends React.Component {
           <p>To provide our customers better products and services.</p>
           <div className="products-1">
             <h3>- WHEEL SPACERS -</h3>
-            <div className="product-nav container">
-              <ul>
-                <li className="series">-Hs Series</li>
-                <li className="series">-BHA Series</li>
-                <li className="series">-WS Series</li>
-                <li className="series">-SWA Series</li>
-                <li className="series">-SHA Series</li>
-                <li className="series">-SST Series</li>
-              </ul>
+            <div className="product-nav">
+              <div className="container">
+                <ul>
+                  <li className="series">-Hs Series</li>
+                  <li className="series">-BHA Series</li>
+                  <li className="series">-WS Series</li>
+                  <li className="series">-SWA Series</li>
+                  <li className="series">-SHA Series</li>
+                  <li className="series">-SST Series</li>
+                </ul>
+              </div>
             </div>
           </div>
 
