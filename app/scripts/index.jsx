@@ -148,43 +148,43 @@ class App extends React.Component {
               <div className="item">
                 <div className="news-board">
                   <div className="news-board-picture">
-                    <img />
+                    <img src={require("../assets/images/news-1.png")} />
                   </div>
                   <div className="news-board-desp">
-                    <h3></h3>
-                    <p></p>
-                    <div className="news-date"></div>
-                    <p></p>
+                    <h3>- 2016 AAPEX -</h3>
+                    <p>Automotive AftermarketProducts Expo</p>
+                    <div className="news-date">Nov.1-Nov.3, 2016</div>
+                    <p>Sads Expo Las Vegas NV</p>
                   </div>
-                  <div className="seq"></div>
+                  <div className="seq">Booth No.7922</div>
                 </div>
               </div>
               <div className="item">
                 <div className="news-board">
                   <div className="news-board-picture">
-                    <img />
+                    <img src={require("../assets/images/news-2.png")} />
                   </div>
                   <div className="news-board-desp">
-                    <h3></h3>
-                    <p></p>
-                    <div className="news-date"></div>
-                    <p></p>
+                    <h3>- 2016 AUTO EXPO MYANMAR -</h3>
+                    <p>Myanmar International Auto Parts & Accessories Exhibition</p>
+                    <div className="news-date">Sep.29-Oct.2, 2016</div>
+                    <p>Tatmadaw Exhibition Hall Yangom, Asia</p>
                   </div>
-                  <div className="seq"></div>
+                  <div className="seq">Booth No.330</div>
                 </div>
               </div>
               <div className="item">
                 <div className="news-board">
                   <div className="news-board-picture">
-                    <img />
+                    <img src={require("../assets/images/news-3.png")} />
                   </div>
                   <div className="news-board-desp">
-                    <h3></h3>
-                    <p></p>
-                    <div className="news-date"></div>
-                    <p></p>
+                    <h3>- 2015 AMPA -</h3>
+                    <p>Taipei Int'l Auto Parts & Accessories Show</p>
+                    <div className="news-date">April.8-April.11, 2015</div>
+                    <p>TWTC Nangang Exhibition Hall Taipei, Taiwan</p>
                   </div>
-                  <div className="seq"></div>
+                  <div className="seq">Booth No.1220</div>
                 </div>
               </div>
             </div>

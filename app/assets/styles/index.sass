@@ -17,7 +17,7 @@ img
 
 #main
 
-	> div:not(.header), >div:not(.footer)
+	> div:not(.header), > div:not(.footer)
 		margin-bottom: 110px
 
 	h2, h2 + p
@@ -112,4 +112,40 @@ img
 				margin: 19px 4%
 				font-size: 16px
 				cursor: pointer
+
+	#news
+		#carousel-news
+			max-width: 1015px
+			margin: 0 auto
+			overflow: hidden
+		.item
+			display: inline-block
+			width: 315px
+			height: 393px
+			margin: 0 10px
+			background: url("images/news-background.png") no-repeat 0 0
+			vertical-align: middle
+
+		.news-board
+			height: 100%
+			padding: 12px 12px 30px
+			.news-board-picture
+				width: 100%
+				height: auto
+			.news-board-desp
+				text-align: center
+				p
+					margin: 0 0 5px
+				h3
+					margin: 6px 0 0
+					font-size: 19px
+					+ p
+						font-weight: bold
+				.news-date
+					font-size: 16px
+					font-weight: bold
+
+			.seq
+				font-weight: bold
+				text-align: center
 
