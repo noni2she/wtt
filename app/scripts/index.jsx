@@ -199,6 +199,42 @@ class App extends React.Component {
         <div id="download">
           <h2>- DOWNLOAD -</h2>
           <p>Please click on th picture or Download button to save the file directly to your computer.</p>
+          <div>
+            <div className="download-banner">
+              <img src={require("../assets/images/download-1.png")} />
+            </div>
+            <div className="download-desp">
+              <h3>
+                <span className="glyphicon glyphicon-file" aria-hidden="true"></span>
+                Catalogue of Wheel Accessories
+              </h3>
+              <ul>
+                <li>- Wheel Spacers/Adapters/Wide Tread Spacers</li>
+                <li>- Hub Centric Rings</li>
+                <li>- Wheel Bolts</li>
+                <li>- Hub Rings/Center Rings/Spigots</li>
+              </ul>
+            </div>
+            <div className="download-link">
+              <h3><span className="glyphicon glyphicon-save" aria-hidden="true"></span></h3>
+              <ul>
+                <li>
+                  <label>WTT Catalog:</label>
+                  <a className="link">Download</a>
+                </li>
+                <li>
+                  <label>WTT Hub Rings Catalog:</label>
+                  <a className="link">Download</a>
+                </li>
+                <li>
+                  <label>WTT Wheel Bolt Catalog:</label>
+                  <a className="link">Download</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="more-btn">
+          </div>
         </div>
 
         <div id="about-us">
