@@ -74,7 +74,7 @@ class App extends React.Component {
           <div className="navbar navbar-inverse navbar-static-top header-inner">
             <div className="container">
               <header className="navbar-header logo">
-                <a className="logo-link" href="/"><i className="icon-logo"></i></a>
+                <a className="logo-link" href="/"><i className="icon-logo-header"></i></a>
               </header>
               <nav className="navbar-collapse navigation">
                 <ul className="nav navbar-nav">
@@ -262,8 +262,38 @@ class App extends React.Component {
         </div>
 
         <div id="contact">
-          <h2>- CONTACT -</h2>
+          <h2>- CONTACT INFO -</h2>
           <p>New business, press or general enquires? Contact us!</p>
+          <div className="contact-outer">
+            <div className="contact-info">
+              <div className="info-logo"><i className="icon-logo-contact"></i></div>
+              <h3>TECHWELL INDUSTRIAL CO., LTD</h3>
+              <ul className="info-content">
+                <li className="tel">
+                  <i className="icon-info-tel"></i>
+                  <span>+886-3-323-0646 +886-3-323-0908</span>
+                </li>
+                <li className="fax">
+                  <i className="icon-info-fax"></i>
+                  <span>+886-3-323-0645</span>
+                </li>
+                <li className="mail">
+                  <i className="icon-info-mail"></i>
+                  <span>info@techwell.com.tw</span>
+                </li>
+                <li className="addr">
+                  <i className="icon-info-addr"></i>
+                  <span>No.150, Jhongsing, 1st ST., Lujhu Township, Taoyuan Country 338, Taiwan R.O.C</span>
+                </li>
+              </ul>
+              <ul className="contact-app">
+                <li className="talk"><i className="icon-app-talk"></i></li>
+                <li className="skype"><i className="icon-app-skype"></i></li>
+                <li className="fb"><i className="icon-app-fb"></i></li>
+              </ul>
+            </div>
+            <div className="contact-map"></div>
+          </div>
         </div>
 
         <div className="footer">

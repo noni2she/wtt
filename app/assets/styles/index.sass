@@ -13,8 +13,22 @@ ul
 li
 	list-style-type: none
 
-.icon-logo
-		background: url("images/logo.png") no-repeat 0 0
+@each $logo-icon in header, contact, footer
+	.icon-logo-#{$logo-icon}
+		background: url("images/logo-#{$logo-icon}.png") no-repeat 0 0
+
+@each $info-icon in tel, fax, mail, addr
+	.icon-info-#{$info-icon}
+		width: 25px
+		height: 18px
+		background: url("images/contact-#{$info-icon}.png") no-repeat 0 0
+		vertical-align: middle
+
+@each $app-icon in talk, skype, fb
+	.icon-app-#{$app-icon}
+		width: 40px
+		height: 40px
+		background: url("images/contact-#{$app-icon}.png") no-repeat 0 0
 
 .wrapper
 	position: relative
@@ -213,4 +227,48 @@ li
 				text-align: left
 				font-size: 16px
 				line-height: 1.7
+
+	#contact
+
+		.contact-outer
+			max-width: 1015px
+			margin: 30px auto 0
+
+		.contact-info
+			float: left
+
+			h3
+				font-size: 22px
+
+			.info-logo
+				width: 136px
+				height: 100px
+				margin: 0 auto
+
+			.info-content
+				li
+					line-height: 2
+				span
+					display: inline-block
+					max-width: 330px
+					margin-left: 5px
+					vertical-align: top
+					font-size: 16px
+
+			.contact-app
+				padding-left: 25px
+
+				li
+					display: inline-block
+					margin: 0 5px
+					cursor: pointer
+
+			&:after
+				clear: both
+
+		.contact-map
+			float: right
+			width: 654px
+			height: 364px
+			background-color: #ccc
 
