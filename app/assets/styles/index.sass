@@ -7,6 +7,12 @@ img
 	width: 100%
 	height: auto
 
+ul
+	padding: 0
+
+li
+	list-style-type: none
+
 .icon-logo
 		background: url("images/logo.png") no-repeat 0 0
 
@@ -21,6 +27,7 @@ img
 		margin-bottom: 110px
 
 	h2, h2 + p
+		margin-top: 0
 		text-align: center
 	.header
 		position: fixed
@@ -150,14 +157,36 @@ img
 				text-align: center
 
 	#download
+		padding: 30px 0
 		background-color: #f7f6f4
 
-		> div
+		.download-inner
 			max-width: 1079px
 			margin: 0 auto
+			padding: 10px 0
 
-		[class*=download]
-			display: inline-block
-			margin: 0 15px
-			vertical-align: middle
+			[class*=download]
+				display: inline-block
+				margin: 0 13px
+				vertical-align: middle
+
+		.download-link
+			label
+				font-weight: normal
+			.link
+				display: inline-block
+				text-decoration: underline
+				cursor: pointer
+
+		.download-more
+			text-align: center
+			.download-more-btn
+				width: 160px
+				height: 50px
+				border: none
+				background-color: #999
+				font-size: 25px
+				color: white
+				&:hover
+					background-color: #777
 

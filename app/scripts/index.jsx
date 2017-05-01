@@ -1,5 +1,5 @@
-import React    from 'react';
-import ReactDOM from 'react-dom';
+import React    from "react";
+import ReactDOM from "react-dom";
 
 import "../assets/styles/index.sass";
 
@@ -199,7 +199,7 @@ class App extends React.Component {
         <div id="download">
           <h2>- DOWNLOAD -</h2>
           <p>Please click on th picture or Download button to save the file directly to your computer.</p>
-          <div>
+          <div className="download-inner">
             <div className="download-banner">
               <img src={require("../assets/images/download-1.png")} />
             </div>
@@ -219,21 +219,22 @@ class App extends React.Component {
               <h3><span className="glyphicon glyphicon-save" aria-hidden="true"></span></h3>
               <ul>
                 <li>
-                  <label>WTT Catalog:</label>
+                  <label>WTT Catalog：</label>
                   <a className="link">Download</a>
                 </li>
                 <li>
-                  <label>WTT Hub Rings Catalog:</label>
+                  <label>WTT Hub Rings Catalog：</label>
                   <a className="link">Download</a>
                 </li>
                 <li>
-                  <label>WTT Wheel Bolt Catalog:</label>
+                  <label>WTT Wheel Bolt Catalog：</label>
                   <a className="link">Download</a>
                 </li>
               </ul>
             </div>
           </div>
-          <div className="more-btn">
+          <div className="download-more">
+            <button type="button" className="download-more-btn">MORE</button>
           </div>
         </div>
 
@@ -258,4 +259,4 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById("app"));
