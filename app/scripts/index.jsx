@@ -297,7 +297,7 @@ class App extends React.Component {
         </div>
 
         <div className="footer">
-          <footer>
+          <footer className="container">
             <i className="icon-logo-footer"></i>
             <span className="company-statement">2017 Techwell industried co.,ltd. All</span>
           </footer>
