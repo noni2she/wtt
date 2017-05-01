@@ -239,8 +239,26 @@ class App extends React.Component {
         </div>
 
         <div id="about-us">
-          <h2>- ABOUT US -</h2>
-          <p></p>
+          <div className="about-us-outer">
+            <h2>- ABOUT US -</h2>
+            <p>Welcome to Techwell Industrial Co., Ltd. official site. We have been a professional
+             manufacturer of aluminum products in Taiwan since 1977. With more than 40 years experiences
+              of producing parts of vehicles and industrial machines. Techwell team owns excellent technology
+               and know-how to design, develop and manufacture high quality. We also have good performance products.</p>
+            <br/>
+            <p>To provide our customers better products and services, we moved to a new 2,000 square meters
+             modern factory in 2000 and have regularly upgraded machineries and equipments. We involve in developing
+              wheel accessories, such as wheel spacers, wheel adapters, wheel bolt, hub nuts and aluminum hub rings.
+               All our main products are as well. Moreover, the OEM/ODM services, in our company, also extremely meet
+                clients' customized equipments.</p>
+            <br/>
+            <p>WTT is a group of Techwell superb members. As the same main aim, our designs of WTT products are also
+             derived from users' needs. We provide not only Japanese and European type wheel spacers, but also European
+              Cone seat lengthened wheelbolts and aluminum hub rings.</p>
+            <br/>
+            <p>Especially, our First-line automobile mechanics do as a solution to help clients to fix up the inference
+             in the situation that cars unable to install wheels smoothly after.</p>
+          </div>
         </div>
 
         <div id="contact">
