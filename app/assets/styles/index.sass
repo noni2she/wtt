@@ -104,7 +104,8 @@ li
 
 	#products
 		h3
-			margin: 0
+			width: 908px
+			margin: 0 auto
 			padding: 69px 0
 			text-align: center
 
@@ -112,6 +113,9 @@ li
 			height: 168px
 			cursor: pointer
 
+			&:hover
+				> h3
+					background: url("images/product-hover.png") no-repeat 0 0
 			&:first-of-type
 				height: 224px
 			&:nth-of-type(odd)
@@ -121,6 +125,7 @@ li
 		@for $i from 1 through 5
 			.products-#{$i}
 				background: url("images/product-#{$i}.png") no-repeat
+				background-size: 247px auto
 				@if $i == 1 or $i == 3 or $i == 5
 						background-position: 32% 0
 				@else
