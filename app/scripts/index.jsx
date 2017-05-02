@@ -299,7 +299,7 @@ class App extends React.Component {
         <div className="footer">
           <footer className="container">
             <i className="icon-logo-footer"></i>
-            <span className="company-statement">2017 Techwell industried co.,ltd. All</span>
+            <span className="company-statement">{new Date().getFullYear()} Techwell industried co.,ltd. All</span>
           </footer>
         </div>
       </div>
