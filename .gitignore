@@ -5,6 +5,9 @@ npm-debug.log
 #building setting
 dist/
 
+#firebase setting
+firebase-debug.log
+
 # other setting
 .DS_Store
 */.DS_Store
