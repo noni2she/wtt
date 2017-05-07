@@ -1,5 +1,6 @@
 const Webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CleanWebpackPlugin = require("clean-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const PATH = require("path");
 
@@ -20,7 +21,7 @@ const CONFIG = {
 	},
 
 	output: {
-		path: `${__dirname}/dist`,
+		path: `${__dirname}/../dist`,
 		filename: "js/[name].js"
 	},
 
@@ -70,6 +71,17 @@ const CONFIG = {
 	},
 
 	plugins: [HtmlWebpackPluginConfig, ExtractTextPluginConfig,
+		// 清除舊有的 dist 資料夾資料再打包
+		new CleanWebpackPlugin(["dist"], {
+				root: "../",
+				verbose: true,	// Write logs to console.
+				dry: false		// Use boolean "true" to test/emulate delete. (will not remove files).
+				// (Default: "false", remove files)
+				// exclude: ["files", "to", "ignore"] // Instead of removing whole path recursively,
+				// remove all path's content with exclusion of provided immediate children.
+				// Good for not removing shared files from build directories.
+		}),
+
 		new Webpack.ProvidePlugin({
 			$: "jquery",
 			jQuery: "jquery",
@@ -78,7 +90,7 @@ const CONFIG = {
 	],
 
 	devServer: {
-		contentBase: "./dist/index.html",
+		contentBase: "../dist/index.html",
 		inline: true,
 		port: 7777
 	}

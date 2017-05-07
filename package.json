@@ -48,6 +48,8 @@
     "webpack-spritesmith": "^0.2.6"
   },
   "scripts": {
-    "dev": "webpack-dev-server --devtool eval --progress --colors --config config/webpack.config.js"
+    "dev": "webpack-dev-server --devtool eval --progress --colors --config config/webpack.config.js",
+    "build": "webpack --config config/webpack.config.prod.js"
+
   }
 }

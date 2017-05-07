@@ -2,6 +2,9 @@
 node_modules/
 npm-debug.log
 
+#building setting
+dist/
+
 # other setting
 .DS_Store
 */.DS_Store
