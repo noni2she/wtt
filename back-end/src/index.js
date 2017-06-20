@@ -6,7 +6,7 @@ import { Router, browserHistory} from 'react-router';
 import routes from './routes/index.js';
 import reducers from './reducers';
 import registerServiceWorker from './registerServiceWorker';
-import './public/stylesheet/index.css';
+import './assets/stylesheet/index.css';
 
 // mount it on the Store
 const store = createStore(
