@@ -8,6 +8,7 @@ import reducers from './reducers';
 import registerServiceWorker from './registerServiceWorker';
 import './assets/stylesheet/index.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap-theme.css';
 
 // mount it on the Store
 const store = createStore(
