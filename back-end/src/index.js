@@ -7,6 +7,7 @@ import routes from './routes/index.js';
 import reducers from './reducers';
 import registerServiceWorker from './registerServiceWorker';
 import './assets/stylesheet/index.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 // mount it on the Store
 const store = createStore(
