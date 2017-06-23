@@ -19,8 +19,10 @@
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",
     "watch-css": "yarn build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
-    "start": "react-scripts start",
-    "dev": "react-scripts start",
+    "start": "HTTPS=true react-scripts start",
+    "dev": "HTTPS=true react-scripts start",
+    "dev:with-login": "HTTPS=true REACT_APP_LOGIN=true react-scripts start",
+    "dev:without-login": "HTTPS=true REACT_APP_LOGIN=false react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
