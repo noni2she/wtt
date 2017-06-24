@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from '../../assets/img/logo.svg';
 
-class App extends Component {
+class PageIndex extends Component {
   render() {
     return (
       <div className="App">
@@ -17,4 +17,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default PageIndex;
