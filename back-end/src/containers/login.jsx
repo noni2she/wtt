@@ -1,7 +1,8 @@
-import React from 'react';
-import { getFirebase } from '../utils/firebase';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { onLoginAuthSubmit } from '../actions/login';
 
-export class Login extends React.Component{
+export class Login extends Component{
   constructor() {
     super();
     this.onSubmit = this.onSubmit.bind(this);
@@ -15,18 +16,8 @@ export class Login extends React.Component{
   onSubmit(event) {
     event.preventDefault();
 
-    const firebase = getFirebase();
-    const { email, password } = this.state;
-    // 
-    firebase.auth().signInWithEmailAndPassword(email, password)
-      .then((result) => {
-        console.log(result);
-        console.log('yes')
-      })
-      .catch(function(err) {
-        console.log(err);
-        console.log(err.message);
-    });
+    // trigger authorization action 
+    this.props.onLoginAuthSubmit(this.state);
   }
   onFormChange({ target }) {
     // make sure that state attribute match input field name
@@ -74,4 +65,4 @@ export class Login extends React.Component{
   }
 }
 
-export default Login;
+export default connect(null, { onLoginAuthSubmit })(Login);

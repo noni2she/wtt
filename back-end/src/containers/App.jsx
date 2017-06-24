@@ -4,8 +4,8 @@ import Login from './login.jsx';
 
 class App extends React.Component {
   render() {
-    // redux variable loginComfirmed
-    const loginComfirmed = false;
+    // verify the content which user enter is login-able 
+    const { loginComfirmed } = this.props.loginStatus;
     const loginFlowEnable = 
       process.env.NODE_ENV === 'development' &&
       process.env.REACT_APP_LOGIN === 'false';
@@ -18,9 +18,15 @@ class App extends React.Component {
       </div>
     ) : (
       <div> 
-        <Login />
+        <Login loginStatus={this.props.loginStatus} />
       </div>
     );
   }
 }
-export default connect(null)(App);
+
+const mapStateToProps = (state) => {
+  return {
+    ...state
+  }
+}
+export default connect(mapStateToProps)(App);
