@@ -33,12 +33,12 @@ export class Login extends Component{
     }
   }
   render() {
-    const { loginLoading } = this.props.loginStatus;
+    const { loginLoading, loginMessage } = this.props.loginStatus;
     return(
       <div className="container">
         <form className="form-signin">
           <h2 className="form-signin-heading">Please sign in</h2>
-          <label className="sr-only">Email address</label>
+          <label htmlFor="inputEmail" className="sr-only">Email address</label>
           <input 
             id="inputEmail"
             type="email"
@@ -47,8 +47,10 @@ export class Login extends Component{
             placeholder="Email address" 
             onChange={this.onFormChange}
             value={this.state.email}
+            required={true}
+            autoFocus={true}
           />
-          <label className="sr-only">Password</label>
+          <label htmlFor="inputPassword" className="sr-only">Password</label>
           <input 
             id="inputPassword"
             name="password"
@@ -57,7 +59,11 @@ export class Login extends Component{
             placeholder="Password" 
             onChange={this.onFormChange}
             value={this.state.password}
+            required={true}
           />
+          <label className='font-danger'>
+            { loginMessage ? `* ${loginMessage}` : '' }
+          </label>
           <button
             onClick={this.onSubmit}
             className="btn btn-lg btn-primary btn-block"
