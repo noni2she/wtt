@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { onLoginAuthSubmit } from '../actions/login';
+import logo from '../assets/img/oval.svg';
 
 export class Login extends Component{
   constructor() {
@@ -16,8 +17,12 @@ export class Login extends Component{
   onSubmit(event) {
     event.preventDefault();
 
-    // trigger authorization action 
-    this.props.onLoginAuthSubmit(this.state);
+    // trigger authorization action
+    // disable the button when loading
+    this.props.onLoginAuthSubmit({
+      ...this.state,
+      loginLoading: true,
+    });
   }
   onFormChange({ target }) {
     // make sure that state attribute match input field name
@@ -28,6 +33,7 @@ export class Login extends Component{
     }
   }
   render() {
+    const { loginLoading } = this.props.loginStatus;
     return(
       <div className="container">
         <form className="form-signin">
@@ -56,8 +62,13 @@ export class Login extends Component{
             onClick={this.onSubmit}
             className="btn btn-lg btn-primary btn-block"
             type="submit"
+            disabled={loginLoading}
           >
-            Sign in
+            { loginLoading ? (
+               <img className="loading-oval" src={logo} alt={'loading-oval'}/>
+            ) : (
+              'Sign in'
+            )}
           </button>
         </form>
       </div> 
@@ -66,3 +77,4 @@ export class Login extends Component{
 }
 
 export default connect(null, { onLoginAuthSubmit })(Login);
+            

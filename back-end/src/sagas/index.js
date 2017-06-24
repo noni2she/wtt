@@ -11,10 +11,10 @@ export function* fetchLoginStatus(action) {
   //  return login status when fetching from firebase
   yield put (loginComfirmed ? ({
       type: Constants.LOGIN_AUTH_SUCCESS,
-      payload: status
+      payload: { ...status, loginLoading: false}
     }) : ({
       type: Constants.LOGIN_AUTH_FAILED,
-      payload: status
+      payload: { ...status, loginLoading: false}
     })
   );
 }
