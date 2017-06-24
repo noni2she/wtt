@@ -24,26 +24,49 @@
 }
 
 .product-div {
-  border:2px green solid;
   .header{
     text-align: center;
   }
   .product {
+    text-align: center;
     background-color: #000;
     color: white;
-    vertical-align: middle;
     .info{
       height: 200px;
-      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .series{
-      background-color: red;
+      // border:2px green solid;
       height: 50px;
+      background-color: red;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       p {
-       text-align: center;
-       float: left;
-       width:100px; 
+        // border:2px green solid;
+        margin: 0;
+        width:100px; 
       }
     }
   } 
+}
+
+.news-div {
+  text-align: center;
+  .item-container { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .item {
+        height: 393px;
+        width: 315px;
+        background-image: url('https://firebasestorage.googleapis.com/v0/b/techwell-74c86.appspot.com/o/news%2Fnews_item_BG.png?alt=media&token=4b97be14-cbcd-4949-8138-6148889177ba');
+        background-repeat: no-repeat;
+        img {
+          margin-top:10px;
+        }
+    }
+  }
 }
