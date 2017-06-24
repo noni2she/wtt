@@ -16,7 +16,6 @@ export class Login extends Component{
   }
 
   onSubmit(event) {
-    event.preventDefault();
 
     // trigger authorization action
     // disable the button when loading
