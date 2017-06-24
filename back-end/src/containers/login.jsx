@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { onLoginAuthSubmit } from '../actions/login';
 import logo from '../assets/img/oval.svg';
+import PropTypes from 'prop-types';
 
 export class Login extends Component{
   constructor() {
@@ -81,6 +82,11 @@ export class Login extends Component{
     )
   }
 }
+
+Login.propTypes = {
+  loginStatus: PropTypes.object.isRequired,
+  onLoginAuthSubmit: PropTypes.func,
+};
 
 export default connect(null, { onLoginAuthSubmit })(Login);
             
