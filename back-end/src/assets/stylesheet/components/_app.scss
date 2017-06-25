@@ -24,9 +24,8 @@
 }
 
 .product-div {
-  .header{
-    text-align: center;
-  }
+  border: 1px green solid;
+  margin-top: 30px;
   .product {
     text-align: center;
     background-color: #000;
@@ -38,16 +37,15 @@
       justify-content: center;
     }
     .series{
-      // border:2px green solid;
       height: 50px;
       background-color: red;
       display: flex;
       align-items: center;
       justify-content: center;
       p {
-        // border:2px green solid;
         margin: 0;
         width:100px; 
+        color: white;
       }
     }
   } 
