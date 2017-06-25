@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
-
-const fakedata = {
-  title:'- NEWS -',
-  subTitle:'this is news session, provide everything you want',
-};
+import { contentObject } from '../../utils/fakeData';
 
 export default class Product extends Component {
   render () {
     return (
       <div className="news-div">
         <div>
-          <h2>{fakedata.title}</h2>
-          <p>{fakedata.subTitle}</p>
+          <h2>{contentObject.news.header}</h2>
+          <p>{contentObject.news.subheader}</p>
         </div>
       </div>
     );

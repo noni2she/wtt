@@ -1,6 +1,6 @@
 import React from 'react';
 import Slider from 'react-slick';
-import Banner from './banner.jsx';
+import Banner from '../common/imgItem';
 
 const settings = {
   dots: true,
@@ -13,7 +13,7 @@ const settings = {
 };
 
 export default (props) => {
-  const BannerList = props.bannerInfo.map(info => <div><Banner info={info} /></div>)
+  const BannerList = props.imgItems.map(item => <div><Banner imgItem={item} /></div>)
   return (
       <Slider {...settings}>
         {BannerList}

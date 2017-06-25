@@ -34,8 +34,6 @@ const imgItem = {
   altText: fakeAltText,
   imgUrl: fakeImgUrl,
   link: '',
-  height: '',
-  width: '',
 };
     
 const messageItem = {
