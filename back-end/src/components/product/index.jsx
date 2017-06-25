@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import Header from '../common/header.jsx';
 import ProductList from './product.jsx';
 
 const fakedata = {
@@ -23,7 +22,10 @@ export default class Product extends Component {
   render () {
     return (
       <div className="product-div">
-        <Header header={fakedata} />
+        <div>
+          <h2>{fakedata.title}</h2>
+          <p>{fakedata.subTitle}</p>
+        </div>
         <ProductList product={fakedata.product} />
       </div>
     );
