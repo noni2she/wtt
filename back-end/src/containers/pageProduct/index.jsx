@@ -1,21 +1,32 @@
 import React, { Component } from 'react';
 import NavBar from '../../components/common/navBar.jsx';
+import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
+import 'react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
+
+// It's a data format example.
+function priceFormatter(cell, row){
+  return '<i class="glyphicon glyphicon-usd"></i> ' + cell;
+}
 
 class PageProduct extends Component {
-  // 	.products-contents
-	// 	
-	// 	.products-information
-	// 		.products-description
-	// 			.pd-description-title
-	// 			.pd-description-feature
-	// 			.pd-description-spec
-	// 			.pd-description-text
-	// 		.products-sub-image
-	// .products-slider
-	// 	.products-slider-item-image
-	// .products-table
-	// 	<ReactBootstrapTable />
   render() {
+
+    // products will be presented by react-bootstrap-table
+    const products = Array.apply(null, new Array(30)).map(() => {
+      return ({
+        id: 1,
+        name: "Item name 1\nItem name 1\nasdasda sdasdasda sdasdas das",
+        price: 100
+      })
+    });
+    const headerStyle = {
+      backgroundColor: '#444',
+      color: '#eee',
+      textAlign: 'center',
+    }
+    const nameStyle = {
+      whiteSpace: 'normal',
+    };
     return (
       <div className="container-with-nav-bar" >
         <NavBar />
@@ -41,7 +52,20 @@ class PageProduct extends Component {
 
           </div>
           <div className="products-slider"></div>
-          <div className="products-table"></div>
+
+          <div className="products-table">
+            <BootstrapTable 
+              data={products}
+              hover={true}
+              tableStyle={{ background: '#fff' }}
+            >
+              <TableHeaderColumn dataField="id" thStyle={headerStyle} isKey={true} dataAlign="center" >Product ID</TableHeaderColumn>
+              <TableHeaderColumn dataField="name" thStyle={headerStyle} tdStyle={nameStyle}>Product Name</TableHeaderColumn>
+              <TableHeaderColumn dataField="price" thStyle={headerStyle} dataFormat={priceFormatter} >Product Price</TableHeaderColumn>
+            </BootstrapTable>
+          
+          </div>
+
           <div className="empty"></div>
         </div>
       </div>
