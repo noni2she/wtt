@@ -1,0 +1,49 @@
+
+/* Customize container */
+@media (min-width: 1132px) {
+  #page-product {
+    max-width: 1094px;
+  }
+}
+
+
+
+.products-contents {
+  /* Everything but the jumbotron gets side spacing for mobile first views */
+
+  margin: 40px 0;
+
+  p + h4 {
+    margin-top: 28px;
+  }
+
+  .products-description {
+    max-height: 342px;
+    height: 342px;
+  }
+  .products-main-image {
+    height: 590px;
+    background-color: $wireframe-background;
+  }
+
+  .products-sub-image {
+    height: 238px;
+    background-color: $wireframe-background;
+  }
+
+}
+
+.products-slider {
+  margin: 40px 0;
+  background-color: $wireframe-background;
+  height: 227px;
+}
+.products-table {
+  margin: 40px 0;
+  background-color: $wireframe-background;
+  height: 227px;
+}
+
+.empty {
+  height: 500px; 
+}
