@@ -1,15 +1,39 @@
 import React, { Component } from 'react';
-import { contentObject } from '../../utils/fakeData';
+import Slider from 'react-slick';
+import NewsItem from './newsItem.jsx';
 
-export default class Product extends Component {
+const settings = {
+  dots: true,
+  infinite: false,
+  speed: 500,
+  slidesToShow: 3,
+  slidesToScroll: 3
+  // arrows: false,
+  // centerMode: true
+};
+
+export default class News extends Component {
   render () {
+    const news = this.props.news;
+    const newsItemList = news.newsItems.map((item, index) => <div className="newsItem-div"><NewsItem newsItem={item} key={'newsItem_'+index}/></div>);
     return (
-      <div className="news-div">
+      <div id="news-div">
         <div>
-          <h2>{contentObject.news.header}</h2>
-          <p>{contentObject.news.subheader}</p>
+          <h2>{news.header}</h2>
+          <p>{news.subheader}</p>
+        </div>
+        <div className="container col-lg-10">
+          <Slider {...settings} className="item-container">
+            {newsItemList}
+          </Slider>
+
         </div>
       </div>
     );
   }  
 }
+
+  // news: {
+  //   header: fakeHeader,
+  //   subheader: fakeSubheader,
+  //   newsItems: generateArray(newsItem),
