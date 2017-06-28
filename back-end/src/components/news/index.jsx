@@ -19,21 +19,15 @@ export default class News extends Component {
     return (
       <div id="news-div">
         <div>
-          <h2>{news.header}</h2>
-          <p>{news.subheader}</p>
+          <h2>{ news.header }</h2>
+          <p>{ news.subheader }</p>
         </div>
-        <div className="container col-lg-10">
+        <div className="container">
           <Slider {...settings} className="item-container">
-            {newsItemList}
+            { newsItemList }
           </Slider>
-
         </div>
       </div>
     );
   }  
 }
-
-  // news: {
-  //   header: fakeHeader,
-  //   subheader: fakeSubheader,
-  //   newsItems: generateArray(newsItem),
