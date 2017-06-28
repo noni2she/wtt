@@ -4,12 +4,16 @@ import React, { Component } from 'react';
 import NavBar from '../../components/common/navBar.jsx';
 import ProductText from './productText.jsx';
 import ProductTable from './productTable.jsx';
-import { contentObject } from '../../utils/fakeData';
+import { contentObject, productDetails } from '../../utils/fakeData';
 
 class PageProduct extends Component {
   render() {
     const categoryItem = contentObject.products.categoryItems[0];
     const seriesItem = categoryItem.seriesItems[0];
+    
+    // fake data for product table
+    const { content } = seriesItem;
+    const products = productDetails[categoryItem.key][seriesItem.key];
     return (
       <div className="container-with-nav-bar" >
         <NavBar />
@@ -18,7 +22,10 @@ class PageProduct extends Component {
           <ProductText
             seriesItem={seriesItem}
           />
-          <ProductTable />
+          <ProductTable
+            content={content}
+            products={products}
+          />
           <div className="empty"></div>
         </div>
       </div>
