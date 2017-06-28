@@ -4,12 +4,17 @@ body {
   font-family: sans-serif;
 }
 
+// font-color
+// boostrap color
 $brand-primary: darken(#428bca, 6.5%); // #337ab7
 $brand-success: #5cb85c;
 $brand-info:    #5bc0de;
 $brand-warning: #f0ad4e;
 $brand-danger:  #d9534f;
 $wireframe-background: #ccc;
+
+// wtt brand color
+$wtt-red: red;
 
 .font-primary {
   color: $brand-primary;

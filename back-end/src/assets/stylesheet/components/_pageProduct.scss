@@ -18,26 +18,45 @@
   }
 
   .products-description {
-    max-height: 342px;
-    height: 342px;
+    min-height: 341px;
+
+    h1 {
+      margin: 5px 0px;
+      font-size: 2em;
+    }
+    h2 {
+      margin: 5px 0px;
+      font-size: 1.5em;
+      color: $wtt-red;
+    }
+
+    .prod-descript-text {
+      margin: 5px 0px; 
+      .prod-descript-title {
+        font-weight: bold;
+      }
+    }
   }
   .products-main-image {
     height: 590px;
-    background-color: $wireframe-background;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
   }
 
   .products-sub-image {
     height: 238px;
-    background-color: $wireframe-background;
+    padding: 0px;
+    margin: 0px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
   }
 
 }
 
-.products-slider {
-  margin: 40px 0;
-  background-color: $wireframe-background;
-  height: 227px;
-}
 .products-table {
   margin: 40px 0;
 }
