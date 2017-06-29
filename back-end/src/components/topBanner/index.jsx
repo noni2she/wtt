@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import Slider from 'react-slick';
 import Banner from '../common/imgItem.jsx';
 
-import { contentObject } from '../../utils/fakeData';
-
 const settings = {
   dots: true,
   infinite: true,
