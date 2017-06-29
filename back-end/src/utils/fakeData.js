@@ -86,6 +86,9 @@ const seriesItem = {
   subImg: imgItem,
   description: generateArray(seriesDescriptionItem, 10),
   content: [{
+    key: 'uuid',
+    displayedName: 'id',
+  }, {
     key: 'pcd',
     displayedName: 'PCD'
   }, {
@@ -177,7 +180,9 @@ export const contentObject = {
 
 export const productDetails = {
   [categoryItem.key]: {
-    [seriesItem.key]: mockProductDetail,
+    [seriesItem.key]: mockProductDetail.map((item) => {
+      return {...item, uuid: uuid()}
+    }),
   }
 }
 
