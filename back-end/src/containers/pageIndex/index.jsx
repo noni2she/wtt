@@ -8,6 +8,7 @@ import TopBanner from 'components/top_banner/index.jsx';
 import Product from '../../components/product'
 import News from '../../components/news'
 import About from '../../components/about';
+import Contact from '../../components/contact'
 
 // fake data
 import { contentObject } from '../../utils/fakeData';
@@ -21,6 +22,7 @@ class PageIndex extends Component {
         <Product/>
         <News news={contentObject.news} />
         <About about={contentObject.about} />
+        <Contact about={contentObject.contact}/>
       </div>
     );
   }
