@@ -7,7 +7,7 @@ export default class About extends Component {
       <div id="about-div">
         <div className="about-container">
           <div className="about-title">
-            <h1>{about.header}</h1>
+            <h1 className="text-uppercase">{about.header}</h1>
           </div>
           <div className="about-content">
             <p>{about.description}</p>

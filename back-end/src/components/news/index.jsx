@@ -19,7 +19,7 @@ export default class News extends Component {
     return (
       <div id="news-div">
         <div>
-          <h2>{ news.header }</h2>
+          <h2 className="text-uppercase" >{ news.header }</h2>
           <p>{ news.subheader }</p>
         </div>
         <div className="container">
