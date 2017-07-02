@@ -16,6 +16,7 @@ export default (state = productsDetailInitialState, action) => {
   const {
     categoryKey, seriesKey, uuid,
     cellName, cellValue, rowsKey,
+    row,
   } = payload;
 
   // local variable
@@ -71,7 +72,22 @@ export default (state = productsDetailInitialState, action) => {
       });
 
       return newState;
-    default: 
+    case PROD_DETAIL_ON_ADD_ROW:
+      seriesItems = state[categoryKey][seriesKey];
+
+      // create a new object for state
+      newState = {
+        ...state,
+      };
+
+      // take Array for seriesItems
+      newState[categoryKey][seriesKey] = [
+        ...newState[categoryKey][seriesKey]
+      ];
+      newState[categoryKey][seriesKey].push(row);
+
+      return newState;
+    default:
       return state;
   }
 }

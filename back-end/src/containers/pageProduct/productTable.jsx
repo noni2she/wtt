@@ -46,8 +46,11 @@ class ProductTable extends Component {
       categoryKey, seriesKey, rowsKey
     });
   }
-  onAddRow(argc) {
-    console.log('onAddRow');
+  onAddRow(row) {
+    const { categoryKey, seriesKey } = this.props;
+    this.props.onAddRow({
+      categoryKey, seriesKey, row
+    });
   }
 
   render() {

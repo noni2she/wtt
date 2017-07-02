@@ -18,5 +18,8 @@ export const onDeleteRow = (value) => {
   });
 }
 export const onAddRow = (value) => {
-
+  return ({
+    type: PROD_DETAIL_ON_ADD_ROW,
+    payload: value,
+  });
 }
