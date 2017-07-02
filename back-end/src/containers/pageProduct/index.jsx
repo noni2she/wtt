@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 import NavBar from '../../components/common/navBar.jsx';
 import ProductText from './productText.jsx';
 import ProductTable from './productTable.jsx';
-import { productDetails } from '../../utils/fakeData';
 
 class PageProduct extends Component {
   constructor(props) {
@@ -73,14 +72,17 @@ class PageProduct extends Component {
   }
   render() {
     try {
-      if (!this.state.contentObject) return null;
+      const { productsDetail } = this.props;
+      if (!this.state.contentObject || !productsDetail) return null;
+
       const { categoryItem, seriesItem } = this.state.contentObject;
 
-      /* content: table schema about series controlled by language.
-      * products: table content about given series
-      */ 
+      /* 
+       * content: table schema about series controlled by language.
+       * products: table content about given series
+       */ 
       const { content } = seriesItem;
-      const products = productDetails[categoryItem.key][seriesItem.key]; // using fake data here
+      const products = productsDetail[categoryItem.key][seriesItem.key];
 
       return (
         <div className="container-with-nav-bar" >
@@ -100,6 +102,7 @@ class PageProduct extends Component {
       );
     } catch (error) {
       this.pageNotFound();
+      return null;
     }
   }
 }
@@ -108,12 +111,14 @@ PageProduct.contextTypes = {
   router: PropTypes.object,
   locales: PropTypes.string,
   tw: PropTypes.object,
+  productsDetail: PropTypes.object,
 };
 
 const mapStateToProps = (state) => {
   return {
     locales: state.locales,
     tw: state.tw,
+    productsDetail: state.productsDetail
   };
 }
 

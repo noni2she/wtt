@@ -1,5 +1,5 @@
 import * as Constants from './common';
-import { contentObject } from '../utils/fakeData';
+import { contentObject, productDetails } from '../utils/fakeData';
 
 export const loginStatusInitialState = {
   loginComfirm: undefined,
@@ -9,5 +9,8 @@ export const loginStatusInitialState = {
 
 export const localesInitialState = Constants.LOCALE_TW;
 
-// pass fake for twInitialState
+// pass fake data for twInitialState
 export const twInitialState = contentObject;
+
+// pass fake data for productDetails
+export const productsDetailInitialState = productDetails;
