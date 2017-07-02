@@ -21,7 +21,7 @@ const fakedata = {
 export default class Product extends Component {
   render () {
     return (
-      <div className="product-div">
+      <div id="product">
         <div>
           <h2>{fakedata.title}</h2>
           <p>{fakedata.subTitle}</p>
