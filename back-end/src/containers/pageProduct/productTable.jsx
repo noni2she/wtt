@@ -75,29 +75,30 @@ class ProductTable extends Component {
           selectRow={ selectRowProp }
         >
           {
-            content.map((row, index) => {
-              return (row.key === ROW_KEY_UUID ? (
+            content.map(({ key, displayedName }, index) => {
+              return (key === ROW_KEY_UUID ? (
                 <TableHeaderColumn
                   key={ `products-table-column-${index}` }
                   hiddenOnInsert={ true }
                   autoValue={ this.autoValue }
                   isKey={ true }
-                  dataField={ row.key }
+                  dataField={ key }
                   thStyle={ thStyle }
+                  hidden={ process.env.NODE_ENV !== 'development' }
                   dataAlign="center"
                 >
-                  { row.displayedName }
+                  { displayedName }
                 </TableHeaderColumn>
 
               ) : (
                 <TableHeaderColumn
                   key={ `products-table-column-${index}` }
-                  dataField={ row.key }
+                  dataField={ key }
                   thStyle={ thStyle }
                   tdStyle={ tdStyle }
                   dataAlign="center"
                 >
-                  { row.displayedName }
+                  { displayedName }
                 </TableHeaderColumn>
               ));
             })
