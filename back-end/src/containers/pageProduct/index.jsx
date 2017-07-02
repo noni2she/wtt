@@ -72,6 +72,7 @@ class PageProduct extends Component {
   }
   render() {
     try {
+      const { categoryKey, seriesKey } = this.context.router.params
       const { productsDetail } = this.props;
       if (!this.state.contentObject || !productsDetail) return null;
 
@@ -95,6 +96,8 @@ class PageProduct extends Component {
             <ProductTable
               content={content}
               products={products}
+              categoryKey={categoryKey}
+              seriesKey={seriesKey}
             />
             <div className="empty"></div>
           </div>

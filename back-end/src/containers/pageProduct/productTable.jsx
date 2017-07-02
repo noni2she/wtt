@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { PropTypes } from 'prop-types';
+import { connect } from 'react-redux';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import 'react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
 import { uuid } from '../../utils/common';
@@ -6,6 +8,7 @@ import {
   ROW_KEY_UUID, thStyle, tdStyle,
   selectRowProp, cellEditProp,
 } from '../../constants/productTable';
+import { onCellEdit, onDeleteRow, onAddRow } from '../../actions/productDetail';
 
 class ProductTable extends Component {
 
@@ -27,8 +30,14 @@ class ProductTable extends Component {
     remoteObj.dropRow = true;
     return remoteObj;
   }
-  onCellEdit(argc) {
-    console.log('onCellEdit');
+  onCellEdit(row, cellName, cellValue) {
+    const { uuid } = row;
+    const { categoryKey, seriesKey } = this.props;
+
+    this.props.onCellEdit({
+      categoryKey, seriesKey, uuid,
+      cellName, cellValue,
+    });
   }
   onDeleteRow(rowKeys) {
     console.log('onDeleteRow');
@@ -92,4 +101,12 @@ class ProductTable extends Component {
   }
 }
 
-export default ProductTable;
+ProductTable.propTypes = {
+  categoryKey: PropTypes.string,
+  seriesKey: PropTypes.string,
+  onCellEdit: PropTypes.func,
+  onDeleteRow: PropTypes.func,
+  onAddRow: PropTypes.func,
+};
+
+export default connect(null, { onCellEdit, onDeleteRow, onAddRow })(ProductTable);
