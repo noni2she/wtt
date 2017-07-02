@@ -39,8 +39,12 @@ class ProductTable extends Component {
       cellName, cellValue,
     });
   }
-  onDeleteRow(rowKeys) {
-    console.log('onDeleteRow');
+  onDeleteRow(rowsKey) {
+    // rowsKey are the uuids of the rows which were deleted
+    const { categoryKey, seriesKey } = this.props;
+    this.props.onDeleteRow({
+      categoryKey, seriesKey, rowsKey
+    });
   }
   onAddRow(argc) {
     console.log('onAddRow');

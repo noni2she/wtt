@@ -19,7 +19,7 @@ export default (state = productsDetailInitialState, action) => {
   } = payload;
 
   // local variable
-  let targetRowIndex, newState, seriesItems;
+  let targetRowIndex, newState, seriesItems, result;
 
   switch (type) {
     case PROD_DETAIL_ON_CELL_EDIT:
@@ -45,6 +45,30 @@ export default (state = productsDetailInitialState, action) => {
         ...newState[categoryKey][seriesKey][targetRowIndex],
         [cellName]: cellValue,
       };
+
+      return newState;
+    case PROD_DETAIL_ON_DELETE_ROW:
+      seriesItems = state[categoryKey][seriesKey];
+
+      // create a new object for state
+      newState = {
+        ...state,
+      };
+
+      // filter lagacy records
+      newState[categoryKey][seriesKey] = seriesItems.filter((seriesItem) => {
+        
+        // preserve all seriesItem as default
+        result = true;
+        for(var index = 0 ; index < rowsKey.length ; index++) {
+          if (seriesItem.uuid === rowsKey[index]) {
+            result = false;
+            delete rowsKey[index]; // prevent query key repeatly
+            break;
+          }
+        }
+        return result;
+      });
 
       return newState;
     default: 

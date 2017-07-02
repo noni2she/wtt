@@ -11,7 +11,11 @@ export const onCellEdit = (value) => {
   });
 }
 export const onDeleteRow = (value) => {
-
+  
+  return ({
+    type: PROD_DETAIL_ON_DELETE_ROW,
+    payload: value,
+  });
 }
 export const onAddRow = (value) => {
 
