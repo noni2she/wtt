@@ -6,15 +6,24 @@ import {
 } from '../constants/actionTypes';
 
 export default (state = productsDetailInitialState, action) => {
-  const { type, payload } = action;
+
+  /* get content of state and action
+   * set payload to empty oject as default to prevent error when destrcturing
+   */
+  let { type, payload } = action;
+  payload = payload || {};
+
+  const {
+    categoryKey, seriesKey, uuid,
+    cellName, cellValue, rowsKey,
+  } = payload;
+
+  // local variable
+  let targetRowIndex, newState, seriesItems;
+
   switch (type) {
     case PROD_DETAIL_ON_CELL_EDIT:
-      let targetRowIndex, newState;
-      const {
-        categoryKey, seriesKey, uuid,
-        cellName, cellValue
-      } = payload;
-      const seriesItems = state[categoryKey][seriesKey];
+      seriesItems = state[categoryKey][seriesKey];
 
       // get the index of row which was modify
       for(var index = 0 ; index < seriesItems.length ;index++) {
