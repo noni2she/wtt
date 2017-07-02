@@ -1,5 +1,4 @@
 import { combineReducers } from 'redux';
-import topBanner from './topBanner';
 import loginStatus from './loginStatus';
 import locales from './locales';
 
