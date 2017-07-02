@@ -109,6 +109,9 @@ class PageProduct extends Component {
 
 PageProduct.contextTypes = {
   router: PropTypes.object,
+};
+
+PageProduct.propTypes = {
   locales: PropTypes.string,
   tw: PropTypes.object,
   productsDetail: PropTypes.object,
@@ -118,8 +121,8 @@ const mapStateToProps = (state) => {
   return {
     locales: state.locales,
     tw: state.tw,
-    productsDetail: state.productsDetail
+    productsDetail: state.productsDetail,
   };
-}
+};
 
 export default connect(mapStateToProps)(PageProduct);
