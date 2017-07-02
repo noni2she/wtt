@@ -8,6 +8,6 @@ export default (
   <Route path="/" component={App}>
     <IndexRoute component={PageIndex}/>
     <Route path="/edit/:index" component={PageIndex}/>
-    <Route path="/product/:category" component={PageProduct}/>
+    <Route path="/product/:categoryKey/:seriesKey" component={PageProduct}/>
   </Route>
 );
