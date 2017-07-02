@@ -72,8 +72,67 @@ const downloadItem = {
   }),
 };
 
+const seriesDescriptionItem = {
+  title: 'Material',
+  // content: fakeParagraph,
+  content: 'Forged Aluminum 6061T6',
+}
+const seriesItem = {
+  displayed: true,
+  id: uuid(),
+  key: 'hs',
+  name: 'ASIA TYPE-SHA Series',
+  mainImg: imgItem,
+  subImg: imgItem,
+  description: generateArray(seriesDescriptionItem, 10),
+  content: [{
+    key: 'uuid',
+    displayedName: 'id',
+  }, {
+    key: 'pcd',
+    displayedName: 'PCD'
+  }, {
+    key: 'hub',
+    displayedName: 'HUB'
+  }, {
+    key: 'thread-type',
+    displayedName: 'Thread Type'
+  }, {
+    key: 'od',
+    displayedName: 'O.D(mm)'
+  }, {
+    key: 'car-modal',
+    displayedName: 'Car Model'
+  }, {
+    key: 'part-number',
+    displayedName: 'Part Number'
+  }]
 
-// export fake date
+}
+const categoryItem = {
+  displayed: true,
+  id: uuid(),
+  key: 'wheel-spacers',
+  name: 'WHEEL SPACERS',
+  mainImg: imgItem,
+  seriesItems: generateArray(seriesItem, 12),
+}
+
+const mockProductDetail = [{"pcd":"4H/100","hub":"Φ54.1","thread-type":"M12xP1.25xL23","od":149,"car-modal":"Suzuki","part-number":"SHA-1154166-15"},
+{"pcd":"4H/100","hub":"Φ54.1","thread-type":"M12xP1.25xL23","od":149,"car-modal":"","part-number":"SHA-1154166-20"},
+{"pcd":"4H/100","hub":"Φ54.1","thread-type":"M12xP1.25xL23","od":149,"car-modal":"","part-number":"SHA-1154166-25"},
+{"pcd":"4H/100","hub":"Φ54.1","thread-type":"M12xP1.25xL23","od":149,"car-modal":"","part-number":"SHA-1154166-30"},
+{"pcd":"4H/100","hub":"Φ54.1","thread-type":"M12xP1.50xL23","od":149,"car-modal": "Mazda Scion Toyota Hyundai Kia","part-number":"SHA-1154177-15"},
+{"pcd":"4H/100","hub":"Φ54.1","thread-type":"M12xP1.50xL23","od":149,"car-modal":"","part-number":"SHA-1154177-20"},
+{"pcd":"4H/100","hub":"Φ54.1","thread-type":"M12xP1.50xL23","od":149,"car-modal":"","part-number":"SHA-1154177-25"},
+{"pcd":"4H/100","hub":"Φ54.1","thread-type":"M12xP1.50xL23","od":149,"car-modal":"","part-number":"SHA-1154177-30"},
+{"pcd":"4H/100","hub":"Φ56.1","thread-type":"M12xP1.50xL23","od":149,"car-modal":"Acura \nHonda Mitsubishi kia","part-number":"SHA-1156177-15"},
+{"pcd":"4H/100","hub":"Φ56.1","thread-type":"M12xP1.50xL23","od":149,"car-modal":"","part-number":"SHA-1156177-20"},
+{"pcd":"4H/100","hub":"Φ56.1","thread-type":"M12xP1.50xL23","od":149,"car-modal":"","part-number":"SHA-1156177-25"},
+{"pcd":"4H/100","hub":"Φ56.1","thread-type":"M12xP1.50xL23","od":149,"car-modal":"","part-number":"SHA-1156177-30"}]
+
+
+// export fake data which should be similar to what in firebase
 export const contentObject = {
   topBanner: {
     imgItems: generateArray(imgItem)
@@ -111,8 +170,21 @@ export const contentObject = {
     header: fakeHeader,
     subheader: fakeSubheader,
     downloadItem: generateArray(downloadItem),
+  },
+  products: {
+    header: fakeHeader,
+    subheader: fakeSubheader,
+    categoryItems: generateArray(categoryItem, 10)
   }
 };
+
+export const productDetails = {
+  [categoryItem.key]: {
+    [seriesItem.key]: mockProductDetail.map((item) => {
+      return {...item, uuid: uuid()}
+    }),
+  }
+}
 
 export const messageObject = {
   header: fakeHeader,
