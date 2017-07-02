@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { NAV_BAR_PRODUCTS } from '../../constants/common';
 
 // component  
 import NavBar from 'components/common/navBar.jsx';
@@ -87,7 +88,7 @@ class PageProduct extends Component {
 
       return (
         <div className="container-with-nav-bar" >
-          <NavBar />
+          <NavBar active={ NAV_BAR_PRODUCTS } />
 
           <div id="page-product" className="container">
             <ProductText
