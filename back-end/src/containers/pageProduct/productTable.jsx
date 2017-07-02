@@ -1,89 +1,92 @@
 import React, { Component } from 'react';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import 'react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
-import uuidv1 from 'uuid/v1';
+import { uuid } from '../../utils/common';
+import {
+  ROW_KEY_UUID, thStyle, tdStyle,
+  selectRowProp, cellEditProp,
+} from '../../constants/productTable';
 
 class ProductTable extends Component {
 
   constructor() {
     super();
-    this.onAfterSaveCell = this.onAfterSaveCell.bind(this);
-    this.autoValue = this.autoValue.bind(this);
-    this.handleDeletedRow = this.handleDeletedRow.bind(this);
+    this.onCellEdit = this.onCellEdit.bind(this);
+    this.onDeleteRow = this.onDeleteRow.bind(this);
+    this.onAddRow = this.onAddRow.bind(this);
   }
 
   autoValue() {
-    return uuidv1();
+    return uuid();
   }
 
-  onAfterSaveCell(products, index) {
-    // after save 
+  // handling editing, insert and delete row by remote store
+  remote(remoteObj) {
+    remoteObj.cellEdit = true;
+    remoteObj.insertRow = true;
+    remoteObj.dropRow = true;
+    return remoteObj;
   }
-  handleDeletedRow(rowKeys) {
-    // it show the row key of what we delete.
+  onCellEdit(argc) {
+    console.log('onCellEdit');
   }
+  onDeleteRow(rowKeys) {
+    console.log('onDeleteRow');
+  }
+  onAddRow(argc) {
+    console.log('onAddRow');
+  }
+
   render() {
     const { content, products } = this.props;
-    const headerStyle = {
-      backgroundColor: '#444',
-      color: '#eee',
-      textAlign: 'center',
-    }
-    const tdStyle = {
-      whiteSpace: 'normal',
-    };
-    const cellEditProp = {
-      mode: 'click',
-      blurToSave: true,
-      afterSaveCell: this.onAfterSaveCell,
-    };
-    const selectRowProp = {
-      mode: 'checkbox'
-    };
+
+    // cosutomized options for productTable
     const options = {
-      afterDeleteRow: this.handleDeletedRow
+      onCellEdit: this.onCellEdit,
+      onDeleteRow: this.onDeleteRow,
+      onAddRow: this.onAddRow,
     }
+
     return (
       <div className="products-table">
-      <BootstrapTable 
-        data={ products }
-        hover={ true }
-        cellEdit={ cellEditProp }
-        insertRow={ true }
-        deleteRow={ true }
-        options={ options }
-        selectRow={ selectRowProp }
-      >
-        {
-          content.map((row, index) => {
-            return (row.key === 'uuid' ? (
-              <TableHeaderColumn
-                key={ `products-table-column-${index}` }
-                hiddenOnInsert={ true }
-                autoValue={ this.autoValue }
-                isKey={ true }
-                dataField={ row.key }
-                thStyle={ headerStyle }
-                tdStyle={ undefined }
-                dataAlign="center"
-              >
-                { row.displayedName }
-              </TableHeaderColumn>
+        <BootstrapTable
+          data={ products }
+          hover={ true }
+          cellEdit={ cellEditProp }
+          insertRow={ true }
+          deleteRow={ true }
+          options={ options }
+          selectRow={ selectRowProp }
+        >
+          {
+            content.map((row, index) => {
+              return (row.key === ROW_KEY_UUID ? (
+                <TableHeaderColumn
+                  key={ `products-table-column-${index}` }
+                  hiddenOnInsert={ true }
+                  autoValue={ this.autoValue }
+                  isKey={ true }
+                  dataField={ row.key }
+                  thStyle={ thStyle }
+                  dataAlign="center"
+                >
+                  { row.displayedName }
+                </TableHeaderColumn>
 
-            ) : (
-              <TableHeaderColumn
-                key={ `products-table-column-${index}` }
-                dataField={ row.key }
-                thStyle={ headerStyle }
-                tdStyle={ tdStyle }
-                dataAlign="center"
-              >
-                { row.displayedName }
-              </TableHeaderColumn>
-            ));
-          })
-        }
-      </BootstrapTable>
+              ) : (
+                <TableHeaderColumn
+                  key={ `products-table-column-${index}` }
+                  dataField={ row.key }
+                  thStyle={ thStyle }
+                  tdStyle={ tdStyle }
+                  dataAlign="center"
+                >
+                  { row.displayedName }
+                </TableHeaderColumn>
+              ));
+            })
+          }
+        </BootstrapTable>
       </div>
     );
   }
