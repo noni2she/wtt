@@ -1,4 +1,4 @@
-import { LOGIN_ON_AUTH } from '../constants/actionTypes';
+import { LOGIN_ON_AUTH } from 'constants/actionTypes';
 
 export function onLoginAuthSubmit(value) {
   return ({

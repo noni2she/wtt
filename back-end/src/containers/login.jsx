@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { onLoginAuthSubmit } from '../actions/login';
-import logo from '../assets/img/oval.svg';
+import { onLoginAuthSubmit } from 'actions/login';
+import logo from 'img/oval.svg';
 import PropTypes from 'prop-types';
 
 export class Login extends Component{

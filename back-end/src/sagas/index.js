@@ -1,5 +1,5 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
-import * as Constants from '../constants/actionTypes';
+import * as Constants from 'constants/actionTypes';
 
 // API
 import { getLoginStatus } from './API/loginStatus';

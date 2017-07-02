@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import logo from '../../assets/img/logo.svg';
+import logo from 'img/logo.svg';
 
 // Component
-import NavBar from '../../components/common/navBar.jsx';
+import NavBar from 'components/common/navBar.jsx';
 
 class PageIndex extends Component {
   render() {

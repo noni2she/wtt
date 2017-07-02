@@ -3,12 +3,12 @@ import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import 'react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
-import { uuid } from '../../utils/common';
+import { uuid } from 'utils/common';
 import {
   ROW_KEY_UUID, thStyle, tdStyle,
   selectRowProp, cellEditProp,
-} from '../../constants/productTable';
-import { onCellEdit, onDeleteRow, onAddRow } from '../../actions/productDetail';
+} from 'constants/productTable';
+import { onCellEdit, onDeleteRow, onAddRow } from 'actions/productDetail';
 
 class ProductTable extends Component {
 

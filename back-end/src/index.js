@@ -18,6 +18,10 @@ import './assets/stylesheet/index.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/css/bootstrap-theme.css';
 
+// js
+import 'jquery';
+import 'bootstrap';
+
 // create the saga middleware
 const sagaMiddleware = createSagaMiddleware();
 
