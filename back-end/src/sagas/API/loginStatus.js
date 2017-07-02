@@ -1,4 +1,4 @@
-import { getFirebase } from '../../utils/firebase';
+import { getFirebase } from 'utils/firebase';
 
 export const getLoginStatus = (action) => {
   const firebase = getFirebase();

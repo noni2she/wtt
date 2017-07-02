@@ -1,5 +1,5 @@
 import * as Constants from './common';
-import { contentObject, productDetails } from '../utils/fakeData';
+import { contentObject, productDetails } from 'utils/fakeData';
 
 export const loginStatusInitialState = {
   loginComfirm: undefined,

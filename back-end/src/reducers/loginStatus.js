@@ -1,5 +1,5 @@
-import { LOGIN_AUTH_SUCCESS, LOGIN_AUTH_FAILED, LOGIN_ON_AUTH} from '../constants/actionTypes';
-import { loginStatusInitialState } from '../constants/initialState';
+import { LOGIN_AUTH_SUCCESS, LOGIN_AUTH_FAILED, LOGIN_ON_AUTH} from 'constants/actionTypes';
+import { loginStatusInitialState } from 'constants/initialState';
 
 export default (state = loginStatusInitialState, action) => {
   const { type, payload } = action;
