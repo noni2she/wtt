@@ -11,6 +11,9 @@ import { productDetails } from '../../utils/fakeData';
 class PageProduct extends Component {
   constructor(props) {
     super();
+    this.state = {
+      contentObject: null, 
+    }
     this.searchCategoryAndSeries = this.searchCategoryAndSeries.bind(this);  
   }
 
@@ -55,35 +58,49 @@ class PageProduct extends Component {
       return false;
     }
   }
-  render() {
+  pageNotFound() {
+    // when error happened or page not found, redirect to PageIndex
+    this.context.router.replace('/');
+  }
+  componentDidMount() {
     // get the object first
     const contentObject = this.searchCategoryAndSeries();
-    if (!contentObject) return null;
-    
-    const { categoryItem, seriesItem } = contentObject;
+    if (!contentObject) this.pageNotFound();
 
-    /* content: table schema about series controlled by language.
-     * products: table content about given series
-     */ 
-    const { content } = seriesItem;
-    const products = productDetails[categoryItem.key][seriesItem.key]; // using fake data here
+    this.setState({
+      contentObject
+    });
+  }
+  render() {
+    try {
+      if (!this.state.contentObject) return null;
+      const { categoryItem, seriesItem } = this.state.contentObject;
 
-    return (
-      <div className="container-with-nav-bar" >
-        <NavBar />
+      /* content: table schema about series controlled by language.
+      * products: table content about given series
+      */ 
+      const { content } = seriesItem;
+      const products = productDetails[categoryItem.key][seriesItem.key]; // using fake data here
 
-        <div id="page-product" className="container">
-          <ProductText
-            seriesItem={seriesItem}
-          />
-          <ProductTable
-            content={content}
-            products={products}
-          />
-          <div className="empty"></div>
+      return (
+        <div className="container-with-nav-bar" >
+          <NavBar />
+
+          <div id="page-product" className="container">
+            <ProductText
+              seriesItem={seriesItem}
+            />
+            <ProductTable
+              content={content}
+              products={products}
+            />
+            <div className="empty"></div>
+          </div>
         </div>
-      </div>
-    );
+      );
+    } catch (error) {
+      this.pageNotFound();
+    }
   }
 }
 
