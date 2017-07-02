@@ -5,10 +5,11 @@ import logo from 'img/logo.svg';
 // Component
 import NavBar from 'components/common/navBar.jsx';
 import TopBanner from 'components/top_banner/index.jsx';
-import Product from '../../components/product'
-import News from '../../components/news'
+import Product from '../../components/product';
+import News from '../../components/news';
+import Download from '../../components/download';
 import About from '../../components/about';
-import Contact from '../../components/contact'
+import Contact from '../../components/contact';
 
 // fake data
 import { contentObject } from '../../utils/fakeData';
@@ -21,6 +22,7 @@ class PageIndex extends Component {
         <TopBanner imgItems={contentObject.topBanner.imgItems} />
         <Product/>
         <News news={contentObject.news} />
+        <Download download={contentObject.download} />
         <About about={contentObject.about} />
         <Contact about={contentObject.contact}/>
       </div>

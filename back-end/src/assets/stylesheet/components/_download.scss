@@ -1,0 +1,31 @@
+#download {
+  padding-top: 10px;
+  background-color:#EEE;
+  .download-item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 300px;
+    width: 80%;
+    margin: 0 auto;
+    .download-img {
+      img {
+        width:90%;
+      }
+    }
+    .download-description {
+      text-align: left;
+      .download-description-title {
+        display: block;
+        font-size: 20px;
+        font-weight:bold;
+      }
+    }
+    .download-link {
+      text-align: left;
+      i {
+        font-size: 20px;
+      }
+    }
+  }
+}
