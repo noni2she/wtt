@@ -1,0 +1,10 @@
+/* Customize container */
+@media (min-width: 868px) {
+  #page-edit {
+    max-width: 830px;
+  }
+}
+#page-edit {
+  background-color: $form-background;
+  padding: 40px 30px;
+}
