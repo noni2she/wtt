@@ -47,5 +47,5 @@ yarn dev:without-login
 ## ProductDetail page when developing
 
 In ```PageProduct```, route looks like ```/product/:categoryKey/:seriesKey```.
-For development needs, please navigate to ```https://localhost:3000/product/wheel-spacers/hs```.
+For development needs, please navigate to [https://localhost:3000/product/wheel-spacers/hs](https://localhost:3000/product/wheel-spacers/hs).
 
