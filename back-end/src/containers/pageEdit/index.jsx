@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import NavBar from '../../components/common/navBar.jsx';
+import NavBar from 'components/common/navBar.jsx';
 
 class PageEdit extends Component {
   render() {
