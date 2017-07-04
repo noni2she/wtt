@@ -6,7 +6,7 @@ export default class Contact extends Component {
     const {
       header, subheader, subImg, company,
       phone, fax, email, location, mainImg
-    } = this.props.about;
+    } = this.props.contact;
     return (
       <div id="contact" className="container">
         <div>

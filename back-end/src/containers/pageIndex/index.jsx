@@ -16,15 +16,16 @@ import { contentObject } from '../../utils/fakeData';
 
 class PageIndex extends Component {
   render() {
+    const {topBanner, news, download, about, contact} = contentObject;
     return (
       <div className="App container-with-nav-bar" >
         <NavBar />
-        <TopBanner imgItems={contentObject.topBanner.imgItems} />
+        <TopBanner imgItems={topBanner.imgItems} />
         <Product/>
-        <News news={contentObject.news} />
-        <Download download={contentObject.download} />
-        <About about={contentObject.about} />
-        <Contact about={contentObject.contact}/>
+        <News news={news} />
+        <Download download={download} />
+        <About about={about} />
+        <Contact contact={contact}/>
       </div>
     );
   }
