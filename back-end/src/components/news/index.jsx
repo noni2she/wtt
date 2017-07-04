@@ -14,17 +14,17 @@ const settings = {
 
 export default class News extends Component {
   render () {
-    const news = this.props.news;
-    const newsItemList = news.newsItems.map((item, index) => <div className="newsItem-div"><NewsItem newsItem={item} key={'newsItem_'+index}/></div>);
+    const {header, subheader, newsItems} = this.props.news;
+    const newsItemList = newsItems.map((item, index) => <div className="newsItem-div"><NewsItem newsItem={item} key={'newsItem_'+index}/></div>);
     return (
-      <div id="news-div">
+      <div id="news">
         <div>
-          <h2 className="text-uppercase" >{ news.header }</h2>
-          <p>{ news.subheader }</p>
+          <h2 className="text-uppercase" >{header}</h2>
+          <p>{subheader}</p>
         </div>
         <div className="container">
           <Slider {...settings} className="item-container">
-            { newsItemList }
+            {newsItemList}
           </Slider>
         </div>
       </div>
