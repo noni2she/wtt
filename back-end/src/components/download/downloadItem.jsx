@@ -10,8 +10,8 @@ export default class Download extends Component {
   const downloadItemLink = link.map((item, index) => {
     return(
       <li key={'downItemlink_'+index}>
-        <span className="">{Object.keys(item)[0]}:</span>
-        <a href={Object.values(item)[0]}>Download</a>
+        <span>{item.key}:</span>
+        <a href={item.url}>Download</a>
       </li>
     );
   });
