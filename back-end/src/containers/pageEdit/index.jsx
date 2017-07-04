@@ -1,40 +1,47 @@
 import React, { Component } from 'react';
 import NavBar from 'components/common/navBar.jsx';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router';
+
+// form set 
+import SeriesDetailFormSet from './formSet/seriesDetail';
 
 class PageEdit extends Component {
+  constructor() {
+    super();
+    this.targetFormSet = this.targetFormSet.bind(this);
+  }
+
+  // render specific form set belonging to each block 
+  targetFormSet() {
+    return(<SeriesDetailFormSet />);
+  }
+
   render() {
     return (
       <div className="container-with-nav-bar">
         <NavBar />
-
         <div id="page-edit" className="container">
-          <form>
-            <div className="checkbox">
-              <label>
-                <input type="checkbox" /> Displayed
-              </label>
-            </div>
-            <div className="form-group">
-              <label htmlFor="exampleInputEmail1">Email address</label>
-              <input type="email" className="form-control" id="exampleInputEmail1" placeholder="Email" />
-            </div>
-            <div className="form-group">
-              <label htmlFor="exampleInputPassword1">Password</label>
-              <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
-            </div>
-            <div className="form-group">
-              <label htmlFor="exampleInputFile">File input</label>
-              <input type="file" id="exampleInputFile" />
-              <p className="help-block">Example block-level help text here.</p>
-            </div>
-            
-            <button type="submit" className="btn btn-default">Submit</button>
-          </form>
+          <div className="page-edit-header">
+            <Link to="/" >
+              <button
+                className="btn btn-default"
+                type="button"
+              >
+                上一頁
+              </button>
+            </Link>
+          </div>
+          { this.targetFormSet() }
+          <div className="empty"></div>
         </div>
       </div>
     );
   }
 }
 
+PageEdit.contextTypes = {
+  router: PropTypes.object,
+};
 
 export default PageEdit;
