@@ -8,7 +8,7 @@ export default class Contact extends Component {
       phone, fax, email, location, mainImg
     } = this.props.about;
     return (
-      <div id="contact-div" className="container">
+      <div id="contact" className="container">
         <div>
           <h2 className="text-uppercase" >{header}</h2>
           <p>{subheader}</p>
