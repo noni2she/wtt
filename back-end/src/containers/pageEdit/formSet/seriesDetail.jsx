@@ -4,18 +4,18 @@ import {
   PROD_DETAIL_TALBE_CELL_PER_ROW,
   PROD_DETAIL_DESCRIP_MAX,
 } from 'constants/common';
+import { productsDetailDefaultState } from 'constants/initialState';
 
 class SeriesDetailFormSet extends Component {
   constructor() {
     super();
     this.onFormChange = this.onFormChange.bind(this);
     this.onClickHandler = this.onClickHandler.bind(this);
-    this.state = {
-      tableTitle: [],
-      description: [],
-    }
+    this.state = { ...productsDetailDefaultState };
   }
-  descriptionGenerator() {
+
+  // generate descriptions edit field for series. Max counts is 10.
+  descriptionGenerator(descriptions) {
     return (Array.apply(null, new Array(PROD_DETAIL_DESCRIP_MAX)).map((value, index) => {
       return(
         <div className="form-group" key={`page-edit-form-set-series-decription-${index}`}>
@@ -24,16 +24,19 @@ class SeriesDetailFormSet extends Component {
             className="form-control"
             rows="2"
             placeholder="Please enter the description about series." 
-            name={'description'}
+            name={'descriptions'}
             onChange={this.onFormChange}
             data-index={index}
+            value={descriptions[index]}
           >
           </textarea>
         </div>
       )
     }));
   }
-  tableTitleGenerator() {
+
+   // Generate two row. Each row with 3 input of table title and total got 6 titles fields.
+  tableTitleGenerator(tableTitles) {
 
     const rowCount = PROD_DETAIL_TALBE_COLUMN_TITLE_MAX / PROD_DETAIL_TALBE_CELL_PER_ROW;
     return(Array.apply(null, new Array(rowCount)).map((value, index) => {
@@ -41,26 +44,53 @@ class SeriesDetailFormSet extends Component {
         <div className="form-inline form-set-inline-wrapper" key={`page-edit-form-set-series-inline-${index}`}>
           <div className="form-group form-set-inline-column">
             <label>{`標題 ${index * PROD_DETAIL_TALBE_CELL_PER_ROW + 1}`}</label>
-            <input data-index={index * PROD_DETAIL_TALBE_CELL_PER_ROW} name={`tableTitle`} onChange={this.onFormChange} className="form-control" placeholder="Table title" />
+            <input
+              data-index={index * PROD_DETAIL_TALBE_CELL_PER_ROW}
+              type="text"
+              name={'tableTitles'}
+              value={tableTitles[index * PROD_DETAIL_TALBE_CELL_PER_ROW] ? tableTitles[index * PROD_DETAIL_TALBE_CELL_PER_ROW] : ''}
+              onChange={this.onFormChange}
+              className="form-control"
+              placeholder="Table title"
+            />
           </div>
           <div className="form-group form-set-inline-column">
             <label>{`標題 ${index * PROD_DETAIL_TALBE_CELL_PER_ROW + 2}`}</label>
-            <input data-index={index * PROD_DETAIL_TALBE_CELL_PER_ROW + 1} name={`tableTitle`} onChange={this.onFormChange} className="form-control" placeholder="Table title" />
+            <input
+              data-index={index * PROD_DETAIL_TALBE_CELL_PER_ROW + 1}
+              type="text"
+              name={'tableTitles'}
+              value={tableTitles[index * PROD_DETAIL_TALBE_CELL_PER_ROW +1] ? tableTitles[index * PROD_DETAIL_TALBE_CELL_PER_ROW +1] : ''}
+              onChange={this.onFormChange}
+              className="form-control"
+              placeholder="Table title"
+            />
           </div>
 
           <div className="form-group form-set-inline-column">
             <label>{`標題 ${index * PROD_DETAIL_TALBE_CELL_PER_ROW + 3}`}</label>
-            <input data-index={index * PROD_DETAIL_TALBE_CELL_PER_ROW + 2} name={`tableTitle`} onChange={this.onFormChange} className="form-control" placeholder="Table title" />
+            <input
+              data-index={index * PROD_DETAIL_TALBE_CELL_PER_ROW + 2}
+              type="text"
+              name={'tableTitles'}
+              value={tableTitles[index * PROD_DETAIL_TALBE_CELL_PER_ROW +2] ? tableTitles[index * PROD_DETAIL_TALBE_CELL_PER_ROW +2] : ''}
+              onChange={this.onFormChange}
+              className="form-control"
+              placeholder="Table title"
+            />
           </div>
         </div>
       );
     }));
   }
+
+  // handler for checkbox
   onClickHandler({target}) {
     this.setState({
       [target.name]: target.checked,
     });
   }
+
   onFormChange({ target }) {
     try {
       let value = target.value;
@@ -69,10 +99,11 @@ class SeriesDetailFormSet extends Component {
       if (target.hasAttribute('data-index')) {
         let index = parseInt(target.getAttribute('data-index'), 10);
 
-        if (target.name === 'tableTitle') {
+        // prevent from index of array out of range
+        if (target.name === 'tableTitles') {
           if (index < 0 || index > PROD_DETAIL_TALBE_COLUMN_TITLE_MAX ) throw Error;
         }
-        if (target.name === 'description') {
+        if (target.name === 'descriptions') {
           if (index < 0 || index > PROD_DETAIL_DESCRIP_MAX ) throw Error;
         }
 
@@ -87,7 +118,13 @@ class SeriesDetailFormSet extends Component {
       console.error(error);
     }
   }
+
   render() {
+    const {
+      displayed, name, mainImg,
+      subImg, descriptions, tableTitles
+    } = this.state;
+
     return (
       <div className="page-edit-form-set">
         <form className="page-edit-form-set-series">
@@ -98,6 +135,7 @@ class SeriesDetailFormSet extends Component {
                 type="checkbox" 
                 name="displayed" 
                 onClick={this.onClickHandler} 
+                checked={displayed}
               /> 
               Displayed
             </label>
@@ -110,6 +148,7 @@ class SeriesDetailFormSet extends Component {
               type="text"
               placeholder="Title"
               name="name"
+              value={name}
               onChange={this.onFormChange}
             />
           </div>
@@ -121,6 +160,7 @@ class SeriesDetailFormSet extends Component {
               type="text"
               placeholder="main-image url" 
               name="mainImg"
+              value={mainImg}
               onChange={this.onFormChange}
             />
           </div>
@@ -132,15 +172,16 @@ class SeriesDetailFormSet extends Component {
               type="text"
               placeholder="sub-image url" 
               name="subImg"
+              value={subImg}
               onChange={this.onFormChange}
             />
           </div>
 
           <h4 className="form-seperate-header">表格標題</h4>
-          {this.tableTitleGenerator()}
+          {this.tableTitleGenerator(tableTitles)}
           
           <h4 className="form-seperate-header">Feature</h4>
-          {this.descriptionGenerator()}
+          {this.descriptionGenerator(descriptions)}
 
           <div className="form-group clearfix form-set-footer">
             <button className="btn btn-primary pull-left form-set-footer-save">儲存</button>
