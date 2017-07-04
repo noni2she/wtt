@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import ImgItem from '../common/imgItem.jsx';
+import ImgItem from 'components/common/imgItem.jsx';
 
 export default class Download extends Component {
   render () {
   const {
     description, link, mainImg, title
   } = this.props.downloadItem;
-  const downloadItemDescription = description.map((item, index) => <span key={ 'downItemDescription_' + index }>{item}</span>);
+  const downloadItemDescription = description.map((item, index) => <span key={ `downItemDescription_${index}` }>{item}</span>);
   const downloadItemLink = link.map((item, index) => {
     return(
       <li key={'downItemlink_'+index}>

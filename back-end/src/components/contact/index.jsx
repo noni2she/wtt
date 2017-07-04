@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ImgItem from '../common/imgItem.jsx';
+import ImgItem from 'components/common/imgItem.jsx';
 
 export default class Contact extends Component {
   render () {

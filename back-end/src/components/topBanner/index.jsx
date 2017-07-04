@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick';
-import Banner from '../common/imgItem.jsx';
+import Banner from 'components/common/imgItem.jsx';
 
 const settings = {
   dots: true,
