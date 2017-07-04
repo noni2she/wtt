@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 
 export default class About extends Component {
   render () {
-    const about = this.props.about;
+    const {header, description} = this.props.about;
     return (
-      <div id="about-div">
+      <div id="about">
         <div className="about-container">
           <div className="about-title">
-            <h1 className="text-uppercase">{about.header}</h1>
+            <h1 className="text-uppercase">{header}</h1>
           </div>
           <div className="about-content">
-            <p>{about.description}</p>
+            <p>{description}</p>
           </div>
         </div>
       </div>
