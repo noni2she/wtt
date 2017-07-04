@@ -14,7 +14,7 @@ import rootSaga from './sagas/';
 import registerServiceWorker from './registerServiceWorker';
 
 // style part
-import './assets/stylesheet/index.css';
+import 'stylesheet/index.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/css/bootstrap-theme.css';
 

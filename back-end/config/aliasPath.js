@@ -18,5 +18,5 @@ module.exports = {
   sagas: path.join(SRC, 'sagas'),
   utils: path.join(SRC, 'utils'),
   img: path.join(SRC, 'assets', 'img'),
-  stylesheet: path.join(SRC, 'stylesheet'),
+  stylesheet: path.join(SRC, 'assets','stylesheet'),
 };
