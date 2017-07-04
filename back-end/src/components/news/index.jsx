@@ -15,7 +15,7 @@ const settings = {
 export default class News extends Component {
   render () {
     const {header, subheader, newsItems} = this.props.news;
-    const newsItemList = newsItems.map((item, index) => <div className="newsItem-div"><NewsItem newsItem={item} key={'newsItem_'+index}/></div>);
+    const newsItemList = newsItems.map((item, index) => <div className="newsItem-div" key={`newsItem_+${index}`}><NewsItem newsItem={item}/></div>);
     return (
       <div id="news">
         <div>

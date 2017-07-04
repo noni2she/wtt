@@ -14,7 +14,7 @@ const settings = {
 
 export default class TopBanner extends Component {
   render () {
-    const BannerList = this.props.imgItems.map((item, index) => <div><Banner imgItem={item} key={'banner_'+index}/></div>);
+    const BannerList = this.props.imgItems.map((item, index) => <div key={`topBanner_+${index}`}><Banner imgItem={item}/></div>);
     return (
       <div className="top-banner">
         <Slider {...settings}>
