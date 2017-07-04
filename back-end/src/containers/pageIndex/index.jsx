@@ -4,7 +4,7 @@ import logo from 'img/logo.svg';
 
 // Component
 import NavBar from 'components/common/navBar.jsx';
-import TopBanner from 'components/top_banner/index.jsx';
+import TopBanner from 'components/topBanner';
 import Product from '../../components/product';
 import News from '../../components/news';
 import Download from '../../components/download';
