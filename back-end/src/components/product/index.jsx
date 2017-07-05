@@ -11,8 +11,8 @@ export default class Product extends Component {
       );
     });
     return (
-      <div id="product">
-        <div>
+      <div id="product" className="col-lg-12 col-md-12 col-sm-12">
+        <div className="col-lg-12 col-md-12 col-sm-12">
           <h2 className="text-uppercase">{header}</h2>
           <p>{subheader}</p>
         </div>
