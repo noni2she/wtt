@@ -3,19 +3,28 @@ import logo from 'img/logo.svg';
 
 // Component
 import NavBar from 'components/common/navBar.jsx';
+import TopBanner from 'components/topBanner';
+import Product from 'components/product';
+import News from 'components/news';
+import Download from 'components/download';
+import About from 'components/about';
+import Contact from 'components/contact';
+
+// fake data
+import { contentObject } from '../../utils/fakeData';
 
 class PageIndex extends Component {
   render() {
+    const {topBanner, news, download, about, contact} = contentObject;
     return (
       <div className="App container-with-nav-bar" >
         <NavBar />
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <TopBanner imgItems={topBanner.imgItems} />
+        <Product/>
+        <News news={news} />
+        <Download download={download} />
+        <About about={about} />
+        <Contact contact={contact}/>
       </div>
     );
   }

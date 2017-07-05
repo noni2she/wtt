@@ -1,0 +1,26 @@
+#news {
+  .container {
+    padding-left: 30px;
+    padding-right: 30px;
+    .item-container {
+      .newsItem-div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .item {
+          height: 393px;
+          width: 315px;
+          background-image: url('https://firebasestorage.googleapis.com/v0/b/techwell-74c86.appspot.com/o/news%2Fnews_item_BG.png?alt=media&token=4b97be14-cbcd-4949-8138-6148889177ba');
+          background-repeat: no-repeat;
+          
+          img {
+            margin:auto;
+            margin-top:10px;
+            width:292px;
+            height:210px;
+          }
+        }
+      }
+    }
+  }
+}
