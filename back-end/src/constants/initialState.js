@@ -26,6 +26,6 @@ export const productsDetailDefaultState = {
   name: '',
   mainImg: '',
   subImg: '',
-  tableTitles: [],
-  descriptions: [],
+  content: [],
+  description: [],
 }
