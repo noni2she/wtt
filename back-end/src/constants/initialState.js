@@ -21,11 +21,3 @@ export const productsDetailInitialState = productDetails;
 /*
  * The following are the default state about each block
  */
-export const productsDetailDefaultState = {
-  displayed: false,
-  name: '',
-  mainImg: '',
-  subImg: '',
-  content: [],
-  description: [],
-}

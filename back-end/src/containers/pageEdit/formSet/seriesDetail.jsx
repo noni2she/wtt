@@ -4,8 +4,8 @@ import {
   PROD_DETAIL_TALBE_COLUMN_TITLE_MAX,
   PROD_DETAIL_TALBE_CELL_PER_ROW,
   PROD_DETAIL_DESCRIP_MAX,
+  PRODUCTS_DESCRIPT_COUNT,
 } from 'constants/common';
-import { productsDetailDefaultState } from 'constants/initialState';
 import { onEditFormSubmit } from 'actions/editForm';
 import { FORM_SET_SERIES_DETAIL } from 'constants/common';
 
@@ -20,7 +20,21 @@ class SeriesDetailFormSet extends Component {
       // remove uneditable field 'uuid'
       return value.key !== 'uuid';
     });
-    this.state = { ...productsDetailDefaultState, ...props.seriesItem, content };
+    // if the length of description is less than 10, fill it up to 10.
+    let insufficientCount = PRODUCTS_DESCRIPT_COUNT - Object.keys(props.seriesItem.description).length;
+    let description = [...props.seriesItem.description]
+    for (let index =0 ; index < insufficientCount ; index++) {
+      description.push({
+        title:'',
+        content: '',
+      });
+    }
+
+    this.state = {
+      ...props.seriesItem,
+      content,
+      description,
+    };
   }
 
   // generate description edit field for series. Max counts is 10.
