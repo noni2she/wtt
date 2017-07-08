@@ -9,6 +9,7 @@ import News from 'components/news';
 import Download from 'components/download';
 import About from 'components/about';
 import Contact from 'components/contact';
+import Footer from 'components/footer';
 
 // fake data
 import { contentObject } from '../../utils/fakeData';
@@ -25,6 +26,7 @@ class PageIndex extends Component {
         <Download download={download} />
         <About about={about} />
         <Contact contact={contact}/>
+        <Footer />
       </div>
     );
   }
