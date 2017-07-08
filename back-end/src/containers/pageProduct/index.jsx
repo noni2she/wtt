@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
+import { NAV_BAR_PRODUCTS } from 'constants/common';
 
 // component  
 import NavBar from 'components/common/navBar.jsx';
@@ -76,23 +78,27 @@ class PageProduct extends Component {
       const { productsDetail } = this.props;
       if (!this.state.contentObject || !productsDetail) return null;
 
-      const { categoryItem, seriesItem } = this.state.contentObject;
+      const { seriesItem } = this.state.contentObject;
 
       /* 
        * content: table schema about series controlled by language.
        * products: table content about given series
        */ 
       const { content } = seriesItem;
-      const products = productsDetail[categoryItem.key][seriesItem.key];
-
+      const products = productsDetail[categoryKey][seriesKey];
       return (
         <div className="container-with-nav-bar" >
-          <NavBar />
+          <NavBar active={ NAV_BAR_PRODUCTS } />
 
           <div id="page-product" className="container">
-            <ProductText
-              seriesItem={seriesItem}
-            />
+            <div>
+              <Link to={`/edit/product/${categoryKey}/${seriesKey}`}>
+                <ProductText
+                  seriesItem={seriesItem}
+                />
+              </Link>
+            </div>
+
             <ProductTable
               content={content}
               products={products}

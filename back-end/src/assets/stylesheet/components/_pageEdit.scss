@@ -1,0 +1,52 @@
+/* Customize container */
+@media (min-width: 868px) {
+  #page-edit {
+    max-width: 830px;
+  }
+}
+#page-edit {
+
+  label {
+    color: $grey-600;
+  }
+  .page-edit-form-set {
+    margin-top: 15px;
+    padding: 40px 30px;
+    background-color: $form-background;
+
+  }
+  .page-edit-header {
+    padding-bottom: 15px;
+    border-bottom: 1px solid $grey-300;
+  }
+
+  .form-seperate-header {
+    padding-top: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid $grey-300;
+  }
+
+  .form-set-inline-wrapper {
+    display: flex;
+    margin-bottom: 5px;
+  }
+
+  .form-set-inline-column{
+    flex: 1;
+
+    label {
+      padding-right: 10px;
+    }
+  }
+
+  .form-set-footer {
+    margin-top: 30px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    border-top: 1px solid $grey-300;
+
+    .form-set-footer-save {
+      width: 200px;
+    }
+  }
+}

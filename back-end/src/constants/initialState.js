@@ -1,6 +1,9 @@
 import * as Constants from './common';
 import { contentObject, productDetails } from 'utils/fakeData';
 
+/*
+ *  The following are the initial state for reducer of redux
+ */
 export const loginStatusInitialState = {
   loginComfirm: undefined,
 	loginMessage: undefined,
@@ -14,3 +17,7 @@ export const twInitialState = contentObject;
 
 // pass fake data for productDetails
 export const productsDetailInitialState = productDetails;
+
+/*
+ * The following are the default state about each block
+ */

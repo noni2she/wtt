@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+
 import logo from 'img/logo.svg';
+
+import { NAV_BAR_INDEX } from 'constants/common';
 
 // Component
 import NavBar from 'components/common/navBar.jsx';
@@ -19,13 +22,13 @@ class PageIndex extends Component {
     const {topBanner, products, news, download, about, contact} = contentObject;
     return (
       <div className="App container-with-nav-bar" >
-        <NavBar />
+        <NavBar active={ NAV_BAR_INDEX } />
         <TopBanner imgItems={topBanner.imgItems} />
         <Product products={products} />
         <News news={news} />
         <Download download={download} />
         <About about={about} />
-        <Contact contact={contact}/>
+        <Contact contact={contact} />
         <Footer />
       </div>
     );

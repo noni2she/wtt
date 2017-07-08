@@ -5,7 +5,13 @@ faker.locale = "zh_TW";
 
 /* Common Function */
 const generateArray = (item, times = 5) => {
-  return Array.apply(null, new Array(times)).map(() => item);
+  if (typeof item === 'object') {
+    return Array.apply(null, new Array(times)).map(() => {
+      return Object.assign({}, item);
+    });
+  } else {
+    return Array.apply(null, new Array(times)).map(() => item);
+  }
 }
 
 /* fake data generator */
@@ -83,7 +89,7 @@ const seriesItem = {
   shortName: 'SHA',
   mainImg: imgItem,
   subImg: imgItem,
-  description: generateArray(seriesDescriptionItem, 10),
+  description: generateArray(seriesDescriptionItem),
   content: [{
     key: 'uuid',
     displayedName: 'id',
