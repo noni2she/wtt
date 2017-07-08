@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-
-import logo from 'img/logo.svg';
-
 import { NAV_BAR_INDEX } from 'constants/common';
 
 // Component
-import NavBar from 'components/common/navBar.jsx';
+import NavBar from 'containers/common/navBar.jsx';
 import TopBanner from 'components/topBanner';
 import Product from 'components/product';
 import News from 'components/news';

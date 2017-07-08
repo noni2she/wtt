@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 import { NAV_BAR_PRODUCTS } from 'constants/common';
 
 // component  
-import NavBar from 'components/common/navBar.jsx';
+import NavBar from 'containers/common/navBar.jsx';
 import ProductText from './productText.jsx';
 import ProductTable from './productTable.jsx';
 import Footer from 'components/footer';

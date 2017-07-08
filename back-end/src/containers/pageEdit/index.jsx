@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import NavBar from 'components/common/navBar.jsx';
+import NavBar from 'containers/common/navBar.jsx';
 import Footer from 'components/footer';
 import PropTypes from 'prop-types';
 
