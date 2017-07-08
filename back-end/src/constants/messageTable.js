@@ -20,3 +20,6 @@ export const tdStyle = {
   whiteSpace: 'normal',
 };
 
+export const selectRow = {
+  mode: 'checkbox'
+};

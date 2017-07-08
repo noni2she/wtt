@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import 'react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
-import { options, tdStyle, thStyle } from 'constants/messageTable'
+import { options, tdStyle, thStyle, selectRow} from 'constants/messageTable'
 
 class MessageTable extends Component {
   render() {
@@ -14,6 +14,8 @@ class MessageTable extends Component {
           hover={true}
           options={ options }
           pagination
+          selectRow={ selectRow }
+          deleteRow
         >
           <TableHeaderColumn dataField="id" isKey={true} dataAlign="center" columnClassName="col-lg-2" thStyle={thStyle}>ID</TableHeaderColumn>
           <TableHeaderColumn dataField="sender" dataAlign="center" columnClassName="col-lg-2" thStyle={thStyle}>Name</TableHeaderColumn>
