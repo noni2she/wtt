@@ -15,7 +15,7 @@ import Contact from 'components/contact';
 import Footer from 'components/footer';
 
 // fake data
-import { contentObject } from '../../utils/fakeData';
+import { contentObject } from 'utils/fakeData';
 
 class PageIndex extends Component {
   render() {

@@ -193,5 +193,21 @@ export const productDetails = {
 
 export const messageObject = {
   header: fakeHeader,
-  messageItems: generateArray(messageItem),
-};
+  messageItems: (
+    // create 1000 different data
+    (() => {
+      let arr =[];
+      for(let i = 0; i < 1000; i++) {
+        arr.push({
+          displayed: true,
+          id: uuid(),
+          timestamps: new Date(),
+          sender: faker.internet.userName(),
+          receiverEmail: faker.internet.email(),
+          content: faker.lorem.paragraph()
+        })
+      }
+      return arr;
+    })()
+  )
+}
