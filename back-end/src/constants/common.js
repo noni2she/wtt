@@ -16,3 +16,14 @@ export const NAV_BAR_PRODUCTS = 'NAV_BAR_PRODUCTS';
 export const PROD_DETAIL_TALBE_COLUMN_TITLE_MAX = 6;
 export const PROD_DETAIL_TALBE_CELL_PER_ROW = 3;
 export const PROD_DETAIL_DESCRIP_MAX = 10;
+
+// attribute name
+export const ATTRI_NAME_TOP_BANNER = 'topBanner';
+export const ATTRI_NAME_NEWS = 'news';
+export const ATTRI_NAME_ABOUT = 'about';
+export const ATTRI_NAME_CONTACT = 'contact';
+export const ATTRI_NAME_DOWNLOAD = 'download';
+export const ATTRI_NAME_PRODUCTS = 'products';
+
+// formSet
+export const FORM_SET_SERIES_DETAIL = 'FORM_SET_SERIES_DETAIL';

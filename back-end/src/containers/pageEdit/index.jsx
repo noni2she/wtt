@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import NavBar from 'components/common/navBar.jsx';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router';
@@ -15,10 +16,35 @@ class PageEdit extends Component {
 
   // render specific form set belonging to each block 
   targetFormSet() {
+    // hot code for seriesDetail and passing by fake data
+    const categoryKey = 'wheel-spacers';
+    const seriesKey = 'hs';
+
+    // get the index of categoryItems and seriesItems
+    let categoryItemsIndex, seriesItemsIndex;
+    for (let index = 0 ; index < contentObject.products.categoryItems.length ; index++) {
+      if (contentObject.products.categoryItems[index].key === categoryKey) {
+        categoryItemsIndex = index;
+        break;
+      }
+    }
+    for (let index = 0 ; index < contentObject.products.categoryItems[categoryItemsIndex].seriesItems.length ; index++) {
+      if (contentObject.products.categoryItems[categoryItemsIndex].seriesItems[index].key === seriesKey) {
+        seriesItemsIndex = index;
+        break;
+      }
+    }
 
     // hot code for seriesDetail and passing by fake data
-    const seriesItem = contentObject.products.categoryItems[0].seriesItems[0];
-    return(<SeriesDetailFormSet seriesItem={seriesItem} />);
+    const seriesItem = contentObject.products.categoryItems[categoryItemsIndex].seriesItems[seriesItemsIndex];
+
+    return(
+      <SeriesDetailFormSet
+        locales={this.props.locales}
+        seriesItem={seriesItem}
+        categoryItemsIndex={categoryItemsIndex}
+        seriesItemsIndex={seriesItemsIndex}
+      />);
   }
 
   render() {
@@ -48,4 +74,10 @@ PageEdit.contextTypes = {
   router: PropTypes.object,
 };
 
-export default PageEdit;
+const mapStateToProps = ({ locales }) => {
+  return {
+    locales,
+  }
+}
+
+export default connect(mapStateToProps)(PageEdit);

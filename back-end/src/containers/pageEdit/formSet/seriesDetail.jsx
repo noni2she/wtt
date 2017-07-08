@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import {
   PROD_DETAIL_TALBE_COLUMN_TITLE_MAX,
   PROD_DETAIL_TALBE_CELL_PER_ROW,
   PROD_DETAIL_DESCRIP_MAX,
 } from 'constants/common';
 import { productsDetailDefaultState } from 'constants/initialState';
+import { onEditFormSubmit } from 'actions/editForm';
+import { FORM_SET_SERIES_DETAIL } from 'constants/common';
 
 class SeriesDetailFormSet extends Component {
   constructor(props) {
     super();
     this.onFormChange = this.onFormChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
 
     // data of product detail
     const content = props.seriesItem.content.filter((value, index) => {
@@ -105,7 +109,7 @@ class SeriesDetailFormSet extends Component {
 
   onFormChange({ target }) {
     try {
-      const { name, value } = target.name;
+      const { name, value } = target;
 
       let array, index, imageItem;
       let newValue = value;
@@ -148,10 +152,34 @@ class SeriesDetailFormSet extends Component {
     }
   }
 
+  onSubmit(event) {
+    event.preventDefault();
+    const {
+      locales, onEditFormSubmit, categoryItemsIndex, seriesItemsIndex,
+      seriesItem,
+    } = this.props;
+
+    // content should contain original uuid object
+    let contentWithUUID = [...this.state.content];
+    for (let index =0 ; index < seriesItem.content.length; index++) {
+      if (seriesItem.content[index].key === 'uuid') {
+        contentWithUUID.push(seriesItem.content[index]);
+        break;
+      }
+    }
+
+    onEditFormSubmit(locales, FORM_SET_SERIES_DETAIL, {
+      ...this.state, categoryItemsIndex, seriesItemsIndex, content: contentWithUUID
+    });
+
+    // navigate to index page
+    // this.context.router.push('/');
+  }
+
   render() {
     const {
       displayed, name, mainImg,
-      subImg, description, content
+      subImg, description, content,
     } = this.state;
     return (
       <div className="page-edit-form-set">
@@ -212,7 +240,12 @@ class SeriesDetailFormSet extends Component {
           {this.descriptionGenerator(description)}
 
           <div className="form-group clearfix form-set-footer">
-            <button className="btn btn-primary pull-left form-set-footer-save">儲存</button>
+            <button
+              className="btn btn-primary pull-left form-set-footer-save"
+              onClick={this.onSubmit}
+            >
+              儲存
+            </button>
             <button className="btn btn-danger pull-right">刪除</button>
           </div>
         </form>
@@ -220,4 +253,4 @@ class SeriesDetailFormSet extends Component {
     );
   }
 }
-export default SeriesDetailFormSet;
+export default connect(null, { onEditFormSubmit })(SeriesDetailFormSet);
