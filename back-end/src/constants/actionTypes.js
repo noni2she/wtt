@@ -1,12 +1,24 @@
+/*
+ * common part
+ */
+export const USELESS_ACTION = 'USELESS_ACTION';
+
+/*
+ * costomized part
+ */
 // loginStatus
 export const LOGIN_ON_AUTH = 'LOGIN_ON_AUTH';
 export const LOGIN_AUTH_SUCCESS = 'LOGIN_AUTH_SUCCESS';
 export const LOGIN_AUTH_FAILED = 'LOGIN_AUTH_FAILED';
 
 // productTable
-export const PROD_DETAIL_ON_CELL_EDIT = 'PROD_DETAIL_ON_CELL_EDIT'
-export const PROD_DETAIL_ON_DELETE_ROW = 'PROD_DETAIL_ON_DELETE_ROW'
-export const PROD_DETAIL_ON_ADD_ROW = 'PROD_DETAIL_ON_ADD_ROW'
+export const PROD_DETAIL_ON_CELL_EDIT = 'PROD_DETAIL_ON_CELL_EDIT';
+export const PROD_DETAIL_ON_DELETE_ROW = 'PROD_DETAIL_ON_DELETE_ROW';
+export const PROD_DETAIL_ON_ADD_ROW = 'PROD_DETAIL_ON_ADD_ROW';
+
+export const ON_LOCALE_SWITCH_TO_TW = 'ON_LOCALE_SWITCH_TO_TW';
+export const ON_LOCALE_SWITCH_TO_JP = 'ON_LOCALE_SWITCH_TO_JP';
+export const ON_LOCALE_SWITCH_TO_EN = 'ON_LOCALE_SWITCH_TO_EN';
 
 /* The following are actions types for form edit.
  * it will generate action type combined with behavior, locales and Formset.
