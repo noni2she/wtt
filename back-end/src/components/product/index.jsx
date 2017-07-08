@@ -1,32 +1,23 @@
-import React, {Component} from 'react';
-import ProductList from './product.jsx';
-
-const fakedata = {
-  title:'- PRODUCT -',
-  subTitle:'this is product session, provide everything you want',
-  product:{
-    title:'-WHEEL SPACERS-',
-    url:'',
-    alt:'',
-    series:[
-      '-Hs Series',
-      '-BHA Series',
-      '-WS Series',
-      '-SWA Series',
-      '-SHS Series'
-    ]
-  }
-};
+import React, { Component } from 'react';
+import ProductItem from './product.jsx';
+import { PRODUCT_STYLE_CYCLE } from 'constants/common'
 
 export default class Product extends Component {
   render () {
+    const {header, subheader, categoryItems} = this.props.products;
+    const ProductList = categoryItems.map((item, index) => {
+    const type = index % PRODUCT_STYLE_CYCLE + 1;
+      return(
+        <ProductItem categoryItem={item} type={type} key={`categoryItem_${index}`} />
+      );
+    });
     return (
-      <div id="product">
+      <div id="product" className="container-fluid">
         <div>
-          <h2>{fakedata.title}</h2>
-          <p>{fakedata.subTitle}</p>
+          <h2 className="text-uppercase">{header}</h2>
+          <p>{subheader}</p>
         </div>
-        <ProductList product={fakedata.product} />
+        {ProductList}
       </div>
     );
   }  

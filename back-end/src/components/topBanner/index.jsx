@@ -22,5 +22,5 @@ export default class TopBanner extends Component {
         </Slider>
       </div>
     );
-  }  
+  }
 }

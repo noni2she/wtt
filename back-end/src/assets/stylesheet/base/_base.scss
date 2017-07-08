@@ -31,3 +31,9 @@ $wtt-red: red;
 .font-danger {
   color: $brand-danger;
 }
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

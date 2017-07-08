@@ -80,6 +80,7 @@ const seriesItem = {
   id: uuid(),
   key: 'hs',
   name: 'ASIA TYPE-SHA Series',
+  shortName: 'SHA',
   mainImg: imgItem,
   subImg: imgItem,
   description: generateArray(seriesDescriptionItem, 10),
