@@ -13,7 +13,9 @@ export const loginStatusInitialState = {
 export const localesInitialState = Constants.LOCALE_TW;
 
 // pass fake data for twInitialState
-export const twInitialState = contentObject;
+export const twInitialState = Object.assign({}, contentObject);
+export const jpInitialState = Object.assign({}, contentObject);
+export const enInitialState = Object.assign({}, contentObject);
 
 // pass fake data for productDetails
 export const productsDetailInitialState = productDetails;
