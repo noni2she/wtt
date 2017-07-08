@@ -193,5 +193,5 @@ export const productDetails = {
 
 export const messageObject = {
   header: fakeHeader,
-  messageItems: generateArray(messageItem),
+  messageItems: generateArray(messageItem, 1000)
 };
