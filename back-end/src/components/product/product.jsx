@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import ImgItem from 'components/common/imgItem.jsx';
+import { SERIES_ITEM_COUNT_PER_ROW } from 'constants/common';
 
 const ProductItem = (props) => {
   const {name, seriesItems, mainImg} = props.categoryItem;
@@ -8,7 +9,7 @@ const ProductItem = (props) => {
   const className = `product-info${type}`;
   const seriesList = (() => {
     let seriesList1 = [];
-    for(let i = 0; i < Math.min(seriesItems.length, 6); i++) {
+    for(let i = 0; i < Math.min(seriesItems.length, SERIES_ITEM_COUNT_PER_ROW); i++) {
       seriesList1.push(
         <div className="col-xl-1 col-lg-1 col-md-1 col-sm-1" key={`productItem_${i}`}>
           <Link to={'/'} > 
@@ -17,7 +18,7 @@ const ProductItem = (props) => {
         </div>
       );
     }
-    if(seriesItems.length <= 6) { 
+    if(seriesItems.length <= SERIES_ITEM_COUNT_PER_ROW) { 
       return (
         <div>
           <div className="series row flex-center">
@@ -27,7 +28,7 @@ const ProductItem = (props) => {
       );
     }
     let seriesList2 = [];
-    for(let i = 6; i < seriesItems.length; i++) {
+    for(let i = SERIES_ITEM_COUNT_PER_ROW; i < seriesItems.length; i++) {
       seriesList2.push(
         <div className="col-xl-1 col-lg-1 col-md-1 col-sm-1" key={`productItem_${i}`}>
           <Link to={'/'}>
