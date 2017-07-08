@@ -1,19 +1,25 @@
 import React, { Component } from 'react';
 import NavBar from 'components/common/navBar.jsx';
+import MessageTable from './messageTable.jsx';
+
 import { NAV_BAR_MESSAGES } from 'constants/common';
+import { messageObject } from 'utils/fakeData';
 
 class PageMessage extends Component {
 
+  // when error happened or page not found, redirect to PageIndex
   pageNotFound() {
-    // when error happened or page not found, redirect to PageIndex
     this.context.router.replace('/');
   }
 
   render() {
     try {
+      const {header, messageItems} = messageObject;
       return (
         <div className="container-with-nav-bar" >
           <NavBar active={ NAV_BAR_MESSAGES } />
+          <h2>{ header }</h2>
+          <MessageTable messageItems={ messageItems }/>
         </div>
       );
     } catch (error) {
