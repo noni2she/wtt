@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import 'react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
-import { options } from 'constants/messageTable'
+import { options, tdStyle, thStyle } from 'constants/messageTable'
 
 class MessageTable extends Component {
   render() {
@@ -15,9 +15,10 @@ class MessageTable extends Component {
           options={ options }
           pagination
         >
-            <TableHeaderColumn dataField="sender" isKey={true} dataAlign="center">Name</TableHeaderColumn>
-            <TableHeaderColumn dataField="receiverEmail" dataAlign="center">Email</TableHeaderColumn>
-            <TableHeaderColumn dataField="content" dataAlign="center" height="auto">Message</TableHeaderColumn>
+          <TableHeaderColumn dataField="id" isKey={true} dataAlign="center" columnClassName="col-lg-2" thStyle={thStyle}>ID</TableHeaderColumn>
+          <TableHeaderColumn dataField="sender" dataAlign="center" columnClassName="col-lg-2" thStyle={thStyle}>Name</TableHeaderColumn>
+          <TableHeaderColumn dataField="receiverEmail" dataAlign="center" columnClassName="col-lg-2" thStyle={thStyle}>Email</TableHeaderColumn>
+          <TableHeaderColumn dataField="content" dataAlign="center" tdStyle={ tdStyle } columnClassName="col-lg-6" thStyle={thStyle}>Message</TableHeaderColumn>
         </BootstrapTable>
       </div>
     );

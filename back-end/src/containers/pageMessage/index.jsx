@@ -18,8 +18,12 @@ class PageMessage extends Component {
       return (
         <div className="container-with-nav-bar" >
           <NavBar active={ NAV_BAR_MESSAGES } />
-          <h2>{ header }</h2>
-          <MessageTable messageItems={ messageItems }/>
+          <div className="container-fluid">
+            <div className="message-header">
+              <h2>{ header }</h2>
+            </div>
+            <MessageTable messageItems={ messageItems }/>
+          </div>
         </div>
       );
     } catch (error) {

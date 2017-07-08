@@ -7,3 +7,16 @@ export  const options = {
   lastPage: 'Last', // Last page button text
   hideSizePerPage: true
 };
+
+// style of header column
+export const thStyle = {
+  backgroundColor: '#444',
+  color: '#eee',
+  textAlign: 'center',
+};
+
+// style of cell 
+export const tdStyle = {
+  whiteSpace: 'normal',
+};
+
