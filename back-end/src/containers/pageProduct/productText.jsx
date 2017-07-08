@@ -19,11 +19,14 @@ export default (props) => {
           <h1 className="prod-descript-name">{name}</h1>
           <h2 className="prod-descript-feature">{'Feature'}</h2>
           { description.map((item, index) => {
-              return (
+              // it won't render description without title
+              return item.title ? (
                 <div className="prod-descript-text" key={`products-description-${index}`}>
                   <span className="prod-descript-title">{`${item.title} - `}</span>
                   <span className="prod-descript-content">{item.content}</span>
                 </div>
+              ) : (
+                null
               )
             })
           }
