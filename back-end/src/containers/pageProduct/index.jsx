@@ -8,6 +8,7 @@ import { NAV_BAR_PRODUCTS } from 'constants/common';
 import NavBar from 'components/common/navBar.jsx';
 import ProductText from './productText.jsx';
 import ProductTable from './productTable.jsx';
+import Footer from 'components/footer';
 
 class PageProduct extends Component {
   constructor(props) {
@@ -105,8 +106,8 @@ class PageProduct extends Component {
               categoryKey={categoryKey}
               seriesKey={seriesKey}
             />
-            <div className="empty"></div>
           </div>
+          <Footer />
         </div>
       );
     } catch (error) {

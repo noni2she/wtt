@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import NavBar from 'components/common/navBar.jsx';
+import Footer from 'components/footer';
 import PropTypes from 'prop-types';
 
 // form set 
@@ -91,8 +92,8 @@ class PageEdit extends Component {
           ) : (
             this.goPrevious()
           )}
-          <div className="empty"></div>
         </div>
+        <Footer />
       </div>
     );
   }
