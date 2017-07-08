@@ -5,14 +5,14 @@ export default class Product extends Component {
   render () {
     const {header, subheader, categoryItems} = this.props.products;
     const ProductList = categoryItems.map((item, index) => {
-      let className = `product-item${index%2 + 1}`;
+    const type = index%2 + 1;
       return(
-        <ProductItem categoryItem={item} key={`categoryItem_${index}`} className={className} />
+        <ProductItem categoryItem={item} type={type} key={`categoryItem_${index}`} />
       );
     });
     return (
-      <div id="product" className="col-lg-12 col-md-12 col-sm-12">
-        <div className="col-lg-12 col-md-12 col-sm-12">
+      <div id="product" className="container-fluid">
+        <div>
           <h2 className="text-uppercase">{header}</h2>
           <p>{subheader}</p>
         </div>
