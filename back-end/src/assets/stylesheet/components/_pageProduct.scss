@@ -6,7 +6,11 @@
   }
 }
 
-
+#page-product {
+  a {
+    color: inherit;
+  }
+}
 
 .products-contents {
   /* Everything but the jumbotron gets side spacing for mobile first views */
