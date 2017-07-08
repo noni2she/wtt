@@ -16,7 +16,7 @@ export default class Product extends Component {
           <h2 className="text-uppercase">{header}</h2>
           <p>{subheader}</p>
         </div>
-        { ProductList }
+        {ProductList}
       </div>
     );
   }  
