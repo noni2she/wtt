@@ -195,7 +195,7 @@ export const messageObject = {
   header: fakeHeader,
   messageItems: (
     // create 1000 different data
-    (()=>{
+    (() => {
       let arr =[];
       for(let i = 0; i < 1000; i++) {
         arr.push({
