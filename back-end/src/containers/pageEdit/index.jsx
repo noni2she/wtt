@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import NavBar from 'components/common/navBar.jsx';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router';
-import { contentObject } from 'utils/fakeData';
 
 // form set 
 import SeriesDetailFormSet from './formSet/seriesDetail';
@@ -12,57 +10,87 @@ class PageEdit extends Component {
   constructor() {
     super();
     this.targetFormSet = this.targetFormSet.bind(this);
+    this.goPrevious = this.goPrevious.bind(this);
   }
 
-  // render specific form set belonging to each block 
+  //SeriesDetailFormSet
+  renderSeriesDetailFormSet(categoryKey, seriesKey) {
+    try {
+      const { locales } = this.props;
+      const { products } = this.props[locales];
+
+      // get the index of categoryItems and seriesItems
+      let categoryItemsIndex, seriesItemsIndex;
+      for (let index = 0 ; index < products.categoryItems.length ; index++) {
+        if (products.categoryItems[index].key === categoryKey) {
+          categoryItemsIndex = index;
+          break;
+        }
+      }
+      for (let index = 0 ; index < products.categoryItems[categoryItemsIndex].seriesItems.length ; index++) {
+        if (products.categoryItems[categoryItemsIndex].seriesItems[index].key === seriesKey) {
+          seriesItemsIndex = index;
+          break;
+        }
+      }
+
+      const seriesItem = products.categoryItems[categoryItemsIndex].seriesItems[seriesItemsIndex];
+
+      return(
+        <SeriesDetailFormSet
+          locales={locales}
+          seriesItem={seriesItem}
+          categoryItemsIndex={categoryItemsIndex}
+          seriesItemsIndex={seriesItemsIndex}
+        />
+      );
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
+  }
+
+  /* render specific form set belonging to each block
+   * return false if error was found.
+   */
   targetFormSet() {
-    // hot code for seriesDetail and passing by fake data
-    const categoryKey = 'wheel-spacers';
-    const seriesKey = 'hs';
+    const { categoryKey, seriesKey, blockType } = this.context.router.params;
 
-    // get the index of categoryItems and seriesItems
-    let categoryItemsIndex, seriesItemsIndex;
-    for (let index = 0 ; index < contentObject.products.categoryItems.length ; index++) {
-      if (contentObject.products.categoryItems[index].key === categoryKey) {
-        categoryItemsIndex = index;
-        break;
-      }
+    if (categoryKey && seriesKey) {
+      // seriesDetail edit page
+      return this.renderSeriesDetailFormSet(categoryKey, seriesKey);
+
+    } else if (blockType) {
+      // block edit in index page
+      return false;
+    } else {
+      // nothing or eror params were found
+      return false;
     }
-    for (let index = 0 ; index < contentObject.products.categoryItems[categoryItemsIndex].seriesItems.length ; index++) {
-      if (contentObject.products.categoryItems[categoryItemsIndex].seriesItems[index].key === seriesKey) {
-        seriesItemsIndex = index;
-        break;
-      }
-    }
-
-    // hot code for seriesDetail and passing by fake data
-    const seriesItem = contentObject.products.categoryItems[categoryItemsIndex].seriesItems[seriesItemsIndex];
-
-    return(
-      <SeriesDetailFormSet
-        locales={this.props.locales}
-        seriesItem={seriesItem}
-        categoryItemsIndex={categoryItemsIndex}
-        seriesItemsIndex={seriesItemsIndex}
-      />);
   }
-
+  goPrevious(event) {
+    if (event) event.preventDefault();
+    this.context.router.goBack();
+  }
   render() {
     return (
       <div className="container-with-nav-bar">
         <NavBar />
         <div id="page-edit" className="container">
           <div className="page-edit-header">
-            <Link to="/" >
-              <button
-                className="btn btn-default"
-                type="button"
-              >
-                上一頁
-              </button>
-            </Link>
+            <button
+              className="btn btn-default"
+              type="button"
+              onClick={this.goPrevious}
+            >
+              上一頁
+            </button>
           </div>
-          { this.targetFormSet() }
+          { this.targetFormSet() ? (
+            this.targetFormSet()
+          ) : (
+            this.goPrevious()
+          )}
           <div className="empty"></div>
         </div>
       </div>
@@ -74,9 +102,15 @@ PageEdit.contextTypes = {
   router: PropTypes.object,
 };
 
-const mapStateToProps = ({ locales }) => {
+PageEdit.propTypes = {
+  locales: PropTypes.string,
+  tw: PropTypes.object,
+};
+
+const mapStateToProps = ({ locales, tw }) => {
   return {
     locales,
+    tw,
   }
 }
 

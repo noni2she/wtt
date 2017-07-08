@@ -7,6 +7,7 @@ import {
   PRODUCTS_DESCRIPT_COUNT,
 } from 'constants/common';
 import { onEditFormSubmit } from 'actions/editForm';
+import PropTypes from 'prop-types';
 import { FORM_SET_SERIES_DETAIL } from 'constants/common';
 
 class SeriesDetailFormSet extends Component {
@@ -186,8 +187,8 @@ class SeriesDetailFormSet extends Component {
       ...this.state, categoryItemsIndex, seriesItemsIndex, content: contentWithUUID
     });
 
-    // navigate to index page
-    // this.context.router.push('/');
+    // navigate to previous page
+    this.context.router.goBack();
   }
 
   render() {
@@ -267,4 +268,13 @@ class SeriesDetailFormSet extends Component {
     );
   }
 }
+
+SeriesDetailFormSet.contextTypes = {
+  router: PropTypes.object,
+};
+
+SeriesDetailFormSet.propTypes = {
+  onEditFormSubmit: PropTypes.func,
+}
+
 export default connect(null, { onEditFormSubmit })(SeriesDetailFormSet);
