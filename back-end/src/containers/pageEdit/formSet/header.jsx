@@ -4,12 +4,12 @@ class HeaderFormSet extends Component {
   constructor(props) {
     super();
     this.state = {
-      ...props.about,
+      ...props.block,
     };
   }
   render() {
     const {
-      header, description
+      header, subheader
     } = this.state;
     return (
       <div className="page-edit-form-set">
@@ -29,15 +29,15 @@ class HeaderFormSet extends Component {
           </div>
           <div className="form-group">
             <label>副標題</label>
-            <textarea
+            <input
+              id="form-set-series-description-name"
               className="form-control"
-              rows="2"
-              placeholder="Please enter the description about series." 
-              name="content"
-              value={description}
+              type="text"
+              placeholder="SubTitle"
+              name="name"
+              value={subheader}
               onChange={this.onFormChange}
-            >
-            </textarea>
+            />
           </div>
           <div className="form-group clearfix form-set-footer">
             <button
@@ -53,4 +53,4 @@ class HeaderFormSet extends Component {
   }
 }
 
-export default AboutDetailFormSet;
+export default HeaderFormSet;

@@ -2,6 +2,7 @@ import React from 'react';
 // form set
 import SeriesDetailFormSet from 'containers/pageEdit/formSet/seriesDetail';
 import AboutFormSet from 'containers/pageEdit/formSet/about';
+import HeaderFormSet from 'containers/pageEdit/formSet/header';
 
 //SeriesDetailFormSet
 export const renderSeriesDetailFormSet = (props, categoryKey, seriesKey) => {
@@ -38,6 +39,16 @@ export const renderSeriesDetailFormSet = (props, categoryKey, seriesKey) => {
     console.error(error);
     return false;
   }
+}
+
+//HeaderFormSet
+export const renderHeaderFormSet = (block, locales) => {
+  return(
+    <HeaderFormSet
+      locales={locales}
+      block={block}
+    />
+  );
 }
 
 //AboutDetailFormSet
