@@ -31,10 +31,12 @@ export default class News extends Component {
 
     return (
       <div id="news">
-        <div>
-          <h2 className="text-uppercase" >{header}</h2>
-          <p>{subheader}</p>
-        </div>
+        <Link to={'/edit/news/header'}>
+          <div>
+            <h2>{header}</h2>
+            <p>{subheader}</p>
+          </div>
+        </Link>
         <div className="container">
           <Slider {...settings} className="item-container">
             {newsItemList}

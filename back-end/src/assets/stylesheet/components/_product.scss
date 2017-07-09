@@ -3,6 +3,11 @@ $productImgMarginLeft: 18em;
 #product {
   margin-top: 30px;
   padding: 0;
+  
+  a {
+    color: inherit;
+  }
+
   .product-item {
 
     // common part of product info

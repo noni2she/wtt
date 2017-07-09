@@ -2,6 +2,9 @@
   margin-top:50px;
   padding-top: 10px;
   background-color:#EEE;
+  a {
+    color: inherit;
+  }
   .download-item {
     display: flex;
     justify-content: flex-start;
