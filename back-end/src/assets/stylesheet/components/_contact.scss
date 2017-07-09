@@ -6,26 +6,42 @@
   .company-information{
     margin-top:30px;
     .company-introduction {
-      text-align: left;
+      height: 475px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       div {
-        padding: 0px 10px 0px 10px;
-        .glyphicon {
-          margin: 3px 5px 3px 3px;
-          font-size: 15px;
+        width: 100%;
+        .company-introduction-mainImg {
+          height: 200px;
+          overflow: hidden;
+          img {
+            height: 100%;
+          }
         }
-      }
-      img {
-        width:90%;
-        display:block;
-        margin: auto;
-      }
-      h4{
-        text-align: center;
+        .company-introduction-info {
+          text-align: left;
+          padding: 0px 10px 0px 10px;
+          h4 {
+            text-align: center;
+          }
+          .glyphicon {
+            margin: 3px 5px 3px 3px;
+            font-size: 15px;
+          }
+          div {
+            display: inline-block;
+            width:45px;
+            margin-top: 5px;
+          }
+        }
       }
     }
     .company-map{
+      height: 475px;
+      overflow: hidden;
       img {
-        width:90%;
+        height: 100%;
       }
     }
   }

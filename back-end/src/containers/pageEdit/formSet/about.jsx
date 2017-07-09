@@ -1,12 +1,26 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { onEditFormSubmit } from 'actions/editForm';
+import PropTypes from 'prop-types';
 
 class AboutFormSet extends Component {
   constructor(props) {
     super();
+    this.onFormChange = this.onFormChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
     this.state = {
       ...props.about,
     };
   }
+
+  onFormChange({ target }) {
+    this.props.onEditFormSubmit();
+  }
+
+  onSubmit(event) {
+    event.preventDefault();
+  }
+
   render() {
     const {
       header, description
@@ -53,4 +67,12 @@ class AboutFormSet extends Component {
   }
 }
 
-export default AboutFormSet;
+AboutFormSet.contextTypes = {
+  router: PropTypes.object,
+};
+
+AboutFormSet.propTypes = {
+  onEditFormSubmit: PropTypes.func,
+}
+
+export default connect(null, { onEditFormSubmit })(AboutFormSet);

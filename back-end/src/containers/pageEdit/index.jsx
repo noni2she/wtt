@@ -10,6 +10,7 @@ import {
   renderCategoryFormSet,
   renderNewsItemFormSet,
   renderTopBannerFormSet,
+  renderContactFormSet,
 } from './renderFormSet';
 
 class PageEdit extends Component {
@@ -37,16 +38,20 @@ class PageEdit extends Component {
         case 'topBanner':
           return renderTopBannerFormSet(props);
 
-        case 'contact':
-          const block = props[locales].contact;
-          return renderHeaderFormSet(block, locales);
-
         case 'about':
           return renderAboutFormSet(props);
 
         case 'news':
           if (innerBlock && index) return renderNewsItemFormSet(props, index);
           else return false;
+
+        case 'contact':
+          if (innerBlock === 'header') {
+            return renderHeaderFormSet(props, blockType);
+          }
+          else {
+            return renderContactFormSet(props);
+          }
 
         case 'category':
           let categoryIndex = innerBlock;
