@@ -106,12 +106,16 @@ PageEdit.contextTypes = {
 PageEdit.propTypes = {
   locales: PropTypes.string,
   tw: PropTypes.object,
+  en: PropTypes.object,
+  jp: PropTypes.object,
 };
 
-const mapStateToProps = ({ locales, tw }) => {
+const mapStateToProps = ({ locales, tw, jp, en }) => {
   return {
     locales,
     tw,
+    en,
+    jp,
   }
 }
 
