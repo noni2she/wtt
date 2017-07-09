@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import NavBar from 'components/common/navBar.jsx';
+import NavBar from 'containers/common/navBar.jsx';
 import Footer from 'components/footer';
 import PropTypes from 'prop-types';
 
@@ -106,12 +106,16 @@ PageEdit.contextTypes = {
 PageEdit.propTypes = {
   locales: PropTypes.string,
   tw: PropTypes.object,
+  en: PropTypes.object,
+  jp: PropTypes.object,
 };
 
-const mapStateToProps = ({ locales, tw }) => {
+const mapStateToProps = ({ locales, tw, jp, en }) => {
   return {
     locales,
     tw,
+    en,
+    jp,
   }
 }
 

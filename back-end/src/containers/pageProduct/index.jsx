@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 import { NAV_BAR_PRODUCTS } from 'constants/common';
 
 // component  
-import NavBar from 'components/common/navBar.jsx';
+import NavBar from 'containers/common/navBar.jsx';
 import ProductText from './productText.jsx';
 import ProductTable from './productTable.jsx';
 import Footer from 'components/footer';
@@ -19,17 +19,15 @@ class PageProduct extends Component {
     this.searchCategoryAndSeries = this.searchCategoryAndSeries.bind(this);  
   }
 
-  /* search categoryItem and seriesItem by page params
-   * @return 
-   *  Object: If both categoryItem and seriesItem were found
-   *  fasle: If error was caused or nothing was found
+  /* search categoryItem and seriesItem by page params.
+   * set contentObject state based on locales
    */
-  searchCategoryAndSeries() {
+  searchCategoryAndSeries(props) {
     try {
       // gathering the params given from page and choosn language 
       const { categoryKey, seriesKey } = this.context.router.params
-      const { locales } = this.props;
-      const { products } = this.props[locales];
+      const { locales } = props;
+      const { products } = props[locales];
 
       // pick up the category and series which gonna edit by page parma
       let targetCategoryItem, targetSeriesItem;
@@ -48,13 +46,17 @@ class PageProduct extends Component {
       });
 
       // return false as long as one item was not found
-      return (targetCategoryItem && targetSeriesItem ) ? ({
+      const contentObject = (targetCategoryItem && targetSeriesItem ) ? ({
         categoryItem: targetCategoryItem,
         seriesItem: targetSeriesItem,
       }) : (
         false
       );
+      if (!contentObject) this.pageNotFound();
 
+      this.setState({
+        contentObject
+      });
     } catch (error) {
       console.log(error);
       return false;
@@ -64,27 +66,32 @@ class PageProduct extends Component {
     // when error happened or page not found, redirect to PageIndex
     this.context.router.replace('/');
   }
+  componentWillReceiveProps(nextProps) {
+    // receive central state and set local state
+    this.searchCategoryAndSeries(nextProps);
+
+  }
   componentDidMount() {
     // get the object first
-    const contentObject = this.searchCategoryAndSeries();
-    if (!contentObject) this.pageNotFound();
-
-    this.setState({
-      contentObject
-    });
+    this.searchCategoryAndSeries(this.props);
   }
   render() {
     try {
       const { categoryKey, seriesKey } = this.context.router.params
-      const { productsDetail } = this.props;
-      if (!this.state.contentObject || !productsDetail) return null;
 
-      const { seriesItem } = this.state.contentObject;
+      /* contentObject based on locales
+       * productsDetail are the content of table.
+       * as long as one of them was not found, render nothing.
+       */
+      const { contentObject } = this.state;
+      const { productsDetail } = this.props;
+      if (!contentObject || !productsDetail) return null;
 
       /* 
        * content: table schema about series controlled by language.
        * products: table content about given series
-       */ 
+       */
+      const { seriesItem } = contentObject;
       const { content } = seriesItem;
       const products = productsDetail[categoryKey][seriesKey];
       return (
@@ -124,6 +131,8 @@ PageProduct.contextTypes = {
 PageProduct.propTypes = {
   locales: PropTypes.string,
   tw: PropTypes.object,
+  en: PropTypes.object,
+  jp: PropTypes.object,
   productsDetail: PropTypes.object,
 };
 
@@ -131,6 +140,8 @@ const mapStateToProps = (state) => {
   return {
     locales: state.locales,
     tw: state.tw,
+    en: state.en,
+    jp: state.jp,
     productsDetail: state.productsDetail,
   };
 };

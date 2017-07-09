@@ -1,12 +1,24 @@
+/*
+ * common part
+ */
+export const USELESS_ACTION = 'USELESS_ACTION';
+
+/*
+ * costomized part
+ */
 // loginStatus
 export const LOGIN_ON_AUTH = 'LOGIN_ON_AUTH';
 export const LOGIN_AUTH_SUCCESS = 'LOGIN_AUTH_SUCCESS';
 export const LOGIN_AUTH_FAILED = 'LOGIN_AUTH_FAILED';
 
 // productTable
-export const PROD_DETAIL_ON_CELL_EDIT = 'PROD_DETAIL_ON_CELL_EDIT'
-export const PROD_DETAIL_ON_DELETE_ROW = 'PROD_DETAIL_ON_DELETE_ROW'
-export const PROD_DETAIL_ON_ADD_ROW = 'PROD_DETAIL_ON_ADD_ROW'
+export const PROD_DETAIL_ON_CELL_EDIT = 'PROD_DETAIL_ON_CELL_EDIT';
+export const PROD_DETAIL_ON_DELETE_ROW = 'PROD_DETAIL_ON_DELETE_ROW';
+export const PROD_DETAIL_ON_ADD_ROW = 'PROD_DETAIL_ON_ADD_ROW';
+
+export const ON_LOCALE_SWITCH_TO_TW = 'ON_LOCALE_SWITCH_TO_TW';
+export const ON_LOCALE_SWITCH_TO_JP = 'ON_LOCALE_SWITCH_TO_JP';
+export const ON_LOCALE_SWITCH_TO_EN = 'ON_LOCALE_SWITCH_TO_EN';
 
 /* The following are actions types for form edit.
  * it will generate action type combined with behavior, locales and Formset.
@@ -41,3 +53,17 @@ export const ON_TW_ABOUT_EDIT = 'ON_TW_ABOUT_EDIT';
 export const ON_TW_CONTACT_EDIT = 'ON_TW_CONTACT_EDIT';
 export const ON_TW_DOWNLOAD_EDIT = 'ON_TW_DOWNLOAD_EDIT';
 export const ON_TW_PRODUCTS_EDIT = 'ON_TW_PRODUCTS_EDIT';
+
+export const ON_JP_TOP_BANNER_EDIT = 'ON_JP_TOP_BANNER_EDIT';
+export const ON_JP_NEWS_EDIT = 'ON_JP_NEWS_EDIT';
+export const ON_JP_ABOUT_EDIT = 'ON_JP_ABOUT_EDIT';
+export const ON_JP_CONTACT_EDIT = 'ON_JP_CONTACT_EDIT';
+export const ON_JP_DOWNLOAD_EDIT = 'ON_JP_DOWNLOAD_EDIT';
+export const ON_JP_PRODUCTS_EDIT = 'ON_JP_PRODUCTS_EDIT';
+
+export const ON_EN_TOP_BANNER_EDIT = 'ON_EN_TOP_BANNER_EDIT';
+export const ON_EN_NEWS_EDIT = 'ON_EN_NEWS_EDIT';
+export const ON_EN_ABOUT_EDIT = 'ON_EN_ABOUT_EDIT';
+export const ON_EN_CONTACT_EDIT = 'ON_EN_CONTACT_EDIT';
+export const ON_EN_DOWNLOAD_EDIT = 'ON_EN_DOWNLOAD_EDIT';
+export const ON_EN_PRODUCTS_EDIT = 'ON_EN_PRODUCTS_EDIT';

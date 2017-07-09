@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import NavBar from 'components/common/navBar.jsx';
+import NavBar from 'containers/common/navBar.jsx';
 import MessageTable from './messageTable.jsx';
 
 import { NAV_BAR_MESSAGES } from 'constants/common';
