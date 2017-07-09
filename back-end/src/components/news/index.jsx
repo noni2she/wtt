@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick';
+import { Link } from 'react-router';
 import NewsItem from './newsItem.jsx';
 
 const settings = {
@@ -15,7 +16,18 @@ const settings = {
 export default class News extends Component {
   render () {
     const {header, subheader, newsItems} = this.props.news;
-    const newsItemList = newsItems.map((item, index) => <div className="newsItem-div" key={`newsItem_+${index}`}><NewsItem newsItem={item}/></div>);
+    const newsItemList = newsItems.map((item, index) => {
+      return (
+        <Link to={`/`}>
+          <div
+            className="newsItem-div"
+            key={`newsItem_+${index}`}>
+              <NewsItem newsItem={item}/>
+          </div>
+        </Link>
+      );
+    });
+
     return (
       <div id="news">
         <div>
