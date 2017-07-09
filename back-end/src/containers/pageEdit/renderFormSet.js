@@ -48,7 +48,7 @@ export const renderSeriesDetailFormSet = (props, categoryKey, seriesKey) => {
 //HeaderFormSet
 export const renderHeaderFormSet = (props, blockType) => {
   const { locales } = props;
-  const { contact } = props[locales];
+  const { contact, products, news, download } = props[locales];
 
   switch (blockType) {
     case 'contact':
@@ -58,6 +58,31 @@ export const renderHeaderFormSet = (props, blockType) => {
         block={contact}
       />
     );
+
+    case 'category':
+    return (
+      <HeaderFormSet
+        locales={locales}
+        block={products}
+      />
+    );
+
+    case 'news':
+    return (
+      <HeaderFormSet
+        locales={locales}
+        block={news}
+      />
+    );
+
+    case 'download':
+    return (
+      <HeaderFormSet
+        locales={locales}
+        block={download}
+      />
+    );
+
     default:
       break;
   }

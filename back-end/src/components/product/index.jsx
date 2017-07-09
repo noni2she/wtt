@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 import ProductItem from './product.jsx';
 import { PRODUCT_STYLE_CYCLE } from 'constants/common'
 
@@ -22,10 +23,12 @@ export default class Product extends Component {
 
     return (
       <div id="product" className="container-fluid">
-        <div className="product-introduction">
-          <h2 className="product-header text-uppercase ">{header}</h2>
-          <p className="product-subheader">{subheader}</p>
-        </div>
+        <Link to={'/edit/category/header'}>
+          <div className="product-introduction">
+            <h2 className="product-header">{header}</h2>
+            <p className="product-subheader">{subheader}</p>
+          </div>
+        </Link>
         {ProductList}
       </div>
     );

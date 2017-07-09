@@ -42,21 +42,25 @@ class PageEdit extends Component {
           return renderAboutFormSet(props);
 
         case 'news':
-          if (innerBlock && index) return renderNewsItemFormSet(props, index);
+          if (innerBlock === 'header') return renderHeaderFormSet(props, blockType);
+          else if (innerBlock && index) return renderNewsItemFormSet(props, index);
           else return false;
 
         case 'contact':
-          if (innerBlock === 'header') {
-            return renderHeaderFormSet(props, blockType);
-          }
-          else {
-            return renderContactFormSet(props);
-          }
+          if (innerBlock === 'header') return renderHeaderFormSet(props, blockType);
+          else return renderContactFormSet(props);
 
         case 'category':
-          let categoryIndex = innerBlock;
-          return renderCategoryFormSet(props, categoryIndex);
+          if (innerBlock === 'header') return renderHeaderFormSet(props, blockType);
+          else {
+            let categoryIndex = innerBlock;
+            return renderCategoryFormSet(props, categoryIndex);
+          }
 
+        case 'download':
+          if (innerBlock === 'header') return renderHeaderFormSet(props, blockType);
+          else return false;
+          
         default:
           return false;
       }
