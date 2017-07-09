@@ -1,17 +1,18 @@
 import faker from 'faker';
+import { times, map } from 'lodash'; // warning, lodash only for developing
 
 // faker locale
 faker.locale = "zh_TW";
 
-/* Common Function */
-const generateArray = (item, times = 5) => {
-  if (typeof item === 'object') {
-    return Array.apply(null, new Array(times)).map(() => {
-      return Object.assign({}, item);
-    });
-  } else {
-    return Array.apply(null, new Array(times)).map(() => item);
-  }
+/*
+ * Array generator
+ * @argc:
+ *   itemGenerator: the function of fake data generator
+ *   count: array length
+ * @return: (Array)
+ */
+const generateArray = (itemGenerator, count = 5) => {
+  return map(times(count), itemGenerator);
 }
 
 /* fake data generator */
@@ -76,18 +77,20 @@ const downloadItem = () => {
     timestamps: new Date(),
     mainImg: imgItem(),
     title: fakeSubheader(),
-    description: generateArray(fakeDescription()),
-    link: generateArray({
-      key: fakeDescription(),
-      linkUrl: fakeDownloadUrl(),
+    description: generateArray(fakeDescription),
+    link: generateArray(() => {
+      return ({
+        key: fakeDescription(),
+        linkUrl: fakeDownloadUrl(),
+      });
     }),
   });
 };
 
 const seriesDescriptionItem = () => {
   return({
-    title: 'Material',
-    content: 'Forged Aluminum 6061T6',
+    title: fakeHeader(),
+    content: fakeDescription(),
   });
 }
 
@@ -100,7 +103,7 @@ const seriesItem = () => {
     shortName: 'SHA',
     mainImg: imgItem(),
     subImg: imgItem(),
-    description: generateArray(seriesDescriptionItem()),
+    description: generateArray(seriesDescriptionItem),
     content: [{
       key: 'uuid',
       displayedName: 'id',
@@ -133,7 +136,7 @@ const categoryItem = () => {
     key: 'wheel-spacers',
     name: 'WHEEL SPACERS',
     mainImg: imgItem(),
-    seriesItems: generateArray(seriesItem(), 12),
+    seriesItems: generateArray(seriesItem, 12),
   });
 }
 
@@ -155,12 +158,12 @@ const mockProductDetail = [{"pcd":"4H/100","hub":"Φ54.1","thread-type":"M12xP1.
 export const fakeContentObjectGenerator = () => {
   return ({
     topBanner: {
-      imgItems: generateArray(imgItem())
+      imgItems: generateArray(imgItem)
     },
     news: {
       header: fakeHeader(),
       subheader: fakeSubheader(),
-      newsItems: generateArray(newsItem()),
+      newsItems: generateArray(newsItem),
     },
     about: {
       header: fakeHeader(),
@@ -189,12 +192,12 @@ export const fakeContentObjectGenerator = () => {
     download: {
       header: fakeHeader(),
       subheader: fakeSubheader(),
-      downloadItem: generateArray(downloadItem()),
+      downloadItem: generateArray(downloadItem),
     },
     products: {
       header: fakeHeader(),
       subheader: fakeSubheader(),
-      categoryItems: generateArray(categoryItem(), 10)
+      categoryItems: generateArray(categoryItem, 10)
     }
   });
 };
@@ -209,5 +212,5 @@ export const productDetails = {
 
 export const messageObject = {
   header: fakeHeader(),
-  messageItems: generateArray(messageItem(), 1000),
+  messageItems: generateArray(messageItem, 1000),
 }
