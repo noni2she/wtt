@@ -14,6 +14,7 @@ export default class Product extends Component {
           categoryItem={item}
           type={type}
           categoryKey={categoryKey}
+          categoryIndex={index}
           key={`categoryItem_${index}`}
         />
       );

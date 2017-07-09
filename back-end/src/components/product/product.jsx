@@ -60,18 +60,21 @@ export class ProductItem extends Component {
   }
 
   render() {
+    const { categoryIndex } = this.props;
     const { name, mainImg } = this.props.categoryItem;
     const type = this.props.type;
     const className = `product-info${type}`;
 
     return(
       <div className="product-item">
-        <div className={`${className} flex-center`}>
-          <h3 className="product-info-name">{`- ${name} -`}</h3>
-          <div className="product-img">
-            <ImgItem imgItem={mainImg} />
+        <Link to={`/edit/category/${categoryIndex}`}>
+          <div className={`${className} flex-center`}>
+              <h3 className="product-info-name">{`- ${name} -`}</h3>
+              <div className="product-img">
+                <ImgItem imgItem={mainImg} />
+              </div>
           </div>
-        </div>
+        </Link>
         {this.seriesList()}
       </div>
     );
