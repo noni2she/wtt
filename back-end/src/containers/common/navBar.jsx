@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import {
-  NAV_BAR_INDEX, NAV_BAR_MESSAGES, NAV_BAR_PRODUCTS,
+  NAV_BAR_INDEX, NAV_BAR_MESSAGES,
   LOCALE_TW, LOCALE_JP, LOCALE_EN,
   NAV_BAR_LANGUAGE_TW, NAV_BAR_LANGUAGE_JP, NAV_BAR_LANGUAGE_EN,
 } from 'constants/common';
@@ -49,7 +49,6 @@ export class NavBar extends Component {
           <div id="navbar" className="navbar-collapse collapse">
             <ul className="nav navbar-nav">
               <li className={ active === NAV_BAR_INDEX ? "active" : ''}><Link to={'/'} >頁面管理</Link></li>
-              <li className={ active === NAV_BAR_PRODUCTS ? "active" : ''}><Link to={'/product/wheel-spacers/hs'} >商品管理</Link></li>
               <li className={ active === NAV_BAR_MESSAGES ? "active" : ''}><Link to={'/messages'} >留言板管理</Link></li>
               <li className="dropdown">
                 <Link
