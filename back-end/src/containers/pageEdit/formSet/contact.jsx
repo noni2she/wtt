@@ -23,7 +23,7 @@ class ContactFormSet extends Component {
 
   render() {
     const {
-      subImg, company, phone, 
+      subImg, company, phone, sns,
       fax, email, location, mainImg
     } = this.props.contact;
     return (
@@ -104,6 +104,28 @@ class ContactFormSet extends Component {
               placeholder="Title"
               name="name"
               value={ location }
+              onChange={this.onFormChange}
+            />
+          </div>
+          <div className="form-group">
+            <label>Skpye</label>
+            <input
+              className="form-control"
+              type="text"
+              placeholder="Title"
+              name="name"
+              value={ sns.skype.link }
+              onChange={this.onFormChange}
+            />
+          </div>
+          <div className="form-group">
+            <label>Facebook</label>
+            <input
+              className="form-control"
+              type="text"
+              placeholder="Title"
+              name="name"
+              value={ sns.fb.link }
               onChange={this.onFormChange}
             />
           </div>
