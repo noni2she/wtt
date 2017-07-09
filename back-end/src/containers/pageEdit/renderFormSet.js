@@ -6,6 +6,7 @@ import HeaderFormSet from 'containers/pageEdit/formSet/header';
 import CategoryFormSet from 'containers/pageEdit/formSet/category';
 import NewsItemFormSet from 'containers/pageEdit/formSet/newsItems';
 import TopBannerFormSet from 'containers/pageEdit/formSet/topBanner';
+import ContactFormSet from 'containers/pageEdit/formSet/contact';
 
 //SeriesDetailFormSet
 export const renderSeriesDetailFormSet = (props, categoryKey, seriesKey) => {
@@ -45,16 +46,24 @@ export const renderSeriesDetailFormSet = (props, categoryKey, seriesKey) => {
 }
 
 //HeaderFormSet
-export const renderHeaderFormSet = (block, locales) => {
-  return(
-    <HeaderFormSet
-      locales={locales}
-      block={block}
-    />
-  );
+export const renderHeaderFormSet = (props, blockType) => {
+  const { locales } = props;
+  const { contact } = props[locales];
+
+  switch (blockType) {
+    case 'contact':
+    return (
+      <HeaderFormSet
+        locales={locales}
+        block={contact}
+      />
+    );
+    default:
+      break;
+  }
 }
 
-//AboutDetailFormSet
+//AboutFormSet
 export const renderAboutFormSet = (props) => {
   const { locales } = props;
   const { about } = props[locales];
@@ -121,6 +130,23 @@ export const renderTopBannerFormSet = (props) => {
       <TopBannerFormSet
         locales={locales}
         imgItems={imgItems}
+      />
+    );
+  } catch (error) {
+    console.error(error);
+    return false;
+  }
+}
+
+//ContactFormSet
+export const renderContactFormSet = (props) => {
+  try {
+    const { locales } = props;
+    const { contact } = props[locales];
+    return(
+      <ContactFormSet
+        locales={locales}
+        contact={contact}
       />
     );
   } catch (error) {
