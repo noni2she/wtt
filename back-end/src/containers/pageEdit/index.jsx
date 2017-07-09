@@ -9,6 +9,7 @@ import {
   renderAboutFormSet,
   renderCategoryFormSet,
   renderNewsItemFormSet,
+  renderTopBannerFormSet,
 } from './renderFormSet';
 
 class PageEdit extends Component {
@@ -33,12 +34,16 @@ class PageEdit extends Component {
     } else if (blockType) {
       // block edit in index page
       switch (blockType) {
+        case 'topBanner':
+          return renderTopBannerFormSet(props);
 
         case 'contact':
           const block = props[locales].contact;
           return renderHeaderFormSet(block, locales);
+
         case 'about':
           return renderAboutFormSet(props);
+
         case 'news':
           if (innerBlock && index) return renderNewsItemFormSet(props, index);
           else return false;

@@ -5,6 +5,7 @@ import AboutFormSet from 'containers/pageEdit/formSet/about';
 import HeaderFormSet from 'containers/pageEdit/formSet/header';
 import CategoryFormSet from 'containers/pageEdit/formSet/category';
 import NewsItemFormSet from 'containers/pageEdit/formSet/newsItems';
+import TopBannerFormSet from 'containers/pageEdit/formSet/topBanner';
 
 //SeriesDetailFormSet
 export const renderSeriesDetailFormSet = (props, categoryKey, seriesKey) => {
@@ -102,6 +103,24 @@ export const renderNewsItemFormSet = (props, newsItemIndex) => {
         locales={locales}
         newsItem={newsItem}
         newsItemIndex={newsItemIndex}
+      />
+    );
+  } catch (error) {
+    console.error(error);
+    return false;
+  }
+}
+
+// renderTopBannerFormSet
+export const renderTopBannerFormSet = (props) => {
+  try {
+    const { locales } = props;
+    const { imgItems } = props[locales].topBanner;
+
+    return (
+      <TopBannerFormSet
+        locales={locales}
+        imgItems={imgItems}
       />
     );
   } catch (error) {
