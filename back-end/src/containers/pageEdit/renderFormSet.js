@@ -71,6 +71,8 @@ export const renderCategoryFormSet = (props, categoryIndex) => {
     const { products } = props[locales];
     const categoryItem = products.categoryItems[categoryIndex];
 
+    if (!categoryItem) return false;
+
     // pass whatever you what.
     return (
       <CategoryFormSet

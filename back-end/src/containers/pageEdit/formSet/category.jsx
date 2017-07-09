@@ -19,7 +19,6 @@ class CategoryFormSet extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <div className="page-edit-form-set">
         <form className="page-edit-form-set-category">
