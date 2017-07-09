@@ -45,7 +45,7 @@ class AboutFormSet extends Component {
             <label>內容</label>
             <textarea
               className="form-control"
-              rows="2"
+              rows="10"
               placeholder="Please enter the description about series." 
               name="content"
               value={description}
