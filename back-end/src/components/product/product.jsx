@@ -5,15 +5,25 @@ import { SERIES_ITEM_COUNT_PER_ROW } from 'constants/common';
 
 export class ProductItem extends Component {
 
+  constructor() {
+    super();
+    this.seriesList = this.seriesList.bind(this);
+  }
+
   seriesList() {
+    const { categoryKey } = this.props;
     const { seriesItems } = this.props.categoryItem;
 
     let seriesList1 = [];
     let seriesList2 = [];
+    let seriesKey;
+
     for(let i = 0; i < Math.min(seriesItems.length, SERIES_ITEM_COUNT_PER_ROW); i++) {
+
+      seriesKey = seriesItems[i].key;
       seriesList1.push(
         <div className="col-lg-1 col-md-2 col-sm-2 col-xs-2" key={`productItem_${i}`}>
-          <Link to={'/'} > 
+          <Link to={`product/${categoryKey}/${seriesKey}`}>
             <p>{`-${seriesItems[i].shortName} Series`}</p>
           </Link>
         </div>
@@ -23,7 +33,7 @@ export class ProductItem extends Component {
     for(let i = SERIES_ITEM_COUNT_PER_ROW; i < seriesItems.length; i++) {
       seriesList2.push(
         <div className="col-lg-1 col-md-2 col-sm-2 col-xs-2" key={`productItem_${i}`}>
-          <Link to={'/'}>
+          <Link to={`product/${categoryKey}/${seriesKey}`}>
             <p>{`-${seriesItems[i].shortName} Series`}</p>
           </Link>
         </div>
