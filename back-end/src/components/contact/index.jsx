@@ -17,32 +17,55 @@ export default class Contact extends Component {
           </div>
         </Link>
         <Link to={'/edit/contact'}>
-          <div className="company-information">
-            <div className="company-introduction col-lg-5">
-              <ImgItem imgItem={subImg} />
-              <h4>{company}</h4>
+          <div className="company-information row">
+            <div className="company-introduction col-lg-4">
               <div>
-                <ul className="list-unstyled">
-                  <li>
-                    <i className="glyphicon glyphicon-earphone"></i>
-                    <span>{phone}</span>
-                  </li>
-                  <li>
-                    <i className="glyphicon glyphicon-print"></i>
-                    <span>{fax}</span>
-                  </li>
-                  <li>
-                    <i className="glyphicon glyphicon-envelope"></i>
-                    <span>{email}</span>
-                  </li>
-                  <li>
-                    <i className="glyphicon glyphicon-map-marker"></i>
-                    <span>{location}</span>
-                  </li>
-                </ul>
+                <div className="company-introduction-mainImg">
+                  <ImgItem imgItem={subImg} />
+                </div>
+                <div className="company-introduction-info">
+                  <h4>{company}</h4>
+                  <ul className="list-unstyled">
+                    <li>
+                      <span>
+                        <i className="glyphicon glyphicon-earphone" />
+                        {phone}
+                      </span>
+                    </li>
+                    <li>
+                      <span>
+                        <i className="glyphicon glyphicon-print" />
+                        {fax}
+                      </span>
+                    </li>
+                    <li>
+                      <span>
+                        <i className="glyphicon glyphicon-envelope" />
+                        {email}
+                      </span>
+                    </li>
+                    <li>
+                      <span>
+                        <i className="glyphicon glyphicon-map-marker" />
+                        {location}
+                      </span>
+                    </li>
+                    <li>
+                      <div>
+                        <img src="https://firebasestorage.googleapis.com/v0/b/techwell-74c86.appspot.com/o/contact%2Ftalk.png?alt=media&token=d32f9b2e-8583-427b-bf0f-c2e67063908a" alt=""/>
+                      </div>
+                      <div>
+                        <img src="https://firebasestorage.googleapis.com/v0/b/techwell-74c86.appspot.com/o/contact%2FSK.png?alt=media&token=704b3e8b-83a4-4845-8f36-4784aeb45200" alt=""/>
+                      </div>
+                      <div>
+                        <img src="https://firebasestorage.googleapis.com/v0/b/techwell-74c86.appspot.com/o/contact%2FFB.png?alt=media&token=bf7a26d2-954e-43b4-b981-61672ad6b595" alt=""/>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
-            <div className="company-map col-lg-7">
+            <div className="company-map col-lg-8">
               <ImgItem imgItem={mainImg} />
             </div>
           </div>

@@ -1,10 +1,9 @@
 import React from 'react';
 
 const ImgItem = (props) => {
-  return props.imgItem.displayed ? (
-    <img src={props.imgItem.imgUrl} alt={props.imgItem.altText}></img>
-  ) : (
-    false
+  const { imgUrl, altText } = props.imgItem;
+  return (  
+    <img src={imgUrl} alt={altText}></img>
   );
 }
 
