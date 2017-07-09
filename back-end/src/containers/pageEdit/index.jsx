@@ -5,6 +5,7 @@ import Footer from 'components/footer';
 import PropTypes from 'prop-types';
 import {
   renderSeriesDetailFormSet,
+  renderAboutDetailFormSet
 } from './renderFormSet';
 
 class PageEdit extends Component {
@@ -19,15 +20,21 @@ class PageEdit extends Component {
    */
   targetFormSet() {
     const { categoryKey, seriesKey, blockType } = this.context.router.params;
-
+    const props = this.props;
     if (categoryKey && seriesKey) {
       // seriesDetail edit page
-      const props = this.props;
       return renderSeriesDetailFormSet(props, categoryKey, seriesKey);
 
     } else if (blockType) {
       // block edit in index page
-      return false;
+      switch (blockType) {
+        case 'about': {
+          return renderAboutDetailFormSet(props);
+        }
+        default: {
+          return false;
+        }
+      }
     } else {
       // nothing or eror params were found
       return false;
