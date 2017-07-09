@@ -18,7 +18,7 @@ export default (
     <Route path="/edit">
       <IndexRedirect to="/" />
       <Route path="product/:categoryKey/:seriesKey" component={PageEdit} />
-      <Route path=":blockType" component={PageEdit} />
+      <Route path=":blockType(/:innerBlock(/:index))" component={PageEdit} />
     </Route>
 
     <Redirect from="*" to="/" />
