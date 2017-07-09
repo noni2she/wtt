@@ -27,15 +27,18 @@ class AboutFormSet extends Component {
               onChange={this.onFormChange}
             />
           </div>
-          <textarea
-            className="form-control"
-            rows="2"
-            placeholder="Please enter the description about series." 
-            name="content"
-            value={description}
-            onChange={this.onFormChange}
-          >
-          </textarea>
+          <div className="form-group">
+            <label>內容</label>
+            <textarea
+              className="form-control"
+              rows="2"
+              placeholder="Please enter the description about series." 
+              name="content"
+              value={description}
+              onChange={this.onFormChange}
+            >
+            </textarea>
+          </div>
           <div className="form-group clearfix form-set-footer">
             <button
               className="btn btn-primary pull-left form-set-footer-save"
