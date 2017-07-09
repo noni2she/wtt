@@ -4,6 +4,7 @@ import SeriesDetailFormSet from 'containers/pageEdit/formSet/seriesDetail';
 import AboutFormSet from 'containers/pageEdit/formSet/about';
 import HeaderFormSet from 'containers/pageEdit/formSet/header';
 import CategoryFormSet from 'containers/pageEdit/formSet/category';
+import NewsItemFormSet from 'containers/pageEdit/formSet/newsItems';
 
 //SeriesDetailFormSet
 export const renderSeriesDetailFormSet = (props, categoryKey, seriesKey) => {
@@ -79,6 +80,28 @@ export const renderCategoryFormSet = (props, categoryIndex) => {
         locales={locales}
         categoryItem={categoryItem}
         categoryIndex={categoryIndex}
+      />
+    );
+  } catch (error) {
+    console.error(error);
+    return false;
+  }
+}
+
+// renderNewsItemFormSet
+export const renderNewsItemFormSet = (props, newsItemIndex) => {
+  try {
+    const { locales } = props;
+    const { news } = props[locales];
+    const newsItem = news.newsItems[newsItemIndex];
+
+    if (!newsItem) return false;
+
+    return (
+      <NewsItemFormSet
+        locales={locales}
+        newsItem={newsItem}
+        newsItemIndex={newsItemIndex}
       />
     );
   } catch (error) {

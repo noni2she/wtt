@@ -8,6 +8,7 @@ import {
   renderSeriesDetailFormSet,
   renderAboutFormSet,
   renderCategoryFormSet,
+  renderNewsItemFormSet,
 } from './renderFormSet';
 
 class PageEdit extends Component {
@@ -38,6 +39,9 @@ class PageEdit extends Component {
           return renderHeaderFormSet(block, locales);
         case 'about':
           return renderAboutFormSet(props);
+        case 'news':
+          if (innerBlock && index) return renderNewsItemFormSet(props, index);
+          else return false;
 
         case 'category':
           let categoryIndex = innerBlock;

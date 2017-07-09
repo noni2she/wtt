@@ -18,13 +18,14 @@ export default class News extends Component {
     const {header, subheader, newsItems} = this.props.news;
     const newsItemList = newsItems.map((item, index) => {
       return (
-        <Link to={`/`}>
-          <div
-            className="newsItem-div"
-            key={`newsItem_+${index}`}>
-              <NewsItem newsItem={item}/>
-          </div>
-        </Link>
+        <div
+          className="newsItem-div"
+          key={`newsItem_+${index}`}
+        >
+          <Link to={`/edit/news/newsItem/${index}`}>
+            <NewsItem newsItem={item}/>
+          </Link>
+        </div>
       );
     });
 

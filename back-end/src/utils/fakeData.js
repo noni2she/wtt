@@ -65,7 +65,7 @@ const newsItem = () => {
     subheader: fakeSubheader(),
     description: fakeDescription(),
     mainImg: imgItem(),
-    date: fakeDate(),
+    date: fakeDate().toString(),
     position: fakeAddress(),
   });
 };
