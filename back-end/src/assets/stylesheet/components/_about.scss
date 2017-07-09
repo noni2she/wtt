@@ -11,16 +11,19 @@
     background-color:ghostwhite;
     height: 600px;
     padding: 20px 50px 20px 50px;
+    
     .about-title{
       display: flex;
       justify-content: flex-start;
       align-items: center;
       opacity: 1;
+      color: black;
     }
     .about-content{
       text-align: left;
       word-break: break-all;
       opacity: 1;
+      color: black;
     }
   }
 }
