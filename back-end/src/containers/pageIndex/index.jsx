@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { NAV_BAR_INDEX } from 'constants/common';
 
 // Component
@@ -11,14 +13,15 @@ import About from 'components/about';
 import Contact from 'components/contact';
 import Footer from 'components/footer';
 
-// fake data
-import { fakeContentObjectGenerator } from 'utils/fakeData';
-
 class PageIndex extends Component {
   render() {
-    const {topBanner, products, news, download, about, contact} = fakeContentObjectGenerator();
+    const { locales } = this.props;
+
+    if (!this.props[locales]) return null;
+    const {topBanner, products, news, download, about, contact } = this.props[locales];
+
     return (
-      <div className="App container-with-nav-bar" >
+      <div className="App container-with-nav-bar">
         <NavBar active={ NAV_BAR_INDEX } />
         <TopBanner imgItems={topBanner.imgItems} />
         <Product products={products} />
@@ -32,4 +35,17 @@ class PageIndex extends Component {
   }
 }
 
-export default PageIndex;
+PageIndex.propTypes = {
+  locales: PropTypes.string,
+  tw: PropTypes.object,
+  en: PropTypes.object,
+  jp: PropTypes.object,
+};
+
+const mapStateToProps = ({ locales, tw, jp, en }) => {
+  return {
+    locales, tw, en, jp,
+  }
+}
+
+export default connect(mapStateToProps)(PageIndex);
