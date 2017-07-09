@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 import ImgItem from 'components/common/imgItem.jsx';
 
 export default class Contact extends Component {
@@ -9,10 +10,12 @@ export default class Contact extends Component {
     } = this.props.contact;
     return (
       <div id="contact" className="container">
-        <div>
-          <h2 className="text-uppercase" >{header}</h2>
-          <p>{subheader}</p>
-        </div>
+        <Link to={'/edit/contact'}>
+          <div>
+            <h2>{header}</h2>
+            <p>{subheader}</p>
+          </div>
+        </Link>
         <div className="company-information">
           <div className="company-introduction col-lg-5">
             <ImgItem imgItem={subImg} />

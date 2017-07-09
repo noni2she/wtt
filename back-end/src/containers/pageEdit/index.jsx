@@ -4,8 +4,9 @@ import NavBar from 'containers/common/navBar.jsx';
 import Footer from 'components/footer';
 import PropTypes from 'prop-types';
 import {
+  renderHeaderFormSet,
   renderSeriesDetailFormSet,
-  renderAboutDetailFormSet
+  renderAboutFormSet
 } from './renderFormSet';
 
 class PageEdit extends Component {
@@ -19,8 +20,9 @@ class PageEdit extends Component {
    * return false if error was found.
    */
   targetFormSet() {
-    const { categoryKey, seriesKey, blockType } = this.context.router.params;
+    const { categoryKey, seriesKey, blockType} = this.context.router.params;
     const props = this.props;
+    const { locales } = props; 
     if (categoryKey && seriesKey) {
       // seriesDetail edit page
       return renderSeriesDetailFormSet(props, categoryKey, seriesKey);
@@ -28,8 +30,12 @@ class PageEdit extends Component {
     } else if (blockType) {
       // block edit in index page
       switch (blockType) {
+        case 'contact': {
+          const block = props[locales].contact;
+          return renderHeaderFormSet(block, locales);
+        }
         case 'about': {
-          return renderAboutDetailFormSet(props);
+          return renderAboutFormSet(props);
         }
         default: {
           return false;

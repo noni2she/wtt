@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 
-class AboutDetailFormSet extends Component {
+class HeaderFormSet extends Component {
   constructor(props) {
     super();
     this.state = {
-      ...props.about,
+      ...props.block,
     };
   }
   render() {
     const {
-      header, description
+      header, subheader
     } = this.state;
     return (
       <div className="page-edit-form-set">
         <form className="page-edit-form-set-series">
-          <h4 className="form-seperate-header">關於</h4>
+          <h4 className="form-seperate-header">標題區塊</h4>
           <div className="form-group">
             <label>標題</label>
             <input
@@ -27,15 +27,18 @@ class AboutDetailFormSet extends Component {
               onChange={this.onFormChange}
             />
           </div>
-          <textarea
-            className="form-control"
-            rows="2"
-            placeholder="Please enter the description about series." 
-            name="content"
-            value={description}
-            onChange={this.onFormChange}
-          >
-          </textarea>
+          <div className="form-group">
+            <label>副標題</label>
+            <input
+              id="form-set-series-description-name"
+              className="form-control"
+              type="text"
+              placeholder="SubTitle"
+              name="name"
+              value={subheader}
+              onChange={this.onFormChange}
+            />
+          </div>
           <div className="form-group clearfix form-set-footer">
             <button
               className="btn btn-primary pull-left form-set-footer-save"
@@ -50,4 +53,4 @@ class AboutDetailFormSet extends Component {
   }
 }
 
-export default AboutDetailFormSet;
+export default HeaderFormSet;
