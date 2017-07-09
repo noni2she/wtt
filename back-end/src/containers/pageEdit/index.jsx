@@ -6,7 +6,8 @@ import PropTypes from 'prop-types';
 import {
   renderHeaderFormSet,
   renderSeriesDetailFormSet,
-  renderAboutFormSet
+  renderAboutFormSet,
+  renderCategoryFormSet,
 } from './renderFormSet';
 
 class PageEdit extends Component {
@@ -20,9 +21,10 @@ class PageEdit extends Component {
    * return false if error was found.
    */
   targetFormSet() {
-    const { categoryKey, seriesKey, blockType} = this.context.router.params;
+    const { categoryKey, seriesKey, blockType, innerBlock, index } = this.context.router.params;
     const props = this.props;
     const { locales } = props; 
+
     if (categoryKey && seriesKey) {
       // seriesDetail edit page
       return renderSeriesDetailFormSet(props, categoryKey, seriesKey);
@@ -30,16 +32,19 @@ class PageEdit extends Component {
     } else if (blockType) {
       // block edit in index page
       switch (blockType) {
-        case 'contact': {
+
+        case 'contact':
           const block = props[locales].contact;
           return renderHeaderFormSet(block, locales);
-        }
-        case 'about': {
+        case 'about':
           return renderAboutFormSet(props);
-        }
-        default: {
+
+        case 'category':
+          let categoryIndex = innerBlock;
+          return renderCategoryFormSet(props, categoryIndex);
+
+        default:
           return false;
-        }
       }
     } else {
       // nothing or eror params were found

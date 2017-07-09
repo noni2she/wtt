@@ -3,6 +3,7 @@ import React from 'react';
 import SeriesDetailFormSet from 'containers/pageEdit/formSet/seriesDetail';
 import AboutFormSet from 'containers/pageEdit/formSet/about';
 import HeaderFormSet from 'containers/pageEdit/formSet/header';
+import CategoryFormSet from 'containers/pageEdit/formSet/category';
 
 //SeriesDetailFormSet
 export const renderSeriesDetailFormSet = (props, categoryKey, seriesKey) => {
@@ -61,4 +62,25 @@ export const renderAboutFormSet = (props) => {
       about={about}
     />
   );
+}
+
+// renderCategoryFormSet
+export const renderCategoryFormSet = (props, categoryIndex) => {
+  try {
+    const { locales } = props;
+    const { products } = props[locales];
+    const categoryItem = products.categoryItems[categoryIndex];
+
+    // pass whatever you what.
+    return (
+      <CategoryFormSet
+        locales={locales}
+        categoryItem={categoryItem}
+        categoryIndex={categoryIndex}
+      />
+    );
+  } catch (error) {
+    console.error(error);
+    return false;
+  }
 }
