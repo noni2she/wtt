@@ -5,7 +5,7 @@ import Footer from 'components/footer';
 import PropTypes from 'prop-types';
 import {
   renderSeriesDetailFormSet,
-  renderAboutDetailFormSet
+  renderAboutFormSet
 } from './renderFormSet';
 
 class PageEdit extends Component {
@@ -29,7 +29,7 @@ class PageEdit extends Component {
       // block edit in index page
       switch (blockType) {
         case 'about': {
-          return renderAboutDetailFormSet(props);
+          return renderAboutFormSet(props);
         }
         default: {
           return false;

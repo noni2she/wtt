@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class AboutDetailFormSet extends Component {
+class AboutFormSet extends Component {
   constructor(props) {
     super();
     this.state = {
@@ -50,4 +50,4 @@ class AboutDetailFormSet extends Component {
   }
 }
 
-export default AboutDetailFormSet;
+export default AboutFormSet;
