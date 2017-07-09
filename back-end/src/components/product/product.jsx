@@ -1,65 +1,71 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router';
 import ImgItem from 'components/common/imgItem.jsx';
 import { SERIES_ITEM_COUNT_PER_ROW } from 'constants/common';
 
-const ProductItem = (props) => {
-  const {name, seriesItems, mainImg} = props.categoryItem;
-  const type = props.type;
-  const className = `product-info${type}`;
-  const seriesList = (() => {
+export class ProductItem extends Component {
+
+  seriesList() {
+    const { seriesItems } = this.props.categoryItem;
+
     let seriesList1 = [];
+    let seriesList2 = [];
     for(let i = 0; i < Math.min(seriesItems.length, SERIES_ITEM_COUNT_PER_ROW); i++) {
       seriesList1.push(
-        <div className="col-xl-1 col-lg-1 col-md-1 col-sm-1" key={`productItem_${i}`}>
+        <div className="col-lg-1 col-md-2 col-sm-2 col-xs-2" key={`productItem_${i}`}>
           <Link to={'/'} > 
             <p>{`-${seriesItems[i].shortName} Series`}</p>
           </Link>
         </div>
       );
     }
-    if(seriesItems.length <= SERIES_ITEM_COUNT_PER_ROW) { 
-      return (
-        <div>
-          <div className="series row flex-center">
-            {seriesList1}
-          </div>
-        </div>  
-      );
-    }
-    let seriesList2 = [];
+
     for(let i = SERIES_ITEM_COUNT_PER_ROW; i < seriesItems.length; i++) {
       seriesList2.push(
-        <div className="col-xl-1 col-lg-1 col-md-1 col-sm-1" key={`productItem_${i}`}>
+        <div className="col-lg-1 col-md-2 col-sm-2 col-xs-2" key={`productItem_${i}`}>
           <Link to={'/'}>
             <p>{`-${seriesItems[i].shortName} Series`}</p>
           </Link>
         </div>
       );
     }
-    return (
+
+    // if seriresList length greater than 6
+    return seriesItems.length <= SERIES_ITEM_COUNT_PER_ROW ? (
       <div>
-        <div className="series row flex-center">
+        <div className="product-series row flex-center">
           {seriesList1}
         </div>
-        <div className="series row flex-center">
+      </div>
+    ) : (
+      <div>
+        <div className="product-series row flex-center">
+          {seriesList1}
+        </div>
+        <div className="product-series row flex-center">
           {seriesList2}
         </div>
       </div>  
     );
-  })();
+  }
 
-  return(
-    <div className="product-item">
-      <div className={`${className} flex-center`}>
-        <h3>{`- ${name} -`}</h3>
-        <div className="col-lg-2 col-md-2 col-sm-2 product-img">
-          <ImgItem imgItem={mainImg} />
+  render() {
+    const { name, mainImg } = this.props.categoryItem;
+    const type = this.props.type;
+    const className = `product-info${type}`;
+
+    return(
+      <div className="product-item">
+        <div className={`${className} flex-center`}>
+          <h3 className="product-info-name">{`- ${name} -`}</h3>
+          <div className="product-img">
+            <ImgItem imgItem={mainImg} />
+          </div>
         </div>
+        {this.seriesList()}
       </div>
-      {seriesList}
-    </div>
-  );
+    );
+  }
 }
 
 export default ProductItem;
