@@ -12,11 +12,11 @@ import Contact from 'components/contact';
 import Footer from 'components/footer';
 
 // fake data
-import { contentObject } from 'utils/fakeData';
+import { fakeContentObjectGenerator } from 'utils/fakeData';
 
 class PageIndex extends Component {
   render() {
-    const {topBanner, products, news, download, about, contact} = contentObject;
+    const {topBanner, products, news, download, about, contact} = fakeContentObjectGenerator();
     return (
       <div className="App container-with-nav-bar" >
         <NavBar active={ NAV_BAR_INDEX } />

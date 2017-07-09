@@ -1,5 +1,5 @@
 import * as Constants from './common';
-import { contentObject, productDetails } from 'utils/fakeData';
+import { fakeContentObjectGenerator, productDetails } from 'utils/fakeData';
 
 /*
  *  The following are the initial state for reducer of redux
@@ -13,9 +13,9 @@ export const loginStatusInitialState = {
 export const localesInitialState = Constants.LOCALE_TW;
 
 // pass fake data for twInitialState
-export const twInitialState = Object.assign({}, contentObject);
-export const jpInitialState = Object.assign({}, contentObject);
-export const enInitialState = Object.assign({}, contentObject);
+export const twInitialState = fakeContentObjectGenerator();
+export const jpInitialState = fakeContentObjectGenerator();
+export const enInitialState = fakeContentObjectGenerator();
 
 // pass fake data for productDetails
 export const productsDetailInitialState = productDetails;
