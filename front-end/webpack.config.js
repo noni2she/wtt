@@ -1,7 +1,9 @@
 'use strict';
 
 var path = require('path');
+var APP = path.join(__dirname, 'app');
 var webpack = require('webpack');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   devtool: 'eval-source-map',
@@ -15,6 +17,11 @@ module.exports = {
     publicPath: '/'
   },
   plugins: [
+    new HtmlWebpackPlugin({
+      template: 'app/index.html',
+      inject: 'body',
+      filename: 'index.html'
+    }),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
@@ -39,9 +46,17 @@ module.exports = {
     }]
   },
   resolve: {
-    root: [
-      path.resolve('./app'),
-      path.resolve('./test'),
-    ],
+    alias: {
+      actions: path.join(APP, 'actions'),
+      components: path.join(APP, 'components'),
+      constants: path.join(APP, 'constants'),
+      containers: path.join(APP, 'containers'),
+      reducers: path.join(APP, 'reducers'),
+      routes: path.join(APP, 'routes'),
+      sagas: path.join(APP, 'sagas'),
+      utils: path.join(APP, 'utils'),
+      img: path.join(APP, 'assets', 'img'),
+      stylesheet: path.join(APP, 'assets', 'stylesheet'),
+    },
   }
 };

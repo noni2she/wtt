@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import elementList from './elementList';
-import loadingFinished from './loadingFinished';
 
+const initState = () => {
+  return {};
+}
 const rootReducer = combineReducers({
-  elementList,
-  loadingFinished
+  initState
 });
 
 export default rootReducer;

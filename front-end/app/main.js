@@ -6,9 +6,9 @@ import 'babel-polyfill';
 import createSagaMiddleware from 'redux-saga';
 import { Router, browserHistory} from 'react-router';
 
-import reducers from './reducers';
-import rootSaga from './sagas/';
-import routes from './routes/index.js';
+import reducers from 'reducers';
+import rootSaga from 'sagas';
+import routes from 'routes';
 
 // create the saga middleware
 const sagaMiddleware = createSagaMiddleware();

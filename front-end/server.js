@@ -1,7 +1,5 @@
 /* eslint no-console: 0 */
 // use babel-register to precompile ES6 syntax
-require('babel-register');
-// require('./server-side-rendering');
 
 const path = require('path');
 const express = require('express');
@@ -16,7 +14,7 @@ const port = process.env.PORT || 3000;
 const app = express();
 
 // providing static file in public folder.
-app.use(express.static(path.join(__dirname, 'app', 'public')));
+app.use(express.static(path.join(__dirname, 'app', 'assets')));
 
 if (isDeveloping) {
   const compiler = webpack(config);
@@ -36,7 +34,8 @@ if (isDeveloping) {
   app.use(middleware);
   app.use(webpackHotMiddleware(compiler));
   app.get('*', function response(req, res) {
-    res.sendFile(path.join(__dirname, 'app/index.html'));
+    res.write(middleware.fileSystem.readFileSync(path.join(__dirname, 'dist/index.html')));
+    res.end();
   });
 } else {
   app.use(express.static(__dirname + '/dist'));
