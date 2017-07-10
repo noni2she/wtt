@@ -36,6 +36,7 @@ module.exports = {
     rules: [{
       test: /\.(js|jsx)$/,
       loader: require.resolve('babel-loader'),
+      exclude: /node_modules/,
     }, {
       test: /\.css$/,
       use: [
@@ -74,9 +75,13 @@ module.exports = {
       }, {
           loader: "sass-loader" // compiles Sass to CSS
       }]
+    }, {
+      test: /\.(png|woff|woff2|eot|ttf|svg)$/, 
+      loader: 'url-loader?limit=100000'
     }]
   },
   resolve: {
+    extensions: ['.js', '.json', '.jsx'],
     alias: {
       actions: path.join(APP, 'actions'),
       components: path.join(APP, 'components'),
