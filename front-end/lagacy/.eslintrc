@@ -1,0 +1,15 @@
+{
+	// 使用 babel-eslint 做檢查
+	"parser": "babel-eslint",
+	"env": {
+		"browser": true,
+		"node": true
+	},
+
+	// 檢查規則定義
+	"rules": {
+		"quotes": [2, "double"],
+		"eol-last": ["error", "always"],
+		"no-underscore-dangle": "error"
+	}
+}

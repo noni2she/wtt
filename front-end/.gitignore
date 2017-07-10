@@ -1,13 +1,7 @@
-# environment setting
-node_modules/
-npm-debug.log
-
-#building setting
-dist/
-
-#firebase setting
-firebase-debug.log
-
-# other setting
+node_modules
 .DS_Store
-*/.DS_Store
+dist
+*.log
+coverage
+.idea
+.vscode/
