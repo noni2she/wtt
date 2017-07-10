@@ -1,0 +1,306 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif; }
+
+.font-primary {
+  color: #337ab7; }
+
+.font-success {
+  color: #5cb85c; }
+
+.font-info {
+  color: #5bc0de; }
+
+.font-warning {
+  color: #f0ad4e; }
+
+.font-danger {
+  color: #d9534f; }
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.App {
+  text-align: center; }
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px; }
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white; }
+
+.App-intro {
+  font-size: large; }
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }
+
+.form-signin {
+  max-width: 330px;
+  padding: 100px 15px 15px 15px;
+  margin: 0 auto; }
+
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px; }
+
+.form-signin .checkbox {
+  font-weight: normal; }
+
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px; }
+
+.form-signin .form-control:focus {
+  z-index: 2; }
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0; }
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0; }
+
+.loading-oval {
+  width: 19px; }
+
+.container-with-nav-bar {
+  padding-top: 70px; }
+
+.btn-nav-bar {
+  width: 100px;
+  margin-top: 8px; }
+
+/* Customize container */
+@media (min-width: 1132px) {
+  #page-product {
+    max-width: 1094px; } }
+
+#page-product a {
+  color: inherit; }
+
+.products-contents {
+  /* Everything but the jumbotron gets side spacing for mobile first views */
+  margin: 40px 0; }
+  .products-contents p + h4 {
+    margin-top: 28px; }
+  .products-contents .products-description {
+    min-height: 341px;
+    margin-left: 3px; }
+    .products-contents .products-description h1 {
+      margin: 5px 0px;
+      font-size: 2em; }
+    .products-contents .products-description h2 {
+      margin: 5px 0px;
+      font-size: 1.5em;
+      color: red; }
+    .products-contents .products-description .prod-descript-text {
+      margin: 5px 0px; }
+      .products-contents .products-description .prod-descript-text .prod-descript-title {
+        font-weight: bold; }
+  .products-contents .products-main-image {
+    height: 590px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; }
+  .products-contents .products-sub-image {
+    height: 238px;
+    padding: 0px;
+    margin: 0px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; }
+
+.products-table {
+  margin: 40px 0; }
+
+/* Customize container */
+@media (min-width: 868px) {
+  #page-edit {
+    max-width: 830px; } }
+
+#page-edit label {
+  color: #757575; }
+
+#page-edit .page-edit-form-set {
+  margin-top: 15px;
+  padding: 40px 30px;
+  background-color: #F5F5F5; }
+
+#page-edit .page-edit-header {
+  padding-bottom: 15px;
+  border-bottom: 1px solid #E0E0E0; }
+
+#page-edit .form-seperate-header {
+  padding-top: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #E0E0E0; }
+
+#page-edit .form-set-inline-wrapper {
+  display: flex;
+  margin-bottom: 5px; }
+
+#page-edit .form-set-inline-column {
+  flex: 1; }
+  #page-edit .form-set-inline-column label {
+    padding-right: 10px; }
+
+#page-edit .form-set-footer {
+  margin-top: 30px;
+  padding-top: 15px;
+  padding-bottom: 10px;
+  border-top: 1px solid #E0E0E0; }
+  #page-edit .form-set-footer .form-set-footer-save {
+    width: 200px; }
+
+.message-header {
+  text-align: center; }
+
+#news .container {
+  padding-left: 30px;
+  padding-right: 30px; }
+  #news .container .item-container a {
+    color: inherit; }
+  #news .container .item-container .newsItem-div {
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    #news .container .item-container .newsItem-div .item {
+      height: 393px;
+      width: 315px;
+      background-image: url("https://firebasestorage.googleapis.com/v0/b/techwell-74c86.appspot.com/o/news%2Fnews_item_BG.png?alt=media&token=4b97be14-cbcd-4949-8138-6148889177ba");
+      background-repeat: no-repeat; }
+      #news .container .item-container .newsItem-div .item img {
+        margin: auto;
+        margin-top: 10px;
+        width: 292px;
+        height: 210px; }
+
+#product {
+  margin-top: 30px;
+  padding: 0; }
+  #product .product-item .product-info1, #product .product-item .product-info2 {
+    padding: 0;
+    height: 200px; }
+    #product .product-item .product-info1 .product-img, #product .product-item .product-info2 .product-img {
+      padding: 0;
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      overflow: hidden; }
+      #product .product-item .product-info1 .product-img img, #product .product-item .product-info2 .product-img img {
+        height: 100%; }
+  #product .product-item .product-info1 {
+    background-color: black;
+    color: white; }
+    #product .product-item .product-info1 .product-img {
+      margin-left: -18em; }
+  #product .product-item .product-info2 {
+    background-color: white;
+    color: black;
+    overflow: hidden; }
+    #product .product-item .product-info2 .product-img {
+      margin-left: 18em; }
+  #product .product-item .product-series {
+    margin: 0 auto;
+    height: 50px;
+    background-color: red; }
+    #product .product-item .product-series p {
+      margin: 0 auto;
+      color: white; }
+
+#download {
+  margin-top: 50px;
+  padding-top: 10px;
+  background-color: #EEE; }
+  #download .download-item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 250px;
+    width: 80%;
+    margin: 0 auto; }
+    #download .download-item .download-img img {
+      width: 90%; }
+    #download .download-item .download-description {
+      text-align: left; }
+      #download .download-item .download-description .download-description-title {
+        display: block;
+        font-size: 20px;
+        font-weight: bold; }
+    #download .download-item .download-link {
+      text-align: left; }
+      #download .download-item .download-link i {
+        font-size: 20px; }
+
+#contact a {
+  color: inherit;
+  text-decoration: none; }
+
+#contact .company-information {
+  margin-top: 30px; }
+  #contact .company-information .company-introduction {
+    text-align: left; }
+    #contact .company-information .company-introduction div {
+      padding: 0px 10px 0px 10px; }
+      #contact .company-information .company-introduction div .glyphicon {
+        margin: 3px 5px 3px 3px;
+        font-size: 15px; }
+    #contact .company-information .company-introduction img {
+      width: 90%;
+      display: block;
+      margin: auto; }
+    #contact .company-information .company-introduction h4 {
+      text-align: center; }
+  #contact .company-information .company-map img {
+    width: 90%; }
+
+#about {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 765px;
+  background-image: url("https://firebasestorage.googleapis.com/v0/b/techwell-74c86.appspot.com/o/about%2Fbackground.jpg?alt=media&token=ebf14c84-98f0-458b-a67c-d9c040d915e8");
+  background-repeat: no-repeat;
+  background-size: cover; }
+  #about .about-container {
+    opacity: 0.6;
+    background-color: ghostwhite;
+    height: 600px;
+    padding: 20px 50px 20px 50px; }
+    #about .about-container .about-title {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      opacity: 1;
+      color: black; }
+    #about .about-container .about-content {
+      text-align: left;
+      word-break: break-all;
+      opacity: 1;
+      color: black; }
+
+#footer {
+  margin-top: 300px;
+  height: 50px;
+  background-color: gray; }

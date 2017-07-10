@@ -1,0 +1,55 @@
+{
+  "name": "wtt",
+  "version": "1.0.0",
+  "description": "a wtt project",
+  "main": "index.js",
+  "repository": {},
+  "author": "Bryce",
+  "license": "MIT",
+  "dependencies": {
+    "babel-runtime": "^6.9.2",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "firebase": "^3.5.1",
+    "html-webpack-plugin": "^2.19.0",
+    "html5shiv": "^3.7.3",
+    "json-loader": "^0.5.4",
+    "react": "^15.4.2",
+    "react-dom": "^15.3.2",
+    "reactfire": "^1.0.0",
+    "webpack": "^1.13.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.9.1",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-react-transform": "^2.0.2",
+    "babel-plugin-transform-runtime": "^6.9.0",
+    "babel-preset-es2015-ie": "^6.6.2",
+    "babel-preset-react": "^6.5.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "bootstrap": "3.3.7",
+    "clean-webpack-plugin": "^0.1.10",
+    "compass-mixins": "^0.12.10",
+    "copy-webpack-plugin": "^3.0.1",
+    "css-loader": "^0.23.1",
+    "file-loader": "^0.11.1",
+    "html-loader": "^0.4.3",
+    "i18n-react": "^0.3.0",
+    "jquery": "^2.1.4",
+    "jquery-ui-dist": "^1.12.1",
+    "node-sass": "^4.5.0",
+    "re-base": "^2.5.2",
+    "resolve-url-loader": "^2.0.0",
+    "sass-loader": "^4.0.0",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.8",
+    "webpack-clean": "^1.0.0",
+    "webpack-dev-server": "^1.14.1",
+    "webpack-merge": "^0.14.1",
+    "webpack-spritesmith": "^0.2.6"
+  },
+  "scripts": {
+    "dev": "webpack-dev-server --devtool eval --progress --colors --config config/webpack.config.js",
+    "build": "webpack --config config/webpack.config.prod.js"
+
+  }
+}
