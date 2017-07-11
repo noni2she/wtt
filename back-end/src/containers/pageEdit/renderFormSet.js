@@ -47,44 +47,53 @@ export const renderSeriesDetailFormSet = (props, categoryKey, seriesKey) => {
 
 //HeaderFormSet
 export const renderHeaderFormSet = (props, blockType) => {
-  const { locales } = props;
-  const { contact, products, news, download } = props[locales];
+  try {
+    const { locales } = props;
+    const { contact, products, news, download } = props[locales];
 
-  switch (blockType) {
-    case 'contact':
-    return (
-      <HeaderFormSet
-        locales={locales}
-        block={contact}
-      />
-    );
+    switch (blockType) {
+      case 'contact':
+      return (
+        <HeaderFormSet
+          locales={locales}
+          block={contact}
+          blockType={blockType}
+        />
+      );
 
-    case 'category':
-    return (
-      <HeaderFormSet
-        locales={locales}
-        block={products}
-      />
-    );
+      case 'category':
+      return (
+        <HeaderFormSet
+          locales={locales}
+          block={products}
+          blockType={blockType}
+        />
+      );
 
-    case 'news':
-    return (
-      <HeaderFormSet
-        locales={locales}
-        block={news}
-      />
-    );
+      case 'news':
+      return (
+        <HeaderFormSet
+          locales={locales}
+          block={news}
+          blockType={blockType}
+        />
+      );
 
-    case 'download':
-    return (
-      <HeaderFormSet
-        locales={locales}
-        block={download}
-      />
-    );
+      case 'download':
+      return (
+        <HeaderFormSet
+          locales={locales}
+          block={download}
+          blockType={blockType}
+        />
+      );
 
-    default:
-      break;
+      default:
+        break;
+    }
+  } catch (error) {
+    console.error(error);
+    return false;
   }
 }
 

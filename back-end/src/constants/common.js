@@ -33,3 +33,4 @@ export const ATTRI_NAME_PRODUCTS = 'products';
 
 // formSet
 export const FORM_SET_SERIES_DETAIL = 'FORM_SET_SERIES_DETAIL';
+export const FORM_SET_HEADER = 'FORM_SET_HEADER';

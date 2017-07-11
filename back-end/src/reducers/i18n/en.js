@@ -5,6 +5,8 @@ import { enInitialState } from 'constants/initialState';
 import {
   ON_EN_TOP_BANNER_EDIT, ON_EN_NEWS_EDIT, ON_EN_ABOUT_EDIT,
   ON_EN_CONTACT_EDIT, ON_EN_DOWNLOAD_EDIT, ON_EN_PRODUCTS_EDIT,
+  ON_EN_NEWS_HEADER_EDIT, ON_EN_CONTACT_HEADER_EDIT, ON_EN_DOWNLOAD_HEADER_EDIT,
+  ON_EN_PRODUCTS_HEADER_EDIT,
 } from 'constants/actionTypes';
 
 // attribute name
@@ -39,6 +41,42 @@ export default (state = enInitialState, action) => {
         ...payload,
       }
 
+      return newState;
+    case ON_EN_NEWS_HEADER_EDIT:
+      newState = {
+        ...state
+      };
+      newState[ATTRI_NAME_NEWS] = {
+        ...newState[ATTRI_NAME_NEWS],
+        ...payload,
+      };
+      return newState;
+    case ON_EN_CONTACT_HEADER_EDIT:
+      newState = {
+        ...state
+      };
+      newState[ATTRI_NAME_CONTACT] = {
+        ...newState[ATTRI_NAME_CONTACT],
+        ...payload,
+      };
+      return newState;
+    case ON_EN_DOWNLOAD_HEADER_EDIT:
+      newState = {
+        ...state
+      };
+      newState[ATTRI_NAME_DOWNLOAD] = {
+        ...newState[ATTRI_NAME_DOWNLOAD],
+        ...payload,
+      };
+      return newState;
+    case ON_EN_PRODUCTS_HEADER_EDIT:
+      newState = {
+        ...state
+      };
+      newState[ATTRI_NAME_PRODUCTS] = {
+        ...newState[ATTRI_NAME_PRODUCTS],
+        ...payload,
+      };
       return newState;
     default:
       return state;

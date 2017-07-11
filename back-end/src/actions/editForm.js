@@ -2,7 +2,7 @@
 
 import {
   LOCALE_JP, LOCALE_EN,
-  FORM_SET_SERIES_DETAIL, 
+  FORM_SET_SERIES_DETAIL, FORM_SET_HEADER
 } from 'constants/common';
 
 import {
@@ -25,11 +25,26 @@ const getLocalePrefix = (locale) =>  {
   }
 };
 
-const mapFormSetToAttriName = (formSet) => {
+const mapFormSetToAttriName = (formSet, blockType) => {
   switch(formSet) {
     case FORM_SET_SERIES_DETAIL:
       return MAP_FORMSET_TO_ATTRI_PRODUCTS;
+    case FORM_SET_HEADER:
+      switch(blockType) {
+        case 'news':
+          return `${MAP_FORMSET_TO_ATTRI_NEWS}_HEADER`;
+        case 'contact' :
+          return `${MAP_FORMSET_TO_ATTRI_CONTACT}_HEADER`;
 
+        case 'category' :
+          return `${MAP_FORMSET_TO_ATTRI_PRODUCTS}_HEADER`;
+
+        case 'download' :
+          return `${MAP_FORMSET_TO_ATTRI_DOWNLOAD}_HEADER`;
+
+        default:
+          return '';
+      }
     default:
       return '';
   }
@@ -41,15 +56,16 @@ const mapFormSetToAttriName = (formSet) => {
  *  locale: i18n 
  *  formSet: create different action by different form type
  *  value: the value 
+ *  blockType: which block was chosen
  * 
  * @return: action object
  *  type: format depending on locales and formSet
  *   syntax: `${LOCALE_PREFIX}${FORMSET_CORRESPONING}${EDIT_FORM_BEHAVIOR}`
  *   for example: ON_TW_PRODUCTS_DETAIL_EDIT
  */
-export const onEditFormSubmit = (locale, formSet, value) => {
+export const onEditFormSubmit = (locale, formSet, value, blockType) => {
   return({
-    type: `ON_${getLocalePrefix(locale)}${mapFormSetToAttriName(formSet)}_${EDIT_FROM_EDIT}`,
+    type: `ON_${getLocalePrefix(locale)}${mapFormSetToAttriName(formSet, blockType)}_${EDIT_FROM_EDIT}`,
     payload: value,
   });
 };

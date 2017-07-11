@@ -2,25 +2,47 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { onEditFormSubmit } from 'actions/editForm';
 import PropTypes from 'prop-types';
+import { FORM_SET_HEADER } from 'constants/common';
 
 class HeaderFormSet extends Component {
   constructor(props) {
     super();
+    const { header, subheader } = props.block;
+
     this.onFormChange = this.onFormChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.state = {
-      ...props.block,
+      header, subheader
     };
-  }
-  
-  onFormChange({ target }) {
-    this.props.onEditFormSubmit();
   }
 
   onSubmit(event) {
     event.preventDefault();
+    const {
+      locales, blockType
+    } = this.props;
+
+    this.props.onEditFormSubmit(
+      locales, FORM_SET_HEADER,
+      { ...this.state }, blockType,
+    );
+
+    // navigate to previous page
+    this.context.router.goBack();
   }
-  
+
+  onFormChange({ target }) {
+    try {
+      const { name, value } = target;
+
+      this.setState({
+        [name]: value,
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   render() {
     const {
       header, subheader
@@ -36,7 +58,7 @@ class HeaderFormSet extends Component {
               className="form-control"
               type="text"
               placeholder="Title"
-              name="name"
+              name="header"
               value={header}
               onChange={this.onFormChange}
             />
@@ -48,7 +70,7 @@ class HeaderFormSet extends Component {
               className="form-control"
               type="text"
               placeholder="SubTitle"
-              name="name"
+              name="subheader"
               value={subheader}
               onChange={this.onFormChange}
             />
