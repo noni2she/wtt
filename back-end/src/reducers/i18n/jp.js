@@ -6,7 +6,7 @@ import {
   ON_JP_TOP_BANNER_EDIT, ON_JP_NEWS_EDIT, ON_JP_ABOUT_EDIT,
   ON_JP_CONTACT_EDIT, ON_JP_DOWNLOAD_EDIT, ON_JP_PRODUCTS_EDIT,
   ON_JP_NEWS_HEADER_EDIT, ON_JP_CONTACT_HEADER_EDIT, ON_JP_DOWNLOAD_HEADER_EDIT,
-  ON_JP_PRODUCTS_HEADER_EDIT,
+  ON_JP_PRODUCTS_HEADER_EDIT, ON_JP_PRODUCTS_CATEGORY_EDIT
 } from 'constants/actionTypes';
 
 // attribute name
@@ -87,6 +87,20 @@ export default (state = jpInitialState, action) => {
       };
       newState[ATTRI_NAME_ABOUT] = {
         ...newState[ATTRI_NAME_ABOUT],
+        ...payload,
+      };
+      return newState;
+    // category info
+    case ON_JP_PRODUCTS_CATEGORY_EDIT:
+      const { categoryIndex } = payload;
+      delete payload.categoryIndex;
+
+      newState = {
+        ...state
+      };
+
+      newState[ATTRI_NAME_PRODUCTS].categoryItems[categoryIndex] = {
+        ...newState[ATTRI_NAME_PRODUCTS].categoryItems[categoryIndex],
         ...payload,
       };
       return newState;

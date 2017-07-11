@@ -35,3 +35,4 @@ export const ATTRI_NAME_PRODUCTS = 'products';
 export const FORM_SET_SERIES_DETAIL = 'FORM_SET_SERIES_DETAIL';
 export const FORM_SET_HEADER = 'FORM_SET_HEADER';
 export const FORM_SET_ABOUT = 'FORM_SET_ABOUT';
+export const FORM_SET_CATEGORY = 'FORM_SET_CATEGORY';
