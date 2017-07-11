@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { onEditFormSubmit } from 'actions/editForm';
 import PropTypes from 'prop-types';
+import { FORM_SET_ABOUT } from 'constants/common';
 
 class AboutFormSet extends Component {
   constructor(props) {
@@ -14,11 +15,28 @@ class AboutFormSet extends Component {
   }
 
   onFormChange({ target }) {
-    this.props.onEditFormSubmit();
+    try {
+      const { name, value } = target;
+
+      this.setState({
+        [name]: value,
+      });
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   onSubmit(event) {
     event.preventDefault();
+    const { locales } = this.props;
+
+    this.props.onEditFormSubmit(
+      locales, FORM_SET_ABOUT,
+      { ...this.state }
+    );
+
+    // navigate to previous page
+    this.context.router.goBack();
   }
 
   render() {
@@ -36,7 +54,7 @@ class AboutFormSet extends Component {
               className="form-control"
               type="text"
               placeholder="Title"
-              name="name"
+              name="header"
               value={header}
               onChange={this.onFormChange}
             />
@@ -47,7 +65,7 @@ class AboutFormSet extends Component {
               className="form-control"
               rows="10"
               placeholder="Please enter the description about series." 
-              name="content"
+              name="description"
               value={description}
               onChange={this.onFormChange}
             >

@@ -20,6 +20,7 @@ export default (state = jpInitialState, action) => {
   let newState;
 
   switch (type) {
+    // details of porduct
     case ON_JP_PRODUCTS_EDIT:
 
       let {
@@ -42,6 +43,7 @@ export default (state = jpInitialState, action) => {
       }
 
       return newState;
+    // header and subheader
     case ON_JP_NEWS_HEADER_EDIT:
       newState = {
         ...state
@@ -75,6 +77,16 @@ export default (state = jpInitialState, action) => {
       };
       newState[ATTRI_NAME_PRODUCTS] = {
         ...newState[ATTRI_NAME_PRODUCTS],
+        ...payload,
+      };
+      return newState;
+    // about
+    case ON_JP_ABOUT_EDIT:
+      newState = {
+        ...state
+      };
+      newState[ATTRI_NAME_ABOUT] = {
+        ...newState[ATTRI_NAME_ABOUT],
         ...payload,
       };
       return newState;

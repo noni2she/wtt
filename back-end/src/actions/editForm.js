@@ -2,7 +2,7 @@
 
 import {
   LOCALE_JP, LOCALE_EN,
-  FORM_SET_SERIES_DETAIL, FORM_SET_HEADER
+  FORM_SET_SERIES_DETAIL, FORM_SET_HEADER, FORM_SET_ABOUT
 } from 'constants/common';
 
 import {
@@ -45,6 +45,8 @@ const mapFormSetToAttriName = (formSet, blockType) => {
         default:
           return '';
       }
+    case FORM_SET_ABOUT:
+      return MAP_FORMSET_TO_ATTRI_ABOUT;
     default:
       return '';
   }

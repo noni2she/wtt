@@ -99,14 +99,19 @@ export const renderHeaderFormSet = (props, blockType) => {
 
 //AboutFormSet
 export const renderAboutFormSet = (props) => {
-  const { locales } = props;
-  const { about } = props[locales];
-  return(
-    <AboutFormSet
-      locales={locales}
-      about={about}
-    />
-  );
+  try {
+    const { locales } = props;
+    const { about } = props[locales];
+    return(
+      <AboutFormSet
+        locales={locales}
+        about={about}
+      />
+    );
+  } catch (error) {
+    console.error(error);
+    return false;
+  }
 }
 
 // renderCategoryFormSet

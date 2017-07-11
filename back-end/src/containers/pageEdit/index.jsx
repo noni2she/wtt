@@ -26,7 +26,6 @@ class PageEdit extends Component {
   targetFormSet() {
     const { categoryKey, seriesKey, blockType, innerBlock, index } = this.context.router.params;
     const props = this.props;
-    const { locales } = props; 
 
     if (categoryKey && seriesKey) {
       // seriesDetail edit page
