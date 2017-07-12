@@ -3,7 +3,7 @@
 import {
   LOCALE_JP, LOCALE_EN,
   FORM_SET_SERIES_DETAIL, FORM_SET_HEADER, FORM_SET_ABOUT,
-  FORM_SET_CATEGORY,
+  FORM_SET_CATEGORY, FORM_SET_TOP_BANNER,
 } from 'constants/common';
 
 import {
@@ -50,6 +50,8 @@ const mapFormSetToAttriName = (formSet, blockType) => {
       return MAP_FORMSET_TO_ATTRI_ABOUT;
     case FORM_SET_CATEGORY:
       return `${MAP_FORMSET_TO_ATTRI_PRODUCTS}_CATEGORY`;
+    case FORM_SET_TOP_BANNER:
+      return MAP_FORMSET_TO_ATTRI_TOP_BANNER;
     default:
       return '';
   }

@@ -1,4 +1,5 @@
 import * as Constants from './common';
+import { uuid } from 'utils/common';
 import { fakeContentObjectGenerator, productDetails } from 'utils/fakeData';
 
 /*
@@ -23,3 +24,13 @@ export const productsDetailInitialState = productDetails;
 /*
  * The following are the default state about each block
  */
+
+export const imgItemDefaultGenerator = () => {
+  return({
+    displayed: false,
+    id: uuid(),
+    timestamps: new Date().toString(),
+    imgUrl: '',
+    altText: '',
+  });
+}

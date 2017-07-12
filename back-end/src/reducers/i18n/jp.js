@@ -104,6 +104,16 @@ export default (state = jpInitialState, action) => {
         ...payload,
       };
       return newState;
+    // top banner
+    case ON_JP_TOP_BANNER_EDIT:
+      newState = {
+        ...state
+      };
+      // remove empty imgUrl
+      newState[ATTRI_NAME_TOP_BANNER].imgItems = payload.imgItems.filter((value) => {
+        return value.imgUrl;
+      });
+      return newState;
     default:
       return state;
   }
