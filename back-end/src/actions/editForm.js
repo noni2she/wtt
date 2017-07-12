@@ -4,6 +4,7 @@ import {
   LOCALE_JP, LOCALE_EN,
   FORM_SET_SERIES_DETAIL, FORM_SET_HEADER, FORM_SET_ABOUT,
   FORM_SET_CATEGORY, FORM_SET_TOP_BANNER, FORM_SET_NEWS_ITEM,
+  FORM_SET_CONTACT,
 } from 'constants/common';
 
 import {
@@ -54,6 +55,8 @@ const mapFormSetToAttriName = (formSet, blockType) => {
       return MAP_FORMSET_TO_ATTRI_TOP_BANNER;
     case FORM_SET_NEWS_ITEM:
       return `${MAP_FORMSET_TO_ATTRI_NEWS}_ITEM`;
+    case FORM_SET_CONTACT:
+      return MAP_FORMSET_TO_ATTRI_CONTACT;
     default:
       return '';
   }

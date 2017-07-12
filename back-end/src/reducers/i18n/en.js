@@ -128,6 +128,16 @@ export default (state = enInitialState, action) => {
         ...payload,
       };
       return newState;
+    // contact
+    case ON_EN_CONTACT_EDIT:
+      newState = {
+        ...state
+      };
+      newState[ATTRI_NAME_CONTACT] = {
+        ...newState[ATTRI_NAME_CONTACT],
+        ...payload,
+      }
+      return newState;
     default:
       return state;
   }

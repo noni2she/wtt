@@ -128,6 +128,16 @@ export default (state = twInitialState, action) => {
         ...payload,
       };
       return newState;
+    // contact
+      case ON_TW_CONTACT_EDIT:
+        newState = {
+          ...state
+        };
+        newState[ATTRI_NAME_CONTACT] = {
+          ...newState[ATTRI_NAME_CONTACT],
+          ...payload,
+        }
+        return newState;
     default:
       return state;
   }

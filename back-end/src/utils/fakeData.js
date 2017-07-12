@@ -172,7 +172,7 @@ export const fakeContentObjectGenerator = () => {
     contact: {
       header: fakeHeader(),
       subheader: fakeSubheader(),
-      map: '',
+      map: '', // TODO: infomation for google map
       mainImg: imgItem(),
       subImg: imgItem(),
       company: fakerCompany(),
