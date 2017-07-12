@@ -1,0 +1,11 @@
+#top-banner {
+  .slick-prev:before,
+  .slick-next:before {
+    color: black;
+  }
+  .slick-slide {
+    img {
+      width: 100%;
+    }
+  }
+}
