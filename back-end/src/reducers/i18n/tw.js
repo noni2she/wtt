@@ -6,7 +6,7 @@ import {
   ON_TW_TOP_BANNER_EDIT, ON_TW_NEWS_EDIT, ON_TW_ABOUT_EDIT,
   ON_TW_CONTACT_EDIT, ON_TW_DOWNLOAD_EDIT, ON_TW_PRODUCTS_EDIT,
   ON_TW_NEWS_HEADER_EDIT, ON_TW_CONTACT_HEADER_EDIT, ON_TW_DOWNLOAD_HEADER_EDIT,
-  ON_TW_PRODUCTS_HEADER_EDIT, ON_TW_PRODUCTS_CATEGORY_EDIT
+  ON_TW_PRODUCTS_HEADER_EDIT, ON_TW_PRODUCTS_CATEGORY_EDIT, ON_TW_NEWS_ITEM_EDIT,
 } from 'constants/actionTypes';
 
 // attribute name
@@ -113,6 +113,20 @@ export default (state = twInitialState, action) => {
       newState[ATTRI_NAME_TOP_BANNER].imgItems = payload.imgItems.filter((value) => {
         return value.imgUrl;
       });
+      return newState;
+    // news item
+    case ON_TW_NEWS_ITEM_EDIT:
+      const { newsItemIndex } = payload;
+      delete payload.newsItemIndex;
+
+      newState = {
+        ...state
+      };
+
+      newState[ATTRI_NAME_NEWS].newsItems[newsItemIndex] = {
+        ...newState[ATTRI_NAME_NEWS].newsItems[newsItemIndex],
+        ...payload,
+      };
       return newState;
     default:
       return state;

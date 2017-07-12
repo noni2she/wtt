@@ -2,23 +2,62 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { onEditFormSubmit } from 'actions/editForm';
 import PropTypes from 'prop-types';
+import { FORM_SET_NEWS_ITEM } from 'constants/common';
 
 class NewsItemFormSet extends Component {
   constructor(props) {
     super();
     this.onFormChange = this.onFormChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.state = {
+      ...props.newsItem
+    }
   }
 
   onFormChange({ target }) {
-    this.props.onEditFormSubmit();
+    try {
+      const { name, value, checked } = target;
+      let imageItem;
+      let newValue = value;
+
+      if (name === 'mainImg') {
+        // imgItem
+        imageItem = { ...this.state[name] }
+        imageItem.imgUrl = value;
+        newValue = imageItem;
+      }
+       else if (name === 'displayed') {
+
+        // checkbox
+        newValue = checked;
+      }
+      this.setState({
+        [name]: newValue,
+      });
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   onSubmit(event) {
     event.preventDefault();
+    const { locales, newsItemIndex } = this.props;
+
+    this.props.onEditFormSubmit(
+      locales, FORM_SET_NEWS_ITEM,
+      { ...this.state, newsItemIndex }
+    );
+
+    // navigate to previous page
+    this.context.router.goBack();
   }
 
   render() {
+    const {
+      displayed, mainImg, header, subheader,
+      description, date, position,
+    } = this.state;
+
     return (
       <div className="page-edit-form-set">
         <form className="page-edit-form-set-category">
@@ -29,7 +68,7 @@ class NewsItemFormSet extends Component {
                 type="checkbox" 
                 name="displayed" 
                 onChange={this.onFormChange}
-                checked={true}
+                checked={displayed}
               /> 
               Displayed
             </label>
@@ -41,7 +80,7 @@ class NewsItemFormSet extends Component {
               type="text"
               placeholder="main-image url" 
               name="mainImg"
-              value={'image'}
+              value={mainImg.imgUrl}
               onChange={this.onFormChange}
             />
           </div>
@@ -51,8 +90,8 @@ class NewsItemFormSet extends Component {
               className="form-control"
               type="text"
               placeholder="Title"
-              name="name"
-              value={'name'}
+              name="header"
+              value={header}
               onChange={this.onFormChange}
             />
           </div>
@@ -62,8 +101,8 @@ class NewsItemFormSet extends Component {
               className="form-control"
               type="text"
               placeholder="Title"
-              name="name"
-              value={'name'}
+              name="subheader"
+              value={subheader}
               onChange={this.onFormChange}
             />
           </div>
@@ -73,8 +112,8 @@ class NewsItemFormSet extends Component {
               className="form-control"
               type="text"
               placeholder="Title"
-              name="name"
-              value={'name'}
+              name="description"
+              value={description}
               onChange={this.onFormChange}
             />
           </div>
@@ -84,8 +123,8 @@ class NewsItemFormSet extends Component {
               className="form-control"
               type="text"
               placeholder="Title"
-              name="name"
-              value={'name'}
+              name="date"
+              value={date}
               onChange={this.onFormChange}
             />
           </div>
@@ -95,8 +134,8 @@ class NewsItemFormSet extends Component {
               className="form-control"
               type="text"
               placeholder="Title"
-              name="name"
-              value={'name'}
+              name="position"
+              value={position}
               onChange={this.onFormChange}
             />
           </div>

@@ -6,7 +6,7 @@ import {
   ON_EN_TOP_BANNER_EDIT, ON_EN_NEWS_EDIT, ON_EN_ABOUT_EDIT,
   ON_EN_CONTACT_EDIT, ON_EN_DOWNLOAD_EDIT, ON_EN_PRODUCTS_EDIT,
   ON_EN_NEWS_HEADER_EDIT, ON_EN_CONTACT_HEADER_EDIT, ON_EN_DOWNLOAD_HEADER_EDIT,
-  ON_EN_PRODUCTS_HEADER_EDIT, ON_EN_PRODUCTS_CATEGORY_EDIT,
+  ON_EN_PRODUCTS_HEADER_EDIT, ON_EN_PRODUCTS_CATEGORY_EDIT, ON_EN_NEWS_ITEM_EDIT,
 } from 'constants/actionTypes';
 
 // attribute name
@@ -113,6 +113,20 @@ export default (state = enInitialState, action) => {
       newState[ATTRI_NAME_TOP_BANNER].imgItems = payload.imgItems.filter((value) => {
         return value.imgUrl;
       });
+      return newState;
+    // news item
+    case ON_EN_NEWS_ITEM_EDIT:
+      const { newsItemIndex } = payload;
+      delete payload.newsItemIndex;
+
+      newState = {
+        ...state
+      };
+
+      newState[ATTRI_NAME_NEWS].newsItems[newsItemIndex] = {
+        ...newState[ATTRI_NAME_NEWS].newsItems[newsItemIndex],
+        ...payload,
+      };
       return newState;
     default:
       return state;
