@@ -7,6 +7,7 @@ import {
   ON_EN_CONTACT_EDIT, ON_EN_DOWNLOAD_EDIT, ON_EN_PRODUCTS_EDIT,
   ON_EN_NEWS_HEADER_EDIT, ON_EN_CONTACT_HEADER_EDIT, ON_EN_DOWNLOAD_HEADER_EDIT,
   ON_EN_PRODUCTS_HEADER_EDIT, ON_EN_PRODUCTS_CATEGORY_EDIT, ON_EN_NEWS_ITEM_EDIT,
+  ON_EN_DOWNLOAD_ITEM_EDIT,
 } from 'constants/actionTypes';
 
 // attribute name
@@ -137,6 +138,20 @@ export default (state = enInitialState, action) => {
         ...newState[ATTRI_NAME_CONTACT],
         ...payload,
       }
+      return newState;
+    // download items
+    case ON_EN_DOWNLOAD_ITEM_EDIT:
+      const { downloadItemIndex } = payload;
+      delete payload.downloadItemIndex;
+
+      newState = {
+        ...state
+      };
+      newState[ATTRI_NAME_DOWNLOAD].downloadItems[downloadItemIndex] = {
+        ...newState[ATTRI_NAME_DOWNLOAD].downloadItems[downloadItemIndex],
+        ...payload,
+      };
+
       return newState;
     default:
       return state;

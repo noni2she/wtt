@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { onEditFormSubmit } from 'actions/editForm';
 import PropTypes from 'prop-types';
-// import { FORM_SET_NEWS_ITEM } from 'constants/common';
+import { FORM_SET_DOWNLOAD_ITEM } from 'constants/common';
 
 class NewsItemFormSet extends Component {
   constructor(props) {
@@ -15,41 +15,60 @@ class NewsItemFormSet extends Component {
   }
 
   onFormChange({ target }) {
-    // try {
-    //   const { name, value, checked } = target;
-    //   let imageItem;
-    //   let newValue = value;
+    try {
+      const { name, value, checked } = target;
+      let imageItem, index, array;
+      let newValue = value;
 
-    //   if (name === 'mainImg') {
-    //     // imgItem
-    //     imageItem = { ...this.state[name] }
-    //     imageItem.imgUrl = value;
-    //     newValue = imageItem;
-    //   }
-    //    else if (name === 'displayed') {
+      if (name === 'mainImg') {
+        // imgItem
+        imageItem = { ...this.state[name] }
+        imageItem.imgUrl = value;
+        newValue = imageItem;
+      }
+       else if (name === 'displayed') {
 
-    //     // checkbox
-    //     newValue = checked;
-    //   }
-    //   this.setState({
-    //     [name]: newValue,
-    //   });
-    // } catch (error) {
-    //   console.error(error);
-    // }
+        // checkbox
+        newValue = checked;
+      } else if (name === 'description') {
+        index = parseInt(target.getAttribute('data-index'), 10);
+
+        // prevent from index of array out of range
+        if (index < 0 || index > 5 ) throw Error;
+
+        array =  [ ...this.state[name] ];
+        array[index] = value;
+        newValue = array;
+
+      } else if (name === 'link') {
+        index = parseInt(target.getAttribute('data-index'), 10);
+
+        // prevent from index of array out of range
+        if (index < 0 || index > 5 ) throw Error;
+
+        array =  [...this.state[name]];
+        array[index][target.getAttribute('data-key')] = value;
+        newValue = array;
+      }
+      this.setState({
+        [name]: newValue,
+      });
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   onSubmit(event) {
-    // event.preventDefault();
-    // const { locales, newsItemIndex } = this.props;
+    event.preventDefault();
+    const { locales, downloadItemIndex } = this.props;
 
-    // this.props.onEditFormSubmit(
-    //   locales, FORM_SET_NEWS_ITEM,
-    //   { ...this.state, newsItemIndex }
-    // );
+    this.props.onEditFormSubmit(
+      locales, FORM_SET_DOWNLOAD_ITEM,
+      { ...this.state, downloadItemIndex }
+    );
 
-    // // navigate to previous page
-    // this.context.router.goBack();
+    // navigate to previous page
+    this.context.router.goBack();
   }
   linkEditFieldGenerator(link) {
     if (!link) return null;
@@ -111,7 +130,6 @@ class NewsItemFormSet extends Component {
       displayed, mainImg, title,
       description, link
     } = this.state;
-    console.log(this.state);
     return (
       <div className="page-edit-form-set">
         <form className="page-edit-form-set-downloadItems">
@@ -128,7 +146,7 @@ class NewsItemFormSet extends Component {
             </label>
           </div>
           <div className="form-group">
-            <label >主要圖片</label>
+            <label>主要圖片</label>
             <input
               className="form-control"
               type="text"

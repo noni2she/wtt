@@ -57,6 +57,8 @@ const mapFormSetToAttriName = (formSet, blockType) => {
       return `${MAP_FORMSET_TO_ATTRI_NEWS}_ITEM`;
     case FORM_SET_CONTACT:
       return MAP_FORMSET_TO_ATTRI_CONTACT;
+    case FORM_SET_DOWNLOAD_ITEM:
+      return `${MAP_FORMSET_TO_ATTRI_DOWNLOAD}_ITEM`;
     default:
       return '';
   }

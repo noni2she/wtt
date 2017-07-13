@@ -11,6 +11,7 @@ import {
   renderNewsItemFormSet,
   renderTopBannerFormSet,
   renderContactFormSet,
+  renderDownloadItemFormSet,
 } from './renderFormSet';
 
 class PageEdit extends Component {
@@ -58,6 +59,7 @@ class PageEdit extends Component {
 
         case 'download':
           if (innerBlock === 'header') return renderHeaderFormSet(props, blockType);
+          else if (innerBlock && index) return renderDownloadItemFormSet(props, index);
           else return false;
           
         default:

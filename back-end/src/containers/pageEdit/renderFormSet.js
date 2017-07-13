@@ -7,6 +7,7 @@ import CategoryFormSet from 'containers/pageEdit/formSet/category';
 import NewsItemFormSet from 'containers/pageEdit/formSet/newsItems';
 import TopBannerFormSet from 'containers/pageEdit/formSet/topBanner';
 import ContactFormSet from 'containers/pageEdit/formSet/contact';
+import DownloadFormSet from 'containers/pageEdit/formSet/downloadItems';
 
 //SeriesDetailFormSet
 export const renderSeriesDetailFormSet = (props, categoryKey, seriesKey) => {
@@ -186,6 +187,28 @@ export const renderContactFormSet = (props) => {
       <ContactFormSet
         locales={locales}
         contact={contact}
+      />
+    );
+  } catch (error) {
+    console.error(error);
+    return false;
+  }
+}
+
+// renderDownloadItemFormSet
+export const renderDownloadItemFormSet = (props, downloadItemIndex) => {
+  try {
+    const { locales } = props;
+    const { download } = props[locales];
+    const downloadItem = download.downloadItems[downloadItemIndex];
+
+    if (!downloadItem) return false;
+
+    return (
+      <DownloadFormSet
+        locales={locales}
+        downloadItem={downloadItem}
+        downloadItemIndex={downloadItemIndex}
       />
     );
   } catch (error) {
