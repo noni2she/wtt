@@ -7,7 +7,7 @@ import {
   ON_EN_CONTACT_EDIT, ON_EN_DOWNLOAD_EDIT, ON_EN_PRODUCTS_EDIT,
   ON_EN_NEWS_HEADER_EDIT, ON_EN_CONTACT_HEADER_EDIT, ON_EN_DOWNLOAD_HEADER_EDIT,
   ON_EN_PRODUCTS_HEADER_EDIT, ON_EN_PRODUCTS_CATEGORY_EDIT, ON_EN_NEWS_ITEM_EDIT,
-  ON_EN_DOWNLOAD_ITEM_EDIT,
+  ON_EN_DOWNLOAD_ITEM_EDIT, ON_EN_NEWS_ITEM_CREATE,
 } from 'constants/actionTypes';
 
 // attribute name
@@ -15,6 +15,10 @@ import {
   ATTRI_NAME_TOP_BANNER, ATTRI_NAME_NEWS, ATTRI_NAME_ABOUT,
   ATTRI_NAME_CONTACT, ATTRI_NAME_DOWNLOAD, ATTRI_NAME_PRODUCTS,
 } from 'constants/common';
+
+import {
+  newsItemDefaultGenerator,
+} from 'constants/initialState';
 
 export default (state = enInitialState, action) => {
   const { type, payload } = action;
@@ -152,6 +156,22 @@ export default (state = enInitialState, action) => {
         ...payload,
       };
 
+      return newState;
+    /* create */
+    // newsItem
+    case ON_EN_NEWS_ITEM_CREATE:
+      const createNewsItems = newsItemDefaultGenerator();
+
+      newState = {
+        ...state
+      };
+      newState[ATTRI_NAME_NEWS] = {
+        ...newState[ATTRI_NAME_NEWS],
+      }
+      newState[ATTRI_NAME_NEWS].newsItems = [
+        ...newState[ATTRI_NAME_NEWS].newsItems,
+      ];
+      newState[ATTRI_NAME_NEWS].newsItems.push(createNewsItems);
       return newState;
     default:
       return state;

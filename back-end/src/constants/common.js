@@ -40,3 +40,6 @@ export const FORM_SET_TOP_BANNER = 'FORM_SET_TOP_BANNER';
 export const FORM_SET_NEWS_ITEM = 'FORM_SET_NEWS_ITEM';
 export const FORM_SET_CONTACT = 'FORM_SET_CONTACT';
 export const FORM_SET_DOWNLOAD_ITEM = 'FORM_SET_DOWNLOAD_ITEM';
+
+// create form or action
+export const CREATE_NEWS_ITEM = 'CREATE_NEWS_ITEM';

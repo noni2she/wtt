@@ -25,7 +25,7 @@ class PageIndex extends Component {
         <NavBar active={ NAV_BAR_INDEX } />
         <TopBanner imgItems={topBanner.imgItems} />
         <Product products={products} />
-        <News news={news} />
+        <News news={news} locales={locales} />
         <Download download={download} />
         <About about={about} />
         <Contact contact={contact} />

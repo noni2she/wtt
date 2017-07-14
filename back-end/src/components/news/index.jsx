@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Slider from 'react-slick';
 import { Link } from 'react-router';
 import NewsItem from './newsItem.jsx';
+import { onCreateFormSubmit } from 'actions/editForm';
+import { CREATE_NEWS_ITEM } from 'constants/common';
 
 const settings = {
   dots: true,
@@ -13,7 +16,18 @@ const settings = {
   // centerMode: true
 };
 
-export default class News extends Component {
+export class News extends Component {
+  constructor() {
+    super();
+    this.onCreateBtnClick = this.onCreateBtnClick.bind(this);
+  }
+  onCreateBtnClick(event) {
+    event.preventDefault();
+
+    const { locales } = this.props;
+    this.props.onCreateFormSubmit(locales, CREATE_NEWS_ITEM);
+  }
+
   render () {
     const {header, subheader, newsItems} = this.props.news;
     const newsItemList = newsItems.map((item, index) => {
@@ -42,7 +56,19 @@ export default class News extends Component {
             {newsItemList}
           </Slider>
         </div>
+        <div>
+          <button
+            type="button"
+            className="btn btn-success"
+            style={{marginTop: '30px'}}
+            onClick={this.onCreateBtnClick}
+          >
+            新增 NewsItem
+          </button>
+        </div>
       </div>
     );
   }  
 }
+
+export default connect(null, { onCreateFormSubmit })(News);

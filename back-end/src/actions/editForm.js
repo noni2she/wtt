@@ -5,6 +5,7 @@ import {
   FORM_SET_SERIES_DETAIL, FORM_SET_HEADER, FORM_SET_ABOUT,
   FORM_SET_CATEGORY, FORM_SET_TOP_BANNER, FORM_SET_NEWS_ITEM,
   FORM_SET_CONTACT, FORM_SET_DOWNLOAD_ITEM,
+  CREATE_NEWS_ITEM,
 } from 'constants/common';
 
 import {
@@ -29,6 +30,7 @@ const getLocalePrefix = (locale) =>  {
 
 const mapFormSetToAttriName = (formSet, blockType) => {
   switch(formSet) {
+    // edit
     case FORM_SET_SERIES_DETAIL:
       return MAP_FORMSET_TO_ATTRI_PRODUCTS;
     case FORM_SET_HEADER:
@@ -59,6 +61,9 @@ const mapFormSetToAttriName = (formSet, blockType) => {
       return MAP_FORMSET_TO_ATTRI_CONTACT;
     case FORM_SET_DOWNLOAD_ITEM:
       return `${MAP_FORMSET_TO_ATTRI_DOWNLOAD}_ITEM`;
+    // create
+    case CREATE_NEWS_ITEM:
+      return `${MAP_FORMSET_TO_ATTRI_NEWS}_ITEM`;
     default:
       return '';
   }
@@ -80,6 +85,13 @@ const mapFormSetToAttriName = (formSet, blockType) => {
 export const onEditFormSubmit = (locale, formSet, value, blockType) => {
   return({
     type: `ON_${getLocalePrefix(locale)}${mapFormSetToAttriName(formSet, blockType)}_${EDIT_FROM_EDIT}`,
+    payload: value,
+  });
+};
+
+export const onCreateFormSubmit = (locale, formSet, value, blockType) => {
+  return({
+    type: `ON_${getLocalePrefix(locale)}${mapFormSetToAttriName(formSet, blockType)}_${EDIT_FROM_CREATE}`,
     payload: value,
   });
 };

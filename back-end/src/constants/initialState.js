@@ -34,3 +34,17 @@ export const imgItemDefaultGenerator = () => {
     altText: '',
   });
 }
+
+export const newsItemDefaultGenerator = () => {
+  return({
+    displayed: false,
+    id: uuid(),
+    timestamps: new Date().toString(),
+    header: '',
+    subheader: '',
+    description: '',
+    mainImg: imgItemDefaultGenerator(),
+    date: '',
+    position: '',
+  });
+}
