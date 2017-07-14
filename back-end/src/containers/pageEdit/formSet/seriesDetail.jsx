@@ -193,7 +193,7 @@ class SeriesDetailFormSet extends Component {
 
   render() {
     const {
-      displayed, name, mainImg,
+      displayed, name, shortName, mainImg,
       subImg, description, content,
     } = this.state;
     return (
@@ -220,6 +220,18 @@ class SeriesDetailFormSet extends Component {
               placeholder="Title"
               name="name"
               value={name}
+              onChange={this.onFormChange}
+            />
+          </div>
+          <div className="form-group">
+            <label>顯示名稱</label>
+            <input
+              id="form-set-series-description-shortName"
+              className="form-control"
+              type="text"
+              placeholder="Title"
+              name="shortName"
+              value={shortName}
               onChange={this.onFormChange}
             />
           </div>
