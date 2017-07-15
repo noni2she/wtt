@@ -44,7 +44,10 @@ export class Download extends Component {
           <button
             type="button"
             className="btn btn-success"
-            style={{marginTop: '30px'}}
+            style={{
+              marginTop: '15px',
+              marginBottom: '30px'
+            }}
             onClick={this.onCreateBtnClick}
           >
             新增 DownloadItem
