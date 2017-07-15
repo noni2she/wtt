@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class About extends Component {
   render() {
@@ -17,3 +18,7 @@ export default class About extends Component {
     );
   }
 }
+
+About.propTypes = {
+  about: PropTypes.object
+};
