@@ -29,7 +29,19 @@ export default class Product extends Component {
             <p className="product-subheader">{subheader}</p>
           </div>
         </Link>
-        {ProductList}
+        <div className="col-lg-12">
+          <div className="row col-lg-6 col-lg-offset-3">
+            <div className="col-lg-2 col-md-3 col-sm-3 col-xs-3">.col-md-4</div>
+            <div className="col-lg-2 col-md-3 col-sm-3 col-xs-3">.col-md-4</div>
+            <div className="col-lg-2 col-md-3 col-sm-3 col-xs-3">.col-md-4</div>
+            <div className="col-lg-2 col-md-3 col-sm-3 col-xs-3">.col-md-4</div>
+            <div className="col-lg-2 col-md-3 col-sm-3 col-xs-3">.col-md-4</div>
+            <div className="col-lg-2 col-md-3 col-sm-3 col-xs-3">.col-md-4</div>
+            <div className="col-lg-2 col-md-3 col-sm-3 col-xs-3">.col-md-4</div>
+            <div className="col-lg-2 col-md-3 col-sm-3 col-xs-3">.col-md-4</div>
+            <div className="col-lg-2 col-md-3 col-sm-3 col-xs-3">.col-md-4</div>
+          </div>
+        </div>
       </div>
     );
   }  
