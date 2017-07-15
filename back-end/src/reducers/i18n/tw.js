@@ -7,7 +7,7 @@ import {
   ON_TW_CONTACT_EDIT, ON_TW_DOWNLOAD_EDIT, ON_TW_PRODUCTS_EDIT,
   ON_TW_NEWS_HEADER_EDIT, ON_TW_CONTACT_HEADER_EDIT, ON_TW_DOWNLOAD_HEADER_EDIT,
   ON_TW_PRODUCTS_HEADER_EDIT, ON_TW_PRODUCTS_CATEGORY_EDIT, ON_TW_NEWS_ITEM_EDIT,
-  ON_TW_DOWNLOAD_ITEM_EDIT, ON_TW_NEWS_ITEM_CREATE,
+  ON_TW_DOWNLOAD_ITEM_EDIT, ON_TW_NEWS_ITEM_CREATE, ON_TW_DOWNLOAD_ITEM_CREATE,
 } from 'constants/actionTypes';
 
 // attribute name
@@ -17,7 +17,7 @@ import {
 } from 'constants/common';
 
 import {
-  newsItemDefaultGenerator,
+  newsItemDefaultGenerator, downloadItemDefaultGenerator
 } from 'constants/initialState';
 
 export default (state = twInitialState, action) => {
@@ -172,6 +172,22 @@ export default (state = twInitialState, action) => {
         ...newState[ATTRI_NAME_NEWS].newsItems,
       ];
       newState[ATTRI_NAME_NEWS].newsItems.push(createNewsItems);
+      return newState;
+    // downloadItem
+    case ON_TW_DOWNLOAD_ITEM_CREATE:
+      const createDownloadItems = downloadItemDefaultGenerator();
+
+      newState = {
+        ...state
+      };
+
+      newState[ATTRI_NAME_DOWNLOAD] = {
+        ...newState[ATTRI_NAME_DOWNLOAD],
+      }
+      newState[ATTRI_NAME_DOWNLOAD].downloadItems = [
+        ...newState[ATTRI_NAME_DOWNLOAD].downloadItems,
+      ];
+      newState[ATTRI_NAME_DOWNLOAD].downloadItems.push(createDownloadItems);
       return newState;
     default:
       return state;

@@ -48,3 +48,15 @@ export const newsItemDefaultGenerator = () => {
     position: '',
   });
 }
+
+export const downloadItemDefaultGenerator = () => {
+  return ({
+    displayed: false,
+    id: uuid(),
+    timestamps: new Date().toString(),
+    mainImg: imgItemDefaultGenerator(),
+    title: 'downloadItem',
+    description: [],
+    link: [],
+  });
+}
