@@ -1,13 +1,26 @@
-@media (min-width: $screen-sm-min) { 
-  .about-container {
-    height: 600px;
+@media (min-width: $screen-md-min) { 
+  #about {
+    height: 765px;
+    .about-container {
+      height: 650px;
+    }
   }
 }
 
-@media (max-width: $screen-sm-min) {
+@media (max-width: $screen-md-min) {
   #about {
+    padding: 1em 1em 1em 1em;
     .about-container {
-      height: 700px;
+      .about-title{
+        h1 {
+          font-size: 4vw;
+        }
+      }
+      .about-content{
+        p {
+          font-size: 1.5vw;
+        }
+      }
     }
   }
 }
@@ -16,7 +29,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 765px;
   background-image: url('https://firebasestorage.googleapis.com/v0/b/techwell-74c86.appspot.com/o/about%2Fbackground.jpg?alt=media&token=ebf14c84-98f0-458b-a67c-d9c040d915e8');
   background-repeat: no-repeat;
   background-size: cover;
