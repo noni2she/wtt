@@ -43,3 +43,4 @@ export const FORM_SET_DOWNLOAD_ITEM = 'FORM_SET_DOWNLOAD_ITEM';
 
 // create form or action
 export const CREATE_NEWS_ITEM = 'CREATE_NEWS_ITEM';
+export const CREATE_DOWNLOAD_ITEM = 'CREATE_DOWNLOAD_ITEM';

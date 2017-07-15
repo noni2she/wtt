@@ -7,7 +7,7 @@ import {
   ON_EN_CONTACT_EDIT, ON_EN_DOWNLOAD_EDIT, ON_EN_PRODUCTS_EDIT,
   ON_EN_NEWS_HEADER_EDIT, ON_EN_CONTACT_HEADER_EDIT, ON_EN_DOWNLOAD_HEADER_EDIT,
   ON_EN_PRODUCTS_HEADER_EDIT, ON_EN_PRODUCTS_CATEGORY_EDIT, ON_EN_NEWS_ITEM_EDIT,
-  ON_EN_DOWNLOAD_ITEM_EDIT, ON_EN_NEWS_ITEM_CREATE,
+  ON_EN_DOWNLOAD_ITEM_EDIT, ON_EN_NEWS_ITEM_CREATE, ON_EN_DOWNLOAD_ITEM_CREATE,
 } from 'constants/actionTypes';
 
 // attribute name
@@ -18,6 +18,7 @@ import {
 
 import {
   newsItemDefaultGenerator,
+  downloadItemDefaultGenerator,
 } from 'constants/initialState';
 
 export default (state = enInitialState, action) => {
@@ -172,6 +173,22 @@ export default (state = enInitialState, action) => {
         ...newState[ATTRI_NAME_NEWS].newsItems,
       ];
       newState[ATTRI_NAME_NEWS].newsItems.push(createNewsItems);
+      return newState;
+    // downloadItem
+    case ON_EN_DOWNLOAD_ITEM_CREATE:
+      const createDownloadItems = downloadItemDefaultGenerator();
+
+      newState = {
+        ...state
+      };
+
+      newState[ATTRI_NAME_DOWNLOAD] = {
+        ...newState[ATTRI_NAME_DOWNLOAD],
+      }
+      newState[ATTRI_NAME_DOWNLOAD].downloadItems = [
+        ...newState[ATTRI_NAME_DOWNLOAD].downloadItems,
+      ];
+      newState[ATTRI_NAME_DOWNLOAD].downloadItems.push(createDownloadItems);
       return newState;
     default:
       return state;

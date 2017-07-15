@@ -3,14 +3,25 @@ import ImgItem from 'components/common/imgItem.jsx';
 import { Link } from 'react-router';
 
 export default class Download extends Component {
-  render () {
-    const { downloadIndex } = this.props;
-    const {
-      description, link, mainImg, title
-    } = this.props.downloadItem;
+  downloadItemDescription(description) {
+    // hide empty description
+    let downloadItemDescription = description.filter((item, index) => {
+      return item !== '';
+    });
 
-    const downloadItemDescription = description.map((item, index) => <span key={ `downItemDescription_${index}` }>{item}</span>);
-    const downloadItemLink = link.map((item, index) => {
+    return downloadItemDescription.map((item, index) => {
+      return(
+        <p key={ `downItemDescription_${index}`}>{item}</p>
+      );
+    });
+  }
+
+  downloadItemLink(link) {
+    // hide empty link
+    let downloadItemLink = link.filter((item, index) => {
+      return item.key !== '';
+    });
+    return downloadItemLink.map((item, index) => {
       return(
         <li key={'downItemlink_'+index}>
           <span>{item.key}:</span>
@@ -18,6 +29,13 @@ export default class Download extends Component {
         </li>
       );
     });
+  }
+
+  render () {
+    const { downloadIndex } = this.props;
+    const {
+      description, link, mainImg, title
+    } = this.props.downloadItem;
 
     return (
       <div className="download-item row">
@@ -32,7 +50,7 @@ export default class Download extends Component {
           <Link to={`/edit/download/downloadItems/${downloadIndex}`}>
             <span className="download-description-title"><i className="glyphicon glyphicon-file" />{title}</span>
             <ul className="list-unstyled">
-              {downloadItemDescription}
+              {this.downloadItemDescription(description)}
             </ul>
           </Link>
         </div>
@@ -40,7 +58,7 @@ export default class Download extends Component {
         <div className="download-link col-lg-3">
           <i className="glyphicon glyphicon-download-alt"></i>
           <ul className="list-unstyled">
-            {downloadItemLink}
+            {this.downloadItemLink(link)}
           </ul>
         </div>
       </div>

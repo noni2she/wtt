@@ -4,13 +4,35 @@ import { onEditFormSubmit } from 'actions/editForm';
 import PropTypes from 'prop-types';
 import { FORM_SET_DOWNLOAD_ITEM } from 'constants/common';
 
-class NewsItemFormSet extends Component {
+class DownloadItemFormSet extends Component {
   constructor(props) {
     super();
+    let insufficientCount;
+    const { description, link } = props.downloadItem;
+
     this.onFormChange = this.onFormChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+
+    // if the length of description is less than 5, fill it up to 5.
+    insufficientCount = 5 - Object.keys(description).length;
+    let descriptionArray = [ ...description ];
+    for (let index = 0 ; index < insufficientCount ; index++) {
+      descriptionArray.push('');
+    }
+    // if the length of link is less than 5, fill it up to 5.
+    insufficientCount = 5 - Object.keys(link).length;
+    let linkArray = [ ...link ];
+    for (let index = 0 ; index < insufficientCount ; index++) {
+      linkArray.push({
+        key: '',
+        linkUrl: '',
+      });
+    }
+
     this.state = {
-      ...props.downloadItem
+      ...props.downloadItem,
+      description: descriptionArray,
+      link: linkArray,
     }
   }
 
@@ -188,12 +210,12 @@ class NewsItemFormSet extends Component {
   }
 }
 
-NewsItemFormSet.contextTypes = {
+DownloadItemFormSet.contextTypes = {
   router: PropTypes.object,
 };
 
-NewsItemFormSet.propTypes = {
+DownloadItemFormSet.propTypes = {
   onEditFormSubmit: PropTypes.func,
 }
 
-export default connect(null, { onEditFormSubmit })(NewsItemFormSet);
+export default connect(null, { onEditFormSubmit })(DownloadItemFormSet);
