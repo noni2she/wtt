@@ -37,5 +37,5 @@ export default class TopBanner extends Component {
 }
 
 TopBanner.propTypes = {
-  imgItems: PropTypes.object
+  imgItems: PropTypes.array
 };
