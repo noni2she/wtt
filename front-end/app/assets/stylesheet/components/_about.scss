@@ -1,3 +1,17 @@
+@media (min-width: $screen-sm-min) { 
+  .about-container {
+    height: 600px;
+  }
+}
+
+@media (max-width: $screen-sm-min) {
+  #about {
+    .about-container {
+      height: 700px;
+    }
+  }
+}
+
 #about{
   display: flex;
   align-items: center;
@@ -7,14 +21,15 @@
   background-repeat: no-repeat;
   background-size: cover;
   .about-container{
+    max-width: 1200px;
     opacity: 0.6;
     background-color:ghostwhite;
-    height: 600px;
     padding: 20px 50px 20px 50px;
     .about-title{
       display: flex;
       justify-content: flex-start;
       align-items: center;
+      word-break: break-all;
       opacity: 1;
       color: black;
     }
