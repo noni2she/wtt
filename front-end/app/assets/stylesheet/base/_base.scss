@@ -46,3 +46,12 @@ $wtt-red: red;
   align-items: center;
   justify-content: center;
 }
+
+.container-fluid {
+  padding: 0px !important;
+}
+
+// media queries
+$screen-sm-min: 768px;
+$screen-md-min: 992px;
+$screen-lg-min: 1200px;

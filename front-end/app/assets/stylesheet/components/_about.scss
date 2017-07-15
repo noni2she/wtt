@@ -1,20 +1,47 @@
+@media (min-width: $screen-md-min) { 
+  #about {
+    height: 765px;
+    .about-container {
+      height: 650px;
+    }
+  }
+}
+
+@media (max-width: $screen-md-min) {
+  #about {
+    padding: 1em 1em 1em 1em;
+    .about-container {
+      .about-title{
+        h1 {
+          font-size: 4vw;
+        }
+      }
+      .about-content{
+        p {
+          font-size: 1.5vw;
+        }
+      }
+    }
+  }
+}
+
 #about{
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 765px;
   background-image: url('https://firebasestorage.googleapis.com/v0/b/techwell-74c86.appspot.com/o/about%2Fbackground.jpg?alt=media&token=ebf14c84-98f0-458b-a67c-d9c040d915e8');
   background-repeat: no-repeat;
   background-size: cover;
   .about-container{
+    max-width: 1200px;
     opacity: 0.6;
     background-color:ghostwhite;
-    height: 600px;
     padding: 20px 50px 20px 50px;
     .about-title{
       display: flex;
       justify-content: flex-start;
       align-items: center;
+      word-break: break-all;
       opacity: 1;
       color: black;
     }

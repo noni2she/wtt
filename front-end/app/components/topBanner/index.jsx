@@ -1,31 +1,33 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Slider from 'react-slick';
-import Banner from 'components/common/imgItem.jsx';
-import { Link } from 'react-router';
+import ImgItem from 'components/common/imgItem.jsx';
 
 const settings = {
   dots: true,
   infinite: true,
-  speed: 500,
   slidesToShow: 1,
   slidesToScroll: 1,
-  arrows: false,
-  centerMode: true
+  responsive: [
+    {
+      breakpoint: 992,
+      settings: {
+        arrows: false
+      }
+    }]
 };
 
 export default class TopBanner extends Component {
-  render () {
+  render() {
     const BannerList = this.props.imgItems.map((item, index) => {
       return (
         <div key={`topBanner_+${index}`}>
-          <Link to={`/edit/topBanner`}>
-            <Banner imgItem={item}/>
-          </Link>
+          <ImgItem imgItem={item}/>
         </div>
       );
     });
     return (
-      <div className="top-banner">
+      <div id="top-banner">
         <Slider {...settings}>
           {BannerList}
         </Slider>
@@ -33,3 +35,7 @@ export default class TopBanner extends Component {
     );
   }
 }
+
+TopBanner.propTypes = {
+  imgItems: PropTypes.array
+};

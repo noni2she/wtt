@@ -12,7 +12,7 @@ import routes from 'routes';
 
 // style part
 import 'stylesheet/index.scss';
-import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 // import 'bootstrap/dist/css/bootstrap-theme.css';
 
 // js

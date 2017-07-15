@@ -1,0 +1,24 @@
+#top-banner {
+  margin-bottom: 30px;
+
+  .slick-prev:before,
+  .slick-next:before {
+    color:gray;
+  }
+
+  .slick-prev {
+    left: 25px;
+    z-index: 1;
+  }
+
+  .slick-next {
+    right: 25px;
+    z-index: 1;
+  }
+
+  .slick-slide {
+    img {
+      width: 100%;
+    }
+  }
+}
