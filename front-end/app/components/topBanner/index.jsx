@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Slider from 'react-slick';
 import ImgItem from 'components/common/imgItem.jsx';
 
@@ -34,3 +35,7 @@ export default class TopBanner extends Component {
     );
   }
 }
+
+TopBanner.propTypes = {
+  imgItems: PropTypes.object
+};
