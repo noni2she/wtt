@@ -10,7 +10,7 @@ const settings = {
   slidesToScroll: 1,
   responsive: [
     {
-      breakpoint: 768,
+      breakpoint: 992,
       settings: {
         arrows: false
       }
