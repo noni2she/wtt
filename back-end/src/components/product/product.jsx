@@ -31,6 +31,7 @@ export class ProductItem extends Component {
     }
 
     for(let i = SERIES_ITEM_COUNT_PER_ROW; i < seriesItems.length; i++) {
+      seriesKey = seriesItems[i].key;
       seriesList2.push(
         <div className="col-lg-1 col-md-2 col-sm-2 col-xs-2" key={`productItem_${i}`}>
           <Link to={`product/${categoryKey}/${seriesKey}`}>
