@@ -47,6 +47,10 @@ $wtt-red: red;
   justify-content: center;
 }
 
+.container-fluid {
+  padding: 0px !important;
+}
+
 // media queries
 $screen-sm-min: 768px;
 $screen-md-min: 992px;
