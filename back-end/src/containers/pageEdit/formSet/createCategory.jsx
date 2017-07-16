@@ -31,9 +31,7 @@ class CreateCategoryFormSet extends Component {
   onSubmit(event) {
     event.preventDefault();
     const { locales } = this.props;
-    const {
-      key
-    } = this.state;
+    const { key } = this.state;
     const regExp = /^[a-z0-9]+$/i;
 
     if (!key) {

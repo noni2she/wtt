@@ -111,7 +111,6 @@ class TopBannerFormSet extends Component {
             >
               儲存
             </button>
-            <button className="btn btn-danger pull-right">刪除</button>
           </div>
         </form>
       </div>

@@ -28,8 +28,7 @@ export class News extends Component {
     this.props.onCreateFormSubmit(locales, CREATE_NEWS_ITEM);
   }
 
-  render () {
-    const {header, subheader, newsItems} = this.props.news;
+  sliderGenerator(newsItems) {
     const newsItemList = newsItems.map((item, index) => {
       return (
         <div
@@ -42,6 +41,17 @@ export class News extends Component {
         </div>
       );
     });
+    return (
+      <div className="container">
+        <Slider {...settings} className="item-container">
+          {newsItemList}
+        </Slider>
+      </div>
+    );
+  }
+
+  render () {
+    const {header, subheader, newsItems} = this.props.news;
 
     return (
       <div id="news">
@@ -51,11 +61,9 @@ export class News extends Component {
             <p>{subheader}</p>
           </div>
         </Link>
-        <div className="container">
-          <Slider {...settings} className="item-container">
-            {newsItemList}
-          </Slider>
-        </div>
+
+        { Array.isArray(newsItems) && newsItems.length > 0 ? this.sliderGenerator(newsItems) : null}
+
         <div>
           <button
             type="button"

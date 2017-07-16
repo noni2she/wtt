@@ -8,7 +8,8 @@ import {
   ON_JP_NEWS_HEADER_EDIT, ON_JP_CONTACT_HEADER_EDIT, ON_JP_DOWNLOAD_HEADER_EDIT,
   ON_JP_PRODUCTS_HEADER_EDIT, ON_JP_PRODUCTS_CATEGORY_EDIT, ON_JP_NEWS_ITEM_EDIT,
   ON_JP_DOWNLOAD_ITEM_EDIT, ON_JP_NEWS_ITEM_CREATE, ON_JP_DOWNLOAD_ITEM_CREATE,
-  ON_JP_PRODUCTS_SERIES_CREATE, ON_JP_PRODUCTS_CATEGORY_CREATE,
+  ON_JP_PRODUCTS_SERIES_CREATE, ON_JP_PRODUCTS_CATEGORY_CREATE, ON_JP_NEWS_ITEM_DELETE,
+  ON_JP_DOWNLOAD_ITEM_DELETE, ON_JP_PRODUCTS_CATEGORY_DELETE, ON_JP_PRODUCTS_SERIES_DELETE,
 } from 'constants/actionTypes';
 
 // attribute name
@@ -225,6 +226,66 @@ export default (state = jpInitialState, action) => {
         ...newState[ATTRI_NAME_PRODUCTS].categoryItems,
       ];
       newState[ATTRI_NAME_PRODUCTS].categoryItems.push(createCategory);
+
+      return newState;
+    // delete
+    case ON_JP_NEWS_ITEM_DELETE:
+      newsItemIndex = parseInt(newsItemIndex, 10);
+      newState = {
+        ...state
+      };
+      newState[ATTRI_NAME_NEWS] = {
+        ...newState[ATTRI_NAME_NEWS],
+      }
+
+      newState[ATTRI_NAME_NEWS].newsItems = newState[ATTRI_NAME_NEWS].newsItems.filter((item, index) => {
+        return index !== newsItemIndex;
+      });
+
+      return newState;
+    case ON_JP_DOWNLOAD_ITEM_DELETE:
+      downloadItemIndex = parseInt(downloadItemIndex, 10);
+      newState = {
+        ...state
+      };
+      newState[ATTRI_NAME_DOWNLOAD] = {
+        ...newState[ATTRI_NAME_DOWNLOAD],
+      }
+
+      newState[ATTRI_NAME_DOWNLOAD].downloadItems = newState[ATTRI_NAME_DOWNLOAD].downloadItems.filter((item, index) => {
+        return index !== downloadItemIndex;
+      });
+
+      return newState;
+    case ON_JP_PRODUCTS_CATEGORY_DELETE:
+      categoryIndex = parseInt(categoryIndex, 10);
+      newState = {
+        ...state
+      };
+      newState[ATTRI_NAME_PRODUCTS] = {
+        ...newState[ATTRI_NAME_PRODUCTS],
+      }
+
+      newState[ATTRI_NAME_PRODUCTS].categoryItems = newState[ATTRI_NAME_PRODUCTS].categoryItems.filter((item, index) => {
+        return index !== categoryIndex;
+      });
+
+      return newState;
+    case ON_JP_PRODUCTS_SERIES_DELETE:
+      categoryItemsIndex = parseInt(categoryItemsIndex, 10);
+      seriesItemsIndex = parseInt(seriesItemsIndex, 10);
+
+      newState = {
+        ...state
+      };
+      newState[ATTRI_NAME_PRODUCTS].categoryItems[categoryItemsIndex] = {
+        ...newState[ATTRI_NAME_PRODUCTS].categoryItems[categoryItemsIndex],
+      }
+
+      newState[ATTRI_NAME_PRODUCTS].categoryItems[categoryItemsIndex].seriesItems =
+        newState[ATTRI_NAME_PRODUCTS].categoryItems[categoryItemsIndex].seriesItems.filter((item, index) => {
+          return index !== seriesItemsIndex;
+        });
 
       return newState;
     default:

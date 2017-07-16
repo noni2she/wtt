@@ -40,6 +40,8 @@ export const renderSeriesDetailFormSet = (props, categoryKey, seriesKey) => {
         seriesItem={seriesItem}
         categoryItemsIndex={categoryItemsIndex}
         seriesItemsIndex={seriesItemsIndex}
+        categoryKey={categoryKey}
+        seriesKey={seriesKey}
       />
     );
   } catch (error) {
@@ -123,6 +125,7 @@ export const renderCategoryFormSet = (props, categoryIndex) => {
     const { locales } = props;
     const { products } = props[locales];
     const categoryItem = products.categoryItems[categoryIndex];
+    const categoryKey = products.categoryItems[categoryIndex].key;
 
     if (!categoryItem) return false;
 
@@ -132,6 +135,7 @@ export const renderCategoryFormSet = (props, categoryIndex) => {
         locales={locales}
         categoryItem={categoryItem}
         categoryIndex={categoryIndex}
+        categoryKey={categoryKey}
       />
     );
   } catch (error) {
