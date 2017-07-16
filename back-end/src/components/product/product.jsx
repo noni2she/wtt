@@ -1,13 +1,24 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import { connect } from 'react-redux';
 import ImgItem from 'components/common/imgItem.jsx';
-import { SERIES_ITEM_COUNT_PER_ROW } from 'constants/common';
+import { SERIES_ITEM_COUNT_PER_ROW, CREATE_PRODUCT_SERIES } from 'constants/common';
+import { onCreateFormSubmit } from 'actions/editForm';
 
 export class ProductItem extends Component {
 
   constructor() {
     super();
     this.seriesList = this.seriesList.bind(this);
+    this.onCreateBtnClick = this.onCreateBtnClick.bind(this);
+  }
+
+  onCreateBtnClick(event) {
+    event.preventDefault();
+    const { locales, categoryIndex } = this.props;
+    this.props.onCreateFormSubmit(locales, CREATE_PRODUCT_SERIES, {
+      categoryIndex
+    });
   }
 
   seriesList() {
@@ -77,9 +88,18 @@ export class ProductItem extends Component {
           </div>
         </Link>
         {this.seriesList()}
+        <div className="product-series row flex-center">
+          <button
+            type="button"
+            className="btn btn-default"
+            onClick={this.onCreateBtnClick}
+          >
+            新增 series
+          </button>
+        </div>
       </div>
     );
   }
 }
 
-export default ProductItem;
+export default connect(null, { onCreateFormSubmit })(ProductItem);

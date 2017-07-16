@@ -8,6 +8,7 @@ import {
   ON_TW_NEWS_HEADER_EDIT, ON_TW_CONTACT_HEADER_EDIT, ON_TW_DOWNLOAD_HEADER_EDIT,
   ON_TW_PRODUCTS_HEADER_EDIT, ON_TW_PRODUCTS_CATEGORY_EDIT, ON_TW_NEWS_ITEM_EDIT,
   ON_TW_DOWNLOAD_ITEM_EDIT, ON_TW_NEWS_ITEM_CREATE, ON_TW_DOWNLOAD_ITEM_CREATE,
+  ON_TW_PRODUCTS_SERIES_CREATE,
 } from 'constants/actionTypes';
 
 // attribute name
@@ -187,6 +188,21 @@ export default (state = twInitialState, action) => {
         ...newState[ATTRI_NAME_DOWNLOAD].downloadItems,
       ];
       newState[ATTRI_NAME_DOWNLOAD].downloadItems.push(createDownloadItems);
+      return newState;
+    // series
+    case ON_TW_PRODUCTS_SERIES_CREATE:
+      const createSeries = seriesDefaultGenerator();
+      newState = {
+        ...state
+      };
+      newState[ATTRI_NAME_PRODUCTS].categoryItems[categoryIndex] = {
+        ...newState[ATTRI_NAME_PRODUCTS].categoryItems[categoryIndex],
+      }
+      newState[ATTRI_NAME_PRODUCTS].categoryItems[categoryIndex].seriesItems = [
+        ...newState[ATTRI_NAME_PRODUCTS].categoryItems[categoryIndex].seriesItems,
+      ];
+      newState[ATTRI_NAME_PRODUCTS].categoryItems[categoryIndex].seriesItems.push(createSeries);
+
       return newState;
     default:
       return state;

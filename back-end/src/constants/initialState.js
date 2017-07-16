@@ -60,3 +60,38 @@ export const downloadItemDefaultGenerator = () => {
     link: [],
   });
 }
+
+export const seriesDefaultGenerator = () => {
+  return ({
+    displayed: false,
+    id: uuid(),
+    key: 'test',
+    name: 'Series header',
+    shortName: 'New series',
+    mainImg: imgItemDefaultGenerator(),
+    subImg: imgItemDefaultGenerator(),
+    description: [],
+    content: [{
+      key: 'uuid',
+      displayedName: 'id',
+    }, {
+      key: 'col1',
+      displayedName: 'column 1'
+    }, {
+      key: 'col2',
+      displayedName: 'column 2'
+    }, {
+      key: 'col3',
+      displayedName: 'column 3'
+    }, {
+      key: 'col4',
+      displayedName: 'column 4'
+    }, {
+      key: 'col5',
+      displayedName: 'column 5'
+    }, {
+      key: 'col6',
+      displayedName: 'column 6'
+    }],
+  });
+}
