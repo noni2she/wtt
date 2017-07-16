@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { onEditFormSubmit, onDeleteFormSubmit } from 'actions/editForm';
+import { onCategoryDelete } from 'actions/productDetail';
 import { FORM_SET_CATEGORY, DELETE_PRODUCT_CATEGORY } from 'constants/common';
 
 class CategoryFormSet extends Component {
@@ -55,13 +56,19 @@ class CategoryFormSet extends Component {
   }
   onDelete(event) {
     event.preventDefault();
-    const { locales, categoryIndex } = this.props;
+    const { locales, categoryIndex, categoryKey } = this.props;
 
     this.props.onDeleteFormSubmit(
       locales, DELETE_PRODUCT_CATEGORY, {
         categoryIndex,
       }
     );
+
+    // delete attribute in product Detail
+    this.props.onCategoryDelete({
+      categoryKey,
+    });
+
     this.context.router.replace('/');
   }
 
@@ -142,4 +149,4 @@ CategoryFormSet.propTypes = {
   onEditFormSubmit: PropTypes.func,
 }
 
-export default connect(null, { onEditFormSubmit, onDeleteFormSubmit })(CategoryFormSet);
+export default connect(null, { onEditFormSubmit, onDeleteFormSubmit, onCategoryDelete })(CategoryFormSet);
