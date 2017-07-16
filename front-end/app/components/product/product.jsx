@@ -43,19 +43,21 @@ export default class ProductItem extends Component {
     // if seriresList length greater than 6
     return seriesItems.length <= SERIES_ITEM_COUNT_PER_ROW ? (
       <div>
-        <div className="product-series row">
-          {seriesList1}
+        <div className="product-series1 row">
+          <div className="product-series-container-1">
+            {seriesList1}
+          </div>
         </div>
       </div>
     ) : (
       <div>
         <div className="product-series row">
-          <div className="product-series-container">
+          <div className="product-series-container-1">
             {seriesList1}
           </div>
         </div>
         <div className="product-series row">
-          <div className="product-series-container">
+          <div className="product-series-container-2">
             {seriesList2}
           </div>
         </div>

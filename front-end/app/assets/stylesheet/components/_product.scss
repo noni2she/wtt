@@ -73,10 +73,9 @@ $productImgMarginLeft: 18em;
       margin: 0 auto;
       height: 50px;
       background-color: red;
-      .product-series-container {
+      .product-series-container-1, .product-series-container-2 {
         margin: 0 auto;
         display: flex;
-        justify-content: center;
         align-items: center;
         max-width: 1000px;
         height: 50px;
@@ -84,6 +83,13 @@ $productImgMarginLeft: 18em;
           margin: 0 auto;
           color: white;
         }
+      }
+
+      .product-series-container-1 {
+        justify-content: center;
+      }
+      .product-series-container-2 {
+        justify-content: flex-start;
       }
     }
   }
