@@ -163,7 +163,7 @@ export const fakeContentObjectGenerator = () => {
     news: {
       header: fakeHeader(),
       subheader: fakeSubheader(),
-      newsItems: generateArray(newsItem),
+      newsItems: generateArray(newsItem, 6),
     },
     about: {
       header: fakeHeader(),
