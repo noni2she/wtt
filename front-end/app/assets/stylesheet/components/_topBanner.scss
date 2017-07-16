@@ -17,8 +17,13 @@
   }
 
   .slick-slide {
+    min-height: 475px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
     img {
-      width: 100%;
+      flex: none;
+      height:100%;
     }
   }
 }
