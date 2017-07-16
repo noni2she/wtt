@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import ProductItem from './product.jsx';
-import { PRODUCT_STYLE_CYCLE } from 'constants/common'
+import { PRODUCT_STYLE_CYCLE } from 'constants/common';
 
 export default class Product extends Component {
-  render () {
+  render() {
     const { header, subheader, categoryItems } = this.props.products;
     const ProductList = categoryItems.map((item, index) => {
       const categoryKey = item.key;
       const type = index % PRODUCT_STYLE_CYCLE + 1;
-
-      return(
+      return (
         <ProductItem
           categoryItem={item}
           type={type}
@@ -21,13 +21,17 @@ export default class Product extends Component {
     });
 
     return (
-      <div id="product" className="container-fluid">
+      <div id="product">
         <div className="product-introduction">
-          <h2 className="product-header text-uppercase ">{header}</h2>
-          <p className="product-subheader">{subheader}</p>
+          <h2 className="product-header">{ header }</h2>
+          <p className="product-subheader">{ subheader }</p>
         </div>
-        {ProductList}
+        { ProductList }
       </div>
     );
-  }  
+  }
 }
+
+Product.propTypes = {
+  products: PropTypes.object
+};
