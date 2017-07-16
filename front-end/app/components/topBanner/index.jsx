@@ -28,9 +28,11 @@ export default class TopBanner extends Component {
     });
     return (
       <div id="top-banner">
-        <Slider {...settings}>
-          {BannerList}
-        </Slider>
+        <div className="top-banner-container">
+          <Slider {...settings}>
+            {BannerList}
+          </Slider>
+        </div>
       </div>
     );
   }
