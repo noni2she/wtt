@@ -10,7 +10,7 @@ const config = require('./webpack.config.js');
 // const serverSideRendering = require('./server-side-rendering');
 
 const isDeveloping = process.env.NODE_ENV !== 'production';
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 const app = express();
 
 // providing static file in public folder.
