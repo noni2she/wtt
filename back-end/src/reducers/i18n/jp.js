@@ -8,7 +8,7 @@ import {
   ON_JP_NEWS_HEADER_EDIT, ON_JP_CONTACT_HEADER_EDIT, ON_JP_DOWNLOAD_HEADER_EDIT,
   ON_JP_PRODUCTS_HEADER_EDIT, ON_JP_PRODUCTS_CATEGORY_EDIT, ON_JP_NEWS_ITEM_EDIT,
   ON_JP_DOWNLOAD_ITEM_EDIT, ON_JP_NEWS_ITEM_CREATE, ON_JP_DOWNLOAD_ITEM_CREATE,
-  ON_JP_PRODUCTS_SERIES_CREATE,
+  ON_JP_PRODUCTS_SERIES_CREATE, ON_JP_PRODUCTS_CATEGORY_CREATE,
 } from 'constants/actionTypes';
 
 // attribute name
@@ -21,6 +21,7 @@ import {
   newsItemDefaultGenerator,
   downloadItemDefaultGenerator,
   seriesDefaultGenerator,
+  categoryDefaultGenerator,
 } from 'constants/initialState';
 
 export default (state = jpInitialState, action) => {
@@ -209,6 +210,21 @@ export default (state = jpInitialState, action) => {
         ...newState[ATTRI_NAME_PRODUCTS].categoryItems[categoryIndex].seriesItems,
       ];
       newState[ATTRI_NAME_PRODUCTS].categoryItems[categoryIndex].seriesItems.push(createSeries);
+
+      return newState;
+    // category
+    case ON_JP_PRODUCTS_CATEGORY_CREATE:
+      const createCategory = {
+        ...categoryDefaultGenerator(),
+        key,
+      };
+      newState = {
+        ...state
+      };
+      newState[ATTRI_NAME_PRODUCTS].categoryItems = [
+        ...newState[ATTRI_NAME_PRODUCTS].categoryItems,
+      ];
+      newState[ATTRI_NAME_PRODUCTS].categoryItems.push(createCategory);
 
       return newState;
     default:

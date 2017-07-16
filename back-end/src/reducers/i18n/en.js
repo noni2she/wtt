@@ -8,7 +8,7 @@ import {
   ON_EN_NEWS_HEADER_EDIT, ON_EN_CONTACT_HEADER_EDIT, ON_EN_DOWNLOAD_HEADER_EDIT,
   ON_EN_PRODUCTS_HEADER_EDIT, ON_EN_PRODUCTS_CATEGORY_EDIT, ON_EN_NEWS_ITEM_EDIT,
   ON_EN_DOWNLOAD_ITEM_EDIT, ON_EN_NEWS_ITEM_CREATE, ON_EN_DOWNLOAD_ITEM_CREATE,
-  ON_EN_PRODUCTS_SERIES_CREATE,
+  ON_EN_PRODUCTS_SERIES_CREATE, ON_EN_PRODUCTS_CATEGORY_CREATE,
 } from 'constants/actionTypes';
 
 // attribute name
@@ -21,6 +21,7 @@ import {
   newsItemDefaultGenerator,
   downloadItemDefaultGenerator,
   seriesDefaultGenerator,
+  categoryDefaultGenerator,
 } from 'constants/initialState';
 
 export default (state = enInitialState, action) => {
@@ -209,6 +210,21 @@ export default (state = enInitialState, action) => {
         ...newState[ATTRI_NAME_PRODUCTS].categoryItems[categoryIndex].seriesItems,
       ];
       newState[ATTRI_NAME_PRODUCTS].categoryItems[categoryIndex].seriesItems.push(createSeries);
+
+      return newState;
+    // category
+    case ON_EN_PRODUCTS_CATEGORY_CREATE:
+      const createCategory = {
+        ...categoryDefaultGenerator(),
+        key,
+      };
+      newState = {
+        ...state
+      };
+      newState[ATTRI_NAME_PRODUCTS].categoryItems = [
+        ...newState[ATTRI_NAME_PRODUCTS].categoryItems,
+      ];
+      newState[ATTRI_NAME_PRODUCTS].categoryItems.push(createCategory);
 
       return newState;
     default:

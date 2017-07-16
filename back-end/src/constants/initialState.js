@@ -95,3 +95,14 @@ export const seriesDefaultGenerator = () => {
     }],
   });
 }
+
+export const categoryDefaultGenerator = () => {
+  return ({
+    displayed: false,
+    id: uuid(),
+    key: 'keyName',
+    name: 'New Category',
+    mainImg: imgItemDefaultGenerator(),
+    seriesItems: [],
+  });
+}

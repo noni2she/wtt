@@ -197,7 +197,7 @@ export const fakeContentObjectGenerator = () => {
     products: {
       header: fakeHeader(),
       subheader: fakeSubheader(),
-      categoryItems: generateArray(categoryItem, 10)
+      categoryItems: generateArray(categoryItem, 1)
     }
   });
 };

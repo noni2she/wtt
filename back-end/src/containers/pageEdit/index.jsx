@@ -13,6 +13,7 @@ import {
   renderContactFormSet,
   renderDownloadItemFormSet,
   renderCreateSeriesFormSet,
+  renderCreateCategoryFormSet
 } from './renderFormSet';
 
 class PageEdit extends Component {
@@ -53,6 +54,7 @@ class PageEdit extends Component {
 
         case 'category':
           if (innerBlock === 'header') return renderHeaderFormSet(props, blockType);
+          else if (innerBlock === 'new') return renderCreateCategoryFormSet(props);
           else {
             let categoryIndex = innerBlock;
             return renderCategoryFormSet(props, categoryIndex);
