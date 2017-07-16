@@ -20,19 +20,20 @@ class PageIndex extends Component {
     if (!this.props[locales]) return null;
     const {topBanner, products, news, download, about, contact } = this.props[locales];
 
-    // return(
-    //   <div>Hello world</div>
-    // )
     return (
-      <div className="App container-with-nav-bar">
-        <NavBar active={ NAV_BAR_INDEX } />
-        <TopBanner imgItems={topBanner.imgItems} />
-        <Product products={products} />
-        <News news={news} />
-        <Download download={download} />
-        <About about={about} />
-        <Contact contact={contact} />
-        <Footer />
+      <div>
+        <div className="App container-with-nav-bar">
+          <NavBar active={ NAV_BAR_INDEX } />
+          <div className="container-fluid">
+            <TopBanner imgItems={topBanner.imgItems} />
+            <Product products={products} />
+            <News news={news} />
+            <Download download={download} />
+            <About about={about} />
+            <Contact contact={contact} />
+            <Footer />
+          </div>
+        </div>
       </div>
     );
   }

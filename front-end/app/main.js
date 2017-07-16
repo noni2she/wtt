@@ -11,8 +11,8 @@ import rootSaga from 'sagas';
 import routes from 'routes';
 
 // style part
-import 'stylesheet/index.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'stylesheet/index.scss';
 // import 'bootstrap/dist/css/bootstrap-theme.css';
 
 // js

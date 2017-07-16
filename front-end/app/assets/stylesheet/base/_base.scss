@@ -41,14 +41,8 @@ $wtt-red: red;
   color: $brand-danger;
 }
 
-.flex-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .container-fluid {
-  padding: 0px !important;
+  padding: 0px;
 }
 
 // media queries

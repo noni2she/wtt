@@ -1,16 +1,39 @@
 $productImgMarginLeft: 18em;
 
-#product {
-  margin-top: 30px;
-  padding: 0;
-  .product-item {
+@media (max-width: $screen-sm-min) {
+  .product-series {
+    height: auto;
+    .product-series-container-1, .product-series-container-2 {
+      p {
+        font-size: 1.5vw;
+      }
+    }
+  }
+}
 
+#product {
+  .product-introduction {
+    .product-header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .product-subheader {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  .product-item {
     // common part of product info
     .product-info1, .product-info2 {
-      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       height: 200px;
+      position:relative;
+      overflow: hidden;
       .product-img {
-        padding: 0;
         position: absolute;
         width: 200px;
         height: 200px;
@@ -21,6 +44,12 @@ $productImgMarginLeft: 18em;
       }
     }
 
+    .product-info1:hover, .product-info2:hover {
+      background-image: url("https://firebasestorage.googleapis.com/v0/b/techwell-74c86.appspot.com/o/product%2Fproduct-hover.png?alt=media&token=c27c8638-520d-4ecc-9dfe-57706d0d782a");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    
     .product-info1 {
       background-color:black;
       color: white;
@@ -31,7 +60,6 @@ $productImgMarginLeft: 18em;
     .product-info2 {
       background-color:white;
       color: black;
-      overflow: hidden;
       .product-img {
         margin-left: $productImgMarginLeft;
       }
@@ -41,9 +69,23 @@ $productImgMarginLeft: 18em;
       margin: 0 auto;
       height: 50px;
       background-color: red;
-      p {
+      .product-series-container-1, .product-series-container-2 {
         margin: 0 auto;
-        color: white;
+        display: flex;
+        align-items: center;
+        max-width: 950px;
+        height: 50px;
+        p {
+          margin: 0 auto;
+          color: white;
+        }
+      }
+
+      .product-series-container-1 {
+        justify-content: center;
+      }
+      .product-series-container-2 {
+        justify-content: flex-start;
       }
     }
   }
