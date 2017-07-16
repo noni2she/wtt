@@ -6,6 +6,6 @@ const ImgItem = (props) => {
   ) : (
     false
   );
-}
+};
 
 export default ImgItem;
