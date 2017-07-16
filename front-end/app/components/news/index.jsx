@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Slider from 'react-slick';
 import { Link } from 'react-router';
 import NewsItem from './newsItem.jsx';
@@ -6,15 +7,12 @@ import NewsItem from './newsItem.jsx';
 const settings = {
   dots: true,
   infinite: false,
-  speed: 500,
   slidesToShow: 3,
   slidesToScroll: 3
-  // arrows: false,
-  // centerMode: true
 };
 
 export default class News extends Component {
-  render () {
+  render() {
     const {header, subheader, newsItems} = this.props.news;
     const newsItemList = newsItems.map((item, index) => {
       return (
@@ -44,3 +42,7 @@ export default class News extends Component {
     );
   }  
 }
+
+News.propTypes = {
+  news: PropTypes.object
+};
