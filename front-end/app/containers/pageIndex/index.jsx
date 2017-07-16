@@ -22,17 +22,15 @@ class PageIndex extends Component {
 
     return (
       <div>
-        <div className="App container-with-nav-bar">
-          <NavBar active={ NAV_BAR_INDEX } />
-          <div className="container-fluid">
-            <TopBanner imgItems={topBanner.imgItems} />
-            <Product products={products} />
-            <News news={news} />
-            <Download download={download} />
-            <About about={about} />
-            <Contact contact={contact} />
-            <Footer />
-          </div>
+        <NavBar active={ NAV_BAR_INDEX } />
+        <div className="container-fluid">
+          <TopBanner imgItems={topBanner.imgItems} />
+          <Product products={products} />
+          <News news={news} />
+          <Download download={download} />
+          <About about={about} />
+          <Contact contact={contact} />
+          <Footer />
         </div>
       </div>
     );
