@@ -22,17 +22,19 @@ import {
 } from 'constants/initialState';
 
 export default (state = jpInitialState, action) => {
-  const { type, payload } = action;
-  let newState;
+  let { type, payload } = action;
+  let newState, series;
+
+  payload = payload || {};
+
+  let {
+    categoryItemsIndex, seriesItemsIndex, products,
+    categoryIndex, newsItemIndex, downloadItemIndex,
+  } = payload;
 
   switch (type) {
     // details of porduct
     case ON_JP_PRODUCTS_EDIT:
-
-      let {
-        categoryItemsIndex, seriesItemsIndex, products,
-      } = payload;
-
       // delete redundant index
       delete payload.categoryItemsIndex;
       delete payload.seriesItemsIndex;
@@ -98,7 +100,6 @@ export default (state = jpInitialState, action) => {
       return newState;
     // category info
     case ON_JP_PRODUCTS_CATEGORY_EDIT:
-      const { categoryIndex } = payload;
       delete payload.categoryIndex;
 
       newState = {
@@ -122,7 +123,6 @@ export default (state = jpInitialState, action) => {
       return newState;
     // news item
     case ON_JP_NEWS_ITEM_EDIT:
-      const { newsItemIndex } = payload;
       delete payload.newsItemIndex;
 
       newState = {
@@ -146,7 +146,6 @@ export default (state = jpInitialState, action) => {
       return newState;
     // download items
     case ON_JP_DOWNLOAD_ITEM_EDIT:
-      const { downloadItemIndex } = payload;
       delete payload.downloadItemIndex;
 
       newState = {

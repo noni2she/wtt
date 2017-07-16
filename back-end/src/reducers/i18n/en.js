@@ -22,17 +22,19 @@ import {
 } from 'constants/initialState';
 
 export default (state = enInitialState, action) => {
-  const { type, payload } = action;
-  let newState;
+  let { type, payload } = action;
+  let newState, series;
+
+  payload = payload || {};
+
+  let {
+    categoryItemsIndex, seriesItemsIndex, products,
+    categoryIndex, newsItemIndex, downloadItemIndex,
+  } = payload;
 
   switch (type) {
     // details of porduct
     case ON_EN_PRODUCTS_EDIT:
-
-      let {
-        categoryItemsIndex, seriesItemsIndex, products,
-      } = payload;
-
       // delete redundant index
       delete payload.categoryItemsIndex;
       delete payload.seriesItemsIndex;
@@ -98,7 +100,6 @@ export default (state = enInitialState, action) => {
       return newState;
     // category info
     case ON_EN_PRODUCTS_CATEGORY_EDIT:
-      const { categoryIndex } = payload;
       delete payload.categoryIndex;
 
       newState = {
@@ -122,7 +123,6 @@ export default (state = enInitialState, action) => {
       return newState;
     // news item
     case ON_EN_NEWS_ITEM_EDIT:
-      const { newsItemIndex } = payload;
       delete payload.newsItemIndex;
 
       newState = {
@@ -146,7 +146,6 @@ export default (state = enInitialState, action) => {
       return newState;
     // download items
     case ON_EN_DOWNLOAD_ITEM_EDIT:
-      const { downloadItemIndex } = payload;
       delete payload.downloadItemIndex;
 
       newState = {

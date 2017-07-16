@@ -17,21 +17,23 @@ import {
 } from 'constants/common';
 
 import {
-  newsItemDefaultGenerator, downloadItemDefaultGenerator
+  newsItemDefaultGenerator, downloadItemDefaultGenerator, seriesDefaultGenerator,
 } from 'constants/initialState';
 
 export default (state = twInitialState, action) => {
-  const { type, payload } = action;
-  let newState;
+  let { type, payload } = action;
+  let newState, series;
+
+  payload = payload || {};
+
+  let {
+    categoryItemsIndex, seriesItemsIndex, products,
+    categoryIndex, newsItemIndex, downloadItemIndex,
+  } = payload;
 
   switch (type) {
     // details of porduct
     case ON_TW_PRODUCTS_EDIT:
-
-      let {
-        categoryItemsIndex, seriesItemsIndex, products,
-      } = payload;
-
       // delete redundant index
       delete payload.categoryItemsIndex;
       delete payload.seriesItemsIndex;
@@ -97,7 +99,6 @@ export default (state = twInitialState, action) => {
       return newState;
     // category info
     case ON_TW_PRODUCTS_CATEGORY_EDIT:
-      const { categoryIndex } = payload;
       delete payload.categoryIndex;
 
       newState = {
@@ -121,7 +122,6 @@ export default (state = twInitialState, action) => {
       return newState;
     // news item
     case ON_TW_NEWS_ITEM_EDIT:
-      const { newsItemIndex } = payload;
       delete payload.newsItemIndex;
 
       newState = {
@@ -145,7 +145,6 @@ export default (state = twInitialState, action) => {
       return newState;
     // download items
     case ON_TW_DOWNLOAD_ITEM_EDIT:
-      const { downloadItemIndex } = payload;
       delete payload.downloadItemIndex;
 
       newState = {
