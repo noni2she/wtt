@@ -1,3 +1,4 @@
+/* eslint prefer-const: 0 */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router';
@@ -15,8 +16,8 @@ export default class ProductItem extends Component {
     const { categoryKey } = this.props;
     const { seriesItems } = this.props.categoryItem;
 
-    const seriesList1 = [];
-    const seriesList2 = [];
+    let seriesList1 = [];
+    let seriesList2 = [];
     let seriesKey;
 
     for (let i = 0; i < Math.min(seriesItems.length, SERIES_ITEM_COUNT_PER_ROW); i++) {
@@ -31,6 +32,7 @@ export default class ProductItem extends Component {
     }
 
     for (let i = SERIES_ITEM_COUNT_PER_ROW; i < seriesItems.length; i++) {
+      seriesKey = seriesItems[i].key;
       seriesList2.push(
         <div className="col-lg-2 col-md-2 col-sm-2 col-xs-2" key={`productItem_${i}`}>
           <Link to={`product/${categoryKey}/${seriesKey}`}>
@@ -66,9 +68,8 @@ export default class ProductItem extends Component {
   }
 
   render() {
-    const { categoryIndex } = this.props;
+    const { categoryIndex, type } = this.props;
     const { name, mainImg } = this.props.categoryItem;
-    const type = this.props.type;
     const className = `product-info${type}`;
 
     return (
@@ -93,6 +94,4 @@ ProductItem.propTypes = {
   type: PropTypes.number,
   seriesItems: PropTypes.array,
   categoryIndex: PropTypes.number,
-  name: PropTypes.string,
-  mainImg: PropTypes.object,
 };
