@@ -5,16 +5,18 @@ import {
   PROD_DETAIL_TALBE_CELL_PER_ROW,
   PROD_DETAIL_DESCRIP_MAX,
   PRODUCTS_DESCRIPT_COUNT,
+  FORM_SET_SERIES_DETAIL,
+  DELETE_PRODUCT_SERIES,
 } from 'constants/common';
-import { onEditFormSubmit } from 'actions/editForm';
+import { onEditFormSubmit, onDeleteFormSubmit } from 'actions/editForm';
 import PropTypes from 'prop-types';
-import { FORM_SET_SERIES_DETAIL } from 'constants/common';
 
 class SeriesDetailFormSet extends Component {
   constructor(props) {
     super();
     this.onFormChange = this.onFormChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.onDelete = this.onDelete.bind(this);
 
     // data of product detail
     const content = props.seriesItem.content.filter((value, index) => {
@@ -190,6 +192,17 @@ class SeriesDetailFormSet extends Component {
     // navigate to previous page
     this.context.router.goBack();
   }
+  onDelete(event) {
+    event.preventDefault();
+    const { locales, categoryItemsIndex, seriesItemsIndex } = this.props;
+
+    this.props.onDeleteFormSubmit(
+      locales, DELETE_PRODUCT_SERIES, {
+        categoryItemsIndex, seriesItemsIndex
+      }
+    );
+    this.context.router.replace('/');
+  }
 
   render() {
     const {
@@ -282,7 +295,12 @@ class SeriesDetailFormSet extends Component {
             >
               儲存
             </button>
-            <button className="btn btn-danger pull-right">刪除</button>
+            <button
+              className="btn btn-danger pull-right"
+              onClick={this.onDelete}
+            >
+              刪除
+            </button>
           </div>
         </form>
       </div>
@@ -298,4 +316,4 @@ SeriesDetailFormSet.propTypes = {
   onEditFormSubmit: PropTypes.func,
 }
 
-export default connect(null, { onEditFormSubmit })(SeriesDetailFormSet);
+export default connect(null, { onEditFormSubmit, onDeleteFormSubmit })(SeriesDetailFormSet);
