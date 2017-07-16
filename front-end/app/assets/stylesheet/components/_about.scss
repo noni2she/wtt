@@ -9,18 +9,8 @@
 
 @media (max-width: $screen-md-min) {
   #about {
-    padding: 1em 1em 1em 1em;
     .about-container {
-      .about-title{
-        h1 {
-          font-size: 4vw;
-        }
-      }
-      .about-content{
-        p {
-          font-size: 1.5vw;
-        }
-      }
+      min-height: 300px;
     }
   }
 }
@@ -32,11 +22,12 @@
   background-image: url('https://firebasestorage.googleapis.com/v0/b/techwell-74c86.appspot.com/o/about%2Fbackground.jpg?alt=media&token=ebf14c84-98f0-458b-a67c-d9c040d915e8');
   background-repeat: no-repeat;
   background-size: cover;
+  padding: 1em 1em 1em 1em;
   .about-container{
     max-width: 1200px;
-    opacity: 0.6;
+    opacity: 0.7;
     background-color:ghostwhite;
-    padding: 20px 50px 20px 50px;
+    padding: 1em 2em 1em 2em;
     .about-title{
       display: flex;
       justify-content: flex-start;
