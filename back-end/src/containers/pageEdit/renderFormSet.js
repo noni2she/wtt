@@ -225,6 +225,7 @@ export const renderCreateSeriesFormSet = (props, categoryIndex) => {
     const { locales } = props;
     const { products } = props[locales];
     const categoryItem = products.categoryItems[categoryIndex];
+    const categoryKey = products.categoryItems[categoryIndex].key;
 
     if (!categoryItem) return false;
 
@@ -232,6 +233,7 @@ export const renderCreateSeriesFormSet = (props, categoryIndex) => {
       <CreateSeriesFormSet
         locales={locales}
         categoryIndex={categoryIndex}
+        categoryKey={categoryKey}
       />
     );
   } catch (error) {

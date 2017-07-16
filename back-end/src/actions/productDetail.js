@@ -3,6 +3,7 @@ import {
   PROD_DETAIL_ON_DELETE_ROW,
   PROD_DETAIL_ON_ADD_ROW,
   PROD_DETAIL_ON_CATEGORY_CREATE,
+  PROD_DETAIL_ON_SERIES_CREATE,
 } from 'constants/actionTypes';
 
 export const onCellEdit = (value) => {
@@ -29,6 +30,13 @@ export const onAddRow = (value) => {
 export const onNewCategoryCreate = (value) => {
   return ({
     type: PROD_DETAIL_ON_CATEGORY_CREATE,
+    payload: value,
+  });
+}
+
+export const onNewSeriesCreate = (value) => {
+  return ({
+    type: PROD_DETAIL_ON_SERIES_CREATE,
     payload: value,
   });
 }

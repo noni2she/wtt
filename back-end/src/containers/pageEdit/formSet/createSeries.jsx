@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { onCreateFormSubmit } from 'actions/editForm';
 import PropTypes from 'prop-types';
 import { CREATE_PRODUCT_SERIES } from 'constants/common';
-
+import { onCreateFormSubmit } from 'actions/editForm';
+import { onNewSeriesCreate } from 'actions/productDetail';
 class CreateSeriesFormSet extends Component {
   constructor(props) {
     super();
@@ -29,7 +29,7 @@ class CreateSeriesFormSet extends Component {
 
   onSubmit(event) {
     event.preventDefault();
-    const { locales, categoryIndex } = this.props;
+    const { locales, categoryIndex, categoryKey } = this.props;
     const {
       key
     } = this.state;
@@ -45,6 +45,12 @@ class CreateSeriesFormSet extends Component {
     if (key.match(regExp)) {
       this.props.onCreateFormSubmit(locales, CREATE_PRODUCT_SERIES, {
         categoryIndex,
+        key,
+      });
+
+      // create new attribute in product Detail
+      this.props.onNewSeriesCreate({
+        categoryKey,
         key,
       });
 
@@ -108,4 +114,4 @@ CreateSeriesFormSet.propTypes = {
   onEditFormSubmit: PropTypes.func,
 }
 
-export default connect(null, { onCreateFormSubmit })(CreateSeriesFormSet);
+export default connect(null, { onCreateFormSubmit, onNewSeriesCreate })(CreateSeriesFormSet);

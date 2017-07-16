@@ -4,6 +4,7 @@ import {
   PROD_DETAIL_ON_DELETE_ROW,
   PROD_DETAIL_ON_ADD_ROW,
   PROD_DETAIL_ON_CATEGORY_CREATE,
+  PROD_DETAIL_ON_SERIES_CREATE,
 } from 'constants/actionTypes';
 
 export default (state = productsDetailInitialState, action) => {
@@ -96,6 +97,19 @@ export default (state = productsDetailInitialState, action) => {
 
       // prevent from overwrting existing object
       newState[key] = newState[key] ? newState[key] : {};
+
+      return newState;
+    case PROD_DETAIL_ON_SERIES_CREATE:
+      newState = {
+        ...state,
+      };
+      newState[categoryKey] = {
+        ...newState[categoryKey]
+      }
+
+      // prevent from overwrting existing object
+      newState[categoryKey][key] = newState[categoryKey][key] ?
+        newState[categoryKey][key] : [];
 
       return newState;
     default:
