@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { onEditFormSubmit } from 'actions/editForm';
 import PropTypes from 'prop-types';
-import { FORM_SET_CATEGORY } from 'constants/common';
+import { onEditFormSubmit, onDeleteFormSubmit } from 'actions/editForm';
+import { FORM_SET_CATEGORY, DELETE_PRODUCT_CATEGORY } from 'constants/common';
 
 class CategoryFormSet extends Component {
   constructor(props) {
@@ -11,6 +11,7 @@ class CategoryFormSet extends Component {
 
     this.onFormChange = this.onFormChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.onDelete = this.onDelete.bind(this);
     this.state = {
       ...categoryItem
     };
@@ -51,6 +52,17 @@ class CategoryFormSet extends Component {
 
     // navigate to previous page
     this.context.router.goBack();
+  }
+  onDelete(event) {
+    event.preventDefault();
+    const { locales, categoryIndex } = this.props;
+
+    this.props.onDeleteFormSubmit(
+      locales, DELETE_PRODUCT_CATEGORY, {
+        categoryIndex,
+      }
+    );
+    this.context.router.replace('/');
   }
 
   render() {
@@ -109,7 +121,12 @@ class CategoryFormSet extends Component {
             >
               儲存
             </button>
-            <button className="btn btn-danger pull-right">刪除</button>
+            <button
+              className="btn btn-danger pull-right"
+              onClick={this.onDelete}
+            >
+              刪除
+            </button>
           </div>
         </form>
       </div>
@@ -125,4 +142,4 @@ CategoryFormSet.propTypes = {
   onEditFormSubmit: PropTypes.func,
 }
 
-export default connect(null, { onEditFormSubmit })(CategoryFormSet);
+export default connect(null, { onEditFormSubmit, onDeleteFormSubmit })(CategoryFormSet);
