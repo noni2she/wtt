@@ -63,7 +63,7 @@ class PageProduct extends Component {
   }
   pageNotFound() {
     // when error happened or page not found, redirect to PageIndex
-    this.context.router.replace('/');
+    this.context.router.push('/');
   }
   componentWillReceiveProps(nextProps) {
     // receive central state and set local state
