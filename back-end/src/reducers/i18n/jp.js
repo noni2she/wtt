@@ -32,6 +32,7 @@ export default (state = jpInitialState, action) => {
   let {
     categoryItemsIndex, seriesItemsIndex, products,
     categoryIndex, newsItemIndex, downloadItemIndex,
+    key,
   } = payload;
 
   switch (type) {
@@ -193,7 +194,11 @@ export default (state = jpInitialState, action) => {
       return newState;
     // series
     case ON_JP_PRODUCTS_SERIES_CREATE:
-      const createSeries = seriesDefaultGenerator();
+      const createSeries = {
+        ...seriesDefaultGenerator(),
+        key,
+      };
+
       newState = {
         ...state
       };

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import ImgItem from 'components/common/imgItem.jsx';
-import { SERIES_ITEM_COUNT_PER_ROW, CREATE_PRODUCT_SERIES } from 'constants/common';
-import { onCreateFormSubmit } from 'actions/editForm';
+import { SERIES_ITEM_COUNT_PER_ROW } from 'constants/common';
+
 
 export class ProductItem extends Component {
 
@@ -15,10 +15,9 @@ export class ProductItem extends Component {
 
   onCreateBtnClick(event) {
     event.preventDefault();
-    const { locales, categoryIndex } = this.props;
-    this.props.onCreateFormSubmit(locales, CREATE_PRODUCT_SERIES, {
-      categoryIndex
-    });
+    const { categoryIndex } = this.props;
+
+    this.context.router.push(`/edit/series/new/${categoryIndex}`);
   }
 
   seriesList() {
@@ -87,7 +86,9 @@ export class ProductItem extends Component {
               </div>
           </div>
         </Link>
+
         {this.seriesList()}
+
         <div className="product-series row flex-center">
           <button
             type="button"
@@ -102,4 +103,8 @@ export class ProductItem extends Component {
   }
 }
 
-export default connect(null, { onCreateFormSubmit })(ProductItem);
+ProductItem.contextTypes = {
+  router: PropTypes.object,
+};
+
+export default ProductItem;
