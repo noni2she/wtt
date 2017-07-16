@@ -6,6 +6,7 @@ import {
   PROD_DETAIL_ON_CATEGORY_CREATE,
   PROD_DETAIL_ON_SERIES_CREATE,
   PROD_DETAIL_ON_CATEGORY_DELETE,
+  PROD_DETAIL_ON_SERIES_DELETE,
 } from 'constants/actionTypes';
 
 export default (state = productsDetailInitialState, action) => {
@@ -119,6 +120,14 @@ export default (state = productsDetailInitialState, action) => {
       };
 
       delete newState[categoryKey];
+
+      return newState;
+    case PROD_DETAIL_ON_SERIES_DELETE:
+      newState = {
+        ...state,
+      };
+
+      newState[categoryKey][seriesKey] = [];
 
       return newState;
     default:

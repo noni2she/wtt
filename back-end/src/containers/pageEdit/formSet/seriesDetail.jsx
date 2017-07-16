@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import {
   PROD_DETAIL_TALBE_COLUMN_TITLE_MAX,
   PROD_DETAIL_TALBE_CELL_PER_ROW,
@@ -9,7 +10,7 @@ import {
   DELETE_PRODUCT_SERIES,
 } from 'constants/common';
 import { onEditFormSubmit, onDeleteFormSubmit } from 'actions/editForm';
-import PropTypes from 'prop-types';
+import { onSeriesDelete } from 'actions/productDetail';
 
 class SeriesDetailFormSet extends Component {
   constructor(props) {
@@ -194,13 +195,22 @@ class SeriesDetailFormSet extends Component {
   }
   onDelete(event) {
     event.preventDefault();
-    const { locales, categoryItemsIndex, seriesItemsIndex } = this.props;
+    const {
+      locales, categoryItemsIndex, seriesItemsIndex,
+      seriesKey, categoryKey
+    } = this.props;
 
     this.props.onDeleteFormSubmit(
       locales, DELETE_PRODUCT_SERIES, {
         categoryItemsIndex, seriesItemsIndex
       }
     );
+
+    // delete attribute in product Detail
+    this.props.onSeriesDelete({
+      categoryKey, seriesKey
+    });
+
     this.context.router.replace('/');
   }
 
@@ -316,4 +326,4 @@ SeriesDetailFormSet.propTypes = {
   onEditFormSubmit: PropTypes.func,
 }
 
-export default connect(null, { onEditFormSubmit, onDeleteFormSubmit })(SeriesDetailFormSet);
+export default connect(null, { onEditFormSubmit, onDeleteFormSubmit, onSeriesDelete })(SeriesDetailFormSet);

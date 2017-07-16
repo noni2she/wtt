@@ -40,6 +40,8 @@ export const renderSeriesDetailFormSet = (props, categoryKey, seriesKey) => {
         seriesItem={seriesItem}
         categoryItemsIndex={categoryItemsIndex}
         seriesItemsIndex={seriesItemsIndex}
+        categoryKey={categoryKey}
+        seriesKey={seriesKey}
       />
     );
   } catch (error) {

@@ -49,3 +49,10 @@ export const onCategoryDelete = (value) => {
     payload: value,
   });
 }
+
+export const onSeriesDelete = (value) => {
+  return ({
+    type: PROD_DETAIL_ON_SERIES_DELETE,
+    payload: value,
+  });
+}
