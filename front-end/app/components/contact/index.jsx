@@ -45,7 +45,7 @@ export default class Contact extends Component {
                     <li>
                         <p>
                           <i className="glyphicon glyphicon-map-marker" />
-                          {/*{location}*/}asdlfkajsdlfkja;sldkfja;lskdjf;laksjdf;lakjsdfl;kajsd;lfkjas;ldkfja;lskdjfl;aksjdfl;kasjdf
+                          {location}
                         </p>
                     </li>
                     <li>
