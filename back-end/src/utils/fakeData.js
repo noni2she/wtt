@@ -108,22 +108,22 @@ const seriesItem = () => {
       key: 'uuid',
       displayedName: 'id',
     }, {
-      key: 'pcd',
+      key: 'col1',
       displayedName: 'PCD'
     }, {
-      key: 'hub',
+      key: 'col2',
       displayedName: 'HUB'
     }, {
-      key: 'thread-type',
+      key: 'col3',
       displayedName: 'Thread Type'
     }, {
-      key: 'od',
+      key: 'col4',
       displayedName: 'O.D(mm)'
     }, {
-      key: 'car-modal',
+      key: 'col5',
       displayedName: 'Car Model'
     }, {
-      key: 'part-number',
+      key: 'col6',
       displayedName: 'Part Number'
     }],
   });
@@ -136,22 +136,22 @@ const categoryItem = () => {
     key: 'wheel-spacers',
     name: 'WHEEL SPACERS',
     mainImg: imgItem(),
-    seriesItems: generateArray(seriesItem, 12),
+    seriesItems: generateArray(seriesItem, 10),
   });
 }
 
-const mockProductDetail = [{"pcd":"4H/100","hub":"Φ54.1","thread-type":"M12xP1.25xL23","od":149,"car-modal":"Suzuki","part-number":"SHA-1154166-15"},
-{"pcd":"4H/100","hub":"Φ54.1","thread-type":"M12xP1.25xL23","od":149,"car-modal":"","part-number":"SHA-1154166-20"},
-{"pcd":"4H/100","hub":"Φ54.1","thread-type":"M12xP1.25xL23","od":149,"car-modal":"","part-number":"SHA-1154166-25"},
-{"pcd":"4H/100","hub":"Φ54.1","thread-type":"M12xP1.25xL23","od":149,"car-modal":"","part-number":"SHA-1154166-30"},
-{"pcd":"4H/100","hub":"Φ54.1","thread-type":"M12xP1.50xL23","od":149,"car-modal": "Mazda Scion Toyota Hyundai Kia","part-number":"SHA-1154177-15"},
-{"pcd":"4H/100","hub":"Φ54.1","thread-type":"M12xP1.50xL23","od":149,"car-modal":"","part-number":"SHA-1154177-20"},
-{"pcd":"4H/100","hub":"Φ54.1","thread-type":"M12xP1.50xL23","od":149,"car-modal":"","part-number":"SHA-1154177-25"},
-{"pcd":"4H/100","hub":"Φ54.1","thread-type":"M12xP1.50xL23","od":149,"car-modal":"","part-number":"SHA-1154177-30"},
-{"pcd":"4H/100","hub":"Φ56.1","thread-type":"M12xP1.50xL23","od":149,"car-modal":"Acura \nHonda Mitsubishi kia","part-number":"SHA-1156177-15"},
-{"pcd":"4H/100","hub":"Φ56.1","thread-type":"M12xP1.50xL23","od":149,"car-modal":"","part-number":"SHA-1156177-20"},
-{"pcd":"4H/100","hub":"Φ56.1","thread-type":"M12xP1.50xL23","od":149,"car-modal":"","part-number":"SHA-1156177-25"},
-{"pcd":"4H/100","hub":"Φ56.1","thread-type":"M12xP1.50xL23","od":149,"car-modal":"","part-number":"SHA-1156177-30"}]
+const mockProductDetail = [{"col1":"4H/100","col2":"Φ54.1","col3":"M12xP1.25xL23","col4":149,"col5":"Suzuki","col6":"SHA-1154166-15"},
+{"col1":"4H/100","col2":"Φ54.1","col3":"M12xP1.25xL23","col4":149,"col5":"","col6":"SHA-1154166-20"},
+{"col1":"4H/100","col2":"Φ54.1","col3":"M12xP1.25xL23","col4":149,"col5":"","col6":"SHA-1154166-25"},
+{"col1":"4H/100","col2":"Φ54.1","col3":"M12xP1.25xL23","col4":149,"col5":"","col6":"SHA-1154166-30"},
+{"col1":"4H/100","col2":"Φ54.1","col3":"M12xP1.50xL23","col4":149,"col5": "Mazda Scion Toyota Hyundai Kia","col6":"SHA-1154177-15"},
+{"col1":"4H/100","col2":"Φ54.1","col3":"M12xP1.50xL23","col4":149,"col5":"","col6":"SHA-1154177-20"},
+{"col1":"4H/100","col2":"Φ54.1","col3":"M12xP1.50xL23","col4":149,"col5":"","col6":"SHA-1154177-25"},
+{"col1":"4H/100","col2":"Φ54.1","col3":"M12xP1.50xL23","col4":149,"col5":"","col6":"SHA-1154177-30"},
+{"col1":"4H/100","col2":"Φ56.1","col3":"M12xP1.50xL23","col4":149,"col5":"Acura \nHonda Mitsubishi kia","col6":"SHA-1156177-15"},
+{"col1":"4H/100","col2":"Φ56.1","col3":"M12xP1.50xL23","col4":149,"col5":"","col6":"SHA-1156177-20"},
+{"col1":"4H/100","col2":"Φ56.1","col3":"M12xP1.50xL23","col4":149,"col5":"","col6":"SHA-1156177-25"},
+{"col1":"4H/100","col2":"Φ56.1","col3":"M12xP1.50xL23","col4":149,"col5":"","col6":"SHA-1156177-30"}]
 
 
 // export fake data which should be similar to what in firebase
