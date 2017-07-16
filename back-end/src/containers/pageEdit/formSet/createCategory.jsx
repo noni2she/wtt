@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { onCreateFormSubmit } from 'actions/editForm';
 import PropTypes from 'prop-types';
 import { CREATE_PRODUCT_CATEGORY } from 'constants/common';
+import { onCreateFormSubmit } from 'actions/editForm';
+import { onNewCategoryCreate } from 'actions/productDetail';
 
 class CreateCategoryFormSet extends Component {
   constructor(props) {
@@ -46,6 +47,11 @@ class CreateCategoryFormSet extends Component {
       this.props.onCreateFormSubmit(locales, CREATE_PRODUCT_CATEGORY, {
         key,
       });
+
+      // create new attribute in product Detail
+      this.props.onNewCategoryCreate({
+        key,
+      })
 
       // navigate to previous page
       this.context.router.goBack();
@@ -107,4 +113,4 @@ CreateCategoryFormSet.propTypes = {
   onEditFormSubmit: PropTypes.func,
 }
 
-export default connect(null, { onCreateFormSubmit })(CreateCategoryFormSet);
+export default connect(null, { onCreateFormSubmit, onNewCategoryCreate })(CreateCategoryFormSet);

@@ -3,6 +3,7 @@ import {
   PROD_DETAIL_ON_CELL_EDIT,
   PROD_DETAIL_ON_DELETE_ROW,
   PROD_DETAIL_ON_ADD_ROW,
+  PROD_DETAIL_ON_CATEGORY_CREATE,
 } from 'constants/actionTypes';
 
 export default (state = productsDetailInitialState, action) => {
@@ -16,7 +17,7 @@ export default (state = productsDetailInitialState, action) => {
   const {
     categoryKey, seriesKey, uuid,
     cellName, cellValue, rowsKey,
-    row,
+    row, key,
   } = payload;
 
   // local variable
@@ -85,6 +86,16 @@ export default (state = productsDetailInitialState, action) => {
         ...newState[categoryKey][seriesKey]
       ];
       newState[categoryKey][seriesKey].push(row);
+
+      return newState;
+    // create
+    case PROD_DETAIL_ON_CATEGORY_CREATE:
+      newState = {
+        ...state,
+      };
+
+      // prevent from overwrting existing object
+      newState[key] = newState[key] ? newState[key] : {};
 
       return newState;
     default:
