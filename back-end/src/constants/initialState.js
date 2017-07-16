@@ -30,7 +30,7 @@ export const imgItemDefaultGenerator = () => {
     displayed: false,
     id: uuid(),
     timestamps: new Date().toString(),
-    imgUrl: 'https://firebasestorage.googleapis.com/v0/b/techwell-74c86.appspot.com/o/top_banner%2FAD_1.png?alt=media&token=891d542c-969d-402c-94b2-a43d0eef4c18',
+    imgUrl: '',
     altText: '',
   });
 }

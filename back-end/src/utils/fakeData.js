@@ -133,7 +133,7 @@ const categoryItem = () => {
   return ({
     displayed: true,
     id: uuid(),
-    key: 'wheel-spacers',
+    key: 'wheelSpacers',
     name: 'WHEEL SPACERS',
     mainImg: imgItem(),
     seriesItems: generateArray(seriesItem, 10),
