@@ -1,20 +1,34 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Slider from 'react-slick';
-import { Link } from 'react-router';
 import NewsItem from './newsItem.jsx';
 
 const settings = {
   dots: true,
-  infinite: false,
-  speed: 500,
+  infinite: true,
   slidesToShow: 3,
-  slidesToScroll: 3
-  // arrows: false,
-  // centerMode: true
+  slidesToScroll: 3,
+  responsive: [
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false
+      }
+    },
+    {
+      breakpoint: 992,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+      }
+    }
+  ]
 };
 
 export default class News extends Component {
-  render () {
+  render() {
     const {header, subheader, newsItems} = this.props.news;
     const newsItemList = newsItems.map((item, index) => {
       return (
@@ -22,25 +36,27 @@ export default class News extends Component {
           className="newsItem-div"
           key={`newsItem_+${index}`}
         >
-          <Link to={`/edit/news/newsItem/${index}`}>
-            <NewsItem newsItem={item}/>
-          </Link>
+          <NewsItem newsItem={item}/>
         </div>
       );
     });
 
     return (
       <div id="news">
-        <div>
-          <h2 className="text-uppercase" >{header}</h2>
-          <p>{subheader}</p>
+        <div className="news-title">
+          <h2>{ header }</h2>
+          <p>{ subheader }</p>
         </div>
-        <div className="container">
-          <Slider {...settings} className="item-container">
+        <div className="news-slider-container">
+          <Slider {...settings} className="news-item-container">
             {newsItemList}
           </Slider>
         </div>
       </div>
     );
-  }  
+  }
 }
+
+News.propTypes = {
+  news: PropTypes.object
+};
