@@ -1,13 +1,23 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import PropTypes from 'prop-types';
 import ImgItem from 'components/common/imgItem.jsx';
 import { SERIES_ITEM_COUNT_PER_ROW } from 'constants/common';
+
 
 export class ProductItem extends Component {
 
   constructor() {
     super();
     this.seriesList = this.seriesList.bind(this);
+    this.onCreateBtnClick = this.onCreateBtnClick.bind(this);
+  }
+
+  onCreateBtnClick(event) {
+    event.preventDefault();
+    const { categoryIndex } = this.props;
+
+    this.context.router.push(`/edit/series/new/${categoryIndex}`);
   }
 
   seriesList() {
@@ -76,10 +86,25 @@ export class ProductItem extends Component {
               </div>
           </div>
         </Link>
+
         {this.seriesList()}
+
+        <div className="product-series row flex-center">
+          <button
+            type="button"
+            className="btn btn-default"
+            onClick={this.onCreateBtnClick}
+          >
+            新增 series
+          </button>
+        </div>
       </div>
     );
   }
 }
+
+ProductItem.contextTypes = {
+  router: PropTypes.object,
+};
 
 export default ProductItem;

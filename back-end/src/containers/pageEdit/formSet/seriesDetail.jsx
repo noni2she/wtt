@@ -193,7 +193,7 @@ class SeriesDetailFormSet extends Component {
 
   render() {
     const {
-      displayed, name, shortName, mainImg,
+      displayed, name, key, shortName, mainImg,
       subImg, description, content,
     } = this.state;
     return (
@@ -210,6 +210,15 @@ class SeriesDetailFormSet extends Component {
               /> 
               Displayed
             </label>
+          </div>
+          <div className="form-group">
+            <label>key</label>
+            <input
+              className="form-control"
+              type="text"
+              value={key}
+              disabled={true}
+            />
           </div>
           <div className="form-group">
             <label>標題</label>

@@ -8,6 +8,8 @@ import NewsItemFormSet from 'containers/pageEdit/formSet/newsItems';
 import TopBannerFormSet from 'containers/pageEdit/formSet/topBanner';
 import ContactFormSet from 'containers/pageEdit/formSet/contact';
 import DownloadFormSet from 'containers/pageEdit/formSet/downloadItems';
+import CreateSeriesFormSet from 'containers/pageEdit/formSet/createSeries';
+import CreateCategoryFormSet from 'containers/pageEdit/formSet/createCategory';
 
 //SeriesDetailFormSet
 export const renderSeriesDetailFormSet = (props, categoryKey, seriesKey) => {
@@ -209,6 +211,45 @@ export const renderDownloadItemFormSet = (props, downloadItemIndex) => {
         locales={locales}
         downloadItem={downloadItem}
         downloadItemIndex={downloadItemIndex}
+      />
+    );
+  } catch (error) {
+    console.error(error);
+    return false;
+  }
+}
+
+// renderCreateSeriesFormSet
+export const renderCreateSeriesFormSet = (props, categoryIndex) => {
+  try {
+    const { locales } = props;
+    const { products } = props[locales];
+    const categoryItem = products.categoryItems[categoryIndex];
+    const categoryKey = products.categoryItems[categoryIndex].key;
+
+    if (!categoryItem) return false;
+
+    return (
+      <CreateSeriesFormSet
+        locales={locales}
+        categoryIndex={categoryIndex}
+        categoryKey={categoryKey}
+      />
+    );
+  } catch (error) {
+    console.error(error);
+    return false;
+  }
+}
+
+// renderCreateSeriesFormSet
+export const renderCreateCategoryFormSet = (props) => {
+  try {
+    const { locales } = props;
+
+    return (
+      <CreateCategoryFormSet
+        locales={locales}
       />
     );
   } catch (error) {

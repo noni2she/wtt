@@ -12,6 +12,8 @@ import {
   renderTopBannerFormSet,
   renderContactFormSet,
   renderDownloadItemFormSet,
+  renderCreateSeriesFormSet,
+  renderCreateCategoryFormSet
 } from './renderFormSet';
 
 class PageEdit extends Component {
@@ -52,11 +54,14 @@ class PageEdit extends Component {
 
         case 'category':
           if (innerBlock === 'header') return renderHeaderFormSet(props, blockType);
+          else if (innerBlock === 'new') return renderCreateCategoryFormSet(props);
           else {
             let categoryIndex = innerBlock;
             return renderCategoryFormSet(props, categoryIndex);
           }
-
+        case 'series':
+          if (innerBlock === 'new') return renderCreateSeriesFormSet(props, index);
+          else return false;
         case 'download':
           if (innerBlock === 'header') return renderHeaderFormSet(props, blockType);
           else if (innerBlock && index) return renderDownloadItemFormSet(props, index);
@@ -76,6 +81,7 @@ class PageEdit extends Component {
   }
   goIndex() {
     this.context.router.replace('/');
+    return null;
   }
   render() {
     return (

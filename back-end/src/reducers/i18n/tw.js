@@ -8,6 +8,7 @@ import {
   ON_TW_NEWS_HEADER_EDIT, ON_TW_CONTACT_HEADER_EDIT, ON_TW_DOWNLOAD_HEADER_EDIT,
   ON_TW_PRODUCTS_HEADER_EDIT, ON_TW_PRODUCTS_CATEGORY_EDIT, ON_TW_NEWS_ITEM_EDIT,
   ON_TW_DOWNLOAD_ITEM_EDIT, ON_TW_NEWS_ITEM_CREATE, ON_TW_DOWNLOAD_ITEM_CREATE,
+  ON_TW_PRODUCTS_SERIES_CREATE, ON_TW_PRODUCTS_CATEGORY_CREATE,
 } from 'constants/actionTypes';
 
 // attribute name
@@ -17,21 +18,27 @@ import {
 } from 'constants/common';
 
 import {
-  newsItemDefaultGenerator, downloadItemDefaultGenerator
+  newsItemDefaultGenerator,
+  downloadItemDefaultGenerator,
+  seriesDefaultGenerator,
+  categoryDefaultGenerator,
 } from 'constants/initialState';
 
 export default (state = twInitialState, action) => {
-  const { type, payload } = action;
-  let newState;
+  let { type, payload } = action;
+  let newState, series;
+
+  payload = payload || {};
+
+  let {
+    categoryItemsIndex, seriesItemsIndex, products,
+    categoryIndex, newsItemIndex, downloadItemIndex,
+    key,
+  } = payload;
 
   switch (type) {
     // details of porduct
     case ON_TW_PRODUCTS_EDIT:
-
-      let {
-        categoryItemsIndex, seriesItemsIndex, products,
-      } = payload;
-
       // delete redundant index
       delete payload.categoryItemsIndex;
       delete payload.seriesItemsIndex;
@@ -97,7 +104,6 @@ export default (state = twInitialState, action) => {
       return newState;
     // category info
     case ON_TW_PRODUCTS_CATEGORY_EDIT:
-      const { categoryIndex } = payload;
       delete payload.categoryIndex;
 
       newState = {
@@ -121,7 +127,6 @@ export default (state = twInitialState, action) => {
       return newState;
     // news item
     case ON_TW_NEWS_ITEM_EDIT:
-      const { newsItemIndex } = payload;
       delete payload.newsItemIndex;
 
       newState = {
@@ -145,7 +150,6 @@ export default (state = twInitialState, action) => {
       return newState;
     // download items
     case ON_TW_DOWNLOAD_ITEM_EDIT:
-      const { downloadItemIndex } = payload;
       delete payload.downloadItemIndex;
 
       newState = {
@@ -188,6 +192,40 @@ export default (state = twInitialState, action) => {
         ...newState[ATTRI_NAME_DOWNLOAD].downloadItems,
       ];
       newState[ATTRI_NAME_DOWNLOAD].downloadItems.push(createDownloadItems);
+      return newState;
+    // series
+    case ON_TW_PRODUCTS_SERIES_CREATE:
+      const createSeries = {
+        ...seriesDefaultGenerator(),
+        key,
+      };
+
+      newState = {
+        ...state
+      };
+      newState[ATTRI_NAME_PRODUCTS].categoryItems[categoryIndex] = {
+        ...newState[ATTRI_NAME_PRODUCTS].categoryItems[categoryIndex],
+      }
+      newState[ATTRI_NAME_PRODUCTS].categoryItems[categoryIndex].seriesItems = [
+        ...newState[ATTRI_NAME_PRODUCTS].categoryItems[categoryIndex].seriesItems,
+      ];
+      newState[ATTRI_NAME_PRODUCTS].categoryItems[categoryIndex].seriesItems.push(createSeries);
+
+      return newState;
+    // category
+    case ON_TW_PRODUCTS_CATEGORY_CREATE:
+      const createCategory = {
+        ...categoryDefaultGenerator(),
+        key,
+      };
+      newState = {
+        ...state
+      };
+      newState[ATTRI_NAME_PRODUCTS].categoryItems = [
+        ...newState[ATTRI_NAME_PRODUCTS].categoryItems,
+      ];
+      newState[ATTRI_NAME_PRODUCTS].categoryItems.push(createCategory);
+
       return newState;
     default:
       return state;
