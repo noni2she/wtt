@@ -49,3 +49,4 @@ export const CREATE_PRODUCT_CATEGORY = 'CREATE_PRODUCT_CATEGORY';
 
 // delete form or action
 export const DELETE_NEWS_ITEM = 'DELETE_NEWS_ITEM';
+export const DELETE_DOWNLOAD_ITEM = 'DELETE_DOWNLOAD_ITEM';

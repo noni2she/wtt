@@ -17,17 +17,22 @@ export class Download extends Component {
     this.props.onCreateFormSubmit(locales, CREATE_DOWNLOAD_ITEM);
   }
 
+  downloadListGenerator(downloadItems) {
+    return (
+      downloadItems.map((item, index) => {
+        return (
+          <DownloadItem
+            key={`downItem_${index}`}
+            downloadItem={item}
+            downloadIndex={index}
+          />
+        )
+      })
+    );
+  }
+
   render () {
     const { downloadItems, header, subheader } = this.props.download;
-    const downloadList = downloadItems.map((item, index) => {
-      return (
-        <DownloadItem
-          key={`downItem_${index}`}
-          downloadItem={item}
-          downloadIndex={index}
-        />
-      )
-    });
 
     return (
       <div>
@@ -38,7 +43,11 @@ export class Download extends Component {
               <p>{subheader}</p>
             </div>
           </Link>
-          { downloadList }
+          { Array.isArray(downloadItems) && downloadItems.length > 0 ? (
+            this.downloadListGenerator(downloadItems)
+          ) : (
+            null
+          )}
         </div>
         <div>
           <button

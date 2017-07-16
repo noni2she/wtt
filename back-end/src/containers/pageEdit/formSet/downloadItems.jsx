@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { onEditFormSubmit } from 'actions/editForm';
+import { onEditFormSubmit, onDeleteFormSubmit } from 'actions/editForm';
 import PropTypes from 'prop-types';
-import { FORM_SET_DOWNLOAD_ITEM } from 'constants/common';
+import { FORM_SET_DOWNLOAD_ITEM, DELETE_DOWNLOAD_ITEM } from 'constants/common';
 
 class DownloadItemFormSet extends Component {
   constructor(props) {
@@ -12,6 +12,7 @@ class DownloadItemFormSet extends Component {
 
     this.onFormChange = this.onFormChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.onDelete = this.onDelete.bind(this);
 
     // if the length of description is less than 5, fill it up to 5.
     insufficientCount = 5 - Object.keys(description).length;
@@ -92,6 +93,19 @@ class DownloadItemFormSet extends Component {
     // navigate to previous page
     this.context.router.goBack();
   }
+
+  onDelete(event) {
+    event.preventDefault();
+    const { locales, downloadItemIndex } = this.props;
+
+    this.props.onDeleteFormSubmit(
+      locales, DELETE_DOWNLOAD_ITEM, {
+        downloadItemIndex,
+      }
+    );
+    this.context.router.replace('/');
+  }
+
   linkEditFieldGenerator(link) {
     if (!link) return null;
 
@@ -126,6 +140,7 @@ class DownloadItemFormSet extends Component {
       )
     }));
   }
+
   descriptionEditFieldGenerator(description) {
     if (!description) return null;
 
@@ -147,6 +162,7 @@ class DownloadItemFormSet extends Component {
       )
     }));
   }
+
   render() {
     const {
       displayed, mainImg, title,
@@ -202,7 +218,12 @@ class DownloadItemFormSet extends Component {
             >
               儲存
             </button>
-            <button className="btn btn-danger pull-right">刪除</button>
+            <button
+              className="btn btn-danger pull-right"
+              onClick={this.onDelete}
+            >
+              刪除
+            </button>
           </div>
         </form>
       </div>
@@ -218,4 +239,4 @@ DownloadItemFormSet.propTypes = {
   onEditFormSubmit: PropTypes.func,
 }
 
-export default connect(null, { onEditFormSubmit })(DownloadItemFormSet);
+export default connect(null, { onEditFormSubmit, onDeleteFormSubmit })(DownloadItemFormSet);

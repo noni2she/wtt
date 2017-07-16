@@ -9,6 +9,7 @@ import {
   ON_EN_PRODUCTS_HEADER_EDIT, ON_EN_PRODUCTS_CATEGORY_EDIT, ON_EN_NEWS_ITEM_EDIT,
   ON_EN_DOWNLOAD_ITEM_EDIT, ON_EN_NEWS_ITEM_CREATE, ON_EN_DOWNLOAD_ITEM_CREATE,
   ON_EN_PRODUCTS_SERIES_CREATE, ON_EN_PRODUCTS_CATEGORY_CREATE, ON_EN_NEWS_ITEM_DELETE,
+  ON_EN_DOWNLOAD_ITEM_DELETE,
 } from 'constants/actionTypes';
 
 // attribute name
@@ -239,6 +240,20 @@ export default (state = enInitialState, action) => {
 
       newState[ATTRI_NAME_NEWS].newsItems = newState[ATTRI_NAME_NEWS].newsItems.filter((item, index) => {
         return index !== newsItemIndex;
+      });
+
+      return newState;
+    case ON_EN_DOWNLOAD_ITEM_DELETE:
+      downloadItemIndex = parseInt(downloadItemIndex, 10);
+      newState = {
+        ...state
+      };
+      newState[ATTRI_NAME_DOWNLOAD] = {
+        ...newState[ATTRI_NAME_DOWNLOAD],
+      }
+
+      newState[ATTRI_NAME_DOWNLOAD].downloadItems = newState[ATTRI_NAME_DOWNLOAD].downloadItems.filter((item, index) => {
+        return index !== downloadItemIndex;
       });
 
       return newState;
