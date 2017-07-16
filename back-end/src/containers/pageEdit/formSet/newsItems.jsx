@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { onEditFormSubmit } from 'actions/editForm';
+import { onEditFormSubmit, onDeleteFormSubmit } from 'actions/editForm';
 import PropTypes from 'prop-types';
-import { FORM_SET_NEWS_ITEM } from 'constants/common';
+import { FORM_SET_NEWS_ITEM, DELETE_NEWS_ITEM } from 'constants/common';
 
 class NewsItemFormSet extends Component {
   constructor(props) {
     super();
     this.onFormChange = this.onFormChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.onDelete = this.onDelete.bind(this);
     this.state = {
       ...props.newsItem
     }
@@ -50,6 +51,18 @@ class NewsItemFormSet extends Component {
 
     // navigate to previous page
     this.context.router.goBack();
+  }
+
+  onDelete(event) {
+    event.preventDefault();
+    const { locales, newsItemIndex } = this.props;
+
+    this.props.onDeleteFormSubmit(
+      locales, DELETE_NEWS_ITEM, {
+        newsItemIndex,
+      }
+    );
+    this.context.router.replace('/');
   }
 
   render() {
@@ -148,7 +161,12 @@ class NewsItemFormSet extends Component {
             >
               儲存
             </button>
-            <button className="btn btn-danger pull-right">刪除</button>
+            <button
+              className="btn btn-danger pull-right"
+              onClick={this.onDelete}
+            >
+              刪除
+            </button>
           </div>
         </form>
       </div>
@@ -164,4 +182,4 @@ NewsItemFormSet.propTypes = {
   onEditFormSubmit: PropTypes.func,
 }
 
-export default connect(null, { onEditFormSubmit })(NewsItemFormSet);
+export default connect(null, { onEditFormSubmit, onDeleteFormSubmit })(NewsItemFormSet);

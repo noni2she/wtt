@@ -8,7 +8,7 @@ import {
   ON_JP_NEWS_HEADER_EDIT, ON_JP_CONTACT_HEADER_EDIT, ON_JP_DOWNLOAD_HEADER_EDIT,
   ON_JP_PRODUCTS_HEADER_EDIT, ON_JP_PRODUCTS_CATEGORY_EDIT, ON_JP_NEWS_ITEM_EDIT,
   ON_JP_DOWNLOAD_ITEM_EDIT, ON_JP_NEWS_ITEM_CREATE, ON_JP_DOWNLOAD_ITEM_CREATE,
-  ON_JP_PRODUCTS_SERIES_CREATE, ON_JP_PRODUCTS_CATEGORY_CREATE,
+  ON_JP_PRODUCTS_SERIES_CREATE, ON_JP_PRODUCTS_CATEGORY_CREATE, ON_JP_NEWS_ITEM_DELETE,
 } from 'constants/actionTypes';
 
 // attribute name
@@ -225,6 +225,21 @@ export default (state = jpInitialState, action) => {
         ...newState[ATTRI_NAME_PRODUCTS].categoryItems,
       ];
       newState[ATTRI_NAME_PRODUCTS].categoryItems.push(createCategory);
+
+      return newState;
+    // delete
+    case ON_JP_NEWS_ITEM_DELETE:
+      newsItemIndex = parseInt(newsItemIndex, 10);
+      newState = {
+        ...state
+      };
+      newState[ATTRI_NAME_NEWS] = {
+        ...newState[ATTRI_NAME_NEWS],
+      }
+
+      newState[ATTRI_NAME_NEWS].newsItems = newState[ATTRI_NAME_NEWS].newsItems.filter((item, index) => {
+        return index !== newsItemIndex;
+      });
 
       return newState;
     default:

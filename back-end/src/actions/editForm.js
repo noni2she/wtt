@@ -6,6 +6,7 @@ import {
   FORM_SET_CATEGORY, FORM_SET_TOP_BANNER, FORM_SET_NEWS_ITEM,
   FORM_SET_CONTACT, FORM_SET_DOWNLOAD_ITEM, CREATE_NEWS_ITEM,
   CREATE_DOWNLOAD_ITEM, CREATE_PRODUCT_SERIES, CREATE_PRODUCT_CATEGORY,
+  DELETE_NEWS_ITEM,
 } from 'constants/common';
 
 import {
@@ -61,8 +62,9 @@ const mapFormSetToAttriName = (formSet, blockType) => {
       return MAP_FORMSET_TO_ATTRI_CONTACT;
     case FORM_SET_DOWNLOAD_ITEM:
       return `${MAP_FORMSET_TO_ATTRI_DOWNLOAD}_ITEM`;
-    // create
+    // create and delete
     case CREATE_NEWS_ITEM:
+    case DELETE_NEWS_ITEM:
       return `${MAP_FORMSET_TO_ATTRI_NEWS}_ITEM`;
     case CREATE_DOWNLOAD_ITEM:
       return `${MAP_FORMSET_TO_ATTRI_DOWNLOAD}_ITEM`;
@@ -98,6 +100,13 @@ export const onEditFormSubmit = (locale, formSet, value, blockType) => {
 export const onCreateFormSubmit = (locale, formSet, value, blockType) => {
   return({
     type: `ON_${getLocalePrefix(locale)}${mapFormSetToAttriName(formSet, blockType)}_${EDIT_FROM_CREATE}`,
+    payload: value,
+  });
+};
+
+export const onDeleteFormSubmit = (locale, formSet, value, blockType) => {
+  return({
+    type: `ON_${getLocalePrefix(locale)}${mapFormSetToAttriName(formSet, blockType)}_${EDIT_FROM_DELETE}`,
     payload: value,
   });
 };
