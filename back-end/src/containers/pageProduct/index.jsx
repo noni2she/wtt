@@ -16,6 +16,7 @@ class PageProduct extends Component {
       contentObject: null, 
     }
     this.searchCategoryAndSeries = this.searchCategoryAndSeries.bind(this);  
+    this.goIndex = this.goIndex.bind(this);
   }
 
   /* search categoryItem and seriesItem by page params.
@@ -74,6 +75,9 @@ class PageProduct extends Component {
     // get the object first
     this.searchCategoryAndSeries(this.props);
   }
+  goIndex() {
+    this.context.router.replace('/');
+  }
   render() {
     try {
       const { categoryKey, seriesKey } = this.context.router.params
@@ -96,8 +100,14 @@ class PageProduct extends Component {
       return (
         <div className="container-with-nav-bar" >
           <NavBar />
-
           <div id="page-product" className="container">
+            <button
+                className="btn btn-default"
+                type="button"
+                onClick={this.goIndex}
+              >
+                回首頁
+            </button>
             <div>
               <Link to={`/edit/product/${categoryKey}/${seriesKey}`}>
                 <ProductText
