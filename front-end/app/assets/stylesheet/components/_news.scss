@@ -1,29 +1,85 @@
-#news {
-  .container {
-    padding-left: 30px;
-    padding-right: 30px;
-    .item-container {
-
-      a {
-        color: inherit;
+@media (min-width: $screen-lg-min) { 
+  #news {
+    .news-slider-container {
+      padding-left: 40px;
+      padding-right: 40px;
+      margin: 0 auto;
+      display: table;
+      .news-item-container {
+        max-width: 1100px;
       }
+    }
+  }
+}
 
+@media (max-width: $screen-lg-min) { 
+  #news {
+    .news-slider-container {
+      margin: 0 auto;
+      max-width: 950px;
+    }
+  }
+}
+
+@media (max-width: $screen-md-min) { 
+  #news {
+    .slick-prev {
+      left: 3px;
+      z-index: 1;
+    }
+
+    .slick-next {
+      right: 3px;
+      z-index: 1;
+    }
+    .news-slider-container {
+      padding-left: 0px;
+      padding-right: 0px;
+      display: block;
+    }
+  }
+}
+
+#news {
+  // reserve space for slick dots
+  margin-bottom: 30px;
+
+  .slick-prev:before,
+  .slick-next:before {
+    color:gray;
+  }
+
+  .news-title {
+    h2 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    p {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  .news-slider-container {
+    .news-item-container {
       .newsItem-div {
         display: flex;
         align-items: center;
         justify-content: center;
-
         .item {
-          height: 393px;
+          text-align: center;
+          height: 500px;
           width: 315px;
+          word-break: break-all;
           background-image: url('https://firebasestorage.googleapis.com/v0/b/techwell-74c86.appspot.com/o/news%2Fnews_item_BG.png?alt=media&token=4b97be14-cbcd-4949-8138-6148889177ba');
           background-repeat: no-repeat;
-          
+          background-size: cover;
+          padding: 15px 10px 15px 10px;
           img {
-            margin:auto;
-            margin-top:10px;
-            width:292px;
-            height:210px;
+            margin: 0 auto;
+            width: 292px;
+            height: 210px;
           }
         }
       }
