@@ -38,7 +38,7 @@ const imgItem = () => {
   return({
     displayed: true,
     id: uuid(),
-    timestamps: new Date(),
+    timestamps: new Date().toString(),
     altText: fakeAltText(),
     imgUrl: fakeImgUrl(),
     link: '',
@@ -49,7 +49,7 @@ const messageItem = () => {
   return ({
     displayed: true,
     id: uuid(),
-    timestamps: new Date(),
+    timestamps: new Date().toString(),
     sender: fakeName(),
     receiverEmail: fakeEmail(),
     content: fakeParagraph(),
@@ -60,7 +60,7 @@ const newsItem = () => {
   return ({
     displayed: true,
     id: uuid(),
-    timestamps: new Date(),
+    timestamps: new Date().toString(),
     header: fakeHeader(),
     subheader: fakeSubheader(),
     description: fakeDescription(),
@@ -74,7 +74,7 @@ const downloadItem = () => {
   return ({
     displayed: true,
     id: uuid(),
-    timestamps: new Date(),
+    timestamps: new Date().toString(),
     mainImg: imgItem(),
     title: fakeSubheader(),
     description: generateArray(fakeDescription),
