@@ -10,12 +10,16 @@ import {
 import { onLocaleChange } from 'actions/locales';
 import { setData } from 'utils/firebase';
 import { FIREBASE_ROOT } from 'constants/config';
+import logo from 'img/oval.svg';
 
 export class NavBar extends Component {
   constructor() {
     super();
     this.onClickHandler = this.onClickHandler.bind(this);
     this.onSubmitHandler = this.onSubmitHandler.bind(this);
+    this.state = {
+      loading: false,
+    }
   }
 
   onClickHandler(event) {
@@ -46,14 +50,25 @@ export class NavBar extends Component {
     const rootObject = {
       tw, jp, en, productsDetail
     }
-
+    this.setState({
+      loading: true,
+    })
     setData(FIREBASE_ROOT, rootObject)
+      .catch((error) => {
+        console.log(error);
+      })
       .then(() => {
-        console.log('succeed');
+
+        // no matter succeed or fail, remove loading animation
+        this.setState({
+          loading: false,
+        })
       });
   }
+
   render() {
     const { active, locales } = this.props;
+    const { loading } = this.state;
 
     return (
       <nav className="navbar navbar-default navbar-fixed-top">
@@ -93,8 +108,15 @@ export class NavBar extends Component {
                   type="button"
                   className="btn btn-primary btn-nav-bar"
                   onClick={this.onSubmitHandler}
+                  disabled={loading}
                 >
-                  發布
+                  {
+                    loading ? (
+                      <img className="loading-oval" src={logo} alt={'loading-oval'}/>
+                    ) : (
+                      '發布'
+                    )
+                  }
                 </button>
               </li>
             </ul>
