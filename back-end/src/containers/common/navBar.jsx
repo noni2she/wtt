@@ -8,12 +8,16 @@ import {
   NAV_BAR_LANGUAGE_TW, NAV_BAR_LANGUAGE_JP, NAV_BAR_LANGUAGE_EN,
 } from 'constants/common';
 import { onLocaleChange } from 'actions/locales';
+import { setData } from 'utils/firebase';
+import { FIREBASE_ROOT } from 'constants/config';
 
 export class NavBar extends Component {
   constructor() {
     super();
     this.onClickHandler = this.onClickHandler.bind(this);
+    this.onSubmitHandler = this.onSubmitHandler.bind(this);
   }
+
   onClickHandler(event) {
     event.preventDefault();
     const { name } = event.target;
@@ -35,8 +39,22 @@ export class NavBar extends Component {
     }
   }
 
+  onSubmitHandler(event) {
+    event.preventDefault();
+
+    const { tw, jp, en, productsDetail } = this.props;
+    const rootObject = {
+      tw, jp, en, productsDetail
+    }
+
+    setData(FIREBASE_ROOT, rootObject)
+      .then(() => {
+        console.log('succeed');
+      });
+  }
   render() {
     const { active, locales } = this.props;
+
     return (
       <nav className="navbar navbar-default navbar-fixed-top">
         <div className="container">
@@ -71,7 +89,13 @@ export class NavBar extends Component {
 
             <ul className="nav navbar-nav navbar-right">
               <li>
-                <button type="button" className="btn btn-primary btn-nav-bar">發布</button>
+                <button
+                  type="button"
+                  className="btn btn-primary btn-nav-bar"
+                  onClick={this.onSubmitHandler}
+                >
+                  發布
+                </button>
               </li>
             </ul>
           </div>
@@ -86,9 +110,10 @@ NavBar.propTypes = {
   locales: PropTypes.string,
 };
 
-const mapStateToProps = ({locales}) => {
+const mapStateToProps = ({locales, tw, jp, en, productsDetail}) => {
   return {
-    locales,
+    locales, tw, jp,
+    en, productsDetail,
   }
 }
 
