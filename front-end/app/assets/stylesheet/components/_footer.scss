@@ -1,3 +1,32 @@
+@media (min-width: $screen-sm-min) { 
+  #footer {
+    .footer-container {
+      .footer-logo {
+        margin-left: 30px;
+      }
+      .footer-description {
+        margin-right: 50px;
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-sm-min) { 
+  #footer {
+    .footer-container {
+      .footer-logo {
+        margin-left: 10px;
+      }
+      .footer-description {
+        margin-right: 10px;
+        p {
+          font-size: 0.75em;
+        }
+      }
+    }
+  }
+}
+
 #footer {
   margin-top: 30px;
   .footer-container {
@@ -8,11 +37,7 @@
     color: white;
     height: 50px;
     line-height: 50px;
-    .footer-logo {
-      margin-left: 50px;
-    }
     .footer-description {
-      margin-right: 30px;
       p {
         margin-bottom: 0px;
       }
