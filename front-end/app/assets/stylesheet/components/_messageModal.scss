@@ -1,0 +1,64 @@
+@media (min-width: $screen-md-min) {
+  .messageModal-text-field {
+    max-width: 450px;
+  }
+}
+
+.messageModal-text-field  {
+  text-align: center;
+  color: white;
+
+  .messageModal-header {
+    margin-bottom: 50px;
+  }
+  .messageModal-close {
+    position: absolute;
+    right: 0px;
+    color: white;
+    font-size: 2em;
+  }
+  .messageModal-input {
+    color: white;
+    background: transparent;
+    margin-top: 10px;
+    &::-webkit-input-placeholder {
+      color: white;
+    }
+    &:-moz-placeholder {
+      color: white;
+    }
+    &::-moz-placeholder {
+      color: white;
+    }
+    &:-ms-input-placeholder {
+      color: white;
+    }
+
+  }
+
+  .messageModal-submit {
+    color: white;
+    background: transparent;
+  }
+
+  .messageModal-finish {
+    color: white;
+    background: $wtt-red;    
+  }
+
+  .messageModal-text {
+    margin: 50px 0px;
+
+  }
+
+  .messageModal-empty-gap {
+    padding-top: 50px;
+  }
+
+  .messageModal-open-btn {
+    width: 125px;
+    height: 35px;
+    background-color: black;
+    // background-image: url('../img/talk_2.png');
+  }
+}
