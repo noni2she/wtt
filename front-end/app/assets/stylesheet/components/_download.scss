@@ -1,31 +1,74 @@
 #download {
-  margin-top:50px;
-  padding-top: 10px;
   background-color:#EEE;
-  .download-item {
+  padding-top: 20px;
+  .download-title {
+    h2 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    p {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .download-more {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-    height: 250px;
-    width: 80%;
+    padding: 20px 0px 20px 0px;
+    a {
+      text-decoration: none;
+      .download-more-button {
+        text-align: center;
+        line-height: 50px;
+        width: 160px;
+        height: 50px;
+        background-color: #999;
+        font-size: 25px;
+        color: white;
+      }
+      .download-more-button:hover {
+        background-color: #777;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .download-item {
+    max-width: 1100px;
+    height: 242px;
     margin: 0 auto;
+    
     .download-img {
+      display: flex;
+      justify-content: center;
+      overflow: hidden;
       img {
-        width:90%;
+        flex: none;
+        height: 100%;
       }
     }
     .download-description {
       text-align: left;
+      p {
+        margin-bottom: 0px;
+      }
       .download-description-title {
-        display: block;
-        font-size: 20px;
-        font-weight:bold;
+        i {
+          font-size: 20px;
+        }
       }
     }
     .download-link {
       text-align: left;
       i {
         font-size: 20px;
+      }
+      p {
+        margin-bottom: 0px;
       }
     }
   }
