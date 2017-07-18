@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import DownloadItem from './downloadItem.jsx';
 
 export default class Download extends Component {
@@ -14,3 +15,7 @@ export default class Download extends Component {
     );
   }
 }
+
+Download.propTypes = {
+  download: PropTypes.object
+};
