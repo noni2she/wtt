@@ -8,13 +8,12 @@ const settings = {
   infinite: true,
   slidesToShow: 1,
   slidesToScroll: 1,
-  responsive: [
-    {
-      breakpoint: 992,
-      settings: {
-        arrows: false
-      }
-    }]
+  arrows: false,
+  autoplay: true,
+  autoplaySpeed: 4000,
+  responsive: [{
+    breakpoint: 992,
+  }],
 };
 
 export default class TopBanner extends Component {
