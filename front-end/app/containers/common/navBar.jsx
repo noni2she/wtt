@@ -8,6 +8,7 @@ import {
   NAV_BAR_LANGUAGE_TW, NAV_BAR_LANGUAGE_JP, NAV_BAR_LANGUAGE_EN,
 } from 'constants/common';
 import { onLocaleChange } from 'actions/locales';
+import MessageModal from 'containers/common/messageModal';
 
 export class NavBar extends Component {
   constructor() {
@@ -70,8 +71,8 @@ export class NavBar extends Component {
             </ul>
 
             <ul className="nav navbar-nav navbar-right">
-              <li>
-                <button type="button" className="btn btn-primary btn-nav-bar">發布</button>
+              <li style={{marginTop: '7px'}}>
+                <MessageModal />
               </li>
             </ul>
           </div>

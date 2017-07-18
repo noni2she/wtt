@@ -115,13 +115,13 @@ export class MessageModal extends Component {
     const { isCompleted } = this.state;
 
     return (
-      <div>
+      <div id="messageModal">
         <a
           href=""
           onClick={this.showModal}
           className="messageModal-open"
         >
-          <img src="img/talk_2.png" alt=""/>
+          <div className="messageModal-open-btn"></div>
         </a>
 
         <Modal

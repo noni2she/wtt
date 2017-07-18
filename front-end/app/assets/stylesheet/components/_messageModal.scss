@@ -4,6 +4,16 @@
   }
 }
 
+.messageModal-open-btn {
+  width: 125px;
+  height: 35px;
+  background-image: url('../img/talk.png');
+
+  &:hover {
+    background-image: url('../img/talk_2.png');
+  }
+}
+
 .messageModal-text-field  {
   text-align: center;
   color: white;
@@ -55,10 +65,4 @@
     padding-top: 50px;
   }
 
-  .messageModal-open-btn {
-    width: 125px;
-    height: 35px;
-    background-color: black;
-    // background-image: url('../img/talk_2.png');
-  }
 }
