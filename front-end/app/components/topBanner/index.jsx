@@ -11,9 +11,6 @@ const settings = {
   arrows: false,
   autoplay: true,
   autoplaySpeed: 4000,
-  responsive: [{
-    breakpoint: 992,
-  }],
 };
 
 export default class TopBanner extends Component {
