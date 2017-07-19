@@ -1,7 +1,45 @@
+@media (min-width: $screen-md-min) { 
+  #download {
+    .download-item {
+      height: 242px;
+      .download-img {
+        height: 242px;
+      }
+      .download-description {
+        height: 242px;
+      }
+      .download-link {
+        height: 242px;
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-md-min) {
+  #download {
+    .download-item {
+      height: auto;
+      .download-img {
+        height: 200px;
+      }
+      .download-description {
+        height: auto;
+      }
+      .download-link {
+        height: auto;
+      }
+    }
+  }
+}
+
 #download {
   background-color:#EEE;
   padding-top: 20px;
+
   .download-title {
+    padding-left: 0px;
+    padding-right: 0px; 
+    word-break: break-all;
     h2 {
       display: flex;
       justify-content: center;
@@ -39,9 +77,7 @@
 
   .download-item {
     max-width: 1100px;
-    height: 242px;
     margin: 0 auto;
-    
     .download-img {
       display: flex;
       justify-content: center;

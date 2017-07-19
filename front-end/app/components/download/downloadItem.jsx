@@ -7,7 +7,7 @@ export default class DownloadItem extends Component {
     const {
       description, link, mainImg, title
     } = this.props.downloadItem;
-    const downloadItemDescription = description.map((item, index) => <p key={ `downItemDescription_${index}` }>{item}</p>);
+    const downloadItemDescription = description.map((item, index) => <p key={`downItemDescription_${index}`}>{item}</p>);
     const downloadItemLink = link.map((item, index) => {
       return (
         <li key={`downItemlink_${index}`}>
@@ -17,24 +17,26 @@ export default class DownloadItem extends Component {
       );
     });
     return (
-      <div className="download-item">
-        <div className="download-img col-lg-4 col-md-4 col-sm-4 col-xs-4">
-          <ImgItem imgItem={mainImg}/>
-        </div>
-        <div className="download-description col-lg-4 col-md-4 col-sm-4 col-xs-4">
-          <h4 className="download-description-title">
-            <i className="glyphicon glyphicon-file" />
-              { title }
-          </h4>
-          <ul className="list-unstyled">
-            { downloadItemDescription }
-          </ul>
-        </div>
-        <div className="download-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
-          <i className="glyphicon glyphicon-download-alt" />
-          <ul className="list-unstyled">
-            {downloadItemLink}
-          </ul>
+      <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div className="download-item row">
+          <div className="download-img col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <ImgItem imgItem={mainImg} />
+          </div>
+          <div className="download-description col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <h4 className="download-description-title">
+              <i className="glyphicon glyphicon-file" />
+              {title}
+            </h4>
+            <ul className="list-unstyled">
+              {downloadItemDescription}
+            </ul>
+          </div>
+          <div className="download-link col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <i className="glyphicon glyphicon-download-alt" />
+            <ul className="list-unstyled">
+              {downloadItemLink}
+            </ul>
+          </div>
         </div>
       </div>
     );
