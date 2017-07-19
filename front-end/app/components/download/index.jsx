@@ -12,7 +12,7 @@ export default class Download extends Component {
         <Link>
           <div className="download-more-button">
             More
-            </div>
+          </div>
         </Link>
       </div>
     ) : null;
