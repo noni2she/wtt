@@ -5,6 +5,7 @@ import { jpInitialState } from 'constants/initialState';
 import {
   ON_JP_TOP_BANNER_EDIT, ON_JP_NEWS_EDIT, ON_JP_ABOUT_EDIT,
   ON_JP_CONTACT_EDIT, ON_JP_DOWNLOAD_EDIT, ON_JP_PRODUCTS_EDIT,
+  FETCH_FIREBASE_DATA_SUCCESS,
 } from 'constants/actionTypes';
 
 // attribute name
@@ -18,6 +19,11 @@ export default (state = jpInitialState, action) => {
   let newState;
 
   switch (type) {
+    case FETCH_FIREBASE_DATA_SUCCESS:
+      const { jp } = payload;
+      return {
+        ...jp
+      };
     case ON_JP_PRODUCTS_EDIT:
 
       let {

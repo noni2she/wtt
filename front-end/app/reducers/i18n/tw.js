@@ -5,6 +5,7 @@ import { twInitialState } from 'constants/initialState';
 import {
   ON_TW_TOP_BANNER_EDIT, ON_TW_NEWS_EDIT, ON_TW_ABOUT_EDIT,
   ON_TW_CONTACT_EDIT, ON_TW_DOWNLOAD_EDIT, ON_TW_PRODUCTS_EDIT,
+  FETCH_FIREBASE_DATA_SUCCESS,
 } from 'constants/actionTypes';
 
 // attribute name
@@ -18,6 +19,11 @@ export default (state = twInitialState, action) => {
   let newState;
 
   switch (type) {
+    case FETCH_FIREBASE_DATA_SUCCESS:
+      const { tw } = payload;
+      return {
+        ...tw
+      };
     case ON_TW_PRODUCTS_EDIT:
 
       let {
