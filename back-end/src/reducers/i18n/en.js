@@ -10,6 +10,7 @@ import {
   ON_EN_DOWNLOAD_ITEM_EDIT, ON_EN_NEWS_ITEM_CREATE, ON_EN_DOWNLOAD_ITEM_CREATE,
   ON_EN_PRODUCTS_SERIES_CREATE, ON_EN_PRODUCTS_CATEGORY_CREATE, ON_EN_NEWS_ITEM_DELETE,
   ON_EN_DOWNLOAD_ITEM_DELETE, ON_EN_PRODUCTS_CATEGORY_DELETE, ON_EN_PRODUCTS_SERIES_DELETE,
+  FETCH_FIREBASE_DATA_SUCCESS,
 } from 'constants/actionTypes';
 
 // attribute name
@@ -34,10 +35,14 @@ export default (state = enInitialState, action) => {
   let {
     categoryItemsIndex, seriesItemsIndex, products,
     categoryIndex, newsItemIndex, downloadItemIndex,
-    key,
+    key, en,
   } = payload;
 
   switch (type) {
+    case FETCH_FIREBASE_DATA_SUCCESS:
+      return {
+        ...en
+      };
     // details of porduct
     case ON_EN_PRODUCTS_EDIT:
       // delete redundant index
