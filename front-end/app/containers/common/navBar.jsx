@@ -36,46 +36,72 @@ export class NavBar extends Component {
     }
   }
 
+  // render() {
+  //   const { active, locales } = this.props;
+  //   return (
+  //     <nav className="navbar navbar-default navbar-fixed-top">
+  //       <div className="container">
+  //         <div className="navbar-header">
+  //           <Link to={'/'} className="navbar-brand">
+  //             WTT 後台編輯
+  //           </Link>
+
+  //         </div>
+  //         <div id="navbar" className="navbar-collapse collapse">
+  //           <ul className="nav navbar-nav">
+  //             <li className={ active === NAV_BAR_INDEX ? "active" : ''}><Link to={'/'} >頁面管理</Link></li>
+  //             <li className={ active === NAV_BAR_MESSAGES ? "active" : ''}><Link to={'/messages'} >留言板管理</Link></li>
+  //             <li className="dropdown">
+  //               <Link
+  //                 className="dropdown-toggle"
+  //                 data-toggle="dropdown"
+  //                 role="button"
+  //                 aria-haspopup="true"
+  //                 aria-expanded="false"
+  //               >
+  //                 {this.currentLocaleDisplay(locales)}
+  //                 <span className="caret"></span>
+  //               </Link>
+  //               <ul className="dropdown-menu">
+  //                 <li><a name={LOCALE_TW} onClick={this.onClickHandler}>TW</a></li>
+  //                 <li><a name={LOCALE_EN} onClick={this.onClickHandler}>EN</a></li>
+  //                 <li><a name={LOCALE_JP} onClick={this.onClickHandler}>JP</a></li>
+  //               </ul>
+  //             </li>
+  //           </ul>
+
+  //           <ul className="nav navbar-nav navbar-right">
+  //             <li style={{marginTop: '7px'}}>
+  //               <MessageModal />
+  //             </li>
+  //           </ul>
+  //         </div>
+  //       </div>
+  //     </nav>
+  //   );
+  // }
   render() {
-    const { active, locales } = this.props;
     return (
-      <nav className="navbar navbar-default navbar-fixed-top">
-        <div className="container">
-          <div className="navbar-header">
-            <Link to={'/'} className="navbar-brand">
-              WTT 後台編輯
-            </Link>
+      <nav id="navbar" className="common-navbar container">
+        <div className="navbar-content">
 
-          </div>
-          <div id="navbar" className="navbar-collapse collapse">
-            <ul className="nav navbar-nav">
-              <li className={ active === NAV_BAR_INDEX ? "active" : ''}><Link to={'/'} >頁面管理</Link></li>
-              <li className={ active === NAV_BAR_MESSAGES ? "active" : ''}><Link to={'/messages'} >留言板管理</Link></li>
-              <li className="dropdown">
-                <Link
-                  className="dropdown-toggle"
-                  data-toggle="dropdown"
-                  role="button"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  {this.currentLocaleDisplay(locales)}
-                  <span className="caret"></span>
-                </Link>
-                <ul className="dropdown-menu">
-                  <li><a name={LOCALE_TW} onClick={this.onClickHandler}>TW</a></li>
-                  <li><a name={LOCALE_EN} onClick={this.onClickHandler}>EN</a></li>
-                  <li><a name={LOCALE_JP} onClick={this.onClickHandler}>JP</a></li>
-                </ul>
-              </li>
-            </ul>
-
-            <ul className="nav navbar-nav navbar-right">
-              <li style={{marginTop: '7px'}}>
-                <MessageModal />
-              </li>
-            </ul>
-          </div>
+          <ul className="navbar-content-right">
+            <li className="navbar-content-logo">
+              <div className="navbar-content-logo-img"></div>
+            </li>
+          </ul>
+          <ul className="navbar-content-left">
+            <li className="navbar-content-item navbar-content-item-pc"><a>ABOUT US</a></li>
+            <li className="navbar-content-item navbar-content-item-pc"><a>PRODUCTS</a></li>
+            <li className="navbar-content-item navbar-content-item-pc"><a>NEWS</a></li>
+            <li className="navbar-content-item navbar-content-item-pc"><a>DOWNLOAD</a></li>
+            <li className="navbar-content-item navbar-content-item-pc"><a>CONTACT</a></li>
+            <li className="navbar-content-item navbar-content-item-pc"><a>EN</a></li>
+            <li className="navbar-content-item navbar-content-item-mweb"><a>ABOUT US</a></li>
+            <li className="navbar-content-message">
+              <MessageModal />
+            </li>
+          </ul>
         </div>
       </nav>
     );

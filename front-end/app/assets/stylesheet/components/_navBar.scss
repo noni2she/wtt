@@ -1,7 +1,97 @@
+$nav-height: 64px;
+
 .container-with-nav-bar {
   padding-top: 70px;
 }
-.btn-nav-bar {
-  width: 100px;
-  margin-top: 8px;
+
+.common-navbar {
+  position: fixed;
+  height: $nav-height;
+  width: 100vw;
+  background-color: #222;
+  opacity: 0.9;
+  z-index: 100;
+}
+
+// content block
+#navbar {
+  .navbar-content { // outer wrapper
+    @media (max-width: $screen-md-min) {
+      // mWweb
+      .navbar-content-left {
+        padding-right: 0px;
+        padding-left: 0px;
+        .navbar-content-item-pc {
+          display: none;
+        }
+      }
+      .navbar-content-right {
+        padding-left: 0px;
+      }
+
+    }
+    @media (min-width: $screen-md-min) {
+      // pc
+      .navbar-content-left {
+        padding-right: 10%;
+        .navbar-content-item-mweb {
+          display: none;
+        }
+      }
+      .navbar-content-right {
+        padding-left: 10%;
+      }
+    }
+
+    display: inline-flex;
+    width: 100%;
+    justify-content: space-between;
+
+    .navbar-content-right,
+    .navbar-content-left {
+      display: flex;
+
+      li {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: $nav-height;
+        cursor: pointer;
+      }
+    }
+
+    .navbar-content-item {
+      padding: 0 10px;
+
+      // prevent line break
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+
+      a {
+        height: 100%;
+        width: 100%;
+        line-height: $nav-height;
+        text-align: center;
+        text-decoration: none;
+        color: #9D9DA6;
+      }
+      &:hover {
+        background: $wtt-red;
+      }
+    }
+
+    .navbar-content-logo {
+      .navbar-content-logo-img {
+        width: 124px;
+        height: 57px;
+        padding: 0px 5px;
+        background-image: url('../img/LOGO.png');
+      }
+    }
+
+    .navbar-content-message {
+      text-align: center;
+    }
+  }
 }
