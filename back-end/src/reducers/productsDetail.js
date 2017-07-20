@@ -7,6 +7,7 @@ import {
   PROD_DETAIL_ON_SERIES_CREATE,
   PROD_DETAIL_ON_CATEGORY_DELETE,
   PROD_DETAIL_ON_SERIES_DELETE,
+  FETCH_FIREBASE_DATA_SUCCESS,
 } from 'constants/actionTypes';
 
 export default (state = productsDetailInitialState, action) => {
@@ -20,13 +21,17 @@ export default (state = productsDetailInitialState, action) => {
   const {
     categoryKey, seriesKey, uuid,
     cellName, cellValue, rowsKey,
-    row, key,
+    row, key, productDetails,
   } = payload;
 
   // local variable
   let targetRowIndex, newState, seriesItems, result;
 
   switch (type) {
+    case FETCH_FIREBASE_DATA_SUCCESS:
+      return {
+        ...productDetails
+      };
     case PROD_DETAIL_ON_CELL_EDIT:
       seriesItems = state[categoryKey][seriesKey];
 

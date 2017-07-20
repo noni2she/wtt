@@ -5,9 +5,14 @@ import DownloadItem from './downloadItem.jsx';
 
 export default class Download extends Component {
   render() {
-    const { header, subheader, downloadItem } = this.props.download;
-    const downloadItemFirst = downloadItem.length > 0 ? <DownloadItem downloadItem={downloadItem[0]} /> : null;
-    const moreButton = downloadItem.length > 1 ? (
+    const { header, subheader, downloadItems } = this.props.download;
+    const downloadItemFirst = Array.isArray(downloadItems) && downloadItems.length > 0 ? (
+      <DownloadItem downloadItem={downloadItems[0]} />
+    ) : (
+      null
+    );
+
+    const moreButton = Array.isArray(downloadItems) && downloadItems.length > 1 ? (
       <div className="download-more col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <Link>
           <div className="download-more-button">
@@ -15,7 +20,10 @@ export default class Download extends Component {
           </div>
         </Link>
       </div>
-    ) : null;
+    ) : (
+      null
+    );
+
     return (
       <div id="download">
         <div className="row">

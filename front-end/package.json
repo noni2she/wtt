@@ -21,7 +21,8 @@
   "scripts": {
     "test": "./node_modules/.bin/karma start --single-run --browsers PhantomJS",
     "test:dev": "./node_modules/.bin/karma start --auto-watch",
-    "dev": "./node_modules/.bin/nodemon server",
+    "dev": "export FAKE_DATA=true && ./node_modules/.bin/nodemon server",
+    "dev:real-data": "export FAKE_DATA=false && ./node_modules/.bin/nodemon server",
     "start": "export NODE_ENV=production && node server",
     "prestart": "npm run -s build",
     "build": "rimraf dist && cross-env NODE_ENV=production webpack --config ./webpack.production.config.js --progress --profile --colors",

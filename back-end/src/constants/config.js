@@ -6,3 +6,5 @@ export const FIREBASE_CONFIG = {
   storageBucket: "techwell-74c86.appspot.com",
   messagingSenderId: "565798776394"
 };
+
+export const FIREBASE_ROOT = '/';

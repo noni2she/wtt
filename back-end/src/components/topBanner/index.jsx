@@ -15,7 +15,8 @@ const settings = {
 
 export default class TopBanner extends Component {
   render () {
-    const BannerList = this.props.imgItems.map((item, index) => {
+    const { imgItems } = this.props;
+    const BannerList = imgItems.map((item, index) => {
       return (
         <div key={`topBanner_+${index}`}>
           <Link to={`/edit/topBanner`}>
@@ -24,11 +25,19 @@ export default class TopBanner extends Component {
         </div>
       );
     });
+
     return (
       <div className="top-banner">
-        <Slider {...settings}>
-          {BannerList}
-        </Slider>
+        {
+          Array.isArray(imgItems) && imgItems.length > 0 ? (
+            <Slider {...settings}>
+              {BannerList}
+            </Slider>
+
+          ) : (
+            null
+          )
+        }
       </div>
     );
   }

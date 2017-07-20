@@ -5,6 +5,7 @@ import { createStore, applyMiddleware } from 'redux';
 import 'babel-polyfill';
 import createSagaMiddleware from 'redux-saga';
 import { Router, browserHistory} from 'react-router';
+import bootstrap from './bootstrap';
 
 import reducers from 'reducers';
 import rootSaga from 'sagas';
@@ -30,6 +31,8 @@ const store = createStore(
 
 // then run the saga
 sagaMiddleware.run(rootSaga);
+
+bootstrap(store)();
 
 ReactDOM.render(
   <Provider store={store}>

@@ -10,6 +10,7 @@ import {
   ON_TW_DOWNLOAD_ITEM_EDIT, ON_TW_NEWS_ITEM_CREATE, ON_TW_DOWNLOAD_ITEM_CREATE,
   ON_TW_PRODUCTS_SERIES_CREATE, ON_TW_PRODUCTS_CATEGORY_CREATE, ON_TW_NEWS_ITEM_DELETE,
   ON_TW_DOWNLOAD_ITEM_DELETE, ON_TW_PRODUCTS_CATEGORY_DELETE, ON_TW_PRODUCTS_SERIES_DELETE,
+  FETCH_FIREBASE_DATA_SUCCESS,
 } from 'constants/actionTypes';
 
 // attribute name
@@ -34,10 +35,14 @@ export default (state = twInitialState, action) => {
   let {
     categoryItemsIndex, seriesItemsIndex, products,
     categoryIndex, newsItemIndex, downloadItemIndex,
-    key,
+    key, tw
   } = payload;
 
   switch (type) {
+    case FETCH_FIREBASE_DATA_SUCCESS:
+      return {
+        ...tw
+      };
     // details of porduct
     case ON_TW_PRODUCTS_EDIT:
       // delete redundant index

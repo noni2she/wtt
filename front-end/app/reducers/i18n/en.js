@@ -5,6 +5,7 @@ import { enInitialState } from 'constants/initialState';
 import {
   ON_EN_TOP_BANNER_EDIT, ON_EN_NEWS_EDIT, ON_EN_ABOUT_EDIT,
   ON_EN_CONTACT_EDIT, ON_EN_DOWNLOAD_EDIT, ON_EN_PRODUCTS_EDIT,
+  FETCH_FIREBASE_DATA_SUCCESS,
 } from 'constants/actionTypes';
 
 // attribute name
@@ -18,6 +19,11 @@ export default (state = enInitialState, action) => {
   let newState;
 
   switch (type) {
+    case FETCH_FIREBASE_DATA_SUCCESS:
+      const { en } = payload;
+      return {
+        ...en
+      };
     case ON_EN_PRODUCTS_EDIT:
 
       let {

@@ -10,6 +10,7 @@ import {
   ON_JP_DOWNLOAD_ITEM_EDIT, ON_JP_NEWS_ITEM_CREATE, ON_JP_DOWNLOAD_ITEM_CREATE,
   ON_JP_PRODUCTS_SERIES_CREATE, ON_JP_PRODUCTS_CATEGORY_CREATE, ON_JP_NEWS_ITEM_DELETE,
   ON_JP_DOWNLOAD_ITEM_DELETE, ON_JP_PRODUCTS_CATEGORY_DELETE, ON_JP_PRODUCTS_SERIES_DELETE,
+  FETCH_FIREBASE_DATA_SUCCESS,
 } from 'constants/actionTypes';
 
 // attribute name
@@ -34,10 +35,14 @@ export default (state = jpInitialState, action) => {
   let {
     categoryItemsIndex, seriesItemsIndex, products,
     categoryIndex, newsItemIndex, downloadItemIndex,
-    key,
+    key, jp,
   } = payload;
 
   switch (type) {
+    case FETCH_FIREBASE_DATA_SUCCESS:
+      return {
+        ...jp
+      };
     // details of porduct
     case ON_JP_PRODUCTS_EDIT:
       // delete redundant index

@@ -6,6 +6,12 @@ export const USELESS_ACTION = 'USELESS_ACTION';
 /*
  * costomized part
  */
+
+// fetch Data
+export const FETCH_FIREBASE_DATA_INIT = 'FETCH_FIREBASE_DATA_INIT';
+export const FETCH_FIREBASE_DATA_SUCCESS = 'FETCH_FIREBASE_DATA_SUCCESS';
+export const FETCH_FIREBASE_DATA_FAIL = 'FETCH_FIREBASE_DATA_FAIL';
+
 // loginStatus
 export const LOGIN_ON_AUTH = 'LOGIN_ON_AUTH';
 export const LOGIN_AUTH_SUCCESS = 'LOGIN_AUTH_SUCCESS';

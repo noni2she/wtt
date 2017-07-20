@@ -9,6 +9,7 @@ import createSagaMiddleware from 'redux-saga';
 import routes from './routes/index.js';
 import reducers from './reducers';
 import rootSaga from './sagas/';
+import bootstrap from './bootstrap';
 
 // for production build
 import registerServiceWorker from './registerServiceWorker';
@@ -33,6 +34,8 @@ const store = createStore(
 
 // then run the saga
 sagaMiddleware.run(rootSaga);
+
+bootstrap(store)();
 
 ReactDOM.render(
   <Provider store={store}>
