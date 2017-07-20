@@ -28,8 +28,7 @@ const settings = {
 };
 
 export default class News extends Component {
-  render() {
-    const {header, subheader, newsItems} = this.props.news;
+  sliderGenerator(newsItems) {
     const newsItemList = newsItems.map((item, index) => {
       return (
         <div
@@ -42,16 +41,26 @@ export default class News extends Component {
     });
 
     return (
+      <div className="news-slider-container">
+        <Slider {...settings} className="news-item-container">
+          {newsItemList}
+        </Slider>
+      </div>
+    );
+  }
+
+  render() {
+    const {header, subheader, newsItems} = this.props.news;
+
+    return (
       <div id="news">
         <div className="news-title">
           <h2>{ header }</h2>
           <p>{ subheader }</p>
         </div>
-        <div className="news-slider-container">
-          <Slider {...settings} className="news-item-container">
-            {newsItemList}
-          </Slider>
-        </div>
+
+        { Array.isArray(newsItems) && newsItems.length > 0 ? this.sliderGenerator(newsItems) : null}
+
       </div>
     );
   }

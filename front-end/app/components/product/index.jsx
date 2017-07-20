@@ -4,21 +4,28 @@ import ProductItem from './product.jsx';
 import { PRODUCT_STYLE_CYCLE } from 'constants/common';
 
 export default class Product extends Component {
+
+  productListGernerator(categoryItems) {
+    return (
+      categoryItems.map((item, index) => {
+        const categoryKey = item.key;
+        const type = index % PRODUCT_STYLE_CYCLE + 1;
+
+        return (
+          <ProductItem
+            categoryItem={item}
+            type={type}
+            categoryKey={categoryKey}
+            categoryIndex={index}
+            key={`categoryItem_${index}`}
+          />
+        );
+      })
+    );
+  }
+
   render() {
     const { header, subheader, categoryItems } = this.props.products;
-    const ProductList = categoryItems.map((item, index) => {
-      const categoryKey = item.key;
-      const type = index % PRODUCT_STYLE_CYCLE + 1;
-      return (
-        <ProductItem
-          categoryItem={item}
-          type={type}
-          categoryKey={categoryKey}
-          categoryIndex={index}
-          key={`categoryItem_${index}`}
-        />
-      );
-    });
 
     return (
       <div id="product">
@@ -26,7 +33,11 @@ export default class Product extends Component {
           <h2 className="product-header">{ header }</h2>
           <p className="product-subheader">{ subheader }</p>
         </div>
-        { ProductList }
+        {Array.isArray(categoryItems) && categoryItems.length > 0 ? (
+          this.productListGernerator(categoryItems)
+        ) : (
+          null
+        )}
       </div>
     );
   }
