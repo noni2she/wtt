@@ -192,7 +192,7 @@ export const fakeContentObjectGenerator = () => {
     download: {
       header: fakeHeader(),
       subheader: fakeSubheader(),
-      downloadItem: generateArray(downloadItem),
+      downloadItems: generateArray(downloadItem),
     },
     products: {
       header: fakeHeader(),
