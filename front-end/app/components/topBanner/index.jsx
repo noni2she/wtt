@@ -11,16 +11,13 @@ const settings = {
   arrows: false,
   autoplay: true,
   autoplaySpeed: 4000,
-  responsive: [{
-    breakpoint: 992,
-  }],
 };
 
 export default class TopBanner extends Component {
   render() {
     const BannerList = this.props.imgItems.map((item, index) => {
       return (
-        <div key={`topBanner_+${index}`}>
+        <div key={`topBanner_${index}`}>
           <ImgItem imgItem={item}/>
         </div>
       );

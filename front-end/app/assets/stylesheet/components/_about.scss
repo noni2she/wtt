@@ -1,4 +1,4 @@
-@media (min-width: $screen-md-min) { 
+@media (min-width: $screen-md-min) {
   #about {
     height: 765px;
     .about-container {
@@ -15,7 +15,7 @@
   }
 }
 
-#about{
+#about {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,12 +23,12 @@
   background-repeat: no-repeat;
   background-size: cover;
   padding: 1em 1em 1em 1em;
-  .about-container{
+  .about-container {
     max-width: 1200px;
     opacity: 0.7;
-    background-color:ghostwhite;
+    background-color: ghostwhite;
     padding: 1em 2em 1em 2em;
-    .about-title{
+    .about-title {
       display: flex;
       justify-content: flex-start;
       align-items: center;
@@ -36,7 +36,7 @@
       opacity: 1;
       color: black;
     }
-    .about-content{
+    .about-content {
       text-align: left;
       word-break: break-all;
       opacity: 1;
