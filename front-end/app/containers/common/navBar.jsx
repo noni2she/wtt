@@ -10,6 +10,9 @@ import {
 import { onLocaleChange } from 'actions/locales';
 import MessageModal from 'containers/common/messageModal';
 
+import Scroll from 'react-scroll';
+const ScrollLink = Scroll.Link;
+
 export class NavBar extends Component {
   constructor() {
     super();
@@ -80,6 +83,20 @@ export class NavBar extends Component {
   //     </nav>
   //   );
   // }
+  renderScrollLink(id, showText) {
+    return (
+      <ScrollLink
+        to={id}
+        spy={true}
+        smooth={true}
+        offset={-64}
+        duration={500}
+      >
+        {showText}
+      </ScrollLink>
+    );
+  }
+
   render() {
     return (
       <nav id="navbar" className="common-navbar container">
@@ -87,16 +104,20 @@ export class NavBar extends Component {
 
           <ul className="navbar-content-right">
             <li className="navbar-content-logo">
-              <div className="navbar-content-logo-img"></div>
+              <Link to={'/'}>
+                <div className="navbar-content-logo-img"></div>
+              </Link>
             </li>
           </ul>
           <ul className="navbar-content-left">
-            <li className="navbar-content-item navbar-content-item-pc"><a>ABOUT US</a></li>
-            <li className="navbar-content-item navbar-content-item-pc"><a>PRODUCTS</a></li>
-            <li className="navbar-content-item navbar-content-item-pc"><a>NEWS</a></li>
-            <li className="navbar-content-item navbar-content-item-pc"><a>DOWNLOAD</a></li>
-            <li className="navbar-content-item navbar-content-item-pc"><a>CONTACT</a></li>
+
+            <li className="navbar-content-item navbar-content-item-pc">{this.renderScrollLink('about', 'ABOUT US')}</li>
+            <li className="navbar-content-item navbar-content-item-pc">{this.renderScrollLink('product', 'PRODUCTS')}</li>
+            <li className="navbar-content-item navbar-content-item-pc">{this.renderScrollLink('news', 'NEWS')}</li>
+            <li className="navbar-content-item navbar-content-item-pc">{this.renderScrollLink('download', 'DOWNLOAD')}</li>
+            <li className="navbar-content-item navbar-content-item-pc">{this.renderScrollLink('contact', 'CONTACT')}</li>
             <li className="navbar-content-item navbar-content-item-pc"><a>EN</a></li>
+
             <li className="navbar-content-item navbar-content-item-mweb"><a>ABOUT US</a></li>
             <li className="navbar-content-message">
               <MessageModal />
