@@ -1,7 +1,9 @@
 @media (min-width: $screen-md-min) {
   #download {
     .download-item {
-      height: 242px;
+      height: 300px;
+      display:flex;
+      align-items:center;
       .download-img {
         height: 242px;
       }
@@ -104,5 +106,19 @@
         margin-bottom: 0px;
       }
     }
+  }
+}
+
+@media (min-width: $screen-md-min) {
+  #download {
+    .download-item {
+      border-bottom: 1px solid gray;
+    }
+  }
+}
+
+#download-page {
+  #download {
+    padding-bottom: 20px;
   }
 }
