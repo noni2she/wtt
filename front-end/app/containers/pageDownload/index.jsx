@@ -18,9 +18,11 @@ class PageDownload extends Component {
     return (
       <div>
         <NavBar active={ NAV_BAR_INDEX } />
-        <div className="container-fluid">
-          <Download download={download} />
-          <Footer />
+        <div id="download-page" className="container-with-nav-bar ">
+          <div className="container-fluid">
+            <Download download={download} showAllItems />
+            <Footer />
+          </div>
         </div>
       </div>
     );

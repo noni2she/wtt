@@ -6,13 +6,21 @@ import DownloadItem from './downloadItem.jsx';
 export default class Download extends Component {
   render() {
     const { header, subheader, downloadItems } = this.props.download;
-    const downloadItemFirst = Array.isArray(downloadItems) && downloadItems.length > 0 ? (
-      <DownloadItem downloadItem={downloadItems[0]} />
-    ) : (
-      null
-    );
+    const showAllItems = this.props.showAllItems;
+    let downloadItemList;
+    if (Array.isArray(downloadItems)) {
+      if (showAllItems) {
+        downloadItemList = downloadItems.map((item, index) => <DownloadItem downloadItem={item} key={'downItem_' + index}/>);
+      } else {
+        downloadItemList = downloadItems.length > 0 ? (
+          <DownloadItem downloadItem={downloadItems[0]} />
+        ) : (
+          null
+        );
+      }
+    }
 
-    const moreButton = Array.isArray(downloadItems) && downloadItems.length > 1 ? (
+    const moreButton = !showAllItems && (Array.isArray(downloadItems) && downloadItems.length > 1) ? (
       <div className="download-more col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <Link>
           <div className="download-more-button">
@@ -31,7 +39,7 @@ export default class Download extends Component {
             <h2>{header}</h2>
             <p>{subheader}</p>
           </div>
-          {downloadItemFirst}
+          {downloadItemList}
           {moreButton}
         </div>
       </div>
@@ -40,5 +48,6 @@ export default class Download extends Component {
 }
 
 Download.propTypes = {
-  download: PropTypes.object
+  download: PropTypes.object,
+  showAllItems: PropTypes.bool
 };
