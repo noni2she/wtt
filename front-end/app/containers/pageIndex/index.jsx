@@ -27,7 +27,7 @@ class PageIndex extends Component {
           <TopBanner imgItems={topBanner.imgItems} />
           <Product products={products} />
           <News news={news} />
-          <Download download={download} />
+          <Download download={download} showAllItems={false}/>
           <About about={about} />
           <Contact contact={contact} />
           <Footer />
