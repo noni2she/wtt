@@ -8,9 +8,11 @@
         height: 242px;
       }
       .download-description {
+        text-align: left;
         height: 242px;
       }
       .download-link {
+        text-align: left;
         height: 242px;
       }
     }
@@ -26,9 +28,30 @@
       }
       .download-description {
         height: auto;
+        padding-left: 20%;
       }
       .download-link {
         height: auto;
+        padding-left: 20%;
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-sm-min) {
+  #download {
+    .download-item {
+      height: auto;
+      .download-img {
+        height: 200px;
+      }
+      .download-description {
+        height: auto;
+        padding-left: 0px;
+      }
+      .download-link {
+        height: auto;
+        padding-left: 0px;
       }
     }
   }
@@ -87,7 +110,6 @@
       }
     }
     .download-description {
-      text-align: left;
       p {
         margin-bottom: 0px;
       }
@@ -98,12 +120,14 @@
       }
     }
     .download-link {
-      text-align: left;
       i {
         font-size: 20px;
       }
       p {
         margin-bottom: 0px;
+      }
+      a {
+          cursor: pointer;  
       }
     }
   }
