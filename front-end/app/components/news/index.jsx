@@ -29,20 +29,34 @@ const settings = {
 
 export default class News extends Component {
   sliderGenerator(newsItems) {
-    const newsItemList = newsItems.map((item, index) => {
+    const newsItemsNeedToShow = newsItems.filter((item)=>{
+      if (item.displayed) {
+        return item;
+      }
+    });
+
+    const newsItemList = newsItemsNeedToShow.map((item, index) => {
       return (
         <div
           className="newsItem-div"
-          key={`newsItem_+${index}`}
+          key={`newsItem_${index}`}
         >
           <NewsItem newsItem={item}/>
         </div>
       );
     });
 
+    let newSetting;
+    if (newsItemList.length < 3) {
+      newSetting = {
+        dots: false,
+        arrows: false
+      };
+    }
+
     return (
       <div className="news-slider-container">
-        <Slider {...settings} className="news-item-container">
+        <Slider {...{...settings, ...newSetting}} className="news-item-container">
           {newsItemList}
         </Slider>
       </div>
