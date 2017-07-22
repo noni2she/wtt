@@ -64,4 +64,23 @@
 
 .products-table {
   margin: 40px 0;
+
+  .products-table-thead {
+    background: black;
+    color: white;
+
+    th {
+      text-align: center;
+    }
+  }
+
+  .products-table-tbody {
+    tr {
+      text-align: center;
+    }
+  }
+
+  .table-hover tbody tr:hover td {
+    background: rgba(255, 0, 0, 0.2);;
+  }
 }

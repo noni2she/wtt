@@ -1,120 +1,56 @@
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
-import { connect } from 'react-redux';
-import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
-import 'react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
-import { uuid } from 'utils/common';
-import {
-  ROW_KEY_UUID, thStyle, tdStyle,
-  selectRowProp, cellEditProp,
-} from 'constants/productTable';
-import { onCellEdit, onDeleteRow, onAddRow } from 'actions/productDetail';
 
 class ProductTable extends Component {
-
-  constructor() {
-    super();
-    this.onCellEdit = this.onCellEdit.bind(this);
-    this.onDeleteRow = this.onDeleteRow.bind(this);
-    this.onAddRow = this.onAddRow.bind(this);
+  static propTypes = {
+    content: PropTypes.array,
+    products: PropTypes.array,
   }
-
-  autoValue() {
-    return uuid();
-  }
-
-  // handling editing, insert and delete row by remote store
-  remote(remoteObj) {
-    remoteObj.cellEdit = true;
-    remoteObj.insertRow = true;
-    remoteObj.dropRow = true;
-    return remoteObj;
-  }
-  onCellEdit(row, cellName, cellValue) {
-    const { uuid } = row;
-    const { categoryKey, seriesKey } = this.props;
-
-    this.props.onCellEdit({
-      categoryKey, seriesKey, uuid,
-      cellName, cellValue,
-    });
-  }
-  onDeleteRow(rowsKey) {
-    // rowsKey are the uuids of the rows which were deleted
-    const { categoryKey, seriesKey } = this.props;
-    this.props.onDeleteRow({
-      categoryKey, seriesKey, rowsKey
-    });
-  }
-  onAddRow(row) {
-    const { categoryKey, seriesKey } = this.props;
-    this.props.onAddRow({
-      categoryKey, seriesKey, row
-    });
-  }
-
   render() {
-    const { content, products } = this.props;
+    const { products } = this.props;
+    let { content } = this.props;
 
-    // cosutomized options for productTable
-    const options = {
-      onCellEdit: this.onCellEdit,
-      onDeleteRow: this.onDeleteRow,
-      onAddRow: this.onAddRow,
-    }
+    content = content.filter((item) => {
+      return item.key !== 'uuid';
+    });
 
     return (
-      <div className="products-table">
-        <BootstrapTable
-          data={ products }
-          hover={ true }
-          cellEdit={ cellEditProp }
-          insertRow={ true }
-          deleteRow={ true }
-          options={ options }
-          selectRow={ selectRowProp }
-        >
-          {
-            content.map(({ key, displayedName }, index) => {
-              return (key === ROW_KEY_UUID ? (
-                <TableHeaderColumn
-                  key={ `products-table-column-${index}` }
-                  hiddenOnInsert={ true }
-                  autoValue={ this.autoValue }
-                  isKey={ true }
-                  dataField={ key }
-                  thStyle={ thStyle }
-                  hidden={ process.env.NODE_ENV !== 'development' }
-                  dataAlign="center"
-                >
-                  { displayedName }
-                </TableHeaderColumn>
-
-              ) : (
-                <TableHeaderColumn
-                  key={ `products-table-column-${index}` }
-                  dataField={ key }
-                  thStyle={ thStyle }
-                  tdStyle={ tdStyle }
-                  dataAlign="center"
-                >
-                  { displayedName }
-                </TableHeaderColumn>
-              ));
-            })
-          }
-        </BootstrapTable>
+      <div className="products-table table-responsive">
+        <table className="table table-bordered table-hover">
+          <thead className="products-table-thead">
+            <tr>
+              {
+                content.map(({ displayedName }, index) => {
+                  return (
+                    <th key={`product-table-thead-${index}`}>{ displayedName }</th>
+                  );
+                })
+              }
+            </tr>
+          </thead>
+          <tbody className="products-table-tbody">
+            {
+              products.map((product, index) => {
+                return (
+                  <tr key={`product-table-tbody-${index}`}>
+                    {
+                      content.map(({ key }, itemIndex) => {
+                        return (
+                          <td key={`product-table-tbody-item-${itemIndex}`}>
+                            { product[key] }
+                          </td>
+                        );
+                      })
+                    }
+                  </tr>
+                );
+              })
+            }
+          </tbody>
+        </table>
       </div>
     );
   }
 }
 
-ProductTable.propTypes = {
-  categoryKey: PropTypes.string,
-  seriesKey: PropTypes.string,
-  onCellEdit: PropTypes.func,
-  onDeleteRow: PropTypes.func,
-  onAddRow: PropTypes.func,
-};
-
-export default connect(null, { onCellEdit, onDeleteRow, onAddRow })(ProductTable);
+export default ProductTable;
