@@ -47,9 +47,8 @@ const imgItem = () => {
     
 const messageItem = () => {
   return ({
-    displayed: true,
     id: uuid(),
-    timestamps: fakeDate(),
+    timestamps: fakeDate().toString(),
     sender: fakeName(),
     receiverEmail: fakeEmail(),
     content: fakeParagraph(),
