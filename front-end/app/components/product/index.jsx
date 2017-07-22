@@ -6,21 +6,28 @@ import { PRODUCT_STYLE_CYCLE } from 'constants/common';
 export default class Product extends Component {
 
   productListGernerator(categoryItems) {
+    const categoryItemsNeedToShow = categoryItems.filter((item) => {
+      if (item.displayed) {
+        return item;
+      }
+    });
     return (
-      categoryItems.map((item, index) => {
-        const categoryKey = item.key;
-        const type = index % PRODUCT_STYLE_CYCLE + 1;
+      categoryItemsNeedToShow.length > 0 ? (
+        categoryItemsNeedToShow.map((item, index) => {
+          const categoryKey = item.key;
+          const type = index % PRODUCT_STYLE_CYCLE + 1;
 
-        return (
-          <ProductItem
-            categoryItem={item}
-            type={type}
-            categoryKey={categoryKey}
-            categoryIndex={index}
-            key={`categoryItem_${index}`}
-          />
-        );
-      })
+          return (
+            <ProductItem
+              categoryItem={item}
+              type={type}
+              categoryKey={categoryKey}
+              categoryIndex={index}
+              key={`categoryItem_${index}`}
+            />
+          );
+        })
+      ) : ( null )
     );
   }
 

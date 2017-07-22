@@ -15,7 +15,13 @@ export default class ProductItem extends Component {
     const { categoryKey } = this.props;
     const { seriesItems } = this.props.categoryItem;
 
-    const series = seriesItems.map((seriesItem, index) => {
+    const seriesItemsNeedToShow = seriesItems.filter((item) => {
+      if (item.displayed) {
+        return item;
+      }
+    });
+
+    const series = seriesItemsNeedToShow.map((seriesItem, index) => {
       const seriesKey = seriesItem.key;
       return (
         <div className="product-series-item col-lg-2 col-md-3 col-sm-3 col-xs-3" key={`productItem_${categoryKey}_${index}`}>
@@ -27,11 +33,13 @@ export default class ProductItem extends Component {
     });
 
     return (
-      <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12 product-series">
-        <div className="row col-lg-6 col-md-12 col-sm-12 col-xs-12 col-lg-offset-3 product-series-container">
-          {series}
+      seriesItemsNeedToShow.length > 0 ? (
+        <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12 product-series">
+          <div className="row col-lg-6 col-md-12 col-sm-12 col-xs-12 col-lg-offset-3 product-series-container">
+            {series}
+          </div>
         </div>
-      </div>
+      ) : ( null )
     );
   }
 
