@@ -12,6 +12,13 @@ $productImgMarginLeft: 18em;
 }
 
 #product {
+
+  @media (min-width: $screen-lg-min) {
+    .col-lg-offset-3 {
+      margin-left: 25%;
+    }
+  }
+
   .product-introduction {
     .product-header {
       display: flex;
@@ -25,8 +32,13 @@ $productImgMarginLeft: 18em;
     }
   }
   .product-item {
+    a {
+      text-decoration: none;
+    }
+
     // common part of product info
-    .product-info1, .product-info2 {
+    .product-info1,
+    .product-info2 {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -66,26 +78,32 @@ $productImgMarginLeft: 18em;
     }
 
     .product-series {
-      margin: 0 auto;
-      height: 50px;
       background-color: red;
-      .product-series-container-1, .product-series-container-2 {
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        max-width: 950px;
-        height: 50px;
-        p {
-          margin: 0 auto;
-          color: white;
-        }
-      }
 
-      .product-series-container-1 {
-        justify-content: center;
-      }
-      .product-series-container-2 {
-        justify-content: flex-start;
+      .product-series-container {
+        text-align: center;
+
+        .product-series-item {
+          cursor: pointer;
+          &:hover {
+            background-color: #ee0000;
+          }
+
+          a {
+            text-decoration: none;
+            cursor: pointer;
+            p {
+              color: white;
+              height: 50px;
+              line-height: 60px;
+
+              // prevent line break
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+            }
+          }
+        }
       }
     }
   }
