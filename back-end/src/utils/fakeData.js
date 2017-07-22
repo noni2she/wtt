@@ -210,7 +210,4 @@ export const productDetails = {
   }
 }
 
-export const messageObject = {
-  header: fakeHeader(),
-  messageItems: generateArray(messageItem, 1000),
-}
+export const messageItems = generateArray(messageItem, 1000);

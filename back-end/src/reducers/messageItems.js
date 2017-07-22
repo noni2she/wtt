@@ -1,9 +1,13 @@
-import { MESSAGE_ITEMS_ON_DELETE } from 'constants/actionTypes';
+import { MESSAGE_ITEMS_ON_DELETE, FETCH_FIREBASE_DATA_SUCCESS } from 'constants/actionTypes';
 import { messageItemsInitialState } from 'constants/initialState';
 
 export default (state = messageItemsInitialState, action) => {
   const { type, payload } = action;
   switch (type) {
+    case FETCH_FIREBASE_DATA_SUCCESS:
+      const { messageItems } = payload;
+
+      return messageItems;
     case MESSAGE_ITEMS_ON_DELETE:
       const { rowsKey } = payload;
       let result;

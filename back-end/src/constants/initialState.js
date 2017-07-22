@@ -1,6 +1,5 @@
 import * as Constants from './common';
 import { uuid } from 'utils/common';
-import { messageObject } from 'utils/fakeData.js';
 /*
  * The following are initial state generator
  */
@@ -152,4 +151,4 @@ export const enInitialState = emptyContentObjectGenerator();
 
 // pass fake data for productDetails
 export const productsDetailInitialState = {};
-export const messageItemsInitialState = messageObject.messageItems;
+export const messageItemsInitialState = [];
