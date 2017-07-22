@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Link } from 'react-router';
 
-// component  
+// component
 import NavBar from 'containers/common/navBar.jsx';
 import ProductText from './productText.jsx';
 import ProductTable from './productTable.jsx';
+import SeriesNavBar from 'containers/common/seriesNavBar';
 import Footer from 'components/footer';
 
 class PageProduct extends Component {
@@ -61,28 +61,7 @@ class PageProduct extends Component {
       return false;
     }
   }
-  seriesList(categoryItem, categoryKey) {
-    const { seriesItems } = categoryItem;
 
-    const series = seriesItems.map((seriesItem, index) => {
-      const seriesKey = seriesItem.key;
-      return (
-        <div className="product-series-item col-lg-2 col-md-3 col-sm-3 col-xs-3" key={`productItem_${categoryKey}_${index}`}>
-          <Link to={`/product/${categoryKey}/${seriesKey}`}>
-            <p>{`-${seriesItem.shortName} Series`}</p>
-          </Link>
-        </div>
-      );
-    });
-
-    return (
-      <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12 product-series">
-        <div className="row col-lg-6 col-md-12 col-sm-12 col-xs-12 col-lg-offset-3 product-series-container">
-          {series}
-        </div>
-      </div>
-    );
-  }
   pageNotFound() {
     // when error happened or page not found, redirect to PageIndex
     this.context.router.replace('/');
@@ -122,7 +101,10 @@ class PageProduct extends Component {
           <NavBar />
           <div className="container-with-nav-bar">
           <div className="product-item container-fluid">
-            {this.seriesList(categoryItem, categoryKey)}
+            <SeriesNavBar
+              categoryItem={categoryItem}
+              categoryKey={categoryKey}
+            />
           </div>
 
             <div id="page-product" className="container">
