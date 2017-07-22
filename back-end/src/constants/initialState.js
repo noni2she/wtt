@@ -149,6 +149,6 @@ export const twInitialState = emptyContentObjectGenerator();
 export const jpInitialState = emptyContentObjectGenerator();
 export const enInitialState = emptyContentObjectGenerator();
 
-// pass fake data for productDetails
+// pass fake data for productsDetail
 export const productsDetailInitialState = {};
 export const messageItemsInitialState = [];

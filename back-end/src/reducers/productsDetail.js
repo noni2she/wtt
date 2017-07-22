@@ -21,7 +21,7 @@ export default (state = productsDetailInitialState, action) => {
   const {
     categoryKey, seriesKey, uuid,
     cellName, cellValue, rowsKey,
-    row, key, productDetails,
+    row, key, productsDetail,
   } = payload;
 
   // local variable
@@ -30,7 +30,7 @@ export default (state = productsDetailInitialState, action) => {
   switch (type) {
     case FETCH_FIREBASE_DATA_SUCCESS:
       return {
-        ...productDetails
+        ...productsDetail
       };
     case PROD_DETAIL_ON_CELL_EDIT:
       seriesItems = state[categoryKey][seriesKey];

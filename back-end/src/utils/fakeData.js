@@ -202,7 +202,7 @@ export const fakeContentObjectGenerator = () => {
   });
 };
 
-export const productDetails = {
+export const productsDetail = {
   [categoryItem().key]: {
     [seriesItem().key]: mockProductDetail.map((item) => {
       return {...item, uuid: uuid()}
