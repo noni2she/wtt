@@ -45,11 +45,11 @@ export class NavBar extends Component {
 
   onSubmitHandler(event) {
     event.preventDefault();
-
-    const { tw, jp, en, productsDetail } = this.props;
+    const { tw, jp, en, productsDetail, messageItems } = this.props;
     const rootObject = {
-      tw, jp, en, productsDetail
+      tw, jp, en, productsDetail, messageItems,
     }
+
     this.setState({
       loading: true,
     })
@@ -132,10 +132,10 @@ NavBar.propTypes = {
   locales: PropTypes.string,
 };
 
-const mapStateToProps = ({locales, tw, jp, en, productsDetail}) => {
+const mapStateToProps = ({locales, tw, jp, en, productsDetail, messageItems}) => {
   return {
     locales, tw, jp,
-    en, productsDetail,
+    en, productsDetail, messageItems
   }
 }
 
