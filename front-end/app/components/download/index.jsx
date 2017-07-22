@@ -22,7 +22,7 @@ export default class Download extends Component {
 
     const moreButton = !showAllItems && (Array.isArray(downloadItems) && downloadItems.length > 1) ? (
       <div className="download-more col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <Link>
+        <Link to={'/download'}>
           <div className="download-more-button">
             More
           </div>
