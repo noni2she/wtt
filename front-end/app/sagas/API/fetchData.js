@@ -1,6 +1,6 @@
 import { getData } from 'utils/firebase';
 import { FIREBASE_ROOT } from 'constants/config';
-import { fakeContentObjectGenerator, productDetails } from 'utils/fakeData';
+import { fakeContentObjectGenerator, productsDetail } from 'utils/fakeData';
 
 export const fetchingFirebaseData = (action) => {
   const getFakeData =
@@ -14,7 +14,7 @@ export const fetchingFirebaseData = (action) => {
       tw: fakeContentObjectGenerator(),
       jp: fakeContentObjectGenerator(),
       en: fakeContentObjectGenerator(),
-      productDetails,
+      productsDetail,
     })
   ) : (
     getData(FIREBASE_ROOT)
