@@ -11,8 +11,9 @@ export default class DownloadItem extends Component {
     const downloadItemLink = link.map((item, index) => {
       return (
         <li key={`downItemlink_${index}`}>
-          <p>{item.key}:</p>
-          <a href={item.url}>Download</a>
+          <span>
+            <p>{item.key}:<a href={item.url}>Download</a></p>
+          </span>
         </li>
       );
     });

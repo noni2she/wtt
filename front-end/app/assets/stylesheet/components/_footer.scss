@@ -1,4 +1,4 @@
-@media (min-width: $screen-sm-min) { 
+@media (min-width: $screen-sm-min) {
   #footer {
     .footer-container {
       .footer-logo {
@@ -11,7 +11,7 @@
   }
 }
 
-@media (max-width: $screen-sm-min) { 
+@media (max-width: $screen-sm-min) {
   #footer {
     .footer-container {
       .footer-logo {
@@ -32,7 +32,7 @@
   .footer-container {
     display: flex;
     align-items: center;
-    justify-content:space-between;
+    justify-content: space-between;
     background-color: black;
     color: white;
     height: 50px;

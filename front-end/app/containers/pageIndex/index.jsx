@@ -18,16 +18,16 @@ class PageIndex extends Component {
     const { locales } = this.props;
 
     if (!this.props[locales]) return null;
-    const {topBanner, products, news, download, about, contact } = this.props[locales];
+    const { topBanner, products, news, download, about, contact } = this.props[locales];
 
     return (
       <div>
-        <NavBar active={ NAV_BAR_INDEX } />
+        <NavBar active={NAV_BAR_INDEX} />
         <div className="container-fluid">
           <TopBanner imgItems={topBanner.imgItems} />
           <Product products={products} />
           <News news={news} />
-          <Download download={download} />
+          <Download download={download} showAllItems={false}/>
           <About about={about} />
           <Contact contact={contact} />
           <Footer />
@@ -47,7 +47,7 @@ PageIndex.propTypes = {
 const mapStateToProps = ({ locales, tw, jp, en }) => {
   return {
     locales, tw, en, jp,
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps)(PageIndex);

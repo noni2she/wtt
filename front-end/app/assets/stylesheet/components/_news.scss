@@ -1,4 +1,4 @@
-@media (min-width: $screen-lg-min) { 
+@media (min-width: $screen-lg-min) {
   #news {
     .news-slider-container {
       padding-left: 40px;
@@ -12,7 +12,7 @@
   }
 }
 
-@media (max-width: $screen-lg-min) { 
+@media (max-width: $screen-lg-min) {
   #news {
     .news-slider-container {
       margin: 0 auto;
@@ -21,13 +21,12 @@
   }
 }
 
-@media (max-width: $screen-md-min) { 
+@media (max-width: $screen-md-min) {
   #news {
     .slick-prev {
       left: 3px;
       z-index: 1;
     }
-
     .slick-next {
       right: 3px;
       z-index: 1;
@@ -43,12 +42,10 @@
 #news {
   // reserve space for slick dots
   margin-bottom: 30px;
-
   .slick-prev:before,
   .slick-next:before {
-    color:gray;
+    color: gray;
   }
-
   .news-title {
     h2 {
       display: flex;
