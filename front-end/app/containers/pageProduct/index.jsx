@@ -14,7 +14,7 @@ class PageProduct extends Component {
     super();
     this.state = {
       contentObject: null, 
-    }
+    };
     this.searchCategoryAndSeries = this.searchCategoryAndSeries.bind(this);  
   }
 
@@ -61,22 +61,25 @@ class PageProduct extends Component {
       return false;
     }
   }
+
   pageNotFound() {
     // when error happened or page not found, redirect to PageIndex
     this.context.router.replace('/');
   }
+
   componentWillReceiveProps(nextProps) {
     // receive central state and set local state
     this.searchCategoryAndSeries(nextProps);
-
   }
+
   componentDidMount() {
     // get the object first
     this.searchCategoryAndSeries(this.props);
   }
+
   render() {
     try {
-      const { categoryKey, seriesKey } = this.context.router.params
+      const { categoryKey, seriesKey } = this.context.router.params;
 
       /* contentObject based on locales
        * productsDetail are the content of table.
@@ -86,7 +89,7 @@ class PageProduct extends Component {
       const { productsDetail } = this.props;
       if (!contentObject || !productsDetail) return null;
 
-      /* 
+      /*
        * content: table schema about series controlled by language.
        * products: table content about given series
        */
@@ -98,11 +101,9 @@ class PageProduct extends Component {
           <NavBar />
           <div id="page-product" className="container container-with-nav-bar">
             <div>
-              <Link to={`/edit/product/${categoryKey}/${seriesKey}`}>
-                <ProductText
-                  seriesItem={seriesItem}
-                />
-              </Link>
+              <ProductText
+                seriesItem={seriesItem}
+              />
             </div>
 
             <ProductTable
