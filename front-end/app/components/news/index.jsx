@@ -35,7 +35,7 @@ export default class News extends Component {
       }
     });
 
-    const newsItemList = newsItemsNeedToShow.map((item, index) => {
+    let newsItemList = newsItemsNeedToShow.map((item, index) => {
       return (
         <div
           className="newsItem-div"
@@ -52,6 +52,21 @@ export default class News extends Component {
         dots: false,
         arrows: false
       };
+    }
+
+    if (newsItemList.length > 0) {
+      let index = newsItemList.length;
+      while (index < 3) {
+        newsItemList.push(
+          <div
+            className="newsItem-div"
+            key={`newsItem_${index}`}
+          >
+            <NewsItem newsItem={newsItemsNeedToShow[0]}/>
+          </div>
+        );
+        index++;
+      }
     }
 
     return (
