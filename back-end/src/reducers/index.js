@@ -5,6 +5,7 @@ import productsDetail from './productsDetail';
 import tw from './i18n/tw';
 import jp from './i18n/jp';
 import en from './i18n/en';
+import messageItems from './messageItems';
 
 const rootReducer = combineReducers({
   loginStatus,
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   jp,
   en,
   productsDetail,
+  messageItems,
 });
 
 export default rootReducer;
