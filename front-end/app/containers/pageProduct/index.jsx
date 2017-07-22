@@ -94,10 +94,9 @@ class PageProduct extends Component {
       const { content } = seriesItem;
       const products = productsDetail[categoryKey][seriesKey];
       return (
-        <div className="container-with-nav-bar" >
+        <div>
           <NavBar />
-
-          <div id="page-product" className="container">
+          <div id="page-product" className="container container-with-nav-bar">
             <div>
               <Link to={`/edit/product/${categoryKey}/${seriesKey}`}>
                 <ProductText
