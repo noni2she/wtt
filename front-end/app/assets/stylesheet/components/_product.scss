@@ -12,13 +12,6 @@ $productImgMarginLeft: 18em;
 }
 
 #product {
-
-  @media (min-width: $screen-lg-min) {
-    .col-lg-offset-3 {
-      margin-left: 25%;
-    }
-  }
-
   .product-introduction {
     .product-header {
       display: flex;
@@ -31,77 +24,84 @@ $productImgMarginLeft: 18em;
       align-items: center;
     }
   }
-  .product-item {
-    a {
-      text-decoration: none;
-    }
+}
 
-    // common part of product info
-    .product-info1,
-    .product-info2 {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+.product-item {
+  @media (min-width: $screen-lg-min) {
+    .col-lg-offset-3 {
+      margin-left: 25%;
+    }
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  // common part of product info
+  .product-info1,
+  .product-info2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    position:relative;
+    overflow: hidden;
+    .product-img {
+      position: absolute;
+      width: 200px;
       height: 200px;
-      position:relative;
       overflow: hidden;
-      .product-img {
-        position: absolute;
-        width: 200px;
-        height: 200px;
-        overflow: hidden;
-        img {
-          height: 100%;
+      img {
+        height: 100%;
+      }
+    }
+  }
+
+  .product-info1:hover, .product-info2:hover {
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/techwell-74c86.appspot.com/o/product%2Fproduct-hover.png?alt=media&token=c27c8638-520d-4ecc-9dfe-57706d0d782a");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .product-info1 {
+    background-color:black;
+    color: white;
+    .product-img {
+      margin-left: -$productImgMarginLeft;
+    }
+  } 
+  .product-info2 {
+    background-color:white;
+    color: black;
+    .product-img {
+      margin-left: $productImgMarginLeft;
+    }
+  }
+
+  .product-series {
+    background-color: red;
+
+    .product-series-container {
+      text-align: center;
+
+      .product-series-item {
+        cursor: pointer;
+        &:hover {
+          background-color: #ee0000;
         }
-      }
-    }
 
-    .product-info1:hover, .product-info2:hover {
-      background-image: url("https://firebasestorage.googleapis.com/v0/b/techwell-74c86.appspot.com/o/product%2Fproduct-hover.png?alt=media&token=c27c8638-520d-4ecc-9dfe-57706d0d782a");
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
-    
-    .product-info1 {
-      background-color:black;
-      color: white;
-      .product-img {
-        margin-left: -$productImgMarginLeft;
-      }
-    } 
-    .product-info2 {
-      background-color:white;
-      color: black;
-      .product-img {
-        margin-left: $productImgMarginLeft;
-      }
-    }
-
-    .product-series {
-      background-color: red;
-
-      .product-series-container {
-        text-align: center;
-
-        .product-series-item {
+        a {
+          text-decoration: none;
           cursor: pointer;
-          &:hover {
-            background-color: #ee0000;
-          }
+          p {
+            color: white;
+            height: 50px;
+            line-height: 60px;
 
-          a {
-            text-decoration: none;
-            cursor: pointer;
-            p {
-              color: white;
-              height: 50px;
-              line-height: 60px;
-
-              // prevent line break
-              overflow: hidden;
-              text-overflow: ellipsis;
-              white-space: nowrap;
-            }
+            // prevent line break
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
           }
         }
       }

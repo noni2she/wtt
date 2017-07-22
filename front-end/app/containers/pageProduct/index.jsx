@@ -61,7 +61,28 @@ class PageProduct extends Component {
       return false;
     }
   }
+  seriesList(categoryItem, categoryKey) {
+    const { seriesItems } = categoryItem;
 
+    const series = seriesItems.map((seriesItem, index) => {
+      const seriesKey = seriesItem.key;
+      return (
+        <div className="product-series-item col-lg-2 col-md-3 col-sm-3 col-xs-3" key={`productItem_${categoryKey}_${index}`}>
+          <Link to={`product/${categoryKey}/${seriesKey}`}>
+            <p>{`-${seriesItem.shortName} Series`}</p>
+          </Link>
+        </div>
+      );
+    });
+
+    return (
+      <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12 product-series">
+        <div className="row col-lg-6 col-md-12 col-sm-12 col-xs-12 col-lg-offset-3 product-series-container">
+          {series}
+        </div>
+      </div>
+    );
+  }
   pageNotFound() {
     // when error happened or page not found, redirect to PageIndex
     this.context.router.replace('/');
@@ -93,25 +114,31 @@ class PageProduct extends Component {
        * content: table schema about series controlled by language.
        * products: table content about given series
        */
-      const { seriesItem } = contentObject;
+      const { seriesItem, categoryItem } = contentObject;
       const { content } = seriesItem;
       const products = productsDetail[categoryKey][seriesKey];
       return (
         <div>
           <NavBar />
-          <div id="page-product" className="container container-with-nav-bar">
-            <div>
-              <ProductText
-                seriesItem={seriesItem}
+          <div className="container-with-nav-bar">
+          <div className="product-item container-fluid">
+            {this.seriesList(categoryItem, categoryKey)}
+          </div>
+
+            <div id="page-product" className="container">
+              <div>
+                <ProductText
+                  seriesItem={seriesItem}
+                />
+              </div>
+
+              <ProductTable
+                content={content}
+                products={products}
+                categoryKey={categoryKey}
+                seriesKey={seriesKey}
               />
             </div>
-
-            <ProductTable
-              content={content}
-              products={products}
-              categoryKey={categoryKey}
-              seriesKey={seriesKey}
-            />
           </div>
           <Footer />
         </div>
