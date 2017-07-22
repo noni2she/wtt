@@ -13,7 +13,33 @@ import About from 'components/about';
 import Contact from 'components/contact';
 import Footer from 'components/footer';
 
+// for test
+// import {getFirebase} from 'utils/firebase';
+// import faker from 'faker';
+
 class PageIndex extends Component {
+  componentWillMount() {
+    // fake data
+    // const messageItem = () => {
+    //   return ({
+    //     id: faker.random.uuid(),
+    //     timestamps: new Date().toString(),
+    //     sender: faker.internet.userName(),
+    //     receiverEmail: faker.internet.email(),
+    //     content: faker.lorem.paragraph(),
+    //   });
+    // };
+    // const message = new messageItem();
+
+    // push to messageItems
+    // getFirebase().database().ref().child('messageItems').push().set(message);
+
+    // get messageItems from firebase
+    // getFirebase().database().ref('/messageItems').once('value').then(function(snapshot) {
+    //   const obj = Object.values(snapshot.val());
+    //   console.log(obj);
+    // });
+  }
   render() {
     const { locales } = this.props;
 
