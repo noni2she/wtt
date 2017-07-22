@@ -1,11 +1,28 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import 'react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
-import { options, tdStyle, thStyle, selectRow} from 'constants/messageTable'
-
+import { tableOptions, tdStyle, thStyle, selectRow} from 'constants/messageTable'
+import { onDeleteRow } from 'actions/messageItems';
 class MessageTable extends Component {
+  constructor() {
+    super();
+    this.onDeleteRow = this.onDeleteRow.bind(this);
+  }
+
+  onDeleteRow(rowsKey) {
+    // rowsKey are the uuids of the rows which were deleted
+    this.props.onDeleteRow({
+      rowsKey
+    });
+  }
   render() {
     const data = this.props.messageItems;
+    const options = {
+      ...tableOptions,
+      onDeleteRow: this.onDeleteRow,
+    }
+
     return (
       <div className="message-table">
         <BootstrapTable 
@@ -26,4 +43,4 @@ class MessageTable extends Component {
   }
 }
 
-export default MessageTable;
+export default connect(null, { onDeleteRow })(MessageTable);
