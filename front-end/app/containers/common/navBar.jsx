@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import {
-  NAV_BAR_INDEX, NAV_BAR_MESSAGES,
   LOCALE_TW, LOCALE_JP, LOCALE_EN,
   NAV_BAR_LANGUAGE_TW, NAV_BAR_LANGUAGE_JP, NAV_BAR_LANGUAGE_EN,
 } from 'constants/common';
@@ -72,6 +71,15 @@ export class NavBar extends Component {
     }
   }
 
+  hideDropdownItem() {
+    const dropdownItems = document.getElementsByClassName('navbar-item-dropdown-item');
+    if (dropdownItems) {
+      Array.prototype.forEach.call(dropdownItems, (element) => {
+        element.style = 'display: none;';
+      });
+    }
+  }
+
   render() {
     const { locales } = this.props;
     return (
@@ -92,12 +100,13 @@ export class NavBar extends Component {
             <li className="navbar-content-item navbar-content-item-pc">{this.renderScrollLink('news', 'NEWS')}</li>
             <li className="navbar-content-item navbar-content-item-pc">{this.renderScrollLink('download', 'DOWNLOAD')}</li>
             <li className="navbar-content-item navbar-content-item-pc">{this.renderScrollLink('contact', 'CONTACT')}</li>
-            <li className="navbar-content-item navbar-content-item-pc navbar-item-dropdown">
-              <div onMouseEnter={this.showDropdownItem}>
-                <a>{this.currentLocaleDisplay(locales)}</a>
-                <span className="drop-icon glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
-              </div>
 
+            <li
+              className="navbar-content-item navbar-content-item-pc navbar-item-dropdown"
+              onMouseEnter={this.showDropdownItem}
+              onMouseLeave={this.hideDropdownItem}
+            >
+              <div><a>{this.currentLocaleDisplay(locales)}</a><span className="drop-icon glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></div>
               <div className="navbar-item-dropdown-item" onClick={this.onClickHandler}><a name={LOCALE_TW}>TW</a></div>
               <div className="navbar-item-dropdown-item" onClick={this.onClickHandler}><a name={LOCALE_JP}>JP</a></div>
               <div className="navbar-item-dropdown-item" onClick={this.onClickHandler}><a name={LOCALE_EN}>EN</a></div>
