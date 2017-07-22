@@ -1,6 +1,6 @@
-import uuidv1 from 'uuid/v1';
+import uuidv4 from 'uuid/v4';
 
-export const uuid = () => uuidv1();
+export const uuid = uuidv4;
 
 export const hashLinkScroll = () => {
   const { hash } = window.location;
