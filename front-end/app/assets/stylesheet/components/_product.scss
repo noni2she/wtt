@@ -23,6 +23,17 @@ $productImgMarginLeft: 18em;
     }
   }
 }
+@media (min-width: $screen-md-min) {
+  .product-series-item,{
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .product-series-item {
+    a {
+      font-size: 1px;
+    }
+  }
+}
 
 #product {
   .product-introduction {
