@@ -14,14 +14,11 @@ class PageMessage extends Component {
 
   render() {
     try {
-      const {header, messageItems} = messageObject;
+      const { messageItems } = messageObject;
       return (
-        <div className="container-with-nav-bar" >
+        <div className="container-with-nav-bar">
           <NavBar active={ NAV_BAR_MESSAGES } />
-          <div className="container-fluid">
-            <div className="message-header">
-              <h2>{ header }</h2>
-            </div>
+          <div id="page-message" className="container-fluid">
             <MessageTable messageItems={ messageItems }/>
           </div>
         </div>

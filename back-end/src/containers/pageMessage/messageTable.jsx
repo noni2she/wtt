@@ -10,11 +10,10 @@ class MessageTable extends Component {
       <div className="message-table">
         <BootstrapTable 
           data={ data }
-          striped={true}
-          hover={true}
           options={ options }
-          pagination
           selectRow={ selectRow }
+          hover
+          pagination
           deleteRow
         >
           <TableHeaderColumn dataField="id" isKey={true} dataAlign="center" columnClassName="col-lg-2" thStyle={thStyle}>ID</TableHeaderColumn>

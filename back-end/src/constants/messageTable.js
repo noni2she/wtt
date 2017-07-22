@@ -1,5 +1,5 @@
 export  const options = {
-  sizePerPage: 20,
+  sizePerPage: 50,
   paginationSize: 10,  // the pagination bar size.
   prePage: 'Prev', // Previous page button text
   nextPage: 'Next', // Next page button text
