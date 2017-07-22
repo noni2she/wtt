@@ -46,16 +46,20 @@ export class NavBar extends Component {
   }
 
   renderScrollLink(id, showText) {
-    return (
+    return (window.location.pathname === '/') ? (
       <ScrollLink
         to={id}
-        spy={true}
-        smooth={true}
+        spy
+        smooth
         offset={-64}
         duration={500}
       >
         {showText}
       </ScrollLink>
+    ) : (
+      <Link to={`/#${id}`}>
+        {showText}
+      </Link>
     );
   }
 
@@ -113,6 +117,10 @@ export class NavBar extends Component {
 NavBar.propTypes = {
   onLocaleChange: PropTypes.func,
   locales: PropTypes.string,
+};
+
+NavBar.contextTypes = {
+  router: PropTypes.object,
 };
 
 const mapStateToProps = ({locales}) => {
