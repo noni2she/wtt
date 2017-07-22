@@ -74,7 +74,7 @@ class MessageTable extends Component {
           pagination
           deleteRow
         >
-          <TableHeaderColumn dataField="id" isKey={true} dataAlign="center" columnClassName="col-lg-2" thStyle={thStyle}>ID</TableHeaderColumn>
+          <TableHeaderColumn dataField="id" isKey={true} hidden={ process.env.NODE_ENV !== 'development' } dataAlign="center" columnClassName="col-lg-2" thStyle={thStyle}>ID</TableHeaderColumn>
           <TableHeaderColumn dataField="timestamps" dataAlign="center" columnClassName="col-lg-2" thStyle={thStyle}>Time</TableHeaderColumn>
           <TableHeaderColumn dataField="sender" dataAlign="center" columnClassName="col-lg-2" thStyle={thStyle}>Name</TableHeaderColumn>
           <TableHeaderColumn dataField="receiverEmail" dataAlign="center" columnClassName="col-lg-2" thStyle={thStyle}>Email</TableHeaderColumn>
