@@ -16,22 +16,28 @@ const settings = {
 export default class TopBanner extends Component {
   render() {
     const { imgItems } = this.props;
-    const BannerList = imgItems.map((item, index) => {
+    const bannerNeedToShow = imgItems.filter((item)=>{
+      if (item.displayed) {
+        return item;
+      }
+    });
+
+    const bannerList = bannerNeedToShow.map((item, index) => {
       return (
         <div key={`topBanner_${index}`}>
           <ImgItem imgItem={item}/>
         </div>
       );
     });
+
     return (
       <div id="top-banner">
         <div className="top-banner-container">
           {
             Array.isArray(imgItems) && imgItems.length > 0 ? (
               <Slider {...settings}>
-                {BannerList}
+                {bannerList}
               </Slider>
-
             ) : (
               null
             )
