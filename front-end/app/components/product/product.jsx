@@ -51,7 +51,7 @@ export default class ProductItem extends Component {
 
     return (
       <div className="product-item container-fluid">
-        <Link to={`product/${categoryKey}/${seriesKey}`}>
+        <Link to={`/product/${categoryKey}/${seriesKey}`}>
           <div className={`${className}`}>
               <h3 className="product-info-name">{`- ${name} -`}</h3>
               <div className="product-img">
