@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Link } from 'react-router';
 
-// component  
+// component
 import NavBar from 'containers/common/navBar.jsx';
 import ProductText from './productText.jsx';
 import ProductTable from './productTable.jsx';
+import SeriesNavBar from 'containers/common/seriesNavBar';
 import Footer from 'components/footer';
 
 class PageProduct extends Component {
@@ -14,7 +14,7 @@ class PageProduct extends Component {
     super();
     this.state = {
       contentObject: null, 
-    }
+    };
     this.searchCategoryAndSeries = this.searchCategoryAndSeries.bind(this);  
   }
 
@@ -61,22 +61,25 @@ class PageProduct extends Component {
       return false;
     }
   }
+
   pageNotFound() {
     // when error happened or page not found, redirect to PageIndex
     this.context.router.replace('/');
   }
+
   componentWillReceiveProps(nextProps) {
     // receive central state and set local state
     this.searchCategoryAndSeries(nextProps);
-
   }
+
   componentDidMount() {
     // get the object first
     this.searchCategoryAndSeries(this.props);
   }
+
   render() {
     try {
-      const { categoryKey, seriesKey } = this.context.router.params
+      const { categoryKey, seriesKey } = this.context.router.params;
 
       /* contentObject based on locales
        * productsDetail are the content of table.
@@ -86,32 +89,38 @@ class PageProduct extends Component {
       const { productsDetail } = this.props;
       if (!contentObject || !productsDetail) return null;
 
-      /* 
+      /*
        * content: table schema about series controlled by language.
        * products: table content about given series
        */
-      const { seriesItem } = contentObject;
+      const { seriesItem, categoryItem } = contentObject;
       const { content } = seriesItem;
       const products = productsDetail[categoryKey][seriesKey];
       return (
-        <div className="container-with-nav-bar" >
+        <div>
           <NavBar />
+          <div className="container-with-nav-bar">
+          <div className="product-item container-fluid">
+            <SeriesNavBar
+              categoryItem={categoryItem}
+              categoryKey={categoryKey}
+            />
+          </div>
 
-          <div id="page-product" className="container">
-            <div>
-              <Link to={`/edit/product/${categoryKey}/${seriesKey}`}>
+            <div id="page-product" className="container">
+              <div>
                 <ProductText
                   seriesItem={seriesItem}
                 />
-              </Link>
-            </div>
+              </div>
 
-            <ProductTable
-              content={content}
-              products={products}
-              categoryKey={categoryKey}
-              seriesKey={seriesKey}
-            />
+              <ProductTable
+                content={content}
+                products={products}
+                categoryKey={categoryKey}
+                seriesKey={seriesKey}
+              />
+            </div>
           </div>
           <Footer />
         </div>

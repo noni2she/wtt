@@ -25,6 +25,11 @@
     min-height: 341px;
     margin-left: 3px;
 
+    @media (max-width: $screen-md-min) {
+      min-height: 0px;
+      margin: 15px 0;
+    }
+
     h1 {
       margin: 5px 0px;
       font-size: 2em;
@@ -63,5 +68,23 @@
 }
 
 .products-table {
-  margin: 40px 0;
+  padding: 0 15px;
+  .products-table-thead {
+    background: black;
+    color: white;
+
+    th {
+      text-align: center;
+    }
+  }
+
+  .products-table-tbody {
+    tr {
+      text-align: center;
+    }
+  }
+
+  .table-hover tbody tr:hover td {
+    background: rgba(255, 0, 0, 0.2);;
+  }
 }
