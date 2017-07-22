@@ -12,6 +12,9 @@ const SeriesNavBar = (props) => {
     }
   });
 
+  // it doesn't have to render series nav bar if there is only one seriesItem
+  if (seriesItemsNeedToShow.length  <= 1) return null;
+
   const series = seriesItemsNeedToShow.map((seriesItem, index) => {
     const seriesKey = seriesItem.key;
     return (

@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import NavBar from 'containers/common/navBar.jsx';
 import ProductText from './productText.jsx';
 import ProductTable from './productTable.jsx';
-import SeriesNavBar from 'containers/common/seriesNavBar';
+import SeriesNavBar from 'components/common/seriesNavBar';
 import Footer from 'components/footer';
 
 class PageProduct extends Component {
