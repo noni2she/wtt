@@ -10,6 +10,19 @@ $productImgMarginLeft: 18em;
     }
   }
 }
+@media (max-width: $screen-md-min) {
+  .product-series,
+  .product-series-item,
+  .product-series-container {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .product-series-item {
+    a {
+      font-size: 1px;
+    }
+  }
+}
 
 #product {
   .product-introduction {
