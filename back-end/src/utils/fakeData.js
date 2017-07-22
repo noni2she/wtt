@@ -49,7 +49,7 @@ const messageItem = () => {
   return ({
     displayed: true,
     id: uuid(),
-    timestamps: new Date().toString(),
+    timestamps: fakeDate(),
     sender: fakeName(),
     receiverEmail: fakeEmail(),
     content: fakeParagraph(),

@@ -23,3 +23,5 @@ export const tdStyle = {
 export const selectRow = {
   mode: 'checkbox'
 };
+
+export const MESSAGE_DISPLAY_MAX_COUNT = 1000;
