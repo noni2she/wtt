@@ -135,7 +135,7 @@ const categoryItem = () => {
     key: 'wheelSpacers',
     name: 'WHEEL SPACERS',
     mainImg: imgItem(),
-    seriesItems: generateArray(seriesItem, 10),
+    seriesItems: generateArray(seriesItem, 1),
   });
 }
 
@@ -209,4 +209,4 @@ export const productsDetail = {
   }
 }
 
-export const messageItems = generateArray(messageItem, 1000);
+export const messageItems = generateArray(messageItem, 5);
