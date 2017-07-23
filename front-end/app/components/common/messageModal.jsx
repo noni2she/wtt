@@ -120,7 +120,7 @@ export class MessageModal extends Component {
           </a>
 
           <div>
-            <img src="img/ruki.png" alt=""/>
+            <img src="/img/ruki.png" alt=""/>
           </div>
           <h2 className="messageModal-header">- GET IN TOUCH -</h2>
           <input type="text" className="form-control messageModal-input" name="name" onChange={this.onFormChange}  placeholder="* NAME" />

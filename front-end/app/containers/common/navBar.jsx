@@ -7,7 +7,7 @@ import {
   NAV_BAR_LANGUAGE_TW, NAV_BAR_LANGUAGE_JP, NAV_BAR_LANGUAGE_EN,
 } from 'constants/common';
 import { onLocaleChange } from 'actions/locales';
-import MessageModal from 'containers/common/messageModal';
+import MessageModal from 'components/common/messageModal';
 
 import Scroll from 'react-scroll';
 const ScrollLink = Scroll.Link;
