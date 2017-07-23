@@ -138,6 +138,11 @@ $nav-height: 64px;
         .mweb-dropdown-item {
           width: 100vw;
           left: 0;
+
+          // hotfix for incorrect touch zone
+          > a {
+            padding: 0px 40vw;
+          }
         }
       }
     }
