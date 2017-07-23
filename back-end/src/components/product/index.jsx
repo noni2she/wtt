@@ -39,11 +39,11 @@ export default class Product extends Component {
     const { header, subheader, categoryItems } = this.props.products;
 
     return (
-      <div id="product" className="container-fluid">
+      <div id="product">
         <Link to={'/edit/category/header'}>
           <div className="product-introduction">
-            <h2 className="product-header">{header}</h2>
-            <p className="product-subheader">{subheader}</p>
+            <h2 className="product-header">{ header }</h2>
+            <p className="product-subheader">{ subheader }</p>
           </div>
         </Link>
         {Array.isArray(categoryItems) && categoryItems.length > 0 ? (
@@ -52,14 +52,11 @@ export default class Product extends Component {
           null
         )}
 
-        <div className="product-create">
+        <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12 product-create">
           <button
             type="button"
             className="btn btn-success"
             onClick={this.onCreateBtnClick}
-            style={{
-              margin: '30px 0px',
-            }}
           >
             新增 category
           </button>
