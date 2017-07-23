@@ -7,6 +7,7 @@ import { Link } from 'react-router';
 import NavBar from 'containers/common/navBar.jsx';
 import ProductText from './productText.jsx';
 import ProductTable from './productTable.jsx';
+import JSONImportModal from './jsonImportModal.jsx';
 import Footer from 'components/footer';
 
 class PageProduct extends Component {
@@ -115,6 +116,8 @@ class PageProduct extends Component {
                 />
               </Link>
             </div>
+
+            <JSONImportModal />
 
             <ProductTable
               content={content}
