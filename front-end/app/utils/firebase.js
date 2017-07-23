@@ -54,3 +54,21 @@ export const getData = (url) => {
       return false;
     });
 }
+
+/* push
+ * Push item into an array
+ *
+ * @return
+ *  true: push succeed.
+ *  false: push failed.
+ */
+export const pushData = (url, data) => {
+  return firebase.database().ref(url).push().set(data)
+    .then(() => {
+      return true;
+    })
+    .catch((error) => {
+      console.error(error);
+      return false;
+    });
+};

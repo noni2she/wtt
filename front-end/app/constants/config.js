@@ -8,3 +8,5 @@ export const FIREBASE_CONFIG = {
 };
 
 export const FIREBASE_ROOT = '/';
+
+export const FIREBASE_MESSAGE_ITEMS = '/messageItems';
