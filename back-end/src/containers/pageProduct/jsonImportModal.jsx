@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { onSeriesJSONImport } from 'actions/productDetail';
-import { uuid } from 'utils/common';
+import { uuid, errorToastr, successToastr } from 'utils/common';
+import {
+  TOAST_TITLE_IMPORT_MODAL, TOAST_MESSAGE_IMPORT_MODAL_SUCCESS, TOAST_MESSAGE_IMPORT_MODAL_FAILED,
+} from 'constants/common';
 
 export class JSONImportModal extends Component {
   static propTypes = {
@@ -14,7 +17,17 @@ export class JSONImportModal extends Component {
     super();
     this.onSubmitHandler = this.onSubmitHandler.bind(this);
     this.onChangeHandler = this.onChangeHandler.bind(this);
-    this.state = {};
+    this.clearField = this.clearField.bind(this);
+    this.state = {
+      value: ''
+    };
+  }
+
+  clearField() {
+    // empty textField
+    this.setState({
+      value: ''
+    });
   }
 
   onChangeHandler({ target }) {
@@ -50,21 +63,26 @@ export class JSONImportModal extends Component {
         categoryKey, seriesKey, seriesItems
       });
 
-      // empty textField
-      this.setState({
-        value: ''
+      successToastr({
+        title: TOAST_TITLE_IMPORT_MODAL,
+        message: TOAST_MESSAGE_IMPORT_MODAL_SUCCESS,
       });
 
     } catch (error) {
       console.error(error);
+      errorToastr({
+        title: TOAST_TITLE_IMPORT_MODAL,
+        message: TOAST_MESSAGE_IMPORT_MODAL_FAILED,
+      });
     }
   }
 
   render() {
+    const { value } = this.state;
     return (
       <div className="json-import-modal">
         <h4>Series 資料匯入</h4>
-        <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#myModal">import</button>
+        <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#myModal" onClick={this.clearField}>import</button>
 
         <div className="modal fade" id="myModal" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel">
           <div className="modal-dialog" role="document">
@@ -75,7 +93,7 @@ export class JSONImportModal extends Component {
               </div>
               <div className="modal-body">
                 <p className="font-danger">* 僅提供 JSON 格式，其他格式內容可能導致頁面異常</p>
-                <textarea className="form-control" rows="20" placeholder="please input json data" name="value" onChange={this.onChangeHandler}></textarea>
+                <textarea className="form-control" rows="20" placeholder="please input json data" name="value" onChange={this.onChangeHandler} value={value}></textarea>
               </div>
               <div className="modal-footer">
                 <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>

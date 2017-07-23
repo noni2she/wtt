@@ -70,3 +70,10 @@ export const toastrOptions = {
   "showMethod": "fadeIn",
   "hideMethod": "fadeOut"
 };
+
+// toast title
+export const TOAST_TITLE_IMPORT_MODAL = '資料匯入';
+
+// toastr message
+export const TOAST_MESSAGE_IMPORT_MODAL_SUCCESS = '資料匯入成功';
+export const TOAST_MESSAGE_IMPORT_MODAL_FAILED = '資料匯入失敗';
