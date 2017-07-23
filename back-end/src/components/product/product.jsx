@@ -41,7 +41,7 @@ export class ProductItem extends Component {
           categoryKey={categoryKey}
         />
 
-        <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12 product-series">
+        <div className="product-series">
           <div className="product-series-btn">
           <button
             type="button"

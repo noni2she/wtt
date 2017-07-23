@@ -52,7 +52,7 @@ export default class Product extends Component {
           null
         )}
 
-        <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12 product-create">
+        <div className="product-create">
           <button
             type="button"
             className="btn btn-success"
