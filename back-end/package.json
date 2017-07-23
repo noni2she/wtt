@@ -14,6 +14,7 @@
     "react-slick": "^0.14.11",
     "redux": "^3.6.0",
     "redux-saga": "^0.14.3",
+    "toastr": "^2.1.2",
     "uuid": "^3.1.0"
   },
   "devDependencies": {
@@ -67,7 +68,7 @@
     "dev:without-login": "HTTPS=true REACT_APP_LOGIN=false node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
-    "dev-server":"pm2 start yarn --name app -- dev:without-login && pm2 start yarn --name watch-css -- watch-css"
+    "dev-server": "pm2 start yarn --name app -- dev:without-login && pm2 start yarn --name watch-css -- watch-css"
   },
   "jest": {
     "collectCoverageFrom": [

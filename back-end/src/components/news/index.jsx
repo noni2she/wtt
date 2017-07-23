@@ -4,7 +4,8 @@ import Slider from 'react-slick';
 import { Link } from 'react-router';
 import NewsItem from './newsItem.jsx';
 import { onCreateFormSubmit } from 'actions/editForm';
-import { CREATE_NEWS_ITEM } from 'constants/common';
+import { CREATE_NEWS_ITEM, TOAST_TITLE_CREATE_NEWSITEM, TOAST_MESSAGE_SUCCESS } from 'constants/common';
+import { successToastr } from 'utils/common';
 
 const settings = {
   dots: true,
@@ -26,6 +27,10 @@ export class News extends Component {
 
     const { locales } = this.props;
     this.props.onCreateFormSubmit(locales, CREATE_NEWS_ITEM);
+    successToastr({
+      title: TOAST_TITLE_CREATE_NEWSITEM,
+      message: TOAST_MESSAGE_SUCCESS,
+    });
   }
 
   sliderGenerator(newsItems) {
