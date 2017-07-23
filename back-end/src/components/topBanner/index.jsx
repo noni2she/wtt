@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Slider from 'react-slick';
-import Banner from 'components/common/imgItem.jsx';
+import ImgItem from 'components/common/imgItem.jsx';
 import { Link } from 'react-router';
 
 const settings = {
   dots: true,
   infinite: true,
-  speed: 500,
   slidesToShow: 1,
   slidesToScroll: 1,
   arrows: false,
-  centerMode: true
+  autoplay: true,
+  autoplaySpeed: 4000,
 };
 
 export default class TopBanner extends Component {
@@ -18,27 +19,32 @@ export default class TopBanner extends Component {
     const { imgItems } = this.props;
     const BannerList = imgItems.map((item, index) => {
       return (
-        <div key={`topBanner_+${index}`}>
+        <div key={`topBanner_${index}`}>
           <Link to={`/edit/topBanner`}>
-            <Banner imgItem={item}/>
+            <ImgItem imgItem={item}/>
           </Link>
         </div>
       );
     });
 
     return (
-      <div className="top-banner">
-        {
-          Array.isArray(imgItems) && imgItems.length > 0 ? (
-            <Slider {...settings}>
-              {BannerList}
-            </Slider>
-
-          ) : (
-            null
-          )
-        }
+      <div id="top-banner">
+        <div className="top-banner-container">
+          {
+            Array.isArray(imgItems) && imgItems.length > 0 ? (
+              <Slider {...settings}>
+                {BannerList}
+              </Slider>
+            ) : (
+              null
+            )
+          }
+        </div>
       </div>
     );
   }
 }
+
+TopBanner.propTypes = {
+  imgItems: PropTypes.array
+};

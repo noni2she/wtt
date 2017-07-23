@@ -1,0 +1,32 @@
+@media (min-width: $screen-lg-min) { 
+  #top-banner {
+    .top-banner-container {
+      .slick-slide {
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-lg-min) { 
+  #top-banner {
+    .top-banner-container {
+      .slick-slide {
+        min-height: 475px;
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+        img {
+          flex: none;
+          height:100%;
+        }
+      }
+    }
+  }
+}
+
+#top-banner {
+  margin-bottom: 30px;
+}
