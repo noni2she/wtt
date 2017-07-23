@@ -122,7 +122,7 @@ export class MessageModal extends Component {
           <div>
             <img src="/img/ruki.png" alt=""/>
           </div>
-          <h2 className="messageModal-header">- GET IN TOUCH -</h2>
+          <h3 className="messageModal-header">- GET IN TOUCH -</h3>
           <input type="text" className="form-control messageModal-input" name="name" onChange={this.onFormChange}  placeholder="* NAME" />
           <div className="messageModal-input-warning-message">
             <label className="font-danger" hidden={ !emptyName} >* 此欄位必填</label>
