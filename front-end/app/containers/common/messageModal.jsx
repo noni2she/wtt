@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { pushData } from 'utils/firebase';
 import { FIREBASE_MESSAGE_ITEMS } from 'constants/config';
 import { uuid } from 'utils/common';
-const Modal = require('boron/FadeModal');
+import Modal from 'boron/FadeModal';
 
 export class MessageModal extends Component {
   constructor() {
