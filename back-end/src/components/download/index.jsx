@@ -39,30 +39,27 @@ export class Download extends Component {
 
   render () {
     const { downloadItems, header, subheader } = this.props.download;
-
     return (
       <div>
-        <div id="download" className=".container-fluid">
-          <Link to={'/edit/download/header'}>
-            <div>
-              <h2>{header}</h2>
-              <p>{subheader}</p>
-            </div>
-          </Link>
-          { Array.isArray(downloadItems) && downloadItems.length > 0 ? (
-            this.downloadListGenerator(downloadItems)
-          ) : (
-            null
-          )}
+        <div id="download">
+          <div className="row">
+            <Link to={'/edit/download/header'}>
+              <div className="download-title col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <h2>{header}</h2>
+                <p>{subheader}</p>
+              </div>
+            </Link>
+            { Array.isArray(downloadItems) && downloadItems.length > 0 ? (
+              this.downloadListGenerator(downloadItems)
+            ) : (
+              null
+            )}
+          </div>
         </div>
-        <div>
+        <div className="download_btn">
           <button
             type="button"
             className="btn btn-success"
-            style={{
-              marginTop: '15px',
-              marginBottom: '30px'
-            }}
             onClick={this.onCreateBtnClick}
           >
             新增 DownloadItem

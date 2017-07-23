@@ -23,9 +23,9 @@ export default class Download extends Component {
     });
     return downloadItemLink.map((item, index) => {
       return(
-        <li key={'downItemlink_'+index}>
-          <span>{item.key}:</span>
-          <a href={item.url}>Download</a>
+        <li key={`downItemlink_${index}`}>
+          <p>{item.key}:</p>
+          <p href={item.url}>Download</p>
         </li>
       );
     });
@@ -38,30 +38,30 @@ export default class Download extends Component {
     } = this.props.downloadItem;
 
     return (
-      <div className="download-item row">
-
-        <div className="download-img col-lg-3 col-lg-offset-1">
-          <Link to={`/edit/download/downloadItems/${downloadIndex}`}>
-            <ImgItem imgItem={mainImg}/>
-          </Link>
+      <Link to={`/edit/download/downloadItems/${downloadIndex}`}>
+        <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div className="download-item row">
+            <div className="download-img col-lg-4 col-md-4 col-sm-12 col-xs-12">
+              <ImgItem imgItem={mainImg} />
+            </div>
+            <div className="download-description col-lg-4 col-md-4 col-sm-12 col-xs-12">
+              <h4 className="download-description-title">
+                <i className="glyphicon glyphicon-file" />
+                {title}
+              </h4>
+              <ul className="list-unstyled">
+                {this.downloadItemDescription(description)}
+              </ul>
+            </div>
+            <div className="download-link col-lg-4 col-md-4 col-sm-12 col-xs-12">
+              <i className="glyphicon glyphicon-download-alt" />
+              <ul className="list-unstyled">
+                {this.downloadItemLink(link)}
+              </ul>
+            </div>
+          </div>
         </div>
-
-        <div className="download-description col-lg-4">
-          <Link to={`/edit/download/downloadItems/${downloadIndex}`}>
-            <span className="download-description-title"><i className="glyphicon glyphicon-file" />{title}</span>
-            <ul className="list-unstyled">
-              {this.downloadItemDescription(description)}
-            </ul>
-          </Link>
-        </div>
-
-        <div className="download-link col-lg-3">
-          <i className="glyphicon glyphicon-download-alt"></i>
-          <ul className="list-unstyled">
-            {this.downloadItemLink(link)}
-          </ul>
-        </div>
-      </div>
+      </Link>
     );
   }  
 }

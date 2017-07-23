@@ -15,10 +15,10 @@ import bootstrap from './bootstrap';
 import registerServiceWorker from './registerServiceWorker';
 
 // style part
-import 'stylesheet/index.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import 'toastr/build/toastr.css';
+import 'stylesheet/index.css';
 
 // js
 import 'jquery';

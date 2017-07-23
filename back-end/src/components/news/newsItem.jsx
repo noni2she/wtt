@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import ImgItem from 'components/common/imgItem.jsx';
 
 export default class NewsItem extends Component {
-  render () {
+  render() {
     const {
       mainImg, header, subheader,
       description, position, date
@@ -20,3 +21,7 @@ export default class NewsItem extends Component {
     );
   }  
 }
+
+NewsItem.propTypes = {
+  newsItem: PropTypes.object
+};

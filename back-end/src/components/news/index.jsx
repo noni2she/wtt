@@ -9,12 +9,26 @@ import { successToastr } from 'utils/common';
 
 const settings = {
   dots: true,
-  infinite: false,
-  speed: 500,
+  infinite: true,
   slidesToShow: 3,
-  slidesToScroll: 3
-  // arrows: false,
-  // centerMode: true
+  slidesToScroll: 3,
+  responsive: [
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false
+      }
+    },
+    {
+      breakpoint: 992,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+      }
+    }
+  ]
 };
 
 export class News extends Component {
@@ -38,7 +52,7 @@ export class News extends Component {
       return (
         <div
           className="newsItem-div"
-          key={`newsItem_+${index}`}
+          key={`newsItem_${index}`}
         >
           <Link to={`/edit/news/newsItem/${index}`}>
             <NewsItem newsItem={item}/>
@@ -46,9 +60,18 @@ export class News extends Component {
         </div>
       );
     });
+
+    let newSetting;
+    if (newsItemList.length < 3) {
+      newSetting = {
+        dots: false,
+        arrows: false
+      };
+    }
+
     return (
-      <div className="container">
-        <Slider {...settings} className="item-container">
+      <div className="news-slider-container">
+        <Slider {...{...settings, ...newSetting}} className="news-item-container">
           {newsItemList}
         </Slider>
       </div>
@@ -61,7 +84,7 @@ export class News extends Component {
     return (
       <div id="news">
         <Link to={'/edit/news/header'}>
-          <div>
+          <div className="news-title">
             <h2>{header}</h2>
             <p>{subheader}</p>
           </div>
@@ -69,11 +92,10 @@ export class News extends Component {
 
         { Array.isArray(newsItems) && newsItems.length > 0 ? this.sliderGenerator(newsItems) : null}
 
-        <div>
+        <div className="news_btn">
           <button
             type="button"
             className="btn btn-success"
-            style={{marginTop: '30px'}}
             onClick={this.onCreateBtnClick}
           >
             新增 NewsItem

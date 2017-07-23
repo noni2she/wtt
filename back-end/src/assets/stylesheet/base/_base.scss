@@ -41,8 +41,15 @@ $wtt-red: red;
   color: $brand-danger;
 }
 
-.flex-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.container-fluid {
+  padding: 0px;
 }
+
+.row {
+  margin-left: auto;
+  margin-right: auto;
+}
+// media queries
+$screen-sm-min: 768px;
+$screen-md-min: 992px;
+$screen-lg-min: 1200px;
