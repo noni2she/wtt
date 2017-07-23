@@ -52,13 +52,13 @@ export default class Contact extends Component {
                     </li>
                     <li>
                       <div>
-                        <img src="https://firebasestorage.googleapis.com/v0/b/techwell-74c86.appspot.com/o/contact%2Ftalk.png?alt=media&token=d32f9b2e-8583-427b-bf0f-c2e67063908a" alt=""/>
+                        <img src="contact/talk.png" alt="contact us"/>
                       </div>
                       <div>
-                        <img src="https://firebasestorage.googleapis.com/v0/b/techwell-74c86.appspot.com/o/contact%2FSK.png?alt=media&token=704b3e8b-83a4-4845-8f36-4784aeb45200" alt=""/>
+                        <img src="contact/skype.png" alt="skype"/>
                       </div>
                       <div>
-                        <img src="https://firebasestorage.googleapis.com/v0/b/techwell-74c86.appspot.com/o/contact%2FFB.png?alt=media&token=bf7a26d2-954e-43b4-b981-61672ad6b595" alt=""/>
+                        <img src="contact/facebook.png" alt="facebook"/>
                       </div>
                     </li>
                   </ul>
