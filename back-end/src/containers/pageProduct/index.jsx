@@ -40,6 +40,9 @@ class PageProduct extends Component {
         }
       });
 
+      // if nothing category was found, then skip the following flow
+      if (!targetCategoryItem) return;
+
       targetCategoryItem.seriesItems.forEach((seriesItem, index) => {
         if (!targetSeriesItem && seriesItem.key === seriesKey) {
           targetSeriesItem = targetCategoryItem.seriesItems[index];
@@ -60,7 +63,6 @@ class PageProduct extends Component {
       });
     } catch (error) {
       console.log(error);
-      return false;
     }
   }
   pageNotFound() {
