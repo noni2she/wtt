@@ -127,7 +127,7 @@ export class NavBar extends Component {
             <li className="navbar-content-item navbar-content-item-pc">{this.renderPCScrollLink('contact', 'CONTACT')}</li>
 
             <li
-              className="navbar-content-item navbar-content-item-pc navbar-item-dropdown"
+              className="navbar-content-item navbar-content-item-pc navbar-item-dropdown drop-icon-lang-switch"
               onMouseEnter={this.showDropdownItem}
               onMouseLeave={this.hideDropdownItem}
             >
