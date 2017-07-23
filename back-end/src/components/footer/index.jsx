@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Logo from 'img/footer/logo.png';
 
 export default class Footer extends Component {
   render() {
@@ -7,7 +8,7 @@ export default class Footer extends Component {
         <footer className="footer-container">
           <div className="footer-logo">
             <img
-              src="footer/logo.png"
+              src={Logo}
               alt="LOGO"
             />
           </div>
