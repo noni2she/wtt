@@ -52,3 +52,21 @@ export const DELETE_NEWS_ITEM = 'DELETE_NEWS_ITEM';
 export const DELETE_DOWNLOAD_ITEM = 'DELETE_DOWNLOAD_ITEM';
 export const DELETE_PRODUCT_SERIES = 'DELETE_PRODUCT_SERIES';
 export const DELETE_PRODUCT_CATEGORY = 'DELETE_PRODUCT_CATEGORY';
+
+export const toastrOptions = {
+  "closeButton": false,
+  "debug": false,
+  "newestOnTop": false,
+  "progressBar": false,
+  "positionClass": "toast-top-right",
+  "preventDuplicates": false,
+  "onclick": null,
+  "showDuration": "300",
+  "hideDuration": "1000",
+  "timeOut": "5000",
+  "extendedTimeOut": "1000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut"
+};
