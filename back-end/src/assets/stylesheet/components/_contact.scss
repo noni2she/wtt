@@ -1,48 +1,111 @@
-#contact{
+@media (min-width: $screen-lg-min) { 
+  #contact {
+    .company-information {
+      .company-introduction {
+        text-align: left;
+      }
+    }
+    .company-map{
+      height: 475px;
+      display: flex;
+      justify-content: center;
+      img {
+        flex: none;
+        height: 100%;
+      }
+    }
+  }
+}
 
+@media (max-width: $screen-lg-min) { 
+  #contact {
+    .company-information {
+      .company-map{
+          height: 200px;
+          display: flex;
+          justify-content: center;
+          img {
+            flex: none;
+            height: 100%;
+          }
+        }
+      .company-introduction {
+        .company-introduction-container {
+          .company-introduction-info {
+            text-align: center;
+            padding: 15px 5px 0px 5px;
+          }
+        }
+      }
+    }
+  }
+}
+
+#contact{
   a {
     color: inherit;
   }
-  
+  .contact-title {
+    h2 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    p {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
   .company-information{
-    margin-top:30px;
+    margin-top: 30px;
+
+    .company-map{
+      overflow: hidden;
+    }
+
     .company-introduction {
       height: 475px;
       display: flex;
       justify-content: center;
       align-items: center;
-      div {
+      .company-introduction-container {
+        height: 100%;
         width: 100%;
         .company-introduction-mainImg {
           height: 200px;
+          display: flex;
+          justify-content: center;
           overflow: hidden;
           img {
+            flex: none;
             height: 100%;
           }
         }
         .company-introduction-info {
-          text-align: left;
-          padding: 0px 10px 0px 10px;
-          h4 {
+          height: 275px;
+          padding-top: 15px;
+          word-break: break-all;
+          .company-name {
             text-align: center;
           }
           .glyphicon {
             margin: 3px 5px 3px 3px;
             font-size: 15px;
           }
-          div {
-            display: inline-block;
-            width:45px;
-            margin-top: 5px;
+          .icon-container {
+            text-align: center;
+            .icon {
+              display: inline-block;
+              width: 55px;
+              img {
+                margin: 0 auto;
+                width:45px;  
+              }
+            }
           }
         }
-      }
-    }
-    .company-map{
-      height: 475px;
-      overflow: hidden;
-      img {
-        height: 100%;
       }
     }
   }

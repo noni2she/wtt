@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 import ImgItem from 'components/common/imgItem.jsx';
+
+import facebookLogo from 'img/contact/facebook.png';
+import contactLogo from 'img/contact/talk.png';
+import skypeLogo from 'img/contact/skype.png';
 
 export default class Contact extends Component {
   render () {
@@ -11,7 +16,7 @@ export default class Contact extends Component {
     return (
       <div id="contact" className="container">
         <Link to={'/edit/contact/header'}>
-          <div>
+          <div className="contact-title">
             <h2>{header}</h2>
             <p>{subheader}</p>
           </div>
@@ -19,46 +24,48 @@ export default class Contact extends Component {
         <Link to={'/edit/contact'}>
           <div className="company-information row">
             <div className="company-introduction col-lg-4">
-              <div>
+              <div className="company-introduction-container">
                 <div className="company-introduction-mainImg">
                   <ImgItem imgItem={subImg} />
                 </div>
                 <div className="company-introduction-info">
-                  <h4>{company}</h4>
+                  <h4 className="company-name">{company}</h4>
                   <ul className="list-unstyled">
                     <li>
-                      <span>
+                      <p>
                         <i className="glyphicon glyphicon-earphone" />
                         {phone}
-                      </span>
+                      </p>
                     </li>
                     <li>
-                      <span>
+                      <p>
                         <i className="glyphicon glyphicon-print" />
                         {fax}
-                      </span>
+                      </p>
                     </li>
                     <li>
-                      <span>
+                      <p>
                         <i className="glyphicon glyphicon-envelope" />
                         {email}
-                      </span>
+                      </p>
                     </li>
                     <li>
-                      <span>
+                      <p>
                         <i className="glyphicon glyphicon-map-marker" />
                         {location}
-                      </span>
+                      </p>
                     </li>
                     <li>
-                      <div>
-                        <img src="contact/talk.png" alt="contact us"/>
-                      </div>
-                      <div>
-                        <img src="contact/skype.png" alt="skype"/>
-                      </div>
-                      <div>
-                        <img src="contact/facebook.png" alt="facebook"/>
+                      <div className="icon-container">
+                        <div className="icon">
+                          <img src={contactLogo} alt="contact us"/>
+                        </div>
+                        <div className="icon">
+                          <img src={skypeLogo} alt="skype"/>
+                        </div>
+                        <div className="icon">
+                          <img src={facebookLogo} alt="facebook"/>
+                        </div>
                       </div>
                     </li>
                   </ul>
@@ -74,3 +81,7 @@ export default class Contact extends Component {
     );
   }  
 }
+
+Contact.propTypes = {
+  contact: PropTypes.object
+};
