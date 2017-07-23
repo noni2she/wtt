@@ -3,7 +3,8 @@ import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import DownloadItem from './downloadItem.jsx';
 import { onCreateFormSubmit } from 'actions/editForm';
-import { CREATE_DOWNLOAD_ITEM } from 'constants/common';
+import { CREATE_DOWNLOAD_ITEM, TOAST_TITLE_CREATE_DOWNLOADITEM, TOAST_MESSAGE_SUCCESS } from 'constants/common';
+import { successToastr } from 'utils/common';
 export class Download extends Component {
   constructor() {
     super();
@@ -15,6 +16,11 @@ export class Download extends Component {
 
     const { locales } = this.props;
     this.props.onCreateFormSubmit(locales, CREATE_DOWNLOAD_ITEM);
+
+    successToastr({
+      title: TOAST_TITLE_CREATE_DOWNLOADITEM,
+      message: TOAST_MESSAGE_SUCCESS,
+    });
   }
 
   downloadListGenerator(downloadItems) {

@@ -73,7 +73,11 @@ export const toastrOptions = {
 
 // toast title
 export const TOAST_TITLE_IMPORT_MODAL = '資料匯入';
+export const TOAST_TITLE_CREATE_NEWSITEM = '新增 news';
+export const TOAST_TITLE_CREATE_DOWNLOADITEM = '新增 download';
 
 // toastr message
-export const TOAST_MESSAGE_IMPORT_MODAL_SUCCESS = '資料匯入成功';
-export const TOAST_MESSAGE_IMPORT_MODAL_FAILED = '資料匯入失敗';
+export const TOAST_MESSAGE_SUCCESS = '成功';
+export const TOAST_MESSAGE_FAILED = '失敗';
+export const TOAST_MESSAGE_IMPORT_MODAL_SUCCESS = '成功';
+export const TOAST_MESSAGE_IMPORT_MODAL_FAILED = '失敗';
