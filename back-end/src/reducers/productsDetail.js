@@ -8,6 +8,7 @@ import {
   PROD_DETAIL_ON_CATEGORY_DELETE,
   PROD_DETAIL_ON_SERIES_DELETE,
   FETCH_FIREBASE_DATA_SUCCESS,
+  PROD_DETAIL_ON_SERIES_JSON_IMPORT,
 } from 'constants/actionTypes';
 
 export default (state = productsDetailInitialState, action) => {
@@ -133,6 +134,15 @@ export default (state = productsDetailInitialState, action) => {
       };
 
       newState[categoryKey][seriesKey] = [];
+
+      return newState;
+    case PROD_DETAIL_ON_SERIES_JSON_IMPORT:
+      seriesItems = payload.seriesItems;
+
+      newState = {
+        ...state,
+      };
+      newState[categoryKey][seriesKey] = seriesItems;
 
       return newState;
     default:

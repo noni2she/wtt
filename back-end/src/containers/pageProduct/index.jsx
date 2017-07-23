@@ -7,6 +7,7 @@ import { Link } from 'react-router';
 import NavBar from 'containers/common/navBar.jsx';
 import ProductText from './productText.jsx';
 import ProductTable from './productTable.jsx';
+import JSONImportModal from './jsonImportModal.jsx';
 import Footer from 'components/footer';
 
 class PageProduct extends Component {
@@ -39,6 +40,9 @@ class PageProduct extends Component {
         }
       });
 
+      // if nothing category was found, then skip the following flow
+      if (!targetCategoryItem) return;
+
       targetCategoryItem.seriesItems.forEach((seriesItem, index) => {
         if (!targetSeriesItem && seriesItem.key === seriesKey) {
           targetSeriesItem = targetCategoryItem.seriesItems[index];
@@ -59,7 +63,6 @@ class PageProduct extends Component {
       });
     } catch (error) {
       console.log(error);
-      return false;
     }
   }
   pageNotFound() {
@@ -115,6 +118,11 @@ class PageProduct extends Component {
                 />
               </Link>
             </div>
+
+            <JSONImportModal
+              categoryKey={categoryKey}
+              seriesKey={seriesKey}
+            />
 
             <ProductTable
               content={content}
