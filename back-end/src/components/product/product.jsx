@@ -21,9 +21,8 @@ export class ProductItem extends Component {
 
   render() {
     const { categoryIndex, type, categoryKey} = this.props;
-    const { name, mainImg, seriesItems } = this.props.categoryItem;
+    const { name, mainImg } = this.props.categoryItem;
     const className = `product-info${type}`;
-    // const seriesKey = seriesItems[0].key;
 
     return(
       <div className="product-item">
@@ -43,13 +42,13 @@ export class ProductItem extends Component {
 
         <div className="product-series">
           <div className="product-series-btn">
-          <button
-            type="button"
-            className="btn btn-default"
-            onClick={this.onCreateBtnClick}
-          >
-            新增 series
-          </button>
+            <button
+              type="button"
+              className="btn btn-default"
+              onClick={this.onCreateBtnClick}
+            >
+              新增 series
+            </button>
           </div>
         </div>
       </div>
