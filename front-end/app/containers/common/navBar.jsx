@@ -16,9 +16,24 @@ export class NavBar extends Component {
   constructor() {
     super();
     this.onClickHandler = this.onClickHandler.bind(this);
+    this.mwebDropDownClickHandler = this.mwebDropDownClickHandler.bind(this);
+    this.state = {
+      showMwebDropDown: true,
+    };
   }
+
+  mwebDropDownClickHandler() {
+    const { showMwebDropDown } = this.state;
+
+    if (showMwebDropDown) this.showDropdownItem();
+    else this.hideDropdownItem();
+
+    this.setState({
+      showMwebDropDown: !showMwebDropDown,
+    });
+  }
+
   onClickHandler(event) {
-    event.preventDefault();
     const { name } = event.target;
 
     const dropdownItems = document.getElementsByClassName('navbar-item-dropdown-item');
@@ -44,7 +59,7 @@ export class NavBar extends Component {
     }
   }
 
-  renderScrollLink(id, showText) {
+  renderPCScrollLink(id, showText) {
     return (window.location.pathname === '/') ? (
       <ScrollLink
         to={id}
@@ -55,6 +70,16 @@ export class NavBar extends Component {
       >
         {showText}
       </ScrollLink>
+    ) : (
+      <Link to={`/#${id}`}>
+        {showText}
+      </Link>
+    );
+  }
+
+  renderMwebScrollLink(id, showText) {
+    return (window.location.pathname === '/') ? (
+      <a href={`#${id}`}>{showText}</a>
     ) : (
       <Link to={`/#${id}`}>
         {showText}
@@ -95,14 +120,14 @@ export class NavBar extends Component {
           </ul>
           <ul className="navbar-content-left">
 
-            <li className="navbar-content-item navbar-content-item-pc">{this.renderScrollLink('about', 'ABOUT US')}</li>
-            <li className="navbar-content-item navbar-content-item-pc">{this.renderScrollLink('product', 'PRODUCTS')}</li>
-            <li className="navbar-content-item navbar-content-item-pc">{this.renderScrollLink('news', 'NEWS')}</li>
-            <li className="navbar-content-item navbar-content-item-pc">{this.renderScrollLink('download', 'DOWNLOAD')}</li>
-            <li className="navbar-content-item navbar-content-item-pc">{this.renderScrollLink('contact', 'CONTACT')}</li>
+            <li className="navbar-content-item navbar-content-item-pc">{this.renderPCScrollLink('about', 'ABOUT US')}</li>
+            <li className="navbar-content-item navbar-content-item-pc">{this.renderPCScrollLink('product', 'PRODUCTS')}</li>
+            <li className="navbar-content-item navbar-content-item-pc">{this.renderPCScrollLink('news', 'NEWS')}</li>
+            <li className="navbar-content-item navbar-content-item-pc">{this.renderPCScrollLink('download', 'DOWNLOAD')}</li>
+            <li className="navbar-content-item navbar-content-item-pc">{this.renderPCScrollLink('contact', 'CONTACT')}</li>
 
             <li
-              className="navbar-content-item navbar-content-item-pc navbar-item-dropdown"
+              className="navbar-content-item navbar-content-item-pc navbar-item-dropdown drop-icon-lang-switch"
               onMouseEnter={this.showDropdownItem}
               onMouseLeave={this.hideDropdownItem}
             >
@@ -112,7 +137,19 @@ export class NavBar extends Component {
               <div className="navbar-item-dropdown-item" onClick={this.onClickHandler}><a name={LOCALE_EN}>EN</a></div>
             </li>
 
-            <li className="navbar-content-item navbar-content-item-mweb"><a>ABOUT US</a></li>
+            <li className="navbar-content-item navbar-content-item-mweb navbar-item-dropdown"
+              onClick={this.mwebDropDownClickHandler}
+              onMouseEnter={this.showDropdownItem}
+              onMouseLeave={this.hideDropdownItem}
+            >
+              <div><a>{'Navigate'}</a><span className="drop-icon glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></div>
+              <div className="navbar-item-dropdown-item mweb-dropdown-item">{this.renderMwebScrollLink('about', 'ABOUT US')}</div>
+              <div className="navbar-item-dropdown-item mweb-dropdown-item">{this.renderMwebScrollLink('product', 'PRODUCTS')}</div>
+              <div className="navbar-item-dropdown-item mweb-dropdown-item">{this.renderMwebScrollLink('news', 'NEWS')}</div>
+              <div className="navbar-item-dropdown-item mweb-dropdown-item">{this.renderMwebScrollLink('download', 'DOWNLOAD')}</div>
+              <div className="navbar-item-dropdown-item mweb-dropdown-item">{this.renderMwebScrollLink('contact', 'CONTACT')}</div>
+            </li>
+
             <li className="navbar-content-message">
               <MessageModal />
             </li>
