@@ -117,7 +117,10 @@ class PageProduct extends Component {
               </Link>
             </div>
 
-            <JSONImportModal />
+            <JSONImportModal
+              categoryKey={categoryKey}
+              seriesKey={seriesKey}
+            />
 
             <ProductTable
               content={content}

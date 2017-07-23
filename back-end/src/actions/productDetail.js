@@ -6,6 +6,7 @@ import {
   PROD_DETAIL_ON_SERIES_CREATE,
   PROD_DETAIL_ON_CATEGORY_DELETE,
   PROD_DETAIL_ON_SERIES_DELETE,
+  PROD_DETAIL_ON_SERIES_JSON_IMPORT,
 } from 'constants/actionTypes';
 
 export const onCellEdit = (value) => {
@@ -53,6 +54,13 @@ export const onCategoryDelete = (value) => {
 export const onSeriesDelete = (value) => {
   return ({
     type: PROD_DETAIL_ON_SERIES_DELETE,
+    payload: value,
+  });
+}
+
+export const onSeriesJSONImport = (value) => {
+  return ({
+    type: PROD_DETAIL_ON_SERIES_JSON_IMPORT,
     payload: value,
   });
 }

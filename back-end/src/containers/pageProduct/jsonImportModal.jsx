@@ -1,8 +1,63 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { onSeriesJSONImport } from 'actions/productDetail';
+import { uuid } from 'utils/common';
 
-export default class JSONImportModal extends Component {
+export class JSONImportModal extends Component {
+  static propTypes = {
+    categoryKey: PropTypes.string,
+    seriesKey: PropTypes.string,
+  }
+
+  constructor() {
+    super();
+    this.onSubmitHandler = this.onSubmitHandler.bind(this);
+    this.onChangeHandler = this.onChangeHandler.bind(this);
+    this.state = {};
+  }
+
+  onChangeHandler({ target }) {
+    try {
+      const { name, value } = target;
+
+      this.setState({
+        [name]: value,
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   onSubmitHandler() {
+    try {
+      const { categoryKey, seriesKey } = this.props;
+      const  { value } = this.state;
+      let seriesItems;
+
+      // textfield validate
+      if (!value) return;
+      seriesItems = JSON.parse(value);
+      seriesItems = seriesItems.map((seriesItem) => {
+        return({
+          ...seriesItem,
+          uuid: uuid(),
+        })
+      });
+
+      // create action
+      this.props.onSeriesJSONImport({
+        categoryKey, seriesKey, seriesItems
+      });
+
+      // empty textField
+      this.setState({
+        value: ''
+      });
+
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   render() {
@@ -20,7 +75,7 @@ export default class JSONImportModal extends Component {
               </div>
               <div className="modal-body">
                 <p className="font-danger">* 僅提供 JSON 格式，其他格式內容可能導致頁面異常</p>
-                <textarea className="form-control" rows="20" placeholder="please input json data"></textarea>
+                <textarea className="form-control" rows="20" placeholder="please input json data" name="value" onChange={this.onChangeHandler}></textarea>
               </div>
               <div className="modal-footer">
                 <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
@@ -40,3 +95,5 @@ export default class JSONImportModal extends Component {
     );
   }
 }
+
+export default connect(null, { onSeriesJSONImport })(JSONImportModal);
