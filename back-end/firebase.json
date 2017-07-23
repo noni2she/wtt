@@ -1,0 +1,18 @@
+{
+  "hosting": {
+    "public": "build",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/config/**",
+      "**/node_modules/**",
+      "**/public/**",
+      "**/src/**",
+      "**/scripts/**",
+      "Create-React-App.md",
+      "package.json",
+      "README.md",
+      "yarn.lock"
+    ]
+  }
+}
