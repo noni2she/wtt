@@ -1,6 +1,6 @@
 import { getData } from 'utils/firebase';
 import { FIREBASE_ROOT } from 'constants/config';
-import { fakeContentObjectGenerator, productDetails } from 'utils/fakeData';
+import { fakeContentObjectGenerator, productsDetail, messageItems } from 'utils/fakeData';
 
 export const fetchingFirebaseData = (action) => {
   const getFakeData = 
@@ -14,12 +14,21 @@ export const fetchingFirebaseData = (action) => {
       tw: fakeContentObjectGenerator(),
       jp: fakeContentObjectGenerator(),
       en: fakeContentObjectGenerator(),
-      productDetails,
+      productsDetail,
+      messageItems,
     })
   ) : (
     getData(FIREBASE_ROOT)
       .then((rootObject) => {
         return rootObject;
+      })
+      .then((rootObject) => {
+        // parse messageItems Object into array
+        const messageItems = Object.values(rootObject.messageItems);
+        return({
+          ...rootObject,
+          messageItems,
+        })
       })
       .catch((error) => {
         return false;

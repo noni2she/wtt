@@ -47,9 +47,8 @@ const imgItem = () => {
     
 const messageItem = () => {
   return ({
-    displayed: true,
     id: uuid(),
-    timestamps: new Date().toString(),
+    timestamps: fakeDate().toString(),
     sender: fakeName(),
     receiverEmail: fakeEmail(),
     content: fakeParagraph(),
@@ -136,7 +135,7 @@ const categoryItem = () => {
     key: 'wheelSpacers',
     name: 'WHEEL SPACERS',
     mainImg: imgItem(),
-    seriesItems: generateArray(seriesItem, 10),
+    seriesItems: generateArray(seriesItem, 1),
   });
 }
 
@@ -202,7 +201,7 @@ export const fakeContentObjectGenerator = () => {
   });
 };
 
-export const productDetails = {
+export const productsDetail = {
   [categoryItem().key]: {
     [seriesItem().key]: mockProductDetail.map((item) => {
       return {...item, uuid: uuid()}
@@ -210,7 +209,4 @@ export const productDetails = {
   }
 }
 
-export const messageObject = {
-  header: fakeHeader(),
-  messageItems: generateArray(messageItem, 1000),
-}
+export const messageItems = generateArray(messageItem, 5);

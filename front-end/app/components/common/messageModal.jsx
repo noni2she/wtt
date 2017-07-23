@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-const Modal = require('boron/FadeModal');
+import { pushData } from 'utils/firebase';
+import { FIREBASE_MESSAGE_ITEMS } from 'constants/config';
+import { uuid } from 'utils/common';
+import Modal from 'boron/FadeModal';
 
 export class MessageModal extends Component {
   constructor() {
@@ -9,9 +12,15 @@ export class MessageModal extends Component {
     this.renderMessageForm = this.renderMessageForm.bind(this);
     this.renderComplete = this.renderComplete.bind(this);
     this.onSubmitHandler = this.onSubmitHandler.bind(this);
+    this.onFormChange = this.onFormChange.bind(this);
 
     this.state = {
       isCompleted: false,
+      name: '',
+      email: '',
+      message: '',
+      errorMsg: {},
+      loading: false,
     };
   }
 
@@ -19,6 +28,11 @@ export class MessageModal extends Component {
     event.preventDefault();
     this.setState({
       isCompleted: false,
+      name: '',
+      email: '',
+      message: '',
+      errorMsg: {},
+      loading: false,
     });
     this.refs.modal.show();
   }
@@ -28,20 +42,72 @@ export class MessageModal extends Component {
     this.refs.modal.hide();
   }
 
+  onFormChange({ target }) {
+    try {
+      const { name, value } = target;
+
+      this.setState({
+        [name]: value,
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   onSubmitHandler(event) {
     event.preventDefault();
 
     /* message sending
      * 1. send reques to back-end
      * 2. sending email
-     * both things above have been done, go to next screen.
+     *
+     * as long as the first thing has been done, got to next screen.
      */
-    this.setState({
-      isCompleted: true,
-    });
+
+    try {
+      const { name, email, message } = this.state;
+
+      if (name &&  email && message) {
+        const messageItem = {
+          id: uuid(),
+          timestamps: new Date().toString(),
+          sender: name,
+          receiverEmail: email,
+          content: message,
+        };
+
+        // disable the button
+        this.setState({
+          loading: true,
+        });
+        pushData(FIREBASE_MESSAGE_ITEMS, messageItem)
+          .catch((error) => {
+            console.error(error);
+          })
+          .then(() => {
+            this.setState({
+              loading: false,
+              isCompleted: true,
+            });
+          });
+      } else {
+        this.setState({
+          errorMsg: {
+            emptyName: name === '',
+            emptyEmail: email === '',
+            emptyMessage: message === '',
+          }
+        });
+      }
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   renderMessageForm() {
+    const { loading } = this.state;
+    const { emptyName, emptyEmail, emptyMessage } = this.state.errorMsg;
+
     return (
       <div>
         <div className="form-group">
@@ -54,14 +120,26 @@ export class MessageModal extends Component {
           </a>
 
           <div>
-            <img src="img/ruki.png" alt=""/>
+            <img src="/img/ruki.png" alt=""/>
           </div>
           <h2 className="messageModal-header">- GET IN TOUCH -</h2>
-          <input type="text" className="form-control messageModal-input" placeholder="* NAME" />
-          <input type="text" className="form-control messageModal-input" placeholder="* E-MAIL" />
-          <textarea className="form-control messageModal-input" rows="3" placeholder="* MESSAGE"></textarea>
+          <input type="text" className="form-control messageModal-input" name="name" onChange={this.onFormChange}  placeholder="* NAME" />
+          <div className="messageModal-input-warning-message">
+            <label className="font-danger" hidden={ !emptyName} >* 此欄位必填</label>
+          </div>
+
+          <input type="email" className="form-control messageModal-input" name="email" onChange={this.onFormChange}  placeholder="* E-MAIL" />
+          <div className="messageModal-input-warning-message">
+            <label className="font-danger" hidden={ !emptyEmail }>* 此欄位必填</label>
+          </div>
+
+          <textarea className="form-control messageModal-input" rows="3" name="message" onChange={this.onFormChange}  placeholder="* MESSAGE"></textarea>
+          <div className="messageModal-input-warning-message">
+            <label className="font-danger" hidden={ !emptyMessage }>* 此欄位必填</label>
+          </div>
         </div>
         <button
+          disabled={loading}
           className="btn btn-default messageModal-submit"
           onClick={this.onSubmitHandler}
         >

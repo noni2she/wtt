@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import NavBar from 'containers/common/navBar.jsx';
 import MessageTable from './messageTable.jsx';
 
 import { NAV_BAR_MESSAGES } from 'constants/common';
-import { messageObject } from 'utils/fakeData';
 
 class PageMessage extends Component {
 
@@ -14,14 +14,11 @@ class PageMessage extends Component {
 
   render() {
     try {
-      const {header, messageItems} = messageObject;
+      const { messageItems } = this.props;
       return (
-        <div className="container-with-nav-bar" >
+        <div className="container-with-nav-bar">
           <NavBar active={ NAV_BAR_MESSAGES } />
-          <div className="container-fluid">
-            <div className="message-header">
-              <h2>{ header }</h2>
-            </div>
+          <div id="page-message" className="container-fluid">
             <MessageTable messageItems={ messageItems }/>
           </div>
         </div>
@@ -33,4 +30,7 @@ class PageMessage extends Component {
   }
 }
 
-export default PageMessage;
+const mapStateToProps = ({ messageItems }) => {
+  return { messageItems };
+}
+export default connect(mapStateToProps)(PageMessage);
