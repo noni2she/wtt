@@ -35,8 +35,29 @@ export const downloadItemDefaultGenerator = () => {
     timestamps: new Date().toString(),
     mainImg: imgItemDefaultGenerator(),
     title: 'downloadItem',
-    description: [],
-    link: [],
+    description: ['', '', '', '', ''],
+    link: [
+      {
+        key: '',
+        linkUrl: '',
+      },
+      {
+        key: '',
+        linkUrl: '',
+      },
+      {
+        key: '',
+        linkUrl: '',
+      },
+      {
+        key: '',
+        linkUrl: '',
+      },
+      {
+        key: '',
+        linkUrl: '',
+      },
+    ],
   });
 }
 
@@ -49,7 +70,23 @@ export const seriesDefaultGenerator = () => {
     shortName: 'New series',
     mainImg: imgItemDefaultGenerator(),
     subImg: imgItemDefaultGenerator(),
-    description: [],
+    description: [{
+        title: '',
+        content: '',
+      }, {
+        title: '',
+        content: '',
+      }, {
+        title: '',
+        content: '',
+      }, {
+        title: '',
+        content: '',
+      }, {
+        title: '',
+        content: '',
+      }
+    ],
     content: [{
       key: 'uuid',
       displayedName: 'id',
@@ -82,10 +119,11 @@ export const categoryDefaultGenerator = () => {
     key: 'keyName',
     name: 'New Category',
     mainImg: imgItemDefaultGenerator(),
-    seriesItems: [],
+    seriesItems: [seriesDefaultGenerator()],
   });
 }
 
+// the following is reducer init
 export const emptyContentObjectGenerator = () => {
   return ({
     topBanner: {
