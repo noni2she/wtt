@@ -8,9 +8,12 @@ import {
   PRODUCTS_DESCRIPT_COUNT,
   FORM_SET_SERIES_DETAIL,
   DELETE_PRODUCT_SERIES,
+  TOAST_TITLE_DELETE_FAILED,
+  TOAST_MESSAGE_SERIES_ITEM_DELETE_FAILED
 } from 'constants/common';
 import { onEditFormSubmit, onDeleteFormSubmit } from 'actions/editForm';
 import { onSeriesDelete } from 'actions/productDetail';
+import { errorToastr } from 'utils/common';
 
 class SeriesDetailFormSet extends Component {
   constructor(props) {
@@ -197,8 +200,18 @@ class SeriesDetailFormSet extends Component {
     event.preventDefault();
     const {
       locales, categoryItemsIndex, seriesItemsIndex,
-      seriesKey, categoryKey
+      seriesKey, categoryKey, seriesCount,
     } = this.props;
+
+    if (seriesCount <= 1 ) {
+      // prevent no seriesItem
+      errorToastr({
+        title: TOAST_TITLE_DELETE_FAILED,
+        message: TOAST_MESSAGE_SERIES_ITEM_DELETE_FAILED,
+      });
+      this.context.router.replace('/');
+      return;
+    }
 
     this.props.onDeleteFormSubmit(
       locales, DELETE_PRODUCT_SERIES, {

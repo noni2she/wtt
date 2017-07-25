@@ -33,7 +33,7 @@ export const renderSeriesDetailFormSet = (props, categoryKey, seriesKey) => {
     }
 
     const seriesItem = products.categoryItems[categoryItemsIndex].seriesItems[seriesItemsIndex];
-
+    const seriesCount = products.categoryItems[categoryItemsIndex].seriesItems.length;
     return(
       <SeriesDetailFormSet
         locales={locales}
@@ -42,6 +42,7 @@ export const renderSeriesDetailFormSet = (props, categoryKey, seriesKey) => {
         seriesItemsIndex={seriesItemsIndex}
         categoryKey={categoryKey}
         seriesKey={seriesKey}
+        seriesCount={seriesCount}
       />
     );
   } catch (error) {
