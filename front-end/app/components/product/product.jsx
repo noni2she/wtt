@@ -10,9 +10,15 @@ export default class ProductItem extends Component {
     const { categoryKey, type } = this.props;
     const { name, mainImg, seriesItems } = this.props.categoryItem;
     const className = `product-info${type}`;
-    const seriesKey = seriesItems[0].key;
 
+    const seriesItemsNeedToShow = seriesItems.filter((item) => {
+      if (item.displayed) {
+        return item;
+      }
+    });
+    if (seriesItemsNeedToShow.length <= 0) return null;
 
+    const seriesKey = seriesItemsNeedToShow[0].key;
     return (
       <div className="product-item container-fluid">
         <Link to={`/product/${categoryKey}/${seriesKey}`}>
