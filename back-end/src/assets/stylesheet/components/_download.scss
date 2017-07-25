@@ -136,7 +136,11 @@
         margin-bottom: 0px;
       }
       a {
-          cursor: pointer;  
+        &:hover{
+          color: #1E90FF;
+        }
+        color: #337ab7;
+        cursor: pointer;  
       }
     }
   }
