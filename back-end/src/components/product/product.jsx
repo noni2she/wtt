@@ -3,7 +3,8 @@ import { Link } from 'react-router';
 import PropTypes from 'prop-types';
 import ImgItem from 'components/common/imgItem.jsx';
 import SeriesNavBar from 'components/common/seriesNavBar';
-
+import { TOAST_TITLE_CREATE_FAILED, TOAST_MESSAGE_SERIES_ITEM_CREATE_FAILED } from 'constants/common';
+import { errorToastr } from 'utils/common';
 
 export class ProductItem extends Component {
 
@@ -14,7 +15,17 @@ export class ProductItem extends Component {
 
   onCreateBtnClick(event) {
     event.preventDefault();
-    const { categoryIndex } = this.props;
+    const { categoryIndex, seriesItemsCount } = this.props;
+
+    // prevent from seriesItems more than 12
+    if (seriesItemsCount >= 12 ) {
+      // prevent no seriesItem
+      errorToastr({
+        title: TOAST_TITLE_CREATE_FAILED,
+        message: TOAST_MESSAGE_SERIES_ITEM_CREATE_FAILED,
+      });
+      return;
+    }
 
     this.context.router.push(`/edit/series/new/${categoryIndex}`);
   }

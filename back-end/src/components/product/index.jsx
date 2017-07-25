@@ -21,6 +21,7 @@ export default class Product extends Component {
       categoryItems.map((item, index) => {
         const categoryKey = item.key;
         const type = index % PRODUCT_STYLE_CYCLE + 1;
+        const seriesItemsCount = item.seriesItems.length;
 
         return(
           <ProductItem
@@ -29,6 +30,7 @@ export default class Product extends Component {
             categoryKey={categoryKey}
             categoryIndex={index}
             key={`categoryItem_${index}`}
+            seriesItemsCount={seriesItemsCount}
           />
         );
       })
