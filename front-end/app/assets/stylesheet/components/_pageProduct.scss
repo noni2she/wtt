@@ -25,7 +25,7 @@
     min-height: 341px;
     margin-left: 3px;
 
-    @media (max-width: $screen-md-min) {
+    @media (max-width: $screen-sm-min) {
       min-height: 0px;
       margin: 15px 0;
     }
