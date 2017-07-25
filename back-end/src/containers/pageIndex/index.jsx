@@ -25,9 +25,9 @@ class PageIndex extends Component {
         <NavBar active={NAV_BAR_INDEX} /> 
         <div className="container-fluid">
           <TopBanner imgItems={topBanner.imgItems} />
-          <Product products={products} />
-          <News news={news} />
-          <Download download={download} showAllItems={false}/>
+          <Product products={products} locales={locales}/>
+          <News news={news} locales={locales}/>
+          <Download download={download} showAllItems={false} locales={locales}/>
           <About about={about} />
           <Contact contact={contact} />
           <Footer /> 
