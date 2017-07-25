@@ -12,7 +12,7 @@ export default class DownloadItem extends Component {
       return (
         <li key={`downItemlink_${index}`}>
           <span>
-            <p>{item.key}:<a href={item.url}>Download</a></p>
+            <p>{item.key}:<a href={item.linkUrl} target="blank">Download</a></p>
           </span>
         </li>
       );
