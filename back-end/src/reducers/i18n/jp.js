@@ -179,9 +179,10 @@ export default (state = jpInitialState, action) => {
         ...newState[ATTRI_NAME_NEWS],
       }
       newState[ATTRI_NAME_NEWS].newsItems = [
+        createNewsItems,
         ...newState[ATTRI_NAME_NEWS].newsItems,
       ];
-      newState[ATTRI_NAME_NEWS].newsItems.push(createNewsItems);
+
       return newState;
     // downloadItem
     case ON_JP_DOWNLOAD_ITEM_CREATE:
@@ -195,9 +196,10 @@ export default (state = jpInitialState, action) => {
         ...newState[ATTRI_NAME_DOWNLOAD],
       }
       newState[ATTRI_NAME_DOWNLOAD].downloadItems = [
+        createDownloadItems,
         ...newState[ATTRI_NAME_DOWNLOAD].downloadItems,
       ];
-      newState[ATTRI_NAME_DOWNLOAD].downloadItems.push(createDownloadItems);
+
       return newState;
     // series
     case ON_JP_PRODUCTS_SERIES_CREATE:
