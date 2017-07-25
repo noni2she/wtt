@@ -99,7 +99,7 @@ class PageProduct extends Component {
        */
       const { seriesItem } = contentObject;
       const { content } = seriesItem;
-      const products = productsDetail[categoryKey][seriesKey];
+      const products = productsDetail[categoryKey] ? productsDetail[categoryKey][seriesKey] : [];
       return (
         <div className="container-with-nav-bar" >
           <NavBar />
