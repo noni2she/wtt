@@ -107,22 +107,22 @@ const seriesItem = () => {
       key: 'uuid',
       displayedName: 'id',
     }, {
-      key: 'col1',
+      key: 'val0',
       displayedName: 'PCD'
     }, {
-      key: 'col2',
+      key: 'val1',
       displayedName: 'HUB'
     }, {
-      key: 'col3',
+      key: 'val2',
       displayedName: 'Thread Type'
     }, {
-      key: 'col4',
+      key: 'val3',
       displayedName: 'O.D(mm)'
     }, {
-      key: 'col5',
+      key: 'val4',
       displayedName: 'Car Model'
     }, {
-      key: 'col6',
+      key: 'val5',
       displayedName: 'Part Number'
     }],
   });
@@ -139,18 +139,7 @@ const categoryItem = () => {
   });
 }
 
-const mockProductDetail = [{"col1":"4H/100","col2":"Φ54.1","col3":"M12xP1.25xL23","col4":149,"col5":"Suzuki","col6":"SHA-1154166-15"},
-{"col1":"4H/100","col2":"Φ54.1","col3":"M12xP1.25xL23","col4":149,"col5":"","col6":"SHA-1154166-20"},
-{"col1":"4H/100","col2":"Φ54.1","col3":"M12xP1.25xL23","col4":149,"col5":"","col6":"SHA-1154166-25"},
-{"col1":"4H/100","col2":"Φ54.1","col3":"M12xP1.25xL23","col4":149,"col5":"","col6":"SHA-1154166-30"},
-{"col1":"4H/100","col2":"Φ54.1","col3":"M12xP1.50xL23","col4":149,"col5": "Mazda Scion Toyota Hyundai Kia","col6":"SHA-1154177-15"},
-{"col1":"4H/100","col2":"Φ54.1","col3":"M12xP1.50xL23","col4":149,"col5":"","col6":"SHA-1154177-20"},
-{"col1":"4H/100","col2":"Φ54.1","col3":"M12xP1.50xL23","col4":149,"col5":"","col6":"SHA-1154177-25"},
-{"col1":"4H/100","col2":"Φ54.1","col3":"M12xP1.50xL23","col4":149,"col5":"","col6":"SHA-1154177-30"},
-{"col1":"4H/100","col2":"Φ56.1","col3":"M12xP1.50xL23","col4":149,"col5":"Acura \nHonda Mitsubishi kia","col6":"SHA-1156177-15"},
-{"col1":"4H/100","col2":"Φ56.1","col3":"M12xP1.50xL23","col4":149,"col5":"","col6":"SHA-1156177-20"},
-{"col1":"4H/100","col2":"Φ56.1","col3":"M12xP1.50xL23","col4":149,"col5":"","col6":"SHA-1156177-25"},
-{"col1":"4H/100","col2":"Φ56.1","col3":"M12xP1.50xL23","col4":149,"col5":"","col6":"SHA-1156177-30"}]
+const mockProductDetail = [{"val0":"5H/108","val1":"Φ63.4","val2":"M12xP1.50xL23","val3":149,"val4":"Ford","val5":"SHA-121263477-15"},{"val0":"5H/108","val1":"Φ63.4","val2":"M12xP1.50xL23","val3":149,"val4":"","val5":"SHA-121263477-20"},{"val0":"5H/108","val1":"Φ63.4","val2":"M12xP1.50xL23","val3":149,"val4":"","val5":"SHA-121263477-25"},{"val0":"5H/108","val1":"Φ63.4","val2":"M12xP1.50xL23","val3":149,"val4":"","val5":"SHA-121263477-30"},{"val0":"5H/108","val1":"Φ63.4","val2":"M14xP1.50xL27","val3":149,"val4":"Ford","val5":"SHA-121263499-15"},{"val0":"5H/108","val1":"Φ63.4","val2":"M14xP1.50xL27","val3":149,"val4":"","val5":"SHA-121263499-20"},{"val0":"5H/108","val1":"Φ63.4","val2":"M14xP1.50xL27","val3":149,"val4":"","val5":"SHA-121263499-25"}];
 
 
 // export fake data which should be similar to what in firebase

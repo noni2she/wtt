@@ -93,22 +93,22 @@ export const seriesDefaultGenerator = () => {
       key: 'uuid',
       displayedName: 'id',
     }, {
-      key: 'col1',
+      key: 'val0',
       displayedName: 'column 1'
     }, {
-      key: 'col2',
+      key: 'val1',
       displayedName: 'column 2'
     }, {
-      key: 'col3',
+      key: 'val2',
       displayedName: 'column 3'
     }, {
-      key: 'col4',
+      key: 'val3',
       displayedName: 'column 4'
     }, {
-      key: 'col5',
+      key: 'val4',
       displayedName: 'column 5'
     }, {
-      key: 'col6',
+      key: 'val5',
       displayedName: 'column 6'
     }],
   });
