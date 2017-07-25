@@ -16,7 +16,7 @@ class TopBannerFormSet extends Component {
     const imgItems = [ ...props.imgItems ];
     for (let index = 0 ; index < insufficientCount ; index++) {
       imgItems.push(
-        imgItemDefaultGenerator()
+        imgItemDefaultGenerator(false)
       );
     }
     this.state = {

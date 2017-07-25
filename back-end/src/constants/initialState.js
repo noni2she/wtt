@@ -4,12 +4,14 @@ import { uuid } from 'utils/common';
  * The following are initial state generator
  */
 
-export const imgItemDefaultGenerator = () => {
+export const imgItemDefaultGenerator = (contentDefault = true) => {
+  // when contentDefault is false, set everything empty
+
   return({
-    displayed: false,
+    displayed: contentDefault === true,
     id: uuid(),
     timestamps: new Date().toString(),
-    imgUrl: '',
+    imgUrl: contentDefault ? 'https://icrvb3jy.xinmedia.com/solomo/article/93429/420C29C8-91FB-FCD7-5D62-9101354EE0BC.jpg' : '',
     altText: '',
   });
 }
