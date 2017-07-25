@@ -7,7 +7,7 @@ export default class Product extends Component {
 
   productListGernerator(categoryItems) {
     const categoryItemsNeedToShow = categoryItems.filter((item) => {
-      if (item.displayed) {
+      if (item.displayed && item.seriesItems.length > 0) {
         return item;
       }
     });
