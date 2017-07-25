@@ -30,6 +30,30 @@ export const fetchingFirebaseData = (action) => {
           messageItems,
         })
       })
+      .then((rootObject) => {
+        // hotfix for undefined categoryItems and seriesItems
+        let { tw, jp, en } = rootObject;
+
+        tw.products.categoryItems = tw.products.categoryItems || [];
+        tw.products.categoryItems.forEach((categoryItem) => {
+          if (!categoryItem.seriesItems) categoryItem.seriesItems = [];
+        });
+
+        en.products.categoryItems = tw.products.categoryItems || [];
+        en.products.categoryItems.forEach((categoryItem) => {
+          if (!categoryItem.seriesItems) categoryItem.seriesItems = [];
+        });
+
+        jp.products.categoryItems = tw.products.categoryItems || [];
+        jp.products.categoryItems.forEach((categoryItem) => {
+          if (!categoryItem.seriesItems) categoryItem.seriesItems = [];
+        });
+
+        return {
+          ...rootObject,
+          tw, en, jp,
+        };
+      })
       .catch((error) => {
         return false;
       })

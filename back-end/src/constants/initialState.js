@@ -121,7 +121,7 @@ export const categoryDefaultGenerator = () => {
     key: 'keyName',
     name: 'New Category',
     mainImg: imgItemDefaultGenerator(),
-    seriesItems: [seriesDefaultGenerator()],
+    seriesItems: [],
   });
 }
 
