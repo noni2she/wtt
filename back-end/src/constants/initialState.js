@@ -190,5 +190,9 @@ export const jpInitialState = emptyContentObjectGenerator();
 export const enInitialState = emptyContentObjectGenerator();
 
 // pass fake data for productsDetail
-export const productsDetailInitialState = {};
+export const productsDetailInitialState = {
+  ...{"val0":"5H/108","val1":"Φ63.4","val2":"M12xP1.50xL23","val3":149,"val4":"Ford","val5":"SHA-121263477-15"},
+  uuid: uuid(),
+}
+
 export const messageItemsInitialState = [];

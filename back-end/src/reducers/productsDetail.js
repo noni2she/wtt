@@ -117,7 +117,7 @@ export default (state = productsDetailInitialState, action) => {
 
       // prevent from overwrting existing object
       newState[categoryKey][key] = newState[categoryKey][key] ?
-        newState[categoryKey][key] : [];
+        newState[categoryKey][key] : [productsDetailInitialState];
 
       return newState;
     case PROD_DETAIL_ON_CATEGORY_DELETE:
