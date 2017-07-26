@@ -1,19 +1,17 @@
 @media (min-width: $screen-md-min) {
   #download {
     .download-item {
-      height: 300px;
       display:flex;
       align-items:center;
+      padding-bottom: 20px;
       .download-img {
         height: 242px;
       }
       .download-description {
         text-align: left;
-        height: 242px;
       }
       .download-link {
         text-align: left;
-        height: 242px;
       }
     }
   }
@@ -27,11 +25,9 @@
         height: 200px;
       }
       .download-description {
-        height: auto;
         padding-left: 20%;
       }
       .download-link {
-        height: auto;
         padding-left: 20%;
       }
     }
@@ -41,16 +37,13 @@
 @media (max-width: $screen-sm-min) {
   #download {
     .download-item {
-      height: auto;
       .download-img {
         height: 200px;
       }
       .download-description {
-        height: auto;
         padding-left: 0px;
       }
       .download-link {
-        height: auto;
         padding-left: 0px;
       }
     }
@@ -63,10 +56,9 @@
 
   a {
     color: inherit;
-  }
-
-  a:hover {
-    color: #337ab7
+    &:hover {
+      color: #337ab7;
+    }
   }
 
   .download-title {
@@ -84,6 +76,7 @@
       align-items: center;
     }
   }
+
   .download-more {
     display: flex;
     justify-content: center;
@@ -106,9 +99,11 @@
       }
     }
   }
+
   .download-item {
     max-width: 1100px;
     margin: 0 auto;
+    height: auto;
     .download-img {
       display: flex;
       justify-content: center;
@@ -119,6 +114,7 @@
       }
     }
     .download-description {
+      height: auto;
       p {
         margin-bottom: 0px;
       }
@@ -129,6 +125,7 @@
       }
     }
     .download-link {
+      height: auto;
       i {
         font-size: 20px;
       }
