@@ -8,11 +8,16 @@ export default class DownloadItem extends Component {
       description, link, mainImg, title
     } = this.props.downloadItem;
     const downloadItemDescription = description.map((item, index) => <p key={`downItemDescription_${index}`}>{item}</p>);
-    const downloadItemLink = link.map((item, index) => {
+    const downloadItemLinkNeedToShow = link.filter((item)=>{
+      if (item.key && item.linkUrl) {
+        return item;
+      }
+    });
+    const downloadItemLink = downloadItemLinkNeedToShow.map((item, index) => {
       return (
         <li key={`downItemlink_${index}`}>
           <span>
-            <p>{item.key}:<a href={item.url}>Download</a></p>
+            <p>{item.key}:<a href={item.linkUrl} target="blank">Download</a></p>
           </span>
         </li>
       );

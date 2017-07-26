@@ -1,7 +1,6 @@
 @media (min-width: $screen-md-min) {
   #download {
     .download-item {
-      height: 300px;
       display:flex;
       align-items:center;
       .download-img {
@@ -9,11 +8,9 @@
       }
       .download-description {
         text-align: left;
-        height: 242px;
       }
       .download-link {
         text-align: left;
-        height: 242px;
       }
     }
   }
@@ -22,16 +19,13 @@
 @media (max-width: $screen-md-min) {
   #download {
     .download-item {
-      height: auto;
       .download-img {
         height: 200px;
       }
       .download-description {
-        height: auto;
         padding-left: 20%;
       }
       .download-link {
-        height: auto;
         padding-left: 20%;
       }
     }
@@ -41,16 +35,13 @@
 @media (max-width: $screen-sm-min) {
   #download {
     .download-item {
-      height: auto;
       .download-img {
         height: 200px;
       }
       .download-description {
-        height: auto;
         padding-left: 0px;
       }
       .download-link {
-        height: auto;
         padding-left: 0px;
       }
     }
@@ -100,6 +91,7 @@
   .download-item {
     max-width: 1100px;
     margin: 0 auto;
+    height: auto;
     .download-img {
       display: flex;
       justify-content: center;
@@ -110,6 +102,7 @@
       }
     }
     .download-description {
+      height: auto;
       p {
         margin-bottom: 0px;
       }
@@ -120,6 +113,7 @@
       }
     }
     .download-link {
+      height: auto;
       i {
         font-size: 20px;
       }
@@ -144,5 +138,9 @@
 #download-page {
   #download {
     padding-bottom: 20px;
+    .download-item {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
   }
 }
