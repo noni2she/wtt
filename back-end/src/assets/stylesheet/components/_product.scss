@@ -1,15 +1,5 @@
 $productImgMarginLeft: 18em;
 
-@media (max-width: $screen-sm-min) {
-  .product-series {
-    height: auto;
-    .product-series-container-1, .product-series-container-2 {
-      p {
-        font-size: 1.5vw;
-      }
-    }
-  }
-}
 @media (max-width: $screen-md-min) {
   .product-series,
   .product-series-item,
@@ -17,21 +7,11 @@ $productImgMarginLeft: 18em;
     padding-left: 0px;
     padding-right: 0px;
   }
-  .product-series-item {
-    a {
-      font-size: 1px;
-    }
-  }
 }
 @media (min-width: $screen-md-min) {
   .product-series-item,{
     padding-left: 0px;
     padding-right: 0px;
-  }
-  .product-series-item {
-    a {
-      font-size: 1px;
-    }
   }
 }
 
@@ -118,6 +98,8 @@ $productImgMarginLeft: 18em;
       text-align: center;
 
       .product-series-item {
+        padding-left: 5px;
+        padding-right: 5px;
         cursor: pointer;
         &:hover {
           background-color: #ee0000;
@@ -126,15 +108,16 @@ $productImgMarginLeft: 18em;
         a {
           text-decoration: none;
           cursor: pointer;
+          font-size: 12px;
+
           p {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             color: white;
             height: 50px;
-            line-height: 60px;
-
-            // prevent line break
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
+            margin: 0;
+            word-break: break-all;
           }
         }
       }
