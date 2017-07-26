@@ -24,6 +24,9 @@ import 'stylesheet/index.css';
 import 'jquery';
 import 'bootstrap';
 
+// function
+import { linkScroll } from 'utils/common';
+
 // create the saga middleware
 const sagaMiddleware = createSagaMiddleware();
 
@@ -40,7 +43,11 @@ bootstrap(store)();
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router history={browserHistory} routes={routes} />
+    <Router
+      history={browserHistory}
+      routes={routes}
+      onUpdate={linkScroll}
+    />
   </Provider>, document.getElementById('root')
 );
 registerServiceWorker();

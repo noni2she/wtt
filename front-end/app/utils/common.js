@@ -1,8 +1,9 @@
 import uuidv4 from 'uuid/v4';
+import { animateScroll } from 'react-scroll';
 
 export const uuid = uuidv4;
 
-export const hashLinkScroll = () => {
+export const linkScroll = () => {
   const { hash } = window.location;
   if (hash !== '') {
     // Push onto callback queue so it runs after the DOM is updated,
@@ -13,5 +14,9 @@ export const hashLinkScroll = () => {
       const element = document.getElementById(id);
       if (element) element.scrollIntoView();
     }, 0);
+  } else {
+    animateScroll.scrollToTop({
+      duration: 0,
+    });
   }
 };
