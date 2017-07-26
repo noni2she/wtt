@@ -30,21 +30,23 @@ class ProductTable extends Component {
           </thead>
           <tbody className="products-table-tbody">
             {
-              products.map((product, index) => {
-                return (
-                  <tr key={`product-table-tbody-${index}`}>
-                    {
-                      content.map(({ key }, itemIndex) => {
-                        return (
-                          <td key={`product-table-tbody-item-${itemIndex}`}>
-                            { product[key] }
-                          </td>
-                        );
-                      })
-                    }
-                  </tr>
-                );
-              })
+              products.length > 0 ? (
+                products.map((product, index) => {
+                  return (
+                    <tr key={`product-table-tbody-${index}`}>
+                      {
+                        content.map(({ key }, itemIndex) => {
+                          return (
+                            <td key={`product-table-tbody-item-${itemIndex}`}>
+                              { product[key] }
+                            </td>
+                          );
+                        })
+                      }
+                    </tr>
+                  );
+                })
+              ) : (null)
             }
           </tbody>
         </table>
