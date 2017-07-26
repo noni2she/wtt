@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, IndexRoute } from 'react-router';
+import { Route, IndexRoute, Redirect } from 'react-router';
 import PageIndex from 'containers/pageIndex';
 import PageProduct from 'containers/pageProduct';
 import PageDownload from 'containers/pageDownload';
@@ -10,6 +10,7 @@ export default (
     <IndexRoute component={PageIndex}/>
     <Route path="/product/:categoryKey/:seriesKey" component={PageProduct} />
     <Route path="/download" component={PageDownload} />
+    <Redirect from="*" to="/" />
   </Route>
 );
 

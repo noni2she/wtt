@@ -21,7 +21,7 @@ import 'jquery';
 import 'bootstrap';
 
 // function
-import { hashLinkScroll } from 'utils/common';
+import { linkScroll } from 'utils/common';
 
 // create the saga middleware
 const sagaMiddleware = createSagaMiddleware();
@@ -42,7 +42,7 @@ ReactDOM.render(
     <Router
       history={browserHistory}
       routes={routes}
-      onUpdate={hashLinkScroll}
+      onUpdate={linkScroll}
     />
   </Provider>, document.getElementById('root')
 );

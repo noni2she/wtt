@@ -39,12 +39,12 @@ export const fetchingFirebaseData = (action) => {
           if (!categoryItem.seriesItems) categoryItem.seriesItems = [];
         });
 
-        en.products.categoryItems = tw.products.categoryItems || [];
+        en.products.categoryItems = en.products.categoryItems || [];
         en.products.categoryItems.forEach((categoryItem) => {
           if (!categoryItem.seriesItems) categoryItem.seriesItems = [];
         });
 
-        jp.products.categoryItems = tw.products.categoryItems || [];
+        jp.products.categoryItems = jp.products.categoryItems || [];
         jp.products.categoryItems.forEach((categoryItem) => {
           if (!categoryItem.seriesItems) categoryItem.seriesItems = [];
         });
