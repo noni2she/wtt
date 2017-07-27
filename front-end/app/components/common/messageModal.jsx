@@ -119,9 +119,7 @@ export class MessageModal extends Component {
             <span className="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
           </a>
 
-          <div>
-            <img src="/img/ruki.png" alt=""/>
-          </div>
+          <div className="messageModal-ruki-img ruki-icon"></div>
           <h3 className="messageModal-header">- GET IN TOUCH -</h3>
           <input type="text" className="form-control messageModal-input" name="name" onChange={this.onFormChange}  placeholder="* NAME" />
           <div className="messageModal-input-warning-message">
