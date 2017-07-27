@@ -13,11 +13,18 @@
     background-image: url('../img/talk_2.png');
   }
 }
+.ruki-icon {
+  height: 80px;
+  width: 80px;
+  background-image: url('../img/ruki.png');
+}
 
 .messageModal-text-field  {
   text-align: center;
   color: white;
-
+  .messageModal-ruki-img {
+    margin: 0 auto;
+  }
   .messageModal-header {
     margin-bottom: 50px;
   }
@@ -72,5 +79,4 @@
   .messageModal-empty-gap {
     padding-top: 50px;
   }
-
 }

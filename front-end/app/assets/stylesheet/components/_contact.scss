@@ -96,9 +96,12 @@
             .icon {
               display: inline-block;
               width: 55px;
-              img {
+              > div {
+                background-repeat: no-repeat;
+                background-size: cover;
                 margin: 0 auto;
-                width:45px;  
+                width: 45px;
+                height: 45px;
               }
             }
           }
@@ -106,4 +109,14 @@
       }
     }
   }
+}
+
+.contact-talk-icon {
+  background-image: url('../img/contact/talk.png');
+}
+.contact-skype-icon {
+  background-image: url('../img/contact/skype.png');
+}
+.contact-facebook-icon {
+  background-image: url('../img/contact/facebook.png');
 }

@@ -52,17 +52,17 @@ export default class Contact extends Component {
                       <div className="icon-container">
                         <Link to="/">
                           <div className="icon">
-                            <img src="/img/contact/talk.png" alt="contact us"/>
+                            <div className="contact-talk-icon"></div>
                           </div>
                         </Link>
                         <Link to="/">
                           <div className="icon">
-                            <img src="/img/contact/skype.png" alt="skype"/>
+                            <div className="contact-skype-icon"></div>
                           </div>
                         </Link>
                         <Link to="/">
                           <div className="icon">
-                            <img src="/img/contact/facebook.png" alt="facebook"/>
+                            <div className="contact-facebook-icon"></div>
                           </div>
                         </Link>
                       </div>
