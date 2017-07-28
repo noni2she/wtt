@@ -50,6 +50,9 @@ $productImgMarginLeft: 18em;
     height: 200px;
     position:relative;
     overflow: hidden;
+    .product-info-name {
+      z-index: 1;
+    }
     .product-img {
       position: absolute;
       width: 200px;
