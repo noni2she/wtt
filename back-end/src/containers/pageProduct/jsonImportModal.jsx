@@ -45,12 +45,18 @@ export class JSONImportModal extends Component {
   onSubmitHandler() {
     try {
       const { categoryKey, seriesKey } = this.props;
-      const  { value } = this.state;
+      const regExp = /(\n|\\n|\r|\\r|\r\n|\\r\\n)/g;
+
+      let { value } = this.state;
       let seriesItems;
 
       // textfield validate
       if (!value) return;
+
+      // replace line break
+      value = value.replace(regExp, ' ');
       seriesItems = JSON.parse(value);
+
       seriesItems = seriesItems.map((seriesItem) => {
         return({
           ...seriesItem,
