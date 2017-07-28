@@ -7,8 +7,11 @@ export default class Contact extends Component {
   render() {
     const {
       header, subheader, subImg, company,
-      phone, fax, email, location, mainImg
+      phone, fax, email, location,
+      mainImg, sns
     } = this.props.contact;
+    const skypeLink = (sns.skype && sns.skype.link) ? sns.skype.link : '';
+    const fbLink = (sns.fb && sns.fb.link) ? sns.fb.link : '';
     return (
       <div id="contact" className="container">
         <div className="contact-title">
@@ -50,21 +53,21 @@ export default class Contact extends Component {
                     </li>
                     <li>
                       <div className="icon-container">
-                        <Link to="/">
+                        <a href="">
                           <div className="icon">
                             <div className="contact-talk-icon"></div>
                           </div>
-                        </Link>
-                        <Link to="/">
+                        </a>
+                        <a href={skypeLink}>
                           <div className="icon">
                             <div className="contact-skype-icon"></div>
                           </div>
-                        </Link>
-                        <Link to="/">
+                        </a>
+                        <a href={fbLink}>
                           <div className="icon">
                             <div className="contact-facebook-icon"></div>
                           </div>
-                        </Link>
+                        </a>
                       </div>
                     </li>
                   </ul>
