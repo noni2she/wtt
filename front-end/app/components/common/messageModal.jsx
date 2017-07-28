@@ -188,6 +188,11 @@ export class MessageModal extends Component {
       // prevent boron default width
       width: '',
     };
+
+    const contentStyle = {
+      outline: 'none',
+    };
+
     const { isCompleted } = this.state;
 
     return (
@@ -205,6 +210,7 @@ export class MessageModal extends Component {
           keyboard={this.callback}
           backdropStyle={backdropStyle}
           modalStyle={modalStyle}
+          contentStyle={contentStyle}
           className={'col-lg-4 col-md-5 col-sm-6 col-xs-12'}
         >
           <div className="container messageModal-text-field col-lg-12 col-md-12 col-sm-12 col-xs-12">
