@@ -77,6 +77,7 @@ export const TOAST_TITLE_CREATE_NEWSITEM = '新增 news';
 export const TOAST_TITLE_CREATE_DOWNLOADITEM = '新增 download';
 export const TOAST_TITLE_DELETE_FAILED = '刪除失敗';
 export const TOAST_TITLE_CREATE_FAILED = '新增失敗';
+export const TOAST_TITLE_DEPLOY = '部署';
 
 // toastr message
 export const TOAST_MESSAGE_SUCCESS = '成功';
@@ -85,3 +86,5 @@ export const TOAST_MESSAGE_IMPORT_MODAL_SUCCESS = '成功';
 export const TOAST_MESSAGE_IMPORT_MODAL_FAILED = '失敗';
 export const TOAST_MESSAGE_SERIES_ITEM_DELETE_FAILED = ' seriesItem 數量不能低於 1';
 export const TOAST_MESSAGE_SERIES_ITEM_CREATE_FAILED = ' series 數量不能大於 12';
+export const TOAST_MESSAGE_DEPLOY_SUCCESS = '部署成功';
+export const TOAST_MESSAGE_DEPLOY_FAILED = '部署失敗';

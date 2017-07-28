@@ -11,6 +11,12 @@ import { onLocaleChange } from 'actions/locales';
 import { setData } from 'utils/firebase';
 import { FIREBASE_ROOT } from 'constants/config';
 import logo from 'img/oval.svg';
+import { successToastr, errorToastr } from 'utils/common';
+import {
+  TOAST_TITLE_DEPLOY,
+  TOAST_MESSAGE_DEPLOY_SUCCESS,
+  TOAST_MESSAGE_DEPLOY_FAILED,
+} from 'constants/common';
 
 export class NavBar extends Component {
   constructor() {
@@ -54,8 +60,20 @@ export class NavBar extends Component {
       loading: true,
     })
     setData(FIREBASE_ROOT, rootObject)
+      .then(() => {
+        // when deploy succeed
+        successToastr({
+          title: TOAST_TITLE_DEPLOY,
+          message: TOAST_MESSAGE_DEPLOY_SUCCESS,
+        });
+      })
       .catch((error) => {
+        // when deploy failed
         console.log(error);
+        errorToastr({
+          title: TOAST_TITLE_DEPLOY,
+          message: TOAST_MESSAGE_DEPLOY_FAILED,
+        });
       })
       .then(() => {
 
