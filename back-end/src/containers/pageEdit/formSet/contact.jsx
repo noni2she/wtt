@@ -64,7 +64,8 @@ class ContactFormSet extends Component {
         <form className="page-edit-form-set-category">
           <h4 className="form-seperate-header">聯絡我們</h4>
           <div className="form-group">
-            <label>主要圖片</label>
+            <label>地圖</label>
+            
             <input
               className="form-control"
               type="text"
@@ -75,7 +76,7 @@ class ContactFormSet extends Component {
             />
           </div>
           <div className="form-group">
-            <label>地圖</label>
+            <label>主要圖片</label>
             <input
               className="form-control"
               type="text"
