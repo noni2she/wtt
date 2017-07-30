@@ -48,8 +48,25 @@ export class News extends Component {
   }
 
   sliderGenerator(newsItems) {
-    const newsItemList = newsItems.map((item, index) => {
-      return (
+    let newSetting;
+    let newsItemsToShow = [ ...newsItems ];
+    const itemLength = newsItemsToShow.length;
+
+    /* if item counts of newsItems less or equal to 3, pre-process the following two things
+     * 1. hide next page arrow
+     * 2. push `null` to make up to 3
+     */
+    if (itemLength <= 3) {
+      newSetting = {
+        dots: false,
+        arrows: false
+      };
+      for (let i = 0 ; i < 3 - itemLength ; i++) newsItemsToShow.push(null);
+    }
+
+    const newsItemList = newsItemsToShow.map((item, index) => {
+
+      return item ? (
         <div
           className="newsItem-div"
           key={`newsItem_${index}`}
@@ -58,16 +75,10 @@ export class News extends Component {
             <NewsItem newsItem={item}/>
           </Link>
         </div>
-      );
+      ) : (
+        <div className="newsItem-div" key={`newsItem_${index}`}></div>
+      )
     });
-
-    let newSetting;
-    if (newsItemList.length <= 3) {
-      newSetting = {
-        dots: false,
-        arrows: false
-      };
-    }
 
     return (
       <div className="news-slider-container">
