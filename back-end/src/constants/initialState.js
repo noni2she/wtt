@@ -13,6 +13,7 @@ export const imgItemDefaultGenerator = (contentDefault = true) => {
     timestamps: new Date().toString(),
     imgUrl: contentDefault ? 'https://icrvb3jy.xinmedia.com/solomo/article/93429/420C29C8-91FB-FCD7-5D62-9101354EE0BC.jpg' : '',
     altText: '',
+    link: '',
   });
 }
 

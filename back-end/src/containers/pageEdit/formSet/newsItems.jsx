@@ -22,9 +22,12 @@ class NewsItemFormSet extends Component {
       let newValue = value;
 
       if (name === 'mainImg') {
+        const dataKey = target.getAttribute('data-key');
+
         // imgItem
         imageItem = { ...this.state[name] }
-        imageItem.imgUrl = value;
+
+        imageItem[dataKey] = value;
         newValue = imageItem;
       }
        else if (name === 'displayed') {
@@ -91,9 +94,22 @@ class NewsItemFormSet extends Component {
             <input
               className="form-control"
               type="text"
-              placeholder="main-image url" 
+              placeholder="main-image url"
               name="mainImg"
-              value={mainImg.imgUrl}
+              data-key="imgUrl"
+              value={mainImg.imgUrl || ''}
+              onChange={this.onFormChange}
+            />
+          </div>
+          <div className="form-group">
+            <label>外部連結</label>
+            <input
+              className="form-control"
+              type="text"
+              placeholder="link url"
+              name="mainImg"
+              data-key="link"
+              value={mainImg.link || ''}
               onChange={this.onFormChange}
             />
           </div>
