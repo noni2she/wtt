@@ -1,8 +1,8 @@
 @media (min-width: $screen-md-min) {
   #download {
     .download-item {
-      display:flex;
-      align-items:center;
+      display: flex;
+      align-items: flex-start;
       padding-bottom: 20px;
       .download-img {
         height: 242px;
@@ -103,7 +103,7 @@
 
   .download-item {
     max-width: 1100px;
-    margin: 0 auto;
+    margin: 15px auto 0 auto;
     height: auto;
     .download-img {
       display: flex;
