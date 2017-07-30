@@ -4,6 +4,9 @@
       .company-introduction {
         text-align: left;
       }
+      .company-name {
+        text-align: left;
+      }
     }
     .company-map{
       height: 475px;
@@ -20,6 +23,9 @@
 @media (max-width: $screen-lg-min) { 
   #contact {
     .company-information {
+      .company-name {
+        text-align: center;
+      }
       .company-map{
           height: 200px;
           display: flex;
@@ -92,9 +98,7 @@
           height: 275px;
           padding-top: 15px;
           word-break: break-all;
-          .company-name {
-            text-align: center;
-          }
+
           .glyphicon {
             margin: 3px 5px 3px 3px;
             font-size: 15px;
