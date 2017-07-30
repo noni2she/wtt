@@ -99,6 +99,7 @@ export class JSONImportModal extends Component {
               </div>
               <div className="modal-body">
                 <p className="font-danger">* 僅提供 JSON 格式，其他格式內容可能導致頁面異常</p>
+                <p className="font-primary">* 轉檔網站連結 <a href="https://shancarter.github.io/mr-data-converter/" target="blank">https://shancarter.github.io/mr-data-converter</a></p>
                 <textarea className="form-control" rows="20" placeholder="please input json data" name="value" onChange={this.onChangeHandler} value={value}></textarea>
               </div>
               <div className="modal-footer">
