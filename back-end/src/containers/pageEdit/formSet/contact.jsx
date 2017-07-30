@@ -142,18 +142,6 @@ class ContactFormSet extends Component {
             />
           </div>
           <div className="form-group">
-            <label>Skype</label>
-            <input
-              className="form-control"
-              type="text"
-              placeholder="Title"
-              data-type="skype"
-              name="sns"
-              value={sns.skype.link}
-              onChange={this.onFormChange}
-            />
-          </div>
-          <div className="form-group">
             <label>Facebook</label>
             <input
               className="form-control"

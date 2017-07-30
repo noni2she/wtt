@@ -57,11 +57,6 @@ export default class Contact extends Component {
                             <div className="contact-talk-icon"></div>
                           </div>
                         </a>
-                        <a href={skypeLink}>
-                          <div className="icon">
-                            <div className="contact-skype-icon"></div>
-                          </div>
-                        </a>
                         <a href={fbLink}>
                           <div className="icon">
                             <div className="contact-facebook-icon"></div>

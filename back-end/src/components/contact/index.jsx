@@ -61,9 +61,6 @@ export default class Contact extends Component {
                           <img src={contactLogo} alt="contact us"/>
                         </div>
                         <div className="icon">
-                          <img src={skypeLogo} alt="skype"/>
-                        </div>
-                        <div className="icon">
                           <img src={facebookLogo} alt="facebook"/>
                         </div>
                       </div>
