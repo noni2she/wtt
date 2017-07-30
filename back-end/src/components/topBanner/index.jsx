@@ -19,11 +19,11 @@ export default class TopBanner extends Component {
     const { imgItems } = this.props;
     const BannerList = imgItems.map((item, index) => {
       return (
-        <div key={`topBanner_${index}`}>
-          <Link to={`/edit/topBanner`}>
+        <Link to={`/edit/topBanner`} key={`topBanner_${index}`}>
+          <div className="top-banner-slick-slide">
             <ImgItem imgItem={item}/>
-          </Link>
-        </div>
+          </div>
+        </Link>
       );
     });
 
