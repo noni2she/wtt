@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ImgItem from 'components/common/imgItem.jsx';
+import { findMapURL } from 'utils/common';
 
 export default class Contact extends Component {
   render() {
     const {
       header, subheader, subImg, company,
       phone, fax, email, location,
-      mainImg, sns
+      mainImg, sns,
     } = this.props.contact;
-    const skypeLink = (sns.skype && sns.skype.link) ? sns.skype.link : '';
+    const { locales } = this.props;
+
     const fbLink = (sns.fb && sns.fb.link) ? sns.fb.link : '';
+    const mapURL = findMapURL(locales);
+
     return (
       <div id="contact" className="container">
         <div className="contact-title">
@@ -69,7 +73,9 @@ export default class Contact extends Component {
               </div>
             </div>
             <div className="company-map col-lg-8">
-              <ImgItem imgItem={mainImg} />
+              <a href={mapURL} target="blank">
+                <ImgItem imgItem={mainImg} />
+              </a>
             </div>
           </div>
       </div>
@@ -78,5 +84,6 @@ export default class Contact extends Component {
 }
 
 Contact.propTypes = {
-  contact: PropTypes.object
+  contact: PropTypes.object,
+  locales: PropTypes.string,
 };

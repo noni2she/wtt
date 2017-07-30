@@ -29,7 +29,7 @@ class PageIndex extends Component {
           <News news={news} />
           <Download download={download} showAllItems={false}/>
           <About about={about} />
-          <Contact contact={contact} />
+          <Contact contact={contact} locales={locales} />
           <Footer />
         </div>
       </div>

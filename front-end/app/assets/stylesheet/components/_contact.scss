@@ -9,7 +9,7 @@
       height: 475px;
       display: flex;
       justify-content: center;
-      img {
+      a, img {
         flex: none;
         height: 100%;
       }
@@ -24,7 +24,7 @@
           height: 200px;
           display: flex;
           justify-content: center;
-          img {
+          a, img {
             flex: none;
             height: 100%;
           }
