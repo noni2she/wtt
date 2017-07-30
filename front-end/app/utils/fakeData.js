@@ -16,8 +16,8 @@ const generateArray = (itemGenerator, count = 5) => {
 }
 
 /* fake data generator */
-const fakeImgUrl = () => 'https://firebasestorage.googleapis.com/v0/b/techwell-74c86.appspot.com/o/top_banner%2FAD_1.png?alt=media&token=891d542c-969d-402c-94b2-a43d0eef4c18';
-const fakeDownloadUrl = () => 'https://firebasestorage.googleapis.com/v0/b/techwell-74c86.appspot.com/o/top_banner%2FAD_1.png?alt=media&token=891d542c-969d-402c-94b2-a43d0eef4c18';
+const fakeImgUrl = () => 'https://firebasestorage.googleapis.com/v0/b/techwell-74c86.appspot.com/o/top_banner%2FBN_1.png?alt=media&token=907cf74f-117e-49d8-b9e1-95f0749f39c4';
+const fakeDownloadUrl = () => 'https://firebasestorage.googleapis.com/v0/b/techwell-74c86.appspot.com/o/top_banner%2FBN_1.png?alt=media&token=907cf74f-117e-49d8-b9e1-95f0749f39c4';
 const fakeLink = () => faker.internet.url();
 const fakeHeader = () => faker.lorem.word();
 const fakeSubheader = () => faker.lorem.sentence();
