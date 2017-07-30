@@ -11,7 +11,7 @@ const SeriesNavBar = (props) => {
     return (
       <div className="product-series-item col-lg-2 col-md-3 col-sm-3 col-xs-3" key={`productItem_${categoryKey}_${index}`}>
         <Link to={`/product/${categoryKey}/${seriesKey}`}>
-          <p>{`-${seriesItem.shortName} Series`}</p>
+          <p>{`${seriesItem.shortName}`}</p>
         </Link>
       </div>
     );
