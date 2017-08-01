@@ -2,7 +2,7 @@
   #top-banner {
     .top-banner-container {
       .slick-slide {
-        height: 650px;
+        height: 533px;
         img {
           width: 100%;
           height: 100%;
@@ -24,6 +24,17 @@
           flex: none;
           height:100%;
         }
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-md-min) {
+  #top-banner {
+    margin-top: 60px;
+    .top-banner-container {
+      .slick-slide {
+        height: 300px;
       }
     }
   }

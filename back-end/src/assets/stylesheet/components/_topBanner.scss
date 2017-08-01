@@ -2,7 +2,7 @@
   #top-banner {
     .top-banner-container {
       .top-banner-slick-slide {
-        height: 650px;
+        height: 533px;
         img {
           background-color: $wireframe-background;
           width: 100%;
@@ -31,8 +31,19 @@
   }
 }
 
+@media (max-width: $screen-md-min) {
+  #top-banner {
+    margin-top: 60px;
+    .top-banner-container {
+      .slick-slide {
+        height: 300px;
+      }
+    }
+  }
+}
+
 #top-banner {
-  margin-bottom: 60px;
+  margin-bottom: 30px;
   .top-banner-container {
     .top-banner-slick-slide {
       overflow: hidden;
