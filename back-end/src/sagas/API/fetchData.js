@@ -24,7 +24,8 @@ export const fetchingFirebaseData = (action) => {
       })
       .then((rootObject) => {
         // parse messageItems Object into array
-        const messageItems = Object.values(rootObject.messageItems);
+        let { messageItems = [] } = rootObject;
+        messageItems = Object.values(messageItems);
         return({
           ...rootObject,
           messageItems,
