@@ -5,10 +5,15 @@
 }
 
 .messageModal-open-btn {
-  width: 125px;
-  height: 35px;
-  background-image: url('../img/talk.png');
+  @media (min-width: $screen-md-min) {
+    width: 125px;
+    height: 35px;
+  }
 
+  width: 100px;
+  height: 28px;
+  background-image: url('../img/talk.png');
+  background-size: contain;
   &:hover {
     background-image: url('../img/talk_2.png');
   }
