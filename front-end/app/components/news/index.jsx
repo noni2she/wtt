@@ -48,7 +48,7 @@ export default class News extends Component {
     });
 
     let newSetting;
-    if (newsItemList.length < 3) {
+    if (newsItemList.length <= 3) {
       newSetting = {
         dots: false,
         arrows: false
