@@ -11,6 +11,9 @@ $nav-height: 64px;
   background-color: #222;
   opacity: 0.9;
   z-index: 100;
+  @media (max-width: $screen-md-min) {
+    padding-right: 0px;
+  }
 }
 
 // content block
@@ -149,6 +152,13 @@ $nav-height: 64px;
           }
         }
       }
+
+      &.navbar-item-dropdown-locale {
+        background: $wtt-red;
+        a, span {
+          color: white;
+        }
+      }
     }
 
     .navbar-content-logo {
@@ -168,6 +178,7 @@ $nav-height: 64px;
 
     .navbar-content-message {
       text-align: center;
+      margin-right: 7px;
     }
   }
 }
