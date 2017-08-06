@@ -83,12 +83,15 @@ export default (state = productsDetailInitialState, action) => {
 
       return newState;
     case PROD_DETAIL_ON_ADD_ROW:
-      seriesItems = state[categoryKey][seriesKey];
-
       // create a new object for state
       newState = {
         ...state,
       };
+
+      // prevent empty categories or series were found
+      newState[categoryKey] = newState[categoryKey] ? newState[categoryKey] : []
+      newState[categoryKey][seriesKey] = newState[categoryKey][seriesKey] ?
+        newState[categoryKey][seriesKey] : []
 
       // take Array for seriesItems
       newState[categoryKey][seriesKey] = [
@@ -142,6 +145,10 @@ export default (state = productsDetailInitialState, action) => {
       newState = {
         ...state,
       };
+
+      // prevent empty categories were found
+      newState[categoryKey] = newState[categoryKey] ? newState[categoryKey] : []
+
       newState[categoryKey][seriesKey] = seriesItems;
 
       return newState;
