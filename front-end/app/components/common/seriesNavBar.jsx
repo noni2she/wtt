@@ -28,7 +28,7 @@ const SeriesNavBar = (props) => {
 
   return (
     <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12 product-series">
-      <div className="row col-lg-6 col-md-12 col-sm-12 col-xs-12 col-lg-offset-3 product-series-container">
+      <div className="row col-lg-10 col-md-12 col-sm-12 col-xs-12 col-lg-offset-1 product-series-container">
         {series}
       </div>
     </div>
