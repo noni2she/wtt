@@ -62,7 +62,9 @@ $nav-height: 64px;
         cursor: pointer;
       }
     }
-
+    .dropdown-item-pc > a {
+      padding: 4px 15px
+    }
     .navbar-content-item {
       padding: 0 10px;
 
