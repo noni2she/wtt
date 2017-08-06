@@ -39,7 +39,11 @@ class PageProduct extends Component {
       });
 
       // if nothing category was found, then skip the following flow
-      if (!targetCategoryItem) return;
+      // when switch language, if the next language have no series, then go back home page
+      if (!targetCategoryItem) {
+        if (locales !== this.props.locales) this.pageNotFound();
+        return;
+      }
 
       targetCategoryItem.seriesItems.forEach((seriesItem, index) => {
         if (!targetSeriesItem && seriesItem.key === seriesKey) {
