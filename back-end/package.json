@@ -45,6 +45,7 @@
     "jest": "20.0.3",
     "lodash": "^4.17.4",
     "node-sass-chokidar": "^0.0.3",
+    "npm-run-all": "^4.0.2",
     "object-assign": "4.1.1",
     "postcss-flexbugs-fixes": "3.0.0",
     "postcss-loader": "2.0.5",
@@ -60,14 +61,16 @@
     "whatwg-fetch": "2.0.3"
   },
   "scripts": {
+    "build": "run-s build-css build-script",
     "build-css": "node-sass-chokidar src/ -o src/",
+    "build-script": "node scripts/build.js",
     "watch-css": "yarn build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
-    "start": "HTTPS=true node scripts/start.js",
-    "dev": "HTTPS=true REACT_APP_FAKE=true REACT_APP_LOGIN=false node scripts/start.js",
+    "dev": "npm-run-all --parallel dev:with-fake-data build-css",
+    "dev-real": "npm-run-all --parallel dev:with-real-data build-css",
+    "dev:with-fake-data": "HTTPS=true REACT_APP_FAKE=true REACT_APP_LOGIN=false node scripts/start.js",
     "dev:with-real-data": "HTTPS=true REACT_APP_FAKE=false REACT_APP_LOGIN=false node scripts/start.js",
     "dev:with-login": "HTTPS=true REACT_APP_LOGIN=true node scripts/start.js",
     "dev:without-login": "HTTPS=true REACT_APP_LOGIN=false node scripts/start.js",
-    "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "dev-server": "pm2 start yarn --name app -- dev:without-login && pm2 start yarn --name watch-css -- watch-css"
   },
