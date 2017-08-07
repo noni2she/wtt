@@ -194,9 +194,9 @@ export class NavBar extends Component {
               onMouseLeave={this.hideDropdownItem}
             >
               <div><a name="locale">{this.currentLocaleDisplay(locales)}</a><span className="drop-icon glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></div>
-              <div className="navbar-item-dropdown-item mweb-dropdown-item dropdown-item-locale" onClick={this.onClickHandler}><a name={LOCALE_TW}>TW</a></div>
-              <div className="navbar-item-dropdown-item mweb-dropdown-item dropdown-item-locale" onClick={this.onClickHandler}><a name={LOCALE_JP}>JP</a></div>
-              <div className="navbar-item-dropdown-item mweb-dropdown-item dropdown-item-locale" onClick={this.onClickHandler}><a name={LOCALE_EN}>EN</a></div>
+              <div className="navbar-item-dropdown-item mweb-dropdown-item dropdown-item-locale" onClick={this.onClickHandler} onTouchStart={this.onClickHandler}><a name={LOCALE_TW}>TW</a></div>
+              <div className="navbar-item-dropdown-item mweb-dropdown-item dropdown-item-locale" onClick={this.onClickHandler} onTouchStart={this.onClickHandler}><a name={LOCALE_JP}>JP</a></div>
+              <div className="navbar-item-dropdown-item mweb-dropdown-item dropdown-item-locale" onClick={this.onClickHandler} onTouchStart={this.onClickHandler}><a name={LOCALE_EN}>EN</a></div>
             </li>
           </ul>
         </div>
