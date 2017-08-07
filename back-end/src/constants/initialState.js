@@ -11,7 +11,7 @@ export const imgItemDefaultGenerator = (contentDefault = true) => {
     displayed: contentDefault === true,
     id: uuid(),
     timestamps: new Date().toString(),
-    imgUrl: contentDefault ? 'https://icrvb3jy.xinmedia.com/solomo/article/93429/420C29C8-91FB-FCD7-5D62-9101354EE0BC.jpg' : '',
+    imgUrl: contentDefault ? 'https://firebasestorage.googleapis.com/v0/b/techwell-2ba33.appspot.com/o/static%2Fdefault-image.jpg?alt=media&token=e8f6204d-7f62-4c18-88ce-a63806871567' : '',
     altText: '',
     link: '',
   });
