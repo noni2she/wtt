@@ -19,6 +19,8 @@ export class NavBar extends Component {
     this.mwebDropDownClickHandler = this.mwebDropDownClickHandler.bind(this);
     this.showLocaleDropdownItem = this.showLocaleDropdownItem.bind(this);
     this.showAnchorDropdownItem = this.showAnchorDropdownItem.bind(this);
+    this.renderMwebScrollLink = this.renderMwebScrollLink.bind(this);
+    this.hideDropdownItem = this.hideDropdownItem.bind(this);
     this.state = {
       showAnchorDropDown: true,
       showLocaleDropDown: true,
@@ -90,7 +92,7 @@ export class NavBar extends Component {
 
   renderMwebScrollLink(id, showText) {
     return (window.location.pathname === '/') ? (
-      <a href={`#${id}`}>{showText}</a>
+      <a onClick={this.hideDropdownItem} href={`#${id}`}>{showText}</a>
     ) : (
       <Link to={`/#${id}`}>
         {showText}
@@ -136,6 +138,11 @@ export class NavBar extends Component {
         element.style.display = 'none';
       });
     }
+
+    this.setState({
+      showAnchorDropDown: true,
+      showLocaleDropDown: true,
+    });
   }
 
   render() {
