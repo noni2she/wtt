@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default (props) => {
-  const { name, mainImg, subImg, description } = props.seriesItem;
+  const { name, mainImg, subImg, downloadLink, description } = props.seriesItem;
   return (
     <div className="products-contents row ">
       <div className="col-lg-5 col-md-5 col-sm-5">
@@ -29,6 +29,20 @@ export default (props) => {
                 null
               )
             })
+          }
+
+          {
+            !!downloadLink ? (
+              <div className="products-download-link">
+                <i className="glyphicon glyphicon-download-alt" />
+                <div>
+                  {downloadLink.key !== '' ? `${downloadLink.key}: ` : ""}
+                  <a className="download-link-url" href={downloadLink.linkUrl} target="_blank">Download</a>
+                </div>
+              </div>
+            ) : (
+              null
+            )
           }
         </div>
         <div

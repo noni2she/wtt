@@ -9,6 +9,9 @@
 #page-product {
   a {
     color: inherit;
+    &.download-link-url {
+      color: #337ab7;
+    }
   }
 }
 
@@ -42,6 +45,14 @@
       }
     }
   }
+
+  .products-download-link {
+    display: inline-block;
+    margin-top: 5px;
+    padding: 5px 10px;
+    background-color: #eee;
+  }
+
   .products-main-image {
     height: 590px;
     background-color: transparent;

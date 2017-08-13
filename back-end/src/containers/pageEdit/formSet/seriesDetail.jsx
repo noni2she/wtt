@@ -132,7 +132,7 @@ class SeriesDetailFormSet extends Component {
     try {
       const { name, value } = target;
 
-      let array, index, imageItem;
+      let array, index, imageItem, downloadLink;
       let newValue = value;
 
       if (name === 'content' || name === 'description') {
@@ -162,6 +162,12 @@ class SeriesDetailFormSet extends Component {
         // checkbox
 
         newValue = target.checked;
+      } else if (target.name === 'downloadLink') {
+        // download link
+        
+        downloadLink = {...this.state[target.name]};
+        downloadLink[target.getAttribute('data-key')] = target.value;
+        newValue = downloadLink;
       }
 
       // value is attribute of seriesItem
@@ -230,7 +236,7 @@ class SeriesDetailFormSet extends Component {
   render() {
     const {
       displayed, name, key, shortName, mainImg,
-      subImg, description, content,
+      subImg, downloadLink, description, content,
     } = this.state;
     return (
       <div className="page-edit-form-set">
@@ -301,6 +307,30 @@ class SeriesDetailFormSet extends Component {
               placeholder="sub-image url" 
               name="subImg"
               value={subImg.imgUrl}
+              onChange={this.onFormChange}
+            />
+          </div>
+
+          <h4 className="form-seperate-header">下載連結</h4>
+          <div id="form-set-series-download-link" className="form-group">
+            <label>標題</label>
+            <input
+              className="form-control"
+              type="text"
+              placeholder="the title of download link" 
+              name="downloadLink"
+              data-key="key"
+              value={!!downloadLink ? downloadLink.key : ''}
+              onChange={this.onFormChange}
+            />
+            <label>網址連結</label>
+            <input
+              className="form-control"
+              type="text"
+              placeholder="download link" 
+              name="downloadLink"
+              data-key="linkUrl"
+              value={!!downloadLink ? downloadLink.linkUrl : ''}
               onChange={this.onFormChange}
             />
           </div>

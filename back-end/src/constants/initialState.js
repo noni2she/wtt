@@ -73,6 +73,10 @@ export const seriesDefaultGenerator = () => {
     shortName: 'New series',
     mainImg: imgItemDefaultGenerator(),
     subImg: imgItemDefaultGenerator(),
+    downloadLink: {
+      key: '',
+      linkUrl: ''
+    },
     description: [{
         title: '',
         content: '',
