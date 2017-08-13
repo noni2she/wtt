@@ -47,14 +47,14 @@ export class NavBar extends Component {
   onClickHandler(event) {
     const { name } = event.target;
 
+    this.props.onLocaleChange(name);
+
     const dropdownItems = document.getElementsByClassName('navbar-item-dropdown-item');
     if (dropdownItems) {
       Array.prototype.forEach.call(dropdownItems, (element) => {
-        element.style = 'display: none;';
+        element.style.display = 'none';
       });
     }
-
-    this.props.onLocaleChange(name);
   }
 
   currentLocaleDisplay(locales) {
@@ -102,7 +102,7 @@ export class NavBar extends Component {
     const dropdownItems = document.querySelectorAll('.navbar-item-dropdown-item.dropdown-item-pc');
     if (dropdownItems) {
       Array.prototype.forEach.call(dropdownItems, (element) => {
-        element.style = 'display: initial;';
+        element.style.display = 'initial';
       });
     }
   }
@@ -113,7 +113,7 @@ export class NavBar extends Component {
     const dropdownItems = document.querySelectorAll('.navbar-item-dropdown-item.dropdown-item-locale');
     if (dropdownItems) {
       Array.prototype.forEach.call(dropdownItems, (element) => {
-        element.style = 'display: initial;';
+        element.style.display = 'initial';
       });
     }
   }
@@ -124,7 +124,7 @@ export class NavBar extends Component {
     const dropdownItems = document.querySelectorAll('.navbar-item-dropdown-item.dropdown-item-anchor');
     if (dropdownItems) {
       Array.prototype.forEach.call(dropdownItems, (element) => {
-        element.style = 'display: initial;';
+        element.style.display = 'initial';
       });
     }
   }
@@ -133,7 +133,7 @@ export class NavBar extends Component {
     const dropdownItems = document.getElementsByClassName('navbar-item-dropdown-item');
     if (dropdownItems) {
       Array.prototype.forEach.call(dropdownItems, (element) => {
-        element.style = 'display: none;';
+        element.style.display = 'none';
       });
     }
   }
