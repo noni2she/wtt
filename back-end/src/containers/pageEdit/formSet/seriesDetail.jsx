@@ -132,7 +132,7 @@ class SeriesDetailFormSet extends Component {
     try {
       const { name, value } = target;
 
-      let array, index, imageItem;
+      let array, index, imageItem, downloadLink;
       let newValue = value;
 
       if (name === 'content' || name === 'description') {
@@ -162,6 +162,12 @@ class SeriesDetailFormSet extends Component {
         // checkbox
 
         newValue = target.checked;
+      } else if (target.name === 'downloadLink') {
+        // download link
+        
+        downloadLink = {...this.state[target.name]};
+        downloadLink[target.getAttribute('data-key')] = target.value;
+        newValue = downloadLink;
       }
 
       // value is attribute of seriesItem
@@ -305,15 +311,26 @@ class SeriesDetailFormSet extends Component {
             />
           </div>
 
-          <div className="form-group">
-            <label>下載連結</label>
+          <h4 className="form-seperate-header">下載連結</h4>
+          <div id="form-set-series-download-link" className="form-group">
+            <label>標題</label>
             <input
-              id="form-set-series-download-link"
               className="form-control"
               type="text"
-              placeholder="download link url" 
+              placeholder="the title of download link" 
               name="downloadLink"
-              value={downloadLink}
+              data-key="key"
+              value={!!downloadLink ? downloadLink.key : ''}
+              onChange={this.onFormChange}
+            />
+            <label>網址連結</label>
+            <input
+              className="form-control"
+              type="text"
+              placeholder="download link" 
+              name="downloadLink"
+              data-key="linkUrl"
+              value={!!downloadLink ? downloadLink.linkUrl : ''}
               onChange={this.onFormChange}
             />
           </div>
