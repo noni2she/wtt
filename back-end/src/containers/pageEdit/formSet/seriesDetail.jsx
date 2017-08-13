@@ -230,7 +230,7 @@ class SeriesDetailFormSet extends Component {
   render() {
     const {
       displayed, name, key, shortName, mainImg,
-      subImg, description, content,
+      subImg, downloadLink, description, content,
     } = this.state;
     return (
       <div className="page-edit-form-set">
@@ -301,6 +301,19 @@ class SeriesDetailFormSet extends Component {
               placeholder="sub-image url" 
               name="subImg"
               value={subImg.imgUrl}
+              onChange={this.onFormChange}
+            />
+          </div>
+
+          <div className="form-group">
+            <label>下載連結</label>
+            <input
+              id="form-set-series-download-link"
+              className="form-control"
+              type="text"
+              placeholder="download link url" 
+              name="downloadLink"
+              value={downloadLink}
               onChange={this.onFormChange}
             />
           </div>
