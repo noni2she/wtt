@@ -49,8 +49,10 @@
   .products-download-link {
     display: inline-block;
     margin-top: 5px;
-    padding: 5px 10px;
-    background-color: #eee;
+    > div {
+      display: inline-block;
+      margin-left: 5px;
+    }
   }
 
   .products-main-image {
