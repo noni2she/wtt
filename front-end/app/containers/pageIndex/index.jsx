@@ -12,6 +12,7 @@ import Download from 'components/download';
 import About from 'components/about';
 import Contact from 'components/contact';
 import Footer from 'components/footer';
+import GotoTargetBtn from 'components/common/gotoTargetBtn';
 
 class PageIndex extends Component {
   render() {
@@ -32,6 +33,7 @@ class PageIndex extends Component {
           <Contact contact={contact} locales={locales} />
           <Footer />
         </div>
+        <GotoTargetBtn targetId="top-banner" />
       </div>
     );
   }

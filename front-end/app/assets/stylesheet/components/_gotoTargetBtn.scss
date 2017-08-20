@@ -1,0 +1,14 @@
+@media screen and  (orientation: landscape) and (min-width: 800px) {
+    .goto-target {
+        position: fixed;
+        bottom: 60px;
+        right: 20px;
+        a {
+            display: inline-block;
+            width: 113px;
+            height: 111px;
+            background: url('../img/icon-goto-top.png') no-repeat 0 0;
+            cursor: pointer;
+        }
+    }
+}
