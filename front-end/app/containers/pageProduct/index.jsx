@@ -8,6 +8,7 @@ import ProductText from './productText.jsx';
 import ProductTable from './productTable.jsx';
 import SeriesNavBar from 'components/common/seriesNavBar';
 import Footer from 'components/footer';
+import GotoTargetBtn from 'components/common/gotoTargetBtn';
 
 class PageProduct extends Component {
   constructor(props) {
@@ -111,12 +112,12 @@ class PageProduct extends Component {
         <div>
           <NavBar />
           <div className="container-with-nav-bar">
-          <div className="product-item container-fluid">
-            <SeriesNavBar
-              categoryItem={categoryItem}
-              categoryKey={categoryKey}
-            />
-          </div>
+            <div id="product-nav-bar" className="product-item container-fluid">
+              <SeriesNavBar
+                categoryItem={categoryItem}
+                categoryKey={categoryKey}
+              />
+            </div>
 
             <div id="page-product" className="container">
               <div>
@@ -134,6 +135,7 @@ class PageProduct extends Component {
             </div>
           </div>
           <Footer />
+          <GotoTargetBtn targetId="product-nav-bar" />
         </div>
       );
     } catch (error) {
