@@ -32,7 +32,7 @@ export default (props) => {
           }
 
           {
-            !!downloadLink ? (
+            !!downloadLink && !!downloadLink.key && !!downloadLink.linkUrl ? (
               <div className="products-download-link">
                 <i className="glyphicon glyphicon-download-alt" />
                 <div>
