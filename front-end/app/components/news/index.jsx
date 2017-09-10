@@ -73,7 +73,7 @@ export default class News extends Component {
     return (
       <div className="news-slider-container">
         <Slider {...{...settings, ...newSetting}} className="news-item-container">
-          {newsItemList}
+          {newsItemList.length > 0 ? newsItemList : <div></div>}
         </Slider>
       </div>
     );
