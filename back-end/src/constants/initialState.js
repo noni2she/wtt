@@ -187,7 +187,7 @@ export const loginStatusInitialState = {
   loginLoading: false,
 };
 
-export const localesInitialState = Constants.LOCALE_TW;
+export const localesInitialState = Constants.LOCALE_EN;
 
 // pass fake data for twInitialState
 export const twInitialState = emptyContentObjectGenerator();
