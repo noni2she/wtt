@@ -7,6 +7,10 @@ export const NAV_BAR_LANGUAGE_TW = 'TW';
 export const NAV_BAR_LANGUAGE_JP = 'JP';
 export const NAV_BAR_LANGUAGE_EN = 'EN';
 
+export const WEBSITE_TITLE_TW = '哲偉工業股份有限公司/輪軸墊寬器/輪軸墊片/歐式加長螺絲/螺帽/鋁合金軸套環';
+export const WEBSITE_TITLE_JP = '哲偉工業 techwell/ホイールスペーサー/ユニバーサルスペーサー/ホイールボルト/ナット/アルミハブリング';
+export const WEBSITE_TITLE_EN = 'techwell/Wheel Spacer/Wheel Adapter/Bolt/Lug Nut/Hub Ring';
+
 // components
 export const PRODUCT_STYLE_CYCLE = 2;
 export const SERIES_ITEM_COUNT_PER_ROW = 6;

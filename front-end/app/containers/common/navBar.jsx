@@ -5,6 +5,7 @@ import { Link } from 'react-router';
 import {
   LOCALE_TW, LOCALE_JP, LOCALE_EN,
   NAV_BAR_LANGUAGE_TW, NAV_BAR_LANGUAGE_JP, NAV_BAR_LANGUAGE_EN,
+  WEBSITE_TITLE_TW, WEBSITE_TITLE_JP, WEBSITE_TITLE_EN
 } from 'constants/common';
 import { onLocaleChange } from 'actions/locales';
 import MessageModal from 'components/common/messageModal';
@@ -50,12 +51,28 @@ export class NavBar extends Component {
     const { name } = event.target;
 
     this.props.onLocaleChange(name);
+    this.changeWebsiteTitle(name);
 
     const dropdownItems = document.getElementsByClassName('navbar-item-dropdown-item');
     if (dropdownItems) {
       Array.prototype.forEach.call(dropdownItems, (element) => {
         element.style.display = 'none';
       });
+    }
+  }
+
+  changeWebsiteTitle(locales) {
+    switch (locales) {
+      case LOCALE_TW:
+        document.title = WEBSITE_TITLE_TW;
+        break;
+      case LOCALE_JP:
+        document.title = WEBSITE_TITLE_JP;
+        break;
+      case LOCALE_EN:
+      default:
+        document.title = WEBSITE_TITLE_EN;
+        break;
     }
   }
 
