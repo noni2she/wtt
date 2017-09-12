@@ -1,3 +1,7 @@
+#messageModal {
+  display: inline-block;
+}
+
 @media (min-width: $screen-md-min) {
   .messageModal-text-field {
     max-width: 450px;

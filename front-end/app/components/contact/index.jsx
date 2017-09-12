@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ImgItem from 'components/common/imgItem.jsx';
+import MessageModal from 'components/common/messageModal';
 import { findMapURL } from 'utils/common';
 
 export default class Contact extends Component {
@@ -56,11 +57,12 @@ export default class Contact extends Component {
                     </li>
                     <li>
                       <div className="icon-container">
-                        <a href="">
+                        {/* <a href="">
                           <div className="icon">
                             <div className="contact-talk-icon"></div>
                           </div>
-                        </a>
+                        </a> */}
+                        <MessageModal layoutPosition="contact" />
                         <a href={fbLink}>
                           <div className="icon">
                             <div className="contact-facebook-icon"></div>

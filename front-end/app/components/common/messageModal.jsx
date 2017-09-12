@@ -4,6 +4,8 @@ import { FIREBASE_MESSAGE_ITEMS } from 'constants/config';
 import { uuid } from 'utils/common';
 import Modal from 'boron/FadeModal';
 
+const LAYOUT_POSITION_LIST = ["navBar", "contact"];
+
 export class MessageModal extends Component {
   constructor() {
     super();
@@ -178,6 +180,33 @@ export class MessageModal extends Component {
     );
   }
 
+  renderLayoutElement() {
+    const layoutPosition = this.props.layoutPosition;
+
+    switch (layoutPosition) {
+      case LAYOUT_POSITION_LIST[0]:
+        return (
+          <a
+          href="#"
+          onClick={this.showModal}
+          className="messageModal-open"
+          >
+            <div className="messageModal-open-btn"></div>
+          </a>
+        );
+      case LAYOUT_POSITION_LIST[1]:
+        return (
+          <a href="#" onClick={this.showModal}>
+            <div className="icon">
+              <div className="contact-talk-icon"></div>
+            </div>
+          </a>
+        );
+      default:
+        return null;
+    }
+  }
+
   render() {
     // style of background sheet
     const backdropStyle = {
@@ -197,13 +226,14 @@ export class MessageModal extends Component {
 
     return (
       <div id="messageModal">
-        <a
+        {/* <a
           href=""
           onClick={this.showModal}
           className="messageModal-open"
         >
           <div className="messageModal-open-btn"></div>
-        </a>
+        </a> */}
+        {this.renderLayoutElement()}
 
         <Modal
           ref="modal"

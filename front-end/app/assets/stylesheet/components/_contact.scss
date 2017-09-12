@@ -92,7 +92,7 @@
           padding-top: 15px;
           word-break: break-all;
 
-          .glyphicon {
+          .glyphicon:not(.glyphicon-remove-circle) {
             margin: 3px 5px 3px 3px;
             font-size: 15px;
           }

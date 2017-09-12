@@ -209,7 +209,7 @@ export class NavBar extends Component {
             </li>
 
             <li className="navbar-content-message">
-              <MessageModal />
+              <MessageModal layoutPosition="navBar" />
             </li>
             <li className="navbar-content-item navbar-content-item-mweb navbar-item-dropdown navbar-item-dropdown-locale"
               name="locale"
